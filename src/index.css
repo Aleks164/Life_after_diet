@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(189 132 132);
+}
+
+.image {
+  background-image: url("./assets/cat.jpg");
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.active {
+  color: rgb(5 129 52);
+}

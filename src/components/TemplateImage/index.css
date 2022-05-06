@@ -1,0 +1,51 @@
+.homePage {
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". markbooks"
+    "leftMenuHomePage recipeList"
+    ". cuisinesList";
+}
+
+.cuisinesList {
+  grid-area: cuisinesList;
+}
+
+.recipeList {
+  border: 2px solid orange;
+  grid-area: recipeList;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 80vh;
+  grid-template-areas:
+    "dietSelecror"
+    "recipeConteiner";
+  row-gap: 15px;
+}
+
+.markbooks {
+  grid-area: markbooks;
+}
+
+.leftMenuHomePage {
+  grid-area: leftMenuHomePage;
+}
+
+.dietSelecror {
+  grid-area: dietSelecror;
+  justify-self: end;
+}
+
+.recipeItem {
+  grid-area: recipeItem;
+  border: 2px solid red;
+  width: min-content;
+  height: min-content;
+  display: inline-block;
+  margin: 5px;
+}
+
+.recipeConteiner {
+  grid-area: recipeConteiner;
+}
