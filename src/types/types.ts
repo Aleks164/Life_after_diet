@@ -4,3 +4,4 @@ export type DietResponsType = {
   image: string;
   imageType: string;
 }[];
+export type IsAuthType = { isAuth: boolean };

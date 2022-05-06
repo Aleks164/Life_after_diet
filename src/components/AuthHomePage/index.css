@@ -4,12 +4,8 @@
   grid-template-rows: auto;
   grid-template-areas:
     ". markbooks"
-    "leftMenuHomePage recipeList"
-    ". cuisinesList";
-}
-
-.cuisinesList {
-  grid-area: cuisinesList;
+    "leftMenuHomePage generalSpace"
+  ;
 }
 
 .recipeList {
@@ -32,9 +28,8 @@
   grid-area: leftMenuHomePage;
 }
 
-.dietSelecror {
-  grid-area: dietSelecror;
-  justify-self: end;
+.dietSelector {
+  grid-area: generalSpace;
 }
 
 .recipeItem {
@@ -47,5 +42,13 @@
 }
 
 .recipeConteiner {
-  grid-area: recipeConteiner;
+  grid-area: generalSpace;
+}
+
+.intoleranceList {
+  grid-area: generalSpace;
+}
+
+.cuisinesList {
+  grid-area: generalSpace;
 }

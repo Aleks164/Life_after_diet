@@ -2,8 +2,9 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
+import { IsAuthType } from "../../types/types";
 
-type IsAuthType = { isAuth: boolean };
+
 
 export const Layout = ({ isAuth }: IsAuthType) => (
   <>

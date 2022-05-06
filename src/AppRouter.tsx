@@ -5,8 +5,7 @@ import { Image } from "./components/image";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/Login/Login";
 import { useAuth } from "./hooks/useAuth";
-import { JustButton } from "./components/JustButton/JustButton";
-import { TemplateImage } from "./components/TemplateImage/TemplateImage";
+import { HomePageSwitcher } from "./components/HomePageSwitcher/HomePageSwitcher";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
@@ -14,7 +13,7 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout isAuth={userAuth} />}>
-        <Route index element={<TemplateImage />} />
+        <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
         <Route path="about" element={<Image />} />
         {!userAuth ? <Route path="login" element={<Login />} /> : ""}
         {userAuth ? (

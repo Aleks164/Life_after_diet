@@ -1,5 +1,6 @@
-import { useAuth } from "../../hooks/useAuth";
+import React, { MouseEventHandler } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import "./index.css";
 
 export const SignOutLink = ({ children, to, ...ptops }) => {

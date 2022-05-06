@@ -2,7 +2,7 @@ import React from "react";
 import { IntolerancesList } from "../../utils/consts";
 
 export const IntolerancesListBookmark = () => (
-  <div className="cuisinesList">
+  <div className="intoleranceList">
     {IntolerancesList.map((intolerance, index) => (
       <label key={index}>
         {intolerance}
