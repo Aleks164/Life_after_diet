@@ -1,14 +1,18 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+
+interface Location {
+  state: { from: { pathname: string } }
+}
 
 export const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { signIn } = useAuth();
 
-  const beforeLoginPagePath = location.state?.from?.pathname || "/";
-  const submitLoginForm = (event: FormEventHandler) => {
+  const beforeLoginPagePath = (location as Location).state?.from?.pathname || "/";
+  const submitLoginForm = (event: FormEvent<Element>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const userName = form.username.value;

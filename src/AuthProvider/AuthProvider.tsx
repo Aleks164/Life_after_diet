@@ -1,19 +1,17 @@
 import React, { createContext, useState } from "react";
-import { NavigateFunction } from "react-router-dom";
+import { AuthKitType, CbType, ChildrenType } from "../types/types";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext<AuthKitType>({ user: null } as AuthKitType);
 
-type CbType = () => NavigateFunction
+export const AuthProvider = ({ children }: ChildrenType) => {
+  const [user, setUser] = useState<null | string>(null);
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-
-  const signIn = (newUser: string, cb: CbType) => {
+  const signIn = (newUser: string, cb: () => CbType) => {
     setUser(newUser);
     cb();
   };
 
-  const signOut = (cb: CbType) => {
+  const signOut = (cb: () => CbType) => {
     setUser(null);
     cb();
   };

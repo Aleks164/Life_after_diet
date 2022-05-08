@@ -1,13 +1,14 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { LinkPropType } from "../../types/types";
 import "./index.css";
 
-export const SignOutLink = ({ children, to, ...ptops }) => {
+export const SignOutLink = ({ children, to }: LinkPropType) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
-  const signOutClick = (event: MouseEventHandler) => {
+  const signOutClick = (event: Event) => {
     event.preventDefault();
     signOut(() => navigate(to, { replace: true }));
   };

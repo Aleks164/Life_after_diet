@@ -28,7 +28,6 @@ export const DietList = [
   "Whole30"
 ];
 export const Cuisines = [
-  "All",
   "African",
   "American",
   "British",

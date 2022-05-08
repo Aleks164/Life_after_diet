@@ -1,26 +1,30 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { DietDefenitionType, DietParamType } from "../../types/types";
 import { DietList, DietDefenition } from "../../utils/consts";
 
-type DietDefenitionType = { [item: number]: string };
-
-export const DietSelector = () => {
+export const DietSelector = ({ settings, setRequestSettings }: DietParamType) => {
   const [dietDefenition, setDietDefenition] = useState(0);
-  function chooseOption(e: ChangeEvent) {
-    setDietDefenition((e.target as HTMLSelectElement).selectedIndex)
+  function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
+    setDietDefenition((e.target as HTMLSelectElement).selectedIndex);
+    const newDiet = { ...settings, dietSelector: { diet: (e.target).value } }
+    setRequestSettings(newDiet);
   }
+  useEffect(() => {
+    setDietDefenition(DietList.indexOf(settings.dietSelector.diet))
+  }, [settings.dietSelector.diet]);
 
   return (
     <div className="dietSelector">
       <form >
         <label>
           Сhoose a diet
-          <select onChange={chooseOption} name="dietSelector">
-            {DietList.map((diet, index) => (
+          <select value={settings.dietSelector.diet} onChange={chooseOption} name="dietSelector">
+            {DietList.map((dietName, index) => (
               <option
                 key={index}
-                value={diet.toLocaleLowerCase().replace(" ", "%20")}
+                value={dietName}
               >
-                {diet}
+                {dietName}
               </option>
             ))}
           </select>

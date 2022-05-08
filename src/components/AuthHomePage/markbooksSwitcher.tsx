@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { CuisinesListBookmark } from "./CuisinesListBookmark";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
 import { DietSelector } from "./DietSelector";
 
+export type SettingType = { dietSelector: { diet: string }, cuisinesList: string[], intolerancesList: string[] }
+export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
+
+const defaultSettings = { dietSelector: { diet: "Gluten Free" }, cuisinesList: [], intolerancesList: [] } as SettingType;
+
 export function markbooksSwitcher(markbookName: string) {
+    const [requestSettings, setRequestSettings] = useState(defaultSettings);
+    console.log("requestSettings", requestSettings)
     switch (markbookName) {
         case "Main":
-            return <DietSelector />;
+            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} />;
         case "Cuisines":
-            return <CuisinesListBookmark />;
+            return <CuisinesListBookmark settings={requestSettings} setRequestSettings={setRequestSettings} />;
         case "Intolerances":
-            return <IntolerancesListBookmark />;
+            return <IntolerancesListBookmark settings={requestSettings} setRequestSettings={setRequestSettings} />;
         default:
-            return <DietSelector />;
+            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} />;
     }
 }

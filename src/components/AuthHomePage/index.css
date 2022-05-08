@@ -47,8 +47,32 @@
 
 .intoleranceList {
   grid-area: generalSpace;
+  font-size: 22px;
+  margin: 5px;
 }
 
 .cuisinesList {
   grid-area: generalSpace;
+  font-size: 22px;
+  margin: 5px;
+}
+
+.cuisinesList form {
+  /* width: 60vw; */
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+.cuisineCont {
+  list-style: none;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+.cuisineCont input {
+  width: 20px;
+  height: 20px;
 }
