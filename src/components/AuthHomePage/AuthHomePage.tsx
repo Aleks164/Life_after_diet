@@ -6,7 +6,7 @@ import "./index.css";
 
 export const AuthHomePage = () => {
   const [curMarkbook, setCurMarkbook] = useState("Main");
-
+  console.log(curMarkbook);
   return (
     <div className="homePage">
       <LeftMenuHomePage />

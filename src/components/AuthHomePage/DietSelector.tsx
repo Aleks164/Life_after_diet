@@ -12,7 +12,7 @@ export const DietSelector = ({ settings, setRequestSettings }: DietParamType) =>
   useEffect(() => {
     setDietDefenition(DietList.indexOf(settings.dietSelector.diet))
   }, [settings.dietSelector.diet]);
-
+  console.log("dietDefenition");
   return (
     <div className="dietSelector">
       <form >
