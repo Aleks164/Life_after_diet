@@ -3,12 +3,11 @@ const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
 const options = {
   method: "GET",
   headers: {
-    "X-API-Quota-Left": "true"
   }
 };
-export function spoon() {
+export function spoon(string: string) {
   fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}&diet=gluten%20free&number=10`,
+    string,
     options
   )
     .then((response) => response.json())

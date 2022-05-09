@@ -1,5 +1,4 @@
+import React from "react";
 import { spoon } from "../../spoon";
 
-export const JustButton = () => {
-  return <button onClick={spoon}>spoon</button>;
-};
+export const JustButton = () => <button onClick={spoon}>spoon</button>;

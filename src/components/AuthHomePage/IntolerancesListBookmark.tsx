@@ -19,10 +19,9 @@ export const IntolerancesListBookmark = ({ settings, setRequestSettings }: DietP
   function togleStatus(e: React.ChangeEvent<HTMLInputElement>) {
     let { intolerancesList } = settings;
     const inList = intolerancesList.indexOf(e.target.value);
-    if (inList) intolerancesList.push(e.target.value)
-    else intolerancesList = intolerancesList.filter((item) => item !== e.target.value)
+    if (!(inList >= 0)) intolerancesList.push(e.target.value)
+    else intolerancesList = intolerancesList.filter((item) => item !== e.target.value);
     const newDiet = { ...settings, intolerancesList };
-
     setRequestSettings(newDiet);
   }
   return (
@@ -40,7 +39,7 @@ export const IntolerancesListBookmark = ({ settings, setRequestSettings }: DietP
           </div>
           <p>*suggested recipes won't  contain the selected products</p>
         </fieldset>
-        <button onClick={ChooseClearAll} type="button">Confirm</button>
+        <button onClick={ChooseClearAll} type="button">{settings.intolerancesList.length > 0 ? "Clear all" : "Choose all"}</button>
       </form>
     </div>
   )

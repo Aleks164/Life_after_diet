@@ -1,5 +1,5 @@
 import { NavigateOptions } from "react-router-dom";
-import { SetSettingType, SettingType } from "../components/AuthHomePage/markbooksSwitcher";
+import { SetSettingType } from "../components/AuthHomePage/markbooksSwitcher";
 
 export type DietResponsType = {
   id: number;
@@ -17,7 +17,7 @@ export type AuthKitType = {
   signIn: (newUser: string, cb: () => CbType) => void;
   signOut: (cb: () => CbType) => void;
 };
-
+export type SettingType = { dietSelector: { diet: string }, cuisinesList: string[], intolerancesList: string[] };
 export type ChildrenType = { children: React.ReactElement };
 export type LinkPropType = {
   children: React.ReactElement | string, to: string

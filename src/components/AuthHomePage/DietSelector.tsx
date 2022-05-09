@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DietDefenitionType, DietParamType } from "../../types/types";
 import { DietList, DietDefenition } from "../../utils/consts";
+import { ViewRecipesButton } from "./ViewRecipesButton";
 
 export const DietSelector = ({ settings, setRequestSettings }: DietParamType) => {
   const [dietDefenition, setDietDefenition] = useState(0);
@@ -29,7 +30,7 @@ export const DietSelector = ({ settings, setRequestSettings }: DietParamType) =>
             ))}
           </select>
         </label>
-        <button type="submit">Finde recipes</button>
+        <ViewRecipesButton settings={settings} />
       </form>
       {<><h3>{DietList[dietDefenition]}</h3><p>{(DietDefenition as DietDefenitionType)[dietDefenition + 1]}</p></>}
     </div>

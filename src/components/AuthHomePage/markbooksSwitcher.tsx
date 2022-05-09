@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { CuisinesListBookmark } from "./CuisinesListBookmark";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
 import { DietSelector } from "./DietSelector";
+import { SettingType } from "../../types/types";
 
-export type SettingType = { dietSelector: { diet: string }, cuisinesList: string[], intolerancesList: string[] }
+
 export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 
 const defaultSettings = { dietSelector: { diet: "Gluten Free" }, cuisinesList: [], intolerancesList: [] } as SettingType;

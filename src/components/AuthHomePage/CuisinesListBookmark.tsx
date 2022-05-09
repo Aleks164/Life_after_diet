@@ -1,15 +1,27 @@
 import React from "react";
 import { DietParamType } from "../../types/types";
-import { Cuisines } from "../../utils/consts";
+import { Cuisines as fullList } from "../../utils/consts";
 
 export const CuisinesListBookmark = ({ settings, setRequestSettings }: DietParamType) => {
   function togleStatus(e: React.ChangeEvent<HTMLInputElement>) {
     let { cuisinesList } = settings;
-    const inList = settings.cuisinesList.indexOf(e.target.value);
-    if (inList) cuisinesList.push(e.target.value)
-    else cuisinesList = cuisinesList.filter((item) => item !== e.target.value)
-    const newDiet = { ...settings, cuisinesList }
+    const inList = cuisinesList.indexOf(e.target.value);
+    if (!(inList >= 0)) cuisinesList.push(e.target.value)
+    else cuisinesList = cuisinesList.filter((item) => item !== e.target.value);
+    const newDiet = { ...settings, cuisinesList };
     setRequestSettings(newDiet);
+  }
+  function ChooseClearAll() {
+    const lengthOfList = settings.cuisinesList.length;
+
+    if (lengthOfList === 0) {
+      const newIntoleranceList = { ...settings, cuisinesList: fullList };
+      setRequestSettings(newIntoleranceList);
+    }
+    else {
+      const newIntoleranceList = { ...settings, cuisinesList: [] };
+      setRequestSettings(newIntoleranceList);
+    }
   }
   return (
     <div className="cuisinesList">
@@ -17,16 +29,16 @@ export const CuisinesListBookmark = ({ settings, setRequestSettings }: DietParam
         <fieldset>
           <legend>Choose your cusines</legend>
           <div className="cuisineCont">
-            {Cuisines.map((cusine, index) => (
+            {fullList.map((cusine, index) => (
               <label key={index}>
-                <input value={cusine} defaultChecked={settings.cuisinesList.includes(cusine)} onChange={togleStatus} type="checkbox" name={cusine} />
+                <input value={cusine} checked={settings.cuisinesList.includes(cusine)} onChange={togleStatus} type="checkbox" name={cusine} />
                 {cusine}
               </label>
             ))}
           </div>
           <p>*if you have not chosen any cuisine, then the recipes will be from different cuisines, selected randomly</p>
         </fieldset>
-        <button type="submit">Confirm</button>
+        <button onClick={ChooseClearAll} type="button">{settings.cuisinesList.length > 0 ? "Clear all" : "Choose all"}</button>
       </form>
     </div>
   )
