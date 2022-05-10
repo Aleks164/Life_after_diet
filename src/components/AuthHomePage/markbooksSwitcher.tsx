@@ -7,19 +7,19 @@ import { SettingType } from "../../types/types";
 
 export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 
-const defaultSettings = { dietSelector: { diet: "Gluten Free" }, cuisinesList: [], intolerancesList: [] } as SettingType;
 
-export function markbooksSwitcher(markbookName: string) {
-    const [requestSettings, setRequestSettings] = useState(defaultSettings);
+
+export function markbooksSwitcher(markbookName: string, setDrawRecipeInfo, requestSettings, setRequestSettings) {
+
     console.log("requestSettings", requestSettings)
     switch (markbookName) {
         case "Main":
-            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} />;
+            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} setDrawRecipeInfo={setDrawRecipeInfo} />;
         case "Cuisines":
             return <CuisinesListBookmark settings={requestSettings} setRequestSettings={setRequestSettings} />;
         case "Intolerances":
             return <IntolerancesListBookmark settings={requestSettings} setRequestSettings={setRequestSettings} />;
         default:
-            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} />;
+            return <DietSelector settings={requestSettings} setRequestSettings={setRequestSettings} setDrawRecipeInfo={setDrawRecipeInfo} />;
     }
 }

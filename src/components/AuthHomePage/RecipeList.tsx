@@ -1,12 +1,10 @@
 import React from "react";
 import { RecipeItem } from "./RecipeItem";
-import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
-import { DietResponsType } from "../../types/types";
 
-export const RecipeList = () => (
+export const RecipeList = ({ drawRecipeInfo }) => (
   <div className="recipeList">
     <div className="recipeConteiner">
-      {tempData.map((el) => (
+      {drawRecipeInfo.map((el) => (
         <RecipeItem
           key={el.id.toString()}
           title={el.title}

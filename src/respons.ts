@@ -1,4 +1,4 @@
-const respons = {
+export const respons = {
     "results": [
         {
             "vegetarian": true,

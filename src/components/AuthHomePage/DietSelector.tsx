@@ -3,7 +3,7 @@ import { DietDefenitionType, DietParamType } from "../../types/types";
 import { DietList, DietDefenition } from "../../utils/consts";
 import { ViewRecipesButton } from "./ViewRecipesButton";
 
-export const DietSelector = ({ settings, setRequestSettings }: DietParamType) => {
+export const DietSelector = ({ settings, setRequestSettings, setDrawRecipeInfo }: DietParamType) => {
   const [dietDefenition, setDietDefenition] = useState(0);
   function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
     setDietDefenition((e.target as HTMLSelectElement).selectedIndex);
@@ -30,8 +30,8 @@ export const DietSelector = ({ settings, setRequestSettings }: DietParamType) =>
             ))}
           </select>
         </label>
-        <ViewRecipesButton settings={settings} />
       </form>
+      <ViewRecipesButton settings={settings} setDrawRecipeInfo={setDrawRecipeInfo} />
       {<><h3>{DietList[dietDefenition]}</h3><p>{(DietDefenition as DietDefenitionType)[dietDefenition + 1]}</p></>}
     </div>
   )

@@ -11,12 +11,6 @@ export function spoon(string: string) {
     options
   )
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => response)
     .catch((err) => console.error(err));
 }
-
-//https://spoonacular.com/food-api/docs
-
-//https://rapidapi.com/spoonacular/api/recipe-food-nutrition
-
-//https://rapidapi.com/blog/recipe-apis/
