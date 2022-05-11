@@ -7,6 +7,7 @@ export const RecipeList = ({ drawRecipeInfo }) => (
       {drawRecipeInfo.map((el) => (
         <RecipeItem
           key={el.id.toString()}
+          id={el.id}
           title={el.title}
           image={el.image}
         />

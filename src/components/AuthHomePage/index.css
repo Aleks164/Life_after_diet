@@ -4,24 +4,25 @@
   grid-template-rows: auto;
   grid-template-areas:
     ". markbooks"
-    "leftMenuHomePage generalSpace"
-  ;
+    "leftMenuHomePage generalSpace";
 }
 
 .recipeList {
   border: 2px solid orange;
-  grid-area: recipeList;
+  grid-area: generalSpace;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto 80vh;
-  grid-template-areas:
-    "dietSelecror"
-    "recipeConteiner";
-  row-gap: 15px;
+  grid-template-rows: 75vh;
+  grid-template-areas: "recipeConteiner";
 }
 
 .markbooks {
   grid-area: markbooks;
+  margin: 0px;
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .leftMenuHomePage {
@@ -30,19 +31,49 @@
 
 .dietSelector {
   grid-area: generalSpace;
+  border: 2px solid orange;
+}
+
+.dietDefenitionList {
+  grid-area: generalSpace;
 }
 
 .recipeItem {
-  grid-area: recipeItem;
   border: 2px solid red;
-  width: min-content;
-  height: min-content;
+  width: 25vw;
   display: inline-block;
   margin: 5px;
+  position: relative;
+  min-width: 170px;
+}
+
+.recipeItem p {
+  position: absolute;
+  z-index: 5;
+  bottom: 0px;
+  background: #cdffdca6;
+  width: 100%;
+}
+
+.recipeItem img {
+  width: 100%;
+}
+
+.recipeItem button {
+  position: absolute;
+  right: 0px;
+  z-index: 10;
+  width: 80px;
+  height: 70px;
+  text-align: right;
+  background-color: #ff9a50de;
+  box-shadow: -2px 4px 9px 3px rgba(254, 13, 0, 0.56);
+  border-radius: 0px 0px 0px 85px / 0px 0px 0px 75px;
 }
 
 .recipeConteiner {
-  grid-area: generalSpace;
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 .intoleranceList {
@@ -51,14 +82,14 @@
   margin: 5px;
 }
 
-.cuisinesList {
+.markbooksField {
   grid-area: generalSpace;
   font-size: 22px;
   margin: 5px;
 }
 
-.cuisinesList fieldset {
-  min-width: max-content;
+.markbooksField fieldset {
+  min-width: 340px;
 }
 
 .cuisineCont {
@@ -67,7 +98,6 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
 }
 
 .cuisineCont input {
