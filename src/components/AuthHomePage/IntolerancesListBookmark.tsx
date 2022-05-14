@@ -1,11 +1,11 @@
 import React from "react";
-import { DietParamType } from "../../types/types";
+import { BookmarkPropsType } from "../../types/types";
 import { IntolerancesList as fullList } from "../../utils/consts";
 
 export const IntolerancesListBookmark = ({
   settings,
   setRequestSettings
-}: DietParamType) => {
+}: BookmarkPropsType) => {
   function ChooseClearAll() {
     const lengthOfList = settings.intolerancesList.length;
 

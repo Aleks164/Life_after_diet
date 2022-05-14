@@ -1,28 +1,40 @@
 import React from "react";
 
-type SetCurMarkbookType = {
-  setCurMarkbook: React.Dispatch<React.SetStateAction<string>>;
+type markBookType = {
+  curMarkbook: string;
+  curInformation: string;
 };
 
-export const Markbooks = ({ setCurMarkbook }: SetCurMarkbookType) => (
+type SetCurMarkbookType = {
+  setCurMarkbook: React.Dispatch<React.SetStateAction<markBookType>>;
+  curMarkbook: string;
+};
+
+export const Markbooks = ({
+  setCurMarkbook,
+  curMarkbook
+}: SetCurMarkbookType) => (
   <div className="markbooks">
     <button
+      disabled={curMarkbook === "Main"}
       onClick={() =>
-        setCurMarkbook({ curMarkbook: "Main", curInformation: null })
+        setCurMarkbook({ curMarkbook: "Main", curInformation: "" })
       }
     >
       Diets...
     </button>
     <button
+      disabled={curMarkbook === "Cuisines"}
       onClick={() =>
-        setCurMarkbook({ curMarkbook: "Cuisines", curInformation: null })
+        setCurMarkbook({ curMarkbook: "Cuisines", curInformation: "" })
       }
     >
       Cuisines...
     </button>
     <button
+      disabled={curMarkbook === "Intolerances"}
       onClick={() =>
-        setCurMarkbook({ curMarkbook: "Intolerances", curInformation: null })
+        setCurMarkbook({ curMarkbook: "Intolerances", curInformation: "" })
       }
     >
       Intolerances...

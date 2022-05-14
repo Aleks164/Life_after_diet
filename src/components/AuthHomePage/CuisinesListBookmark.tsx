@@ -1,11 +1,11 @@
 import React from "react";
-import { DietParamType } from "../../types/types";
+import { BookmarkPropsType } from "../../types/types";
 import { Cuisines as fullList } from "../../utils/consts";
 
 export const CuisinesListBookmark = ({
   settings,
   setRequestSettings
-}: DietParamType) => {
+}: BookmarkPropsType) => {
   function togleStatus(e: React.ChangeEvent<HTMLInputElement>) {
     let { cuisinesList } = settings;
     const inList = cuisinesList.indexOf(e.target.value);

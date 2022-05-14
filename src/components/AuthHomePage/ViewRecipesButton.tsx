@@ -1,14 +1,14 @@
 import React, { FormEvent } from "react";
-import { spoon } from "../../spoon";
-import { SettingType } from "../../types/types";
+import { SetRecipeInfo, SettingType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 
-type SettingParamType = { settings: SettingType };
+type SettingParamType = { settings: SettingType, setRecipeInfo: SetRecipeInfo };
+
 const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
 
 export const ViewRecipesButton = ({
   settings,
-  setDrawRecipeInfo
+  setRecipeInfo
 }: SettingParamType) => {
   function rigthType(string: string) {
     return string.toLocaleLowerCase().replace(" ", "20%");
@@ -30,9 +30,8 @@ export const ViewRecipesButton = ({
     fetchBody += `&number=30`;
     console.log(fetchBody);
     console.log(tempData);
-    console.log(setDrawRecipeInfo);
 
-    setDrawRecipeInfo(tempData);
+    setRecipeInfo(tempData);
     // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
 
     // console.log(spoon(fetchBody));

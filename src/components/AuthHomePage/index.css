@@ -104,3 +104,17 @@
   width: 20px;
   height: 20px;
 }
+
+.dietCooseField {
+  display: block;
+  width: 255px;
+}
+
+.ingridientsList {
+  border: 1px solid;
+}
+
+.recipeConteiner::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

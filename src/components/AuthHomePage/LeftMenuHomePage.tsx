@@ -1,32 +1,39 @@
 import React from "react";
+import { MarkbookType, RecipeInfoType, SetCurMarkbook, SetRecipeInfo } from "../../types/types";
+
+type LeftMenuPropsType = {
+  setRecipeInfo: SetRecipeInfo,
+  recipeInfo: RecipeInfoType,
+  curMarkbook: MarkbookType,
+  setCurMarkbook: SetCurMarkbook
+}
 
 export const LeftMenuHomePage = ({
-  setDrawRecipeInfo,
-  drawRecipeInfo,
+  setRecipeInfo,
+  recipeInfo,
   curMarkbook,
   setCurMarkbook
-}) => {
+}: LeftMenuPropsType) => {
   function checkDisabled() {
 
-    if (drawRecipeInfo) return false;
-    if (curMarkbook.curInformation === null) return true;
+    if (recipeInfo) return false;
+    if (curMarkbook.curInformation === "") return true;
     return false;
   }
   function showDietDefinitions() {
-    setCurMarkbook({ curMarkbook: null, curInformation: "Diet definitions" });
+    setCurMarkbook({ curMarkbook: "", curInformation: "Diet definitions" });
   }
-  console.log(checkDisabled())
   return (
     <div className="leftMenuHomePage">
       <button
-        style={{ width: curMarkbook.curInformation === null ? "100%" : "unset" }}
+        style={{ width: curMarkbook.curInformation === "" ? "100%" : "unset" }}
         disabled={checkDisabled()}
-        onClick={() => { setDrawRecipeInfo(null); setCurMarkbook({ curMarkbook: "Main", curInformation: null }) }}
+        onClick={() => { setRecipeInfo(""); setCurMarkbook({ curMarkbook: "Main", curInformation: "" }) }}
       >
-        {drawRecipeInfo ? "<-- Back to diet configurator" : "Сhoose a diet"}
+        {recipeInfo ? "<-- Back to diet configurator" : "Сhoose a diet"}
       </button>
       <hr />
-      {!drawRecipeInfo ? <><p>Useful information</p>
+      {!recipeInfo ? <><p>Useful information</p>
         <button style={{ width: curMarkbook.curInformation === "Diet definitions" ? "100%" : "unset" }} disabled={!checkDisabled()} onClick={showDietDefinitions}>Diet definitions</button></> : ""}
     </div>
   );

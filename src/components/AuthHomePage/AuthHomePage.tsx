@@ -4,42 +4,45 @@ import { Markbooks } from "./Markbooks";
 import { markbooksSwitcher } from "./markbooksSwitcher";
 import { usefulInfoswitcher } from "./usefulInfoswitcher";
 import { RecipeList } from "./RecipeList";
-import { SettingType } from "../../types/types";
+import { RecipeInfoType, SettingType } from "../../types/types";
 import "./index.css";
 
-const defaultSettings = {
+const defaultSettings: SettingType = {
   dietSelector: { diet: "Gluten Free" },
   cuisinesList: [],
-  intolerancesList: []
-} as SettingType;
+  intolerancesList: [],
+  ingridients: []
+};
 
 export const AuthHomePage = () => {
   const [curMarkbook, setCurMarkbook] = useState({
     curMarkbook: "Main",
-    curInformation: null
+    curInformation: ""
   });
-  const [drawRecipeInfo, setDrawRecipeInfo] = useState(null);
+  const [recipeInfo, setRecipeInfo] = useState<RecipeInfoType>("");
   const [requestSettings, setRequestSettings] = useState(defaultSettings);
-  console.log(curMarkbook);
   return (
     <div className="homePage">
       <LeftMenuHomePage
-        setDrawRecipeInfo={setDrawRecipeInfo}
-        drawRecipeInfo={drawRecipeInfo}
+        setRecipeInfo={setRecipeInfo}
+        recipeInfo={recipeInfo}
         curMarkbook={curMarkbook}
         setCurMarkbook={setCurMarkbook}
       />
-      {drawRecipeInfo ? (
+      {recipeInfo ? (
         <>
           <h3 className="markbooks">Recipe book</h3>
-          <RecipeList drawRecipeInfo={drawRecipeInfo} />
+          <RecipeList recipeInfo={recipeInfo} />
         </>
       ) : (
         <>
-          <Markbooks setCurMarkbook={setCurMarkbook} />
+          <Markbooks
+            setCurMarkbook={setCurMarkbook}
+            curMarkbook={curMarkbook.curMarkbook}
+          />
           {markbooksSwitcher(
             curMarkbook.curMarkbook,
-            setDrawRecipeInfo,
+            setRecipeInfo,
             requestSettings,
             setRequestSettings
           )}

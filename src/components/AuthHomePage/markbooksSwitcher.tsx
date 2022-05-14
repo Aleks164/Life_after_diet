@@ -1,16 +1,16 @@
 import React from "react";
-import { CuisinesListBookmark } from "./CuisinesListBookmark";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
-import { DietSelector } from "./DietSelector";
-import { SettingType } from "../../types/types";
+import { CuisinesListBookmark } from "./CuisinesListBookmark";
+import { DietSelector } from "./DietSelector/DietSelector";
+import { SetRecipeInfo, SetRequestSettingsType, SettingType } from "../../types/types";
 
 export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 
 export function markbooksSwitcher(
   markbookName: string,
-  setDrawRecipeInfo,
-  requestSettings,
-  setRequestSettings
+  setRecipeInfo: SetRecipeInfo,
+  requestSettings: SettingType,
+  setRequestSettings: SetRequestSettingsType
 ) {
   switch (markbookName) {
     case "Main":
@@ -18,7 +18,7 @@ export function markbooksSwitcher(
         <DietSelector
           settings={requestSettings}
           setRequestSettings={setRequestSettings}
-          setDrawRecipeInfo={setDrawRecipeInfo}
+          setRecipeInfo={setRecipeInfo}
         />
       );
     case "Cuisines":
