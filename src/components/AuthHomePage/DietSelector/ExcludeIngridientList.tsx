@@ -3,54 +3,54 @@ import { BookmarkPropsType } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
-export const IngridientsList = ({ settings,
+export const ExcludeIngridientList = ({ settings,
     setRequestSettings }: BookmarkPropsType) => {
-    const ingridients = Object.keys(ingridientsList);
-    const ingridientStatus = settings.ingridientsSelector.status;
+    const excludeIngridients = Object.keys(ingridientsList);
+    const excludeIngridientStatus = settings.excludeIngridientsSelector.status;
     const [recipeValue, setRecipeValue] = useState("");
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-        if (ingridients.indexOf(recipeValue) === -1) {
+        if (excludeIngridients.indexOf(recipeValue) === -1) {
             (e.target as HTMLButtonElement).setCustomValidity('Please input a valid ingridient from list and press "+"');
             return;
         }
         e.preventDefault();
 
-        const curIngridientsList = settings.ingridientsSelector.ingridients;
-        curIngridientsList.push(recipeValue);
-        const newIngridientsList = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, ingridients: curIngridientsList } };
-        setRequestSettings(newIngridientsList);
+        const curexcludeIngridientsList = settings.excludeIngridientsSelector.excludeIngridients;
+        curexcludeIngridientsList.push(recipeValue);
+        const newexcludeIngridientsList = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, excludeIngridients: curexcludeIngridientsList } };
+        setRequestSettings(newexcludeIngridientsList);
         setRecipeValue("");
     }
-    function ingridientTumbler(
+    function excludeIngridientTumbler(
         tumblerStatus: boolean,
         e:
             | React.DragEvent<HTMLDivElement>
             | React.MouseEvent<HTMLDivElement, MouseEvent>
     ) {
         e.preventDefault();
-        const newDietStatus = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, status: !tumblerStatus } };
-        setRequestSettings(newDietStatus);
+        const newexcludeIngridientsListStatus = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, status: !tumblerStatus } };
+        setRequestSettings(newexcludeIngridientsListStatus);
     }
 
     return (<div className="ingridientsList">
         <label>
             Add ingridients to recipes
             <input
-                disabled={!ingridientStatus}
+                disabled={!excludeIngridientStatus}
                 autoComplete="off"
                 value={recipeValue}
                 onChange={(e) => setRecipeValue(e.target.value)}
                 type="text" list="ingridientsFullList" />
             <button className="plusButton" onClick={recipeChanger}>+</button>
-            <OnOffTumbler onDragStartFunction={ingridientTumbler} onClickFunction={ingridientTumbler} tumblerStatus={ingridientStatus} />
+            <OnOffTumbler onDragStartFunction={excludeIngridientTumbler} onClickFunction={excludeIngridientTumbler} tumblerStatus={excludeIngridientStatus} />
         </label>
-        <datalist id="ingridientsFullList"><>{ingridients.map((el, index) => (<option key={index} value={el} />))}</>
+        <datalist id="ingridientsFullList"><>{excludeIngridients.map((el, index) => (<option key={index} value={el} />))}</>
         </datalist>
-        <ol hidden={!ingridientStatus}>
+        <ol hidden={!excludeIngridientStatus}>
             {settings.ingridientsSelector.ingridients.length !== 0 ? (
                 <>
-                    {settings.ingridientsSelector.ingridients.map((recipe, index) => (
+                    {settings.excludeIngridientsSelector.excludeIngridients.map((recipe, index) => (
                         <li key={index}>{recipe}</li>
                     ))}
                 </>

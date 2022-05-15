@@ -23,6 +23,15 @@
     border-radius: 90px 90px 90px 90px;
 }
 
+/* 
+.tumblerCircle {
+    user-select: none;
+    font-size: 14px;
+    position: absolute;
+    transition: visibility 0s ease-in 0.5s;
+} */
+
+
 .tumblerStart {
     background-color: rgb(13, 141, 4);
     left: 2px;

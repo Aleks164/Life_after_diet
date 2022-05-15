@@ -16,10 +16,11 @@ export const ViewRecipesButton = ({
   }
   function recipeRequestCreator(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    const { cuisinesList, dietSelector, intolerancesList } = settings;
+    const { cuisinesList, dietSelector, intolerancesList, ingridientsSelector, mealTypesSelector } = settings;
 
     let fetchBody = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;
-    fetchBody += `&diet=${rigthType(dietSelector.diet)}`;
+    if (dietSelector.diet.length)
+      fetchBody += `&diet=${rigthType(dietSelector.diet)}`;
     if (cuisinesList.length)
       fetchBody += `&cuisine=${cuisinesList
         .map((cuisine) => rigthType(cuisine))
@@ -28,10 +29,16 @@ export const ViewRecipesButton = ({
       fetchBody += `&intolerances=${intolerancesList
         .map((intolerance) => rigthType(intolerance))
         .join(",")}`;
+    if (ingridientsSelector.ingridients.length)
+      fetchBody += `&includeIngredients=${ingridientsSelector.ingridients
+        .map((ingridient) => rigthType(ingridient))
+        .join(",")}`;
+    if (mealTypesSelector.mealType.length)
+      fetchBody += `&type=${rigthType(mealTypesSelector.mealType)}`;
     fetchBody += `&number=30`;
-    // console.log(fetchBody);
+    console.log(fetchBody);
     // console.log(tempData);
-
+    setRecipeInfo(tempData)
 
     // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
 

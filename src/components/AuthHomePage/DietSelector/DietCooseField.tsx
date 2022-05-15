@@ -21,7 +21,6 @@ export const DietCooseField = ({ settings,
         e.preventDefault();
         const newDietStatus = { ...settings, dietSelector: { ...settings.dietSelector, status: !tumblerStatus } };
         setRequestSettings(newDietStatus);
-        console.log(settings)
     }
     return (
         <div className="dietCooseField">

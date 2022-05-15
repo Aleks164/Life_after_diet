@@ -21,7 +21,7 @@ export type AuthKitType = {
   signOut: SignOutType;
 };
 
-export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean } };
+export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean }, excludeIngridientsSelector: { excludeIngridients: string[], status: false }, };
 
 export type ChildrenType = { children: React.ReactElement };
 

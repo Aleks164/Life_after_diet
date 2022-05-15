@@ -12,7 +12,8 @@ const defaultSettings: SettingType = {
   cuisinesList: [],
   intolerancesList: [],
   ingridientsSelector: { ingridients: [], status: false },
-  mealTypesSelector: { mealType: "", status: false }
+  mealTypesSelector: { mealType: "", status: false },
+  excludeIngridientsSelector: { excludeIngridients: [], status: false },
 };
 
 export const AuthHomePage = () => {
