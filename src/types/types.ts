@@ -21,7 +21,7 @@ export type AuthKitType = {
   signOut: SignOutType;
 };
 
-export type SettingType = { dietSelector: { diet: string }, cuisinesList: string[], intolerancesList: string[], ingridients: string[] };
+export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean } };
 
 export type ChildrenType = { children: React.ReactElement };
 
@@ -58,4 +58,4 @@ export type BookmarkPropsType = {
   setRequestSettings: SetRequestSettingsType
 }
 
-export type tumblerParamFunction = (checkCurDiet: string, e: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+export type tumblerParamFunction = (tumblerStatus: boolean, e: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement, MouseEvent>) => void

@@ -1,6 +1,7 @@
 import React, { FormEvent } from "react";
 import { SetRecipeInfo, SettingType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
+import { ingridientsList } from "../../utils/ingridientsList";
 
 type SettingParamType = { settings: SettingType, setRecipeInfo: SetRecipeInfo };
 
@@ -28,10 +29,10 @@ export const ViewRecipesButton = ({
         .map((intolerance) => rigthType(intolerance))
         .join(",")}`;
     fetchBody += `&number=30`;
-    console.log(fetchBody);
-    console.log(tempData);
+    // console.log(fetchBody);
+    // console.log(tempData);
 
-    setRecipeInfo(tempData);
+
     // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
 
     // console.log(spoon(fetchBody));

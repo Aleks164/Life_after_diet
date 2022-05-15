@@ -8,10 +8,11 @@ import { RecipeInfoType, SettingType } from "../../types/types";
 import "./index.css";
 
 const defaultSettings: SettingType = {
-  dietSelector: { diet: "Gluten Free" },
+  dietSelector: { diet: "Gluten Free", status: true },
   cuisinesList: [],
   intolerancesList: [],
-  ingridients: []
+  ingridientsSelector: { ingridients: [], status: false },
+  mealTypesSelector: { mealType: "", status: false }
 };
 
 export const AuthHomePage = () => {

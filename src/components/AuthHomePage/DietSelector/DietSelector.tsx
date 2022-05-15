@@ -11,6 +11,7 @@ export const DietSelector = ({
   setRecipeInfo
 }: DietParamType) => {
   const curDiet = settings.dietSelector.diet;
+  const curDietStatus = settings.dietSelector.status;
 
   const defenitionNumber = DietList.indexOf(curDiet);
 
@@ -23,11 +24,8 @@ export const DietSelector = ({
           settings={settings}
           setRecipeInfo={setRecipeInfo}
         />
-        <p><input list="character" />
-          <datalist id="character"><>{DietList.map((el, index) => (<option key={index} value={el}></option>))}</>
-          </datalist></p>
       </form>
-      {curDiet !== "" ? (
+      {curDietStatus ? (
         <>
           <h3>{DietList[defenitionNumber]}</h3>
           <p>{(DietDefenition as DietDefenitionType)[defenitionNumber + 1]}</p>
