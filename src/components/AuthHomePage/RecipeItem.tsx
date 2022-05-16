@@ -1,8 +1,7 @@
 import React from "react";
+import { RecipeItemPropsType } from "../../types/types";
 
-type PropsType = { title: string; image: string; id: number };
-
-export const RecipeItem = ({ title, image, id }: PropsType) => {
+export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
   function findById() {
     console.log(id);
   }

@@ -1,8 +1,6 @@
 import React from "react";
-import { RecipeItemType } from "../../types/types";
+import { RecipeListProps } from "../../types/types";
 import { RecipeItem } from "./RecipeItem";
-
-type RecipeListProps = { recipeInfo: RecipeItemType[] }
 
 export const RecipeList = ({ recipeInfo }: RecipeListProps) => (
   <div className="recipeList">

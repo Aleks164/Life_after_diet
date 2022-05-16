@@ -8,7 +8,7 @@ export const SignOutLink = ({ children, to }: LinkPropType) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
-  const signOutClick = (event: Event) => {
+  const signOutClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
     signOut(() => navigate(to, { replace: true }));
   };

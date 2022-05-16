@@ -20,6 +20,7 @@ export const AppRouter = () => {
           <>
             <Route path="settings" element={<Image />} />
             <Route path="statistics" element={<Image />} />
+            <Route path="recipe/:id" element={<Image />} />
           </>
         ) : (
           ""

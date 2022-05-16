@@ -52,6 +52,9 @@ export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 
 export type SetRecipeInfo = React.Dispatch<React.SetStateAction<RecipeInfoType>>
 
+export type RecipeListProps = { recipeInfo: RecipeItemType[] };
+
+export type RecipeItemPropsType = { title: string; image: string; id: number };
 
 export type SetCurMarkbook = React.Dispatch<React.SetStateAction<MarkbookType>>
 

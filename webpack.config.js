@@ -17,19 +17,11 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devServer: {
-    compress: true,
-    port: 8000,
-    client: {
-      logging: "info",
-    },
+    port: 9000,
+    historyApiFallback: true,
   },
   output: {
-    filename: "[name].bundle.[chunkhash].js",
-    clean: true,
-    path: resolve(__dirname, "./build"),
-    environment: {
-      arrowFunction: false,
-    },
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -42,40 +34,13 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /\.module\.css$/i,
-        use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                mode: "icss",
-                localIdentName: "[name]___[hash:base64:5]",
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.module\.css$/,
-        use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                mode: "local",
-                localIdentName: "[name]___[hash:base64:5]",
-              },
-            },
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
-          filename: "static/[hash][ext]",
+          filename: "./images/[contenthash][ext]",
         },
       },
       {
@@ -89,15 +54,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, "./src/index.html"),
+      template: resolve(__dirname, "src/index.html"),
     }),
-    ...(isDev
-      ? [new MiniCssExtractPlugin()]
-      : [
-        new MiniCssExtractPlugin({
-          filename: "[name].[contenthash].css",
-          chunkFilename: "[name].[contenthash].css",
-        }),
-      ]),
+    new MiniCssExtractPlugin(),
   ],
 };
+
