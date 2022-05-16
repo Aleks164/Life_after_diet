@@ -21,7 +21,7 @@ export type AuthKitType = {
   signOut: SignOutType;
 };
 
-export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean }, excludeIngridientsSelector: { excludeIngridients: string[], status: false }, };
+export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean }, excludeIngridientsSelector: { excludeIngridients: string[], status: boolean }, };
 
 export type ChildrenType = { children: React.ReactElement };
 
@@ -43,15 +43,25 @@ export type RecipeItemType = {
 
 export type RecipeInfoType = RecipeItemType[] | "";
 
+export type isLoadingType = boolean;
+
+
+export type SetIsLoadingType = React.Dispatch<React.SetStateAction<isLoadingType>>;
+
+export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
+
 export type SetRecipeInfo = React.Dispatch<React.SetStateAction<RecipeInfoType>>
+
 
 export type SetCurMarkbook = React.Dispatch<React.SetStateAction<MarkbookType>>
 
 export type SetRequestSettingsType = React.Dispatch<React.SetStateAction<SettingType>>
 
+export type SettingParamType = { settings: SettingType, setRecipeInfo: SetRecipeInfo, setIsLoading: SetIsLoadingType };
+
 export type DietDefenitionType = { [item: number]: string };
 
-export type DietParamType = { settings: SettingType, setRequestSettings: SetRequestSettingsType, setRecipeInfo: SetRecipeInfo };
+export type DietParamType = { settings: SettingType, setRequestSettings: SetRequestSettingsType, setRecipeInfo: SetRecipeInfo, setIsLoading: SetIsLoadingType };
 
 export type BookmarkPropsType = {
   settings: SettingType,

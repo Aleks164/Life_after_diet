@@ -7,18 +7,19 @@ export const ExcludeIngridientList = ({ settings,
     setRequestSettings }: BookmarkPropsType) => {
     const excludeIngridients = Object.keys(ingridientsList);
     const excludeIngridientStatus = settings.excludeIngridientsSelector.status;
+    const excludeIngridientList = settings.excludeIngridientsSelector.excludeIngridients;
     const [recipeValue, setRecipeValue] = useState("");
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         if (excludeIngridients.indexOf(recipeValue) === -1) {
-            (e.target as HTMLButtonElement).setCustomValidity('Please input a valid ingridient from list and press "+"');
+            let message = 'Please input a valid ingridient from list and press "+"';
+            if (!excludeIngridientStatus) message = "You must first press 'On'";
+            (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
         }
         e.preventDefault();
-
-        const curexcludeIngridientsList = settings.excludeIngridientsSelector.excludeIngridients;
-        curexcludeIngridientsList.push(recipeValue);
-        const newexcludeIngridientsList = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, excludeIngridients: curexcludeIngridientsList } };
+        excludeIngridientList.push(recipeValue);
+        const newexcludeIngridientsList = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, excludeIngridients: excludeIngridientList } };
         setRequestSettings(newexcludeIngridientsList);
         setRecipeValue("");
     }
@@ -35,7 +36,7 @@ export const ExcludeIngridientList = ({ settings,
 
     return (<div className="ingridientsList">
         <label>
-            Add ingridients to recipes
+            Add ingredients which shouldn't be in recipe
             <input
                 disabled={!excludeIngridientStatus}
                 autoComplete="off"
@@ -48,9 +49,9 @@ export const ExcludeIngridientList = ({ settings,
         <datalist id="ingridientsFullList"><>{excludeIngridients.map((el, index) => (<option key={index} value={el} />))}</>
         </datalist>
         <ol hidden={!excludeIngridientStatus}>
-            {settings.ingridientsSelector.ingridients.length !== 0 ? (
+            {excludeIngridientList.length !== 0 ? (
                 <>
-                    {settings.excludeIngridientsSelector.excludeIngridients.map((recipe, index) => (
+                    {excludeIngridientList.map((recipe, index) => (
                         <li key={index}>{recipe}</li>
                     ))}
                 </>

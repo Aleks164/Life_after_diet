@@ -5,11 +5,13 @@ import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
 import { DietCooseField } from "./DietCooseField";
 import { MealTypesSelector } from "./MealTypesSelector";
+import { ExcludeIngridientList } from "./ExcludeIngridientList";
 
 export const DietSelector = ({
   settings,
   setRequestSettings,
-  setRecipeInfo
+  setRecipeInfo,
+  setIsLoading
 }: DietParamType) => {
   const curDiet = settings.dietSelector.diet;
   const curDietStatus = settings.dietSelector.status;
@@ -21,10 +23,12 @@ export const DietSelector = ({
       <form>
         <DietCooseField settings={settings} setRequestSettings={setRequestSettings} />
         <IngridientsList settings={settings} setRequestSettings={setRequestSettings} />
+        <ExcludeIngridientList settings={settings} setRequestSettings={setRequestSettings} />
         <MealTypesSelector settings={settings} setRequestSettings={setRequestSettings} />
         <ViewRecipesButton
           settings={settings}
           setRecipeInfo={setRecipeInfo}
+          setIsLoading={setIsLoading}
         />
       </form>
       {curDietStatus ? (

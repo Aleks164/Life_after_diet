@@ -16,6 +16,15 @@
   grid-template-areas: "recipeConteiner";
 }
 
+.loadingPage {
+  width: 100px;
+  height: 100px;
+  grid-area: generalSpace;
+  position: relative;
+  top: 30vh;
+  left: 25vw;
+}
+
 .markbooks {
   grid-area: markbooks;
   margin: 0px;
@@ -127,7 +136,7 @@
   background-color: #ffffff00;
   border: 0px;
   font-size: 38px;
-  top: -14px;
+  top: -17px;
   text-decoration: none;
   left: -4px;
   text-shadow: 0px 1px 2px rgb(15 122 22 / 75%), -1px 3px 4px rgb(54 64 56 / 75%);
@@ -138,4 +147,9 @@
 .plusButton:active {
   color: rgb(0 177 38);
   text-shadow: 0px 1px 2px rgb(255 0 0 / 75%), -1px 3px 4px rgb(0 11 255 / 75%);
+}
+
+.plusButton:hover {
+  color: rgb(16, 131, 41);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75), -1px 3px 4px rgba(0, 0, 0, 0.75);
 }

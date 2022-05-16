@@ -11,7 +11,9 @@ export const IngridientsList = ({ settings,
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         if (ingridients.indexOf(recipeValue) === -1) {
-            (e.target as HTMLButtonElement).setCustomValidity('Please input a valid ingridient from list and press "+"');
+            let message = 'Please input a valid ingridient from list and press "+"';
+            if (!ingridientStatus) message = "You must first press 'On'";
+            (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
         }
         e.preventDefault();
@@ -60,3 +62,4 @@ export const IngridientsList = ({ settings,
         </ol>
     </div>)
 }
+
