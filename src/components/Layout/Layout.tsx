@@ -4,12 +4,10 @@ import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
 import { IsAuthType } from "../../types/types";
 
-
-
 export const Layout = ({ isAuth }: IsAuthType) => (
   <>
     <header>
-      <h1>Life after dieT...</h1>
+      <h1>Life after dieT's...</h1>
       <NavLink to="/">Home</NavLink>
       {isAuth ? (
         <>

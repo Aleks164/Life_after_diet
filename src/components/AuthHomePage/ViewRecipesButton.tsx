@@ -1,6 +1,7 @@
 import React, { FormEvent } from "react";
 import { SettingParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
+import { useClientSettings } from "../../hooks/useClientSettings";
 
 const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
 
@@ -9,6 +10,8 @@ export const ViewRecipesButton = ({
   setRecipeInfo,
   setIsLoading
 }: SettingParamType) => {
+  const { setClientSettings } = useClientSettings();
+
   function rigthType(string: string) {
     return string.toLocaleLowerCase().replace(" ", "20%");
   }
@@ -36,6 +39,10 @@ export const ViewRecipesButton = ({
     fetchBody += `&number=30`;
     console.log(fetchBody);
     // console.log(tempData);
+    if (setClientSettings) {
+      setClientSettings(settings);
+    }
+
     setIsLoading(true);
     setRecipeInfo(tempData);
     setTimeout(() => {

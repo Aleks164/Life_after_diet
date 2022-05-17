@@ -23,6 +23,7 @@ export const DietSelector = ({
       <form>
         <DietCooseField settings={settings} setRequestSettings={setRequestSettings} />
         <IngridientsList settings={settings} setRequestSettings={setRequestSettings} />
+        <>{console.log("inside", settings)}</>
         <ExcludeIngridientList settings={settings} setRequestSettings={setRequestSettings} />
         <MealTypesSelector settings={settings} setRequestSettings={setRequestSettings} />
         <ViewRecipesButton

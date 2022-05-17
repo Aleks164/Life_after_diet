@@ -6,6 +6,7 @@ import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/Login/Login";
 import { useAuth } from "./hooks/useAuth";
 import { HomePageSwitcher } from "./components/HomePageSwitcher/HomePageSwitcher";
+import { RecipeByIdPage } from "./components/AuthHomePage/RecipeByIdPage";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
@@ -20,7 +21,7 @@ export const AppRouter = () => {
           <>
             <Route path="settings" element={<Image />} />
             <Route path="statistics" element={<Image />} />
-            <Route path="recipe/:id" element={<Image />} />
+            <Route path="recipe/:id" element={<RecipeByIdPage />} />
           </>
         ) : (
           ""

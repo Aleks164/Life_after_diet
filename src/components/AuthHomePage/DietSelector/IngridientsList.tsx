@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BookmarkPropsType } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
@@ -6,9 +6,11 @@ import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 export const IngridientsList = ({ settings,
     setRequestSettings }: BookmarkPropsType) => {
     const ingridients = Object.keys(ingridientsList);
-    const ingridientStatus = settings.ingridientsSelector.status;
+    let ingridientStatus = settings.ingridientsSelector.status;
     const [recipeValue, setRecipeValue] = useState("");
-
+    useEffect(() => {
+        ingridientStatus = settings.ingridientsSelector.status;
+    })
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         if (ingridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
