@@ -1,4 +1,5 @@
 import React, { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { SettingParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 import { useClientSettings } from "../../hooks/useClientSettings";
@@ -7,11 +8,9 @@ const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
 
 export const ViewRecipesButton = ({
   settings,
-  setRecipeInfo,
-  setIsLoading
 }: SettingParamType) => {
   const { setClientSettings } = useClientSettings();
-
+  const navigate = useNavigate();
   function rigthType(string: string) {
     return string.toLocaleLowerCase().replace(" ", "20%");
   }
@@ -43,11 +42,8 @@ export const ViewRecipesButton = ({
       setClientSettings(settings);
     }
 
-    setIsLoading(true);
-    setRecipeInfo(tempData);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000)
+    navigate("/recipebook/", { state: { recipeInfo: tempData } });
+    // setRecipeInfo(tempData);
 
     // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
 

@@ -6,10 +6,8 @@ import { SetIsLoadingType, SetRecipeInfo, SetRequestSettingsType, SettingType } 
 
 export function markbooksSwitcher(
   markbookName: string,
-  setRecipeInfo: SetRecipeInfo,
   requestSettings: SettingType,
   setRequestSettings: SetRequestSettingsType,
-  setIsLoading: SetIsLoadingType
 ) {
   switch (markbookName) {
     case "Main":
@@ -17,8 +15,6 @@ export function markbooksSwitcher(
         <DietSelector
           settings={requestSettings}
           setRequestSettings={setRequestSettings}
-          setRecipeInfo={setRecipeInfo}
-          setIsLoading={setIsLoading}
         />
       );
     case "Cuisines":

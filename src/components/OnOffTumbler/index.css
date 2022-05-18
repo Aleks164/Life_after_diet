@@ -1,6 +1,6 @@
 .tumblerCont {
-    display: inline-block;
     position: relative;
+    float: right;
     width: 35px;
     height: 15px;
     background-color: antiquewhite;

@@ -41,6 +41,13 @@ export type RecipeItemType = {
   imageType: string;
 };
 
+export type IngridientsListType = {
+  [name: string]: {
+    name: string,
+    id: string
+  }
+};
+
 export type RecipeInfoType = RecipeItemType[] | "";
 
 export type isLoadingType = boolean;
@@ -60,7 +67,7 @@ export type SetCurMarkbook = React.Dispatch<React.SetStateAction<MarkbookType>>
 
 export type SetRequestSettingsType = React.Dispatch<React.SetStateAction<SettingType>>
 
-export type SettingParamType = { settings: SettingType, setRecipeInfo: SetRecipeInfo, setIsLoading: SetIsLoadingType };
+export type SettingParamType = { settings: SettingType };
 
 export type DietDefenitionType = { [item: number]: string };
 

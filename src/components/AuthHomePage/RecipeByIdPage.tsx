@@ -39,12 +39,12 @@ export const RecipeByIdPage = () => {
         // if (id)
         // spoon(id).then((response) => {
         //     console.log(response);
-        console.log("before", isLoading)
+        console.log("before", isLoading);
         const response = { url: 'https://spoonacular.com/recipeCardImages/recipeCard-1652780524499.png' };
         setrecipeUrl(response.url);
         setTimeout(() => {
             setIsLoading(!isLoading);
-            console.log("after", isLoading)
+            console.log("after", isLoading);
         }, 1000)
         // });
     }, [])

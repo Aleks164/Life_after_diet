@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BookmarkPropsType } from "../../../types/types";
+import { BookmarkPropsType, IngridientsListType } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
@@ -11,11 +11,18 @@ export const ExcludeIngridientList = ({ settings,
     const [recipeValue, setRecipeValue] = useState("");
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        const checkIncludCroosing = settings.ingridientsSelector.ingridients.indexOf(recipeValue);
         if (excludeIngridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
             if (!excludeIngridientStatus) message = "You must first press 'On'";
             (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
+        }
+        if (checkIncludCroosing >= 0) {
+            console.log(">")
+            const message = `${recipeValue} already exist in ingredients list`;
+            console.log(message);
+            (e.target as HTMLButtonElement).setCustomValidity(message);
         }
         e.preventDefault();
         excludeIngridientList.push(recipeValue);
@@ -32,6 +39,13 @@ export const ExcludeIngridientList = ({ settings,
         e.preventDefault();
         const newexcludeIngridientsListStatus = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, status: !tumblerStatus } };
         setRequestSettings(newexcludeIngridientsListStatus);
+    }
+    function deleteButton(deletingIngridient: string) {
+        const filtredList = settings.excludeIngridientsSelector.excludeIngridients.filter((ingridient) =>
+            ingridient !== deletingIngridient
+        );
+        const newIngridientsList = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, excludeIngridients: filtredList } };
+        setRequestSettings(newIngridientsList);
     }
 
     return (<div className="ingridientsList">
@@ -51,8 +65,8 @@ export const ExcludeIngridientList = ({ settings,
         <ol hidden={!excludeIngridientStatus}>
             {excludeIngridientList.length !== 0 ? (
                 <>
-                    {excludeIngridientList.map((recipe, index) => (
-                        <li key={index}>{recipe}</li>
+                    {excludeIngridientList.map((ingridient) => (
+                        <><li key={((ingridientsList as IngridientsListType)[ingridient].id)}>{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></>
                     ))}
                 </>
             ) : (

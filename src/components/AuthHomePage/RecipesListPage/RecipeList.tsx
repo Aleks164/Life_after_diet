@@ -1,9 +1,9 @@
 import React from "react";
-import { RecipeListProps } from "../../types/types";
+import { RecipeListProps } from "../../../types/types";
 import { RecipeItem } from "./RecipeItem";
 
 export const RecipeList = ({ recipeInfo }: RecipeListProps) => (
-  <div className="recipeList">
+  <div className="homePage">
     <div className="recipeConteiner">
       {recipeInfo.map((el) => (
         <RecipeItem

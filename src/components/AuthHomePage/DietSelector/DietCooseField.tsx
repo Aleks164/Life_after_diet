@@ -38,8 +38,8 @@ export const DietCooseField = ({ settings,
                         </option>
                     ))}
                 </select>
+                <OnOffTumbler onDragStartFunction={dietOptionTumbler} onClickFunction={dietOptionTumbler} tumblerStatus={curDietstatus} />
             </label>
-            <OnOffTumbler onDragStartFunction={dietOptionTumbler} onClickFunction={dietOptionTumbler} tumblerStatus={curDietstatus} />
         </div>
     )
 }

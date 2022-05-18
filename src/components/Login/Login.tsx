@@ -16,6 +16,7 @@ export const Login = () => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const userName = form.username.value;
+    console.log("beforeLoginPagePath", beforeLoginPagePath)
     signIn(userName, () => navigate(beforeLoginPagePath, { replace: true }));
   };
   return (

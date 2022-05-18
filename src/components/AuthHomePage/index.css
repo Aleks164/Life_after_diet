@@ -7,6 +7,7 @@
     "leftMenuHomePage generalSpace";
 }
 
+/* 
 .recipeList {
   border: 2px solid orange;
   grid-area: generalSpace;
@@ -14,7 +15,7 @@
   grid-template-columns: auto;
   grid-template-rows: 75vh;
   grid-template-areas: "recipeConteiner";
-}
+} */
 
 .loadingPage {
   grid-area: generalSpace;
@@ -80,6 +81,8 @@
 }
 
 .recipeConteiner {
+  border: 2px solid orange;
+  grid-area: generalSpace;
   overflow: auto;
   scrollbar-width: none;
 }
@@ -115,7 +118,6 @@
 
 .dietCooseField {
   display: block;
-  width: 255px;
 }
 
 .ingridientsList {

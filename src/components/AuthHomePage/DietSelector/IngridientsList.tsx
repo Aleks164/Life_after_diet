@@ -1,25 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { BookmarkPropsType } from "../../../types/types";
+import React, { useState } from "react";
+import { BookmarkPropsType, IngridientsListType } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
 export const IngridientsList = ({ settings,
     setRequestSettings }: BookmarkPropsType) => {
     const ingridients = Object.keys(ingridientsList);
-    let ingridientStatus = settings.ingridientsSelector.status;
+    const ingridientStatus = settings.ingridientsSelector.status;
     const [recipeValue, setRecipeValue] = useState("");
-    useEffect(() => {
-        ingridientStatus = settings.ingridientsSelector.status;
-    })
+
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        const checkExcludCroosing = settings.excludeIngridientsSelector.excludeIngridients.indexOf(recipeValue);
+        console.log(checkExcludCroosing, recipeValue)
         if (ingridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
             if (!ingridientStatus) message = "You must first press 'On'";
             (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
         }
+        if (checkExcludCroosing >= 0) {
+            console.log(">")
+            const message = `${recipeValue} already exist in exclude ingredients list`;
+            console.log(message);
+            (e.target as HTMLButtonElement).setCustomValidity(message);
+        }
         e.preventDefault();
-
         const curIngridientsList = settings.ingridientsSelector.ingridients;
         curIngridientsList.push(recipeValue);
         const newIngridientsList = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, ingridients: curIngridientsList } };
@@ -33,8 +38,15 @@ export const IngridientsList = ({ settings,
             | React.MouseEvent<HTMLDivElement, MouseEvent>
     ) {
         e.preventDefault();
-        const newDietStatus = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, status: !tumblerStatus } };
-        setRequestSettings(newDietStatus);
+        const newStatus = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, status: !tumblerStatus } };
+        setRequestSettings(newStatus);
+    }
+    function deleteButton(deletingIngridient: string) {
+        const filtredList = settings.ingridientsSelector.ingridients.filter((ingridient) =>
+            ingridient !== deletingIngridient
+        );
+        const newIngridientsList = { ...settings, ingridientsSelector: { ...settings.ingridientsSelector, ingridients: filtredList } };
+        setRequestSettings(newIngridientsList);
     }
 
     return (<div className="ingridientsList">
@@ -54,8 +66,8 @@ export const IngridientsList = ({ settings,
         <ol hidden={!ingridientStatus}>
             {settings.ingridientsSelector.ingridients.length !== 0 ? (
                 <>
-                    {settings.ingridientsSelector.ingridients.map((recipe, index) => (
-                        <li key={index}>{recipe}</li>
+                    {settings.ingridientsSelector.ingridients.map((ingridient) => (
+                        <><li key={((ingridientsList as IngridientsListType)[ingridient].id)}>{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></>
                     ))}
                 </>
             ) : (
