@@ -1,0 +1,117 @@
+.ricipe {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: auto auto 60vh;
+    grid-template-areas:
+        ". recipeTitle"
+        "backButton recipeMarcbooks"
+        ". generalSpace";
+}
+
+.recipeTitle {
+    grid-area: recipeTitle;
+}
+
+.recipeCart {
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid orange;
+    grid-area: generalSpace;
+    display: grid;
+    grid-template-columns: 312px 45vw 120px;
+    grid-template-rows: 231px auto;
+    grid-template-areas:
+        "recipeImage generalInfo icons"
+        "recipeSummary recipeSummary recipeSummary";
+}
+
+.recipeImage {
+    grid-area: recipeImage;
+    width: 100%;
+    margin: 5px;
+}
+
+.generalInfo {
+    grid-area: generalInfo;
+    margin: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-top: 30px
+}
+
+.generalInfo * {
+    margin: 5px;
+}
+
+.recipeSummary {
+    grid-area: recipeSummary;
+    text-align: justify;
+    margin: 5px;
+    font-size: 20px;
+    text-justify: auto;
+    margin-top: 30px;
+}
+
+.iconCont {
+    grid-area: icons;
+    margin-top: 15px;
+}
+
+.iconCont>div {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    ;
+    background-size: cover;
+}
+
+.glutenfree {
+    background-image: url(../../../assets/gluten-free.svg);
+}
+
+.dairyfree {
+    background-image: url(../../../assets/dairy-free.svg);
+}
+
+.lactoovovegetarian {
+    background-image: url(../../../assets/vegetarian.svg);
+}
+
+.vegan {
+    background-image: url(../../../assets/vegan.svg);
+}
+
+.vegetarian {
+    background-image: url(../../../assets/vegetarian.svg);
+}
+
+.paleolithic {
+    background-image: url(../../../assets/paleo.svg);
+}
+
+.primal {
+    background-image: url(../../../assets/primal.svg);
+}
+
+.ovovegetarian {
+    background-image: url(../../../assets/ovovegetarian.svg);
+}
+
+.pescetarian {
+    background-image: url(../../../assets/pescetarian.svg);
+}
+
+.lowfoodmap {
+    background-image: url(../../../assets/lowfoodmap.svg);
+}
+
+.whole30 {
+    background-image: url(../../../assets/whole30.svg);
+}
+
+.healthyIcon {
+    background-image: url(../../../assets/healthy.svg);
+}

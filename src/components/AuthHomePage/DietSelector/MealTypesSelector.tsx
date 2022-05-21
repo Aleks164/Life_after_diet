@@ -1,5 +1,5 @@
 import React from "react";
-import { BookmarkPropsType } from "../../../types/types";
+import { BookmarkPropsType, SettingType } from "../../../types/types";
 import { MealTypes } from "../../../utils/consts";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
@@ -20,8 +20,14 @@ export const MealTypesSelector = ({ settings,
             | React.MouseEvent<HTMLDivElement, MouseEvent>
     ) {
         e.preventDefault();
-        const newDietStatus = { ...settings, mealTypesSelector: { ...settings.mealTypesSelector, status: !tumblerStatus } }
-        setRequestSettings(newDietStatus);
+        let newMealType: SettingType;
+        if (tumblerStatus) {
+            newMealType = { ...settings, mealTypesSelector: { mealType: "", status: !tumblerStatus } };
+        }
+        else {
+            newMealType = { ...settings, mealTypesSelector: { ...settings.mealTypesSelector, status: !tumblerStatus } };
+        }
+        setRequestSettings(newMealType);
     }
     return (
         <div className="mealTypesSelector">

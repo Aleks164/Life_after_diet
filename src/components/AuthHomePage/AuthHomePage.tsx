@@ -20,7 +20,7 @@ export const AuthHomePage = () => {
 
   const [recipeInfo, setRecipeInfo] = useState<RecipeInfoType>("");
   const [requestSettings, setRequestSettings] = useState(сlientSettings);
-  const [isLoading, setIsLoading] = useState<isLoadingType>(false);
+
   return (
     <div className="homePage">
       <LeftMenuHomePage

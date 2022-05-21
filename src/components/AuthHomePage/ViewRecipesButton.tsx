@@ -37,6 +37,7 @@ export const ViewRecipesButton = ({
       fetchBody += `&type=${rigthType(mealTypesSelector.mealType)}`;
     fetchBody += `&number=30`;
     console.log(fetchBody);
+    console.log(settings);
     // console.log(tempData);
     if (setClientSettings) {
       setClientSettings(settings);

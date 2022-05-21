@@ -1,5 +1,5 @@
 import React from "react";
-import { DietDefenitionType, DietParamType } from "../../../types/types";
+import { BookmarkPropsType, DietDefenitionType } from "../../../types/types";
 import { DietList, DietDefenition } from "../../../utils/consts";
 import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
@@ -10,7 +10,7 @@ import { ExcludeIngridientList } from "./ExcludeIngridientList";
 export const DietSelector = ({
   settings,
   setRequestSettings,
-}: DietParamType) => {
+}: BookmarkPropsType) => {
   const curDiet = settings.dietSelector.diet;
   const curDietStatus = settings.dietSelector.status;
   const defenitionNumber = DietList.indexOf(curDiet);

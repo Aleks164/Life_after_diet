@@ -6,7 +6,7 @@ import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/Login/Login";
 import { useAuth } from "./hooks/useAuth";
 import { HomePageSwitcher } from "./components/HomePageSwitcher/HomePageSwitcher";
-import { RecipeByIdPage } from "./components/AuthHomePage/RecipeByIdPage";
+import { RecipeByIdPage } from "./components/AuthHomePage/RecipeByIdPage/RecipeByIdPage";
 import { RecipesListPage } from "./components/AuthHomePage/RecipesListPage/RecipesListPage";
 
 export const AppRouter = () => {

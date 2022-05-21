@@ -79,3 +79,37 @@ export type BookmarkPropsType = {
 }
 
 export type tumblerParamFunction = (tumblerStatus: boolean, e: React.DragEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+
+export type Step = number;
+export type Description = string;
+
+export type RecipeType = {
+  recipe: {
+    title: string,
+    analyzedInstructions: {
+      name: string;
+      steps: {
+        number: number;
+        step: string;
+        ingredients: {
+          id: number;
+          name: string;
+          localizedName: string;
+          image: string;
+        }[];
+      }[];
+    }[]
+
+    diets: string[],
+    dishTypes: string[],
+    image: string,
+    instructions: string,
+    readyInMinutes: number,
+    sourceUrl: string,
+    summary: string,
+    healthScore: number,
+    servings: number,
+    cuisines: string[],
+    veryHealthy: boolean
+  }
+}

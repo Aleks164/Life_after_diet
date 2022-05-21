@@ -1,5 +1,5 @@
 import React from "react";
-import { BookmarkPropsType } from "../../../types/types";
+import { BookmarkPropsType, SettingType } from "../../../types/types";
 import { DietList } from "../../../utils/consts";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
@@ -19,7 +19,13 @@ export const DietCooseField = ({ settings,
             | React.MouseEvent<HTMLDivElement, MouseEvent>
     ) {
         e.preventDefault();
-        const newDietStatus = { ...settings, dietSelector: { ...settings.dietSelector, status: !tumblerStatus } };
+        let newDietStatus: SettingType;
+        if (tumblerStatus) {
+            newDietStatus = { ...settings, dietSelector: { diet: "", status: !tumblerStatus } };
+        }
+        else {
+            newDietStatus = { ...settings, dietSelector: { ...settings.dietSelector, status: !tumblerStatus } };
+        }
         setRequestSettings(newDietStatus);
     }
     return (

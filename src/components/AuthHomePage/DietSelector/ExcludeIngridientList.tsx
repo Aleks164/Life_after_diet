@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BookmarkPropsType, IngridientsListType } from "../../../types/types";
+import { BookmarkPropsType, IngridientsListType, SettingType } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
@@ -19,10 +19,9 @@ export const ExcludeIngridientList = ({ settings,
             return;
         }
         if (checkIncludCroosing >= 0) {
-            console.log(">")
-            const message = `${recipeValue} already exist in ingredients list`;
-            console.log(message);
+            const message = `"${recipeValue}" already exist in ingredients list`;
             (e.target as HTMLButtonElement).setCustomValidity(message);
+            return;
         }
         e.preventDefault();
         excludeIngridientList.push(recipeValue);
@@ -37,8 +36,14 @@ export const ExcludeIngridientList = ({ settings,
             | React.MouseEvent<HTMLDivElement, MouseEvent>
     ) {
         e.preventDefault();
-        const newexcludeIngridientsListStatus = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, status: !tumblerStatus } };
-        setRequestSettings(newexcludeIngridientsListStatus);
+        let newExcludeIngridientsList: SettingType;
+        if (tumblerStatus) {
+            newExcludeIngridientsList = { ...settings, excludeIngridientsSelector: { excludeIngridients: [], status: !tumblerStatus } };
+        }
+        else {
+            newExcludeIngridientsList = { ...settings, excludeIngridientsSelector: { ...settings.excludeIngridientsSelector, status: !tumblerStatus } };
+        }
+        setRequestSettings(newExcludeIngridientsList);
     }
     function deleteButton(deletingIngridient: string) {
         const filtredList = settings.excludeIngridientsSelector.excludeIngridients.filter((ingridient) =>
@@ -60,13 +65,13 @@ export const ExcludeIngridientList = ({ settings,
             <button className="plusButton" onClick={recipeChanger}>+</button>
             <OnOffTumbler onDragStartFunction={excludeIngridientTumbler} onClickFunction={excludeIngridientTumbler} tumblerStatus={excludeIngridientStatus} />
         </label>
-        <datalist id="ingridientsFullList"><>{excludeIngridients.map((el, index) => (<option key={index} value={el} />))}</>
+        <datalist id="ingridientsFullList"><>{excludeIngridients.map((ingridient, index) => (<option key={index} value={ingridient} />))}</>
         </datalist>
         <ol hidden={!excludeIngridientStatus}>
             {excludeIngridientList.length !== 0 ? (
                 <>
                     {excludeIngridientList.map((ingridient) => (
-                        <><li key={((ingridientsList as IngridientsListType)[ingridient].id)}>{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></>
+                        <div key={((ingridientsList as IngridientsListType)[ingridient].id)}><li >{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></div>
                     ))}
                 </>
             ) : (
