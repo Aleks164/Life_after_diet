@@ -12,17 +12,21 @@
     grid-area: recipeTitle;
 }
 
-.recipeCart {
+.recipeTemplate {
     width: fit-content;
     height: fit-content;
     border: 2px solid orange;
     grid-area: generalSpace;
     display: grid;
     grid-template-columns: 312px 45vw 120px;
-    grid-template-rows: 231px auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
         "recipeImage generalInfo icons"
         "recipeSummary recipeSummary recipeSummary";
+}
+
+.recipePageMarkbooks {
+    grid-area: recipeMarcbooks;
 }
 
 .recipeImage {
@@ -31,19 +35,44 @@
     margin: 5px;
 }
 
-.generalInfo {
+.instructions {
     grid-area: generalInfo;
-    margin: 10px;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.instructions p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.instructions div {
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.generalInfo {
+    width: fit-content;
+    height: fit-content;
+    grid-area: generalInfo;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "baseInfo dishTypes cusines";
     margin-left: 20px;
     margin-top: 30px
 }
 
-.generalInfo * {
+.generalInfo p,
+.generalInfo a {
     margin: 5px;
+    font-size: 20px;
+}
+
+.generalInfo div:not(:last-child) {
+    border-right: 2px solid rgb(173, 166, 175);
 }
 
 .recipeSummary {
@@ -64,8 +93,28 @@
     width: 50px;
     height: 50px;
     display: inline-block;
-    ;
     background-size: cover;
+}
+
+.stepDuration {
+    float: right;
+    border: 1px solid #8492a3;
+    border-radius: 65%;
+    padding: 5px;
+    background-color: #bb41c2;
+    font-style: italic;
+}
+
+.stepIngrList {
+    list-style-type: disclosure-closed;
+}
+
+.dishTypes {
+    margin-left: 10px;
+}
+
+.cusines {
+    margin-left: 10px;
 }
 
 .glutenfree {

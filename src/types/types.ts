@@ -1,4 +1,5 @@
 import { NavigateFunction } from "react-router-dom";
+import { RecipeResponsType } from "../information";
 
 export type DietResponsType = {
   id: number;
@@ -84,32 +85,5 @@ export type Step = number;
 export type Description = string;
 
 export type RecipeType = {
-  recipe: {
-    title: string,
-    analyzedInstructions: {
-      name: string;
-      steps: {
-        number: number;
-        step: string;
-        ingredients: {
-          id: number;
-          name: string;
-          localizedName: string;
-          image: string;
-        }[];
-      }[];
-    }[]
-
-    diets: string[],
-    dishTypes: string[],
-    image: string,
-    instructions: string,
-    readyInMinutes: number,
-    sourceUrl: string,
-    summary: string,
-    healthScore: number,
-    servings: number,
-    cuisines: string[],
-    veryHealthy: boolean
-  }
+  recipe: RecipeResponsType
 }
