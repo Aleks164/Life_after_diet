@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { information } from "../../../information";
+import { information, RecipeResponsType } from "../../../information";
 // import { respons } from "../../../respons";
-import { isLoadingType, RecipeInfoType, SettingType } from "../../../types/types";
+import { isLoadingType, RecipeInfoType, RecipeType, SettingType } from "../../../types/types";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RecipePage } from "./RecipePage";
 
@@ -35,25 +35,25 @@ export async function spoon(id: string) {
 }
 
 export const RecipeByIdPage = () => {
-    const recipe = information;
-    // const [recipeUrl, setrecipeUrl] = useState("https://spoonacular.com/url-to-generated-recipe-card.jpg");
-    const [isLoading, setIsLoading] = useState<isLoadingType>(false);
+    // const recipe = information;
+    const [recipe, setRecipe] = useState({} as RecipeResponsType);
+    const [isLoading, setIsLoading] = useState<isLoadingType>(true);
     const { id } = useParams();
     useEffect(() => {
-        // if (id)
-        spoon(id).then((response) => {
-            console.log(response);
-            // console.log("before", isLoading);
-            // const response = { url: 'https://spoonacular.com/recipeCardImages/recipeCard-1652780524499.png' };
-            // setrecipeUrl(response.url);
-            // setTimeout(() => {
-            //     setIsLoading(!isLoading);
-            //     console.log("after", isLoading);
-            // }, 1000)
-        });
+        if (id)
+            spoon(id).then((response) => {
+                console.log(response);
+
+                // console.log("before", isLoading);
+                // const response = { url: 'https://spoonacular.com/recipeCardImages/recipeCard-1652780524499.png' };
+                setRecipe(response);
+                setTimeout(() => {
+                    setIsLoading(!isLoading);
+                }, 1000)
+            });
     }, [])
 
 
-    return (<>{isLoading ? (<div className="loadingPage"><LoadingPage /></div>) : ""}<RecipePage recipe={recipe} /></>)
+    return (<>{isLoading ? (<div className="loadingPage"><LoadingPage /></div>) : (<RecipePage recipe={recipe} />)}</>)
 };
 // https://api.spoonacular.com/recipes/794349/card?apiKey=2adf7e0ce3d8428f953f022f9543bb6f

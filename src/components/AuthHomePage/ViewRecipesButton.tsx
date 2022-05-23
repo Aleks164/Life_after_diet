@@ -4,11 +4,32 @@ import { SettingParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 import { useClientSettings } from "../../hooks/useClientSettings";
 
-const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
+export async function spoon(fetchBody: string) {
+  const options = {
+    method: "GET",
+    headers: {
+    }
+  };
+
+  try {
+
+    const response = await window.fetch(
+      fetchBody,
+      options
+    );
+    const url = await response.json();
+    return url;
+
+  } catch (e) {
+    console.error(e);
+    return tempData;
+  }
+}
 
 export const ViewRecipesButton = ({
   settings,
 }: SettingParamType) => {
+  const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();
   function rigthType(string: string) {
@@ -35,20 +56,22 @@ export const ViewRecipesButton = ({
         .join(",")}`;
     if (mealTypesSelector.mealType.length)
       fetchBody += `&type=${rigthType(mealTypesSelector.mealType)}`;
-    fetchBody += `&number=30`;
+    fetchBody += `&number=10`;
     console.log(fetchBody);
     console.log(settings);
     // console.log(tempData);
     if (setClientSettings) {
       setClientSettings(settings);
     }
-
-    navigate("/recipebook/", { state: { recipeInfo: tempData } });
+    spoon(fetchBody).then((response) => {
+      console.log("fetchRecipeList", response);
+      navigate("/recipebook/", { state: { recipeInfo: response } });
+    })
     // setRecipeInfo(tempData);
 
     // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
 
-    // console.log(spoon(fetchBody));
+
   }
   return <button onClick={recipeRequestCreator}>{"View recipes -->"}</button>;
 };

@@ -6,6 +6,6 @@ import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => (
     <>{!isAuth ? (
-        <RecipeByIdPage />) : (<AuthHomePage />)}</>
+        <UnAuthHomePage />) : (<AuthHomePage />)}</>
 
 );

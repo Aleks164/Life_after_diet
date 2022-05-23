@@ -10,7 +10,7 @@ export const RecipePage = ({ recipe }: RecipeType) => {
     return (
         <div className="ricipe">
             <h2 className="recipeTitle">{recipe.title}</h2>
-            <div className="recipePageMarkbooks"><button onClick={() => setCurMarkbook("Description")} >Description</button><button onClick={() => setCurMarkbook("Instruction")} >Instruction</button></div>
+            <div className="recipePageMarkbooks"><button disabled={curMarkbook === "Description"} onClick={() => setCurMarkbook("Description")} >Description</button><button disabled={curMarkbook === "Instruction"} onClick={() => setCurMarkbook("Instruction")} >Recipe</button></div>
             <div className="recipeTemplate">
                 <img className="recipeImage" src={recipe.image} alt="recipe photo" />
                 <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
