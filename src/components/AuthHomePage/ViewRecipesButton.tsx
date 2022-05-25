@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { SettingParamType } from "../../types/types";
+import { ViewRecipeParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 import { useClientSettings } from "../../hooks/useClientSettings";
 
@@ -27,8 +27,8 @@ export async function spoon(fetchBody: string) {
 }
 
 export const ViewRecipesButton = ({
-  settings,
-}: SettingParamType) => {
+  settings, isLoading, setIsLoading
+}: ViewRecipeParamType) => {
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();
@@ -65,13 +65,9 @@ export const ViewRecipesButton = ({
     }
     spoon(fetchBody).then((response) => {
       console.log("fetchRecipeList", response);
+      setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
     })
-    // setRecipeInfo(tempData);
-
-    // fetchBody += `&instructionsRequired=true&addRecipeInformation=true`;
-
-
   }
-  return <button onClick={recipeRequestCreator}>{"View recipes -->"}</button>;
+  return <button className="findRecipesButton" onClick={recipeRequestCreator}>{"Find recipes"}</button>;
 };

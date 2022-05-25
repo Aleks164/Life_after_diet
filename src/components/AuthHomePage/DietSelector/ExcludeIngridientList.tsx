@@ -12,6 +12,7 @@ export const ExcludeIngridientList = ({ settings,
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         const checkIncludCroosing = settings.ingridientsSelector.ingridients.indexOf(recipeValue);
+        const checkExcludCroosing = settings.excludeIngridientsSelector.excludeIngridients.indexOf(recipeValue);
         if (excludeIngridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
             if (!excludeIngridientStatus) message = "You must first press 'On'";
@@ -20,6 +21,11 @@ export const ExcludeIngridientList = ({ settings,
         }
         if (checkIncludCroosing >= 0) {
             const message = `"${recipeValue}" already exist in ingredients list`;
+            (e.target as HTMLButtonElement).setCustomValidity(message);
+            return;
+        }
+        if (checkExcludCroosing >= 0) {
+            const message = `"${recipeValue}" already exist your list`;
             (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
         }
@@ -55,15 +61,17 @@ export const ExcludeIngridientList = ({ settings,
 
     return (<div className="ingridientsList">
         <label>
-            Add ingredients which shouldn't be in recipe
+            Exclude ingredients
             <input
                 disabled={!excludeIngridientStatus}
                 autoComplete="off"
                 value={recipeValue}
                 onChange={(e) => setRecipeValue(e.target.value)}
                 type="text" list="ingridientsFullList" />
-            <button className="plusButton" onClick={recipeChanger}>+</button>
-            <OnOffTumbler onDragStartFunction={excludeIngridientTumbler} onClickFunction={excludeIngridientTumbler} tumblerStatus={excludeIngridientStatus} />
+            <div>
+                <button className="plusButton" onClick={recipeChanger}>+</button>
+                <OnOffTumbler onDragStartFunction={excludeIngridientTumbler} onClickFunction={excludeIngridientTumbler} tumblerStatus={excludeIngridientStatus} />
+            </div>
         </label>
         <datalist id="ingridientsFullList"><>{excludeIngridients.map((ingridient, index) => (<option key={index} value={ingridient} />))}</>
         </datalist>
@@ -71,11 +79,11 @@ export const ExcludeIngridientList = ({ settings,
             {excludeIngridientList.length !== 0 ? (
                 <>
                     {excludeIngridientList.map((ingridient) => (
-                        <div key={((ingridientsList as IngridientsListType)[ingridient].id)}><li >{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></div>
+                        <div key={((ingridientsList as IngridientsListType)[ingridient].id)}><li >{ingridient}<button className="deleteItemButton" onClick={() => deleteButton(ingridient)}><p>x</p></button></li></div>
                     ))}
                 </>
             ) : (
-                <p>{"--Empy list--"}</p>
+                <p>{"Here will be a list of ingredients that should not be in the recipe"}</p>
             )}
         </ol>
     </div>)

@@ -53,7 +53,6 @@ export type RecipeInfoType = RecipeItemType[] | "";
 
 export type isLoadingType = boolean;
 
-
 export type SetIsLoadingType = React.Dispatch<React.SetStateAction<isLoadingType>>;
 
 export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
@@ -69,6 +68,8 @@ export type SetCurMarkbook = React.Dispatch<React.SetStateAction<MarkbookType>>
 export type SetRequestSettingsType = React.Dispatch<React.SetStateAction<SettingType>>
 
 export type SettingParamType = { settings: SettingType };
+
+export interface ViewRecipeParamType extends SettingParamType { isLoading: isLoadingType, setIsLoading: SetIsLoadingType };
 
 export type DietDefenitionType = { [item: number]: string };
 

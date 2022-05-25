@@ -11,6 +11,7 @@ export const IngridientsList = ({ settings,
 
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         const checkExcludCroosing = settings.excludeIngridientsSelector.excludeIngridients.indexOf(recipeValue);
+        const checkIncludCroosing = settings.ingridientsSelector.ingridients.indexOf(recipeValue);
         console.log(checkExcludCroosing, recipeValue)
         if (ingridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
@@ -20,6 +21,11 @@ export const IngridientsList = ({ settings,
         }
         if (checkExcludCroosing >= 0) {
             const message = `"${recipeValue}" already exist in exclude ingredients list`;
+            (e.target as HTMLButtonElement).setCustomValidity(message);
+            return;
+        }
+        if (checkIncludCroosing >= 0) {
+            const message = `"${recipeValue}" already exist your list`;
             (e.target as HTMLButtonElement).setCustomValidity(message);
             return;
         }
@@ -56,15 +62,16 @@ export const IngridientsList = ({ settings,
 
     return (<div className="ingridientsList">
         <label>
-            Add ingridients to recipes
+            Add ingridients
             <input
                 disabled={!ingridientStatus}
                 autoComplete="off"
                 value={recipeValue}
                 onChange={(e) => setRecipeValue(e.target.value)}
                 type="text" list="ingridientsFullList" />
-            <button className="plusButton" onClick={recipeChanger}>+</button>
-            <OnOffTumbler onDragStartFunction={ingridientTumbler} onClickFunction={ingridientTumbler} tumblerStatus={ingridientStatus} />
+            <div>
+                <button className="plusButton" onClick={recipeChanger}>+</button>
+                <OnOffTumbler onDragStartFunction={ingridientTumbler} onClickFunction={ingridientTumbler} tumblerStatus={ingridientStatus} /></div>
         </label>
         <datalist id="ingridientsFullList"><>{ingridients.map((ingridient, index) => (<option key={index} value={ingridient} />))}</>
         </datalist>
@@ -72,11 +79,11 @@ export const IngridientsList = ({ settings,
             {settings.ingridientsSelector.ingridients.length !== 0 ? (
                 <>
                     {settings.ingridientsSelector.ingridients.map((ingridient) => (
-                        <div key={((ingridientsList as IngridientsListType)[ingridient].id)}><li >{ingridient}</li><button onClick={() => deleteButton(ingridient)}>x</button></div>
+                        <div key={((ingridientsList as IngridientsListType)[ingridient].id)}><li >{ingridient}<button className="deleteItemButton" onClick={() => deleteButton(ingridient)}><p>x</p></button></li></div>
                     ))}
                 </>
             ) : (
-                <p>{"--Empy list--"}</p>
+                <p>{"Here will be a list of ingredients that should be in the recipe"}</p>
             )}
         </ol>
     </div>)

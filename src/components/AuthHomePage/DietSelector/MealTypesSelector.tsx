@@ -45,7 +45,8 @@ export const MealTypesSelector = ({ settings,
                         </option>
                     ))}
                 </select>
-                <OnOffTumbler onDragStartFunction={mealTypeTumbler} onClickFunction={mealTypeTumbler} tumblerStatus={curMealTypestatus} />
+                <div>
+                    <OnOffTumbler onDragStartFunction={mealTypeTumbler} onClickFunction={mealTypeTumbler} tumblerStatus={curMealTypestatus} /></div>
             </label>
         </div>
     )

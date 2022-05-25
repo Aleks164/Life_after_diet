@@ -1,27 +1,19 @@
 .homePage {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
-  grid-template-columns: 150px auto;
+  grid-template-columns: 150px 55vw;
   grid-template-rows: auto;
   grid-template-areas:
     ". markbooks"
     "leftMenuHomePage generalSpace";
 }
 
-/* 
-.recipeList {
-  border: 2px solid orange;
-  grid-area: generalSpace;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 75vh;
-  grid-template-areas: "recipeConteiner";
-} */
-
 .loadingPage {
   grid-area: generalSpace;
   width: 100%;
-  height: 100%;
-  border: 2px solid orange;
+  height: 65vh;
   position: relative;
   background-color: #bd8484;
   z-index: 15;
@@ -43,10 +35,36 @@
 .dietSelector {
   grid-area: generalSpace;
   border: 2px solid orange;
+  font-size: 22px;
+  min-width: 520px;
+}
+
+.dietSelector label {
+  display: grid;
+  grid-template-columns: 180px 190px auto;
+  grid-template-rows: auto;
+}
+
+.dietSelector>* {
+  margin: 5px;
+
+}
+
+.dietSelector select,
+.dietSelector input {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.findRecipesButton {
+  margin: 5px;
+  float: right;
 }
 
 .dietDefenitionList {
   grid-area: generalSpace;
+  padding: 5px;
+  border: 2px solid orange;
 }
 
 .recipeItem {
@@ -56,6 +74,40 @@
   margin: 5px;
   position: relative;
   min-width: 170px;
+}
+
+.deleteItemButton {
+  border-radius: 50%;
+  background-color: red;
+  font-weight: 999;
+  display: inline-block;
+  color: white;
+  padding-bottom: 3px;
+  vertical-align: text-bottom;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.deleteItemButton p {
+  position: absolute;
+  left: 2px;
+  top: -8px;
+}
+
+.deleteItemButton:hover {
+  box-shadow: 0px 1px 5px 0px rgb(0 0 0);
+  color: black;
+}
+
+.showIngridients {
+  border: 2px solid rgb(103 108 104);
+  user-select: none;
+  color: black;
+  width: fit-content;
+  background-color: #bfbebd;
 }
 
 .recipeItem p {
@@ -102,15 +154,19 @@
 }
 
 .markbooksField fieldset {
-  min-width: 340px;
+  min-width: 520px;
+}
+
+.markbooksField p {
+  margin-top: 5px;
 }
 
 .cuisineCont {
   list-style: none;
   max-height: 370px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 185px 185px 185px;
+  grid-template-rows: auto;
 }
 
 .cuisineCont input {
@@ -122,9 +178,6 @@
   display: block;
 }
 
-.ingridientsList {
-  border: 1px solid;
-}
 
 .recipeConteiner::-webkit-scrollbar {
   width: 0;

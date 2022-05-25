@@ -8,6 +8,7 @@ import { useAuth } from "./hooks/useAuth";
 import { HomePageSwitcher } from "./components/HomePageSwitcher/HomePageSwitcher";
 import { RecipeByIdPage } from "./components/AuthHomePage/RecipeByIdPage/RecipeByIdPage";
 import { RecipesListPage } from "./components/AuthHomePage/RecipesListPage/RecipesListPage";
+import { SignUp } from "./components/SignUp/SignUp";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
@@ -17,7 +18,8 @@ export const AppRouter = () => {
       <Route path="/" element={<Layout isAuth={userAuth} />}>
         <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
         <Route path="about" element={<Image />} />
-        {!userAuth ? <Route path="login" element={<Login />} /> : ""}
+        {!userAuth ? <><Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} /></> : ""}
         {userAuth ? (
           <>
             <Route path="settings" element={<Image />} />

@@ -44,10 +44,10 @@ export const CuisinesListBookmark = ({
               </label>
             ))}
           </div>
-          <p>
+          {!settings.cuisinesList.length ? <p>
             *if you have not chosen any cuisine, then the recipes will be from
             different cuisines, selected randomly
-          </p>
+          </p> : ""}
         </fieldset>
         <button onClick={ChooseClearAll} type="button">
           {settings.cuisinesList.length > 0 ? "Clear all" : "Choose all"}

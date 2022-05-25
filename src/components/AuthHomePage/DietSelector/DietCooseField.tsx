@@ -40,11 +40,13 @@ export const DietCooseField = ({ settings,
                 >
                     {DietList.map((dietName, index) => (
                         <option key={index} value={dietName}>
-                            {dietName}
+                            {dietName.toLowerCase()}
                         </option>
                     ))}
                 </select>
-                <OnOffTumbler onDragStartFunction={dietOptionTumbler} onClickFunction={dietOptionTumbler} tumblerStatus={curDietstatus} />
+                <div>
+                    <OnOffTumbler onDragStartFunction={dietOptionTumbler} onClickFunction={dietOptionTumbler} tumblerStatus={curDietstatus} />
+                </div>
             </label>
         </div>
     )

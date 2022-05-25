@@ -12,7 +12,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                 <p>{recipe.instructions}</p></>) : ""}
             {instructionType === "preparation" ?
                 (<><h3>Preparation</h3><hr />
-                    <p onClick={() => { setHideList(!hideList) }} >Ingridients <p style={{ color: hideList ? "red" : "green" }}>{hideList ? "V" : "Ʌ"}</p></p>
+                    <p className="showIngridients" onClick={() => { setHideList(!hideList) }} >{hideList ? "Show" : "Hide"} ingridients</p>
                     <ol>{recipe.analyzedInstructions[0].steps.map((step) => (<><div key={step.number}><li><p>{step.step}</p>{step.length ? <p className="stepDuration">{step.length.number} min</p> : ""}</li></div><ol hidden={hideList} className="stepIngrList">{step.ingredients.map((ingridient) => <li key={ingridient.id}>{ingridient.name}</li>)}</ol><hr /></>))}</ol>
                 </>) : ""}
             {instructionType === "ingredients" ?

@@ -1,39 +1,35 @@
-import React from "react";
-import { BookmarkPropsType, DietDefenitionType } from "../../../types/types";
-import { DietList, DietDefenition } from "../../../utils/consts";
+import React, { useState } from "react";
+import { BookmarkPropsType } from "../../../types/types";
 import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
 import { DietCooseField } from "./DietCooseField";
 import { MealTypesSelector } from "./MealTypesSelector";
 import { ExcludeIngridientList } from "./ExcludeIngridientList";
+import { LoadingPage } from "../LoadingPage/LoadinfPage";
 
 export const DietSelector = ({
   settings,
   setRequestSettings,
 }: BookmarkPropsType) => {
-  const curDiet = settings.dietSelector.diet;
-  const curDietStatus = settings.dietSelector.status;
-  const defenitionNumber = DietList.indexOf(curDiet);
 
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="dietSelector">
-      <form>
+
+      {!isLoading ? <form>
         <DietCooseField settings={settings} setRequestSettings={setRequestSettings} />
+        <hr />
         <IngridientsList settings={settings} setRequestSettings={setRequestSettings} />
+        <hr />
         <ExcludeIngridientList settings={settings} setRequestSettings={setRequestSettings} />
+        <hr />
         <MealTypesSelector settings={settings} setRequestSettings={setRequestSettings} />
+        <hr />
         <ViewRecipesButton
-          settings={settings}
+          settings={settings} isLoading={isLoading} setIsLoading={setIsLoading}
         />
-      </form>
-      {curDietStatus ? (
-        <>
-          <h3>{DietList[defenitionNumber]}</h3>
-          <p>{(DietDefenition as DietDefenitionType)[defenitionNumber + 1]}</p>
-        </>
-      ) : (
-        ""
-      )}
+      </form> : (<div className="loadingPage"><LoadingPage /></div>)}
+
     </div>
   );
 };
