@@ -49,7 +49,7 @@ export const RecipeByIdPage = () => {
                 setRecipe(response);
                 setTimeout(() => {
                     setIsLoading(!isLoading);
-                }, 1000)
+                }, 8000)
             });
     }, [])
 

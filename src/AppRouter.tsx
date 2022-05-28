@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { Image } from "./components/image";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
-import { Login } from "./components/Login/Login";
+import { Login } from "./components/AuthPage/Login/Login";
 import { useAuth } from "./hooks/useAuth";
 import { HomePageSwitcher } from "./components/HomePageSwitcher/HomePageSwitcher";
-import { RecipeByIdPage } from "./components/AuthHomePage/RecipeByIdPage/RecipeByIdPage";
-import { RecipesListPage } from "./components/AuthHomePage/RecipesListPage/RecipesListPage";
-import { SignUp } from "./components/SignUp/SignUp";
+import { RecipeByIdPage } from "./components/AfterAuthHomePage/RecipeByIdPage/RecipeByIdPage";
+import { RecipesListPage } from "./components/AfterAuthHomePage/RecipesListPage/RecipesListPage";
+import { SignUp } from "./components/AuthPage/SignUp/SignUp";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;

@@ -1,5 +1,5 @@
 import { CostAcc } from "./components/CostAcc/CostAcc";
-import { Login } from "./components/Login/Login";
+import { Login } from "./components/AuthPage/Login/Login";
 import { LOGGED_ROUTE, LOGIN_ROUTE } from "./utils/consts";
 
 export const publicRout = [{

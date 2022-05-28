@@ -17,19 +17,19 @@ export const Form = ({ signInUpHandler, processName, errorMessage, setErrorMessa
     })
 
     return (<div className="registrationFormCont">
-        <h2>{processName === "Login" ? "Welcome back, Log In" : "Sign Up"}</h2>
+        <h2>{processName === "Log in" ? "Welcome back, Log in" : "Sign up"}</h2>
         <form className="registrationForm" onSubmit={(event) => { event.preventDefault(); signInUpHandler(email, password) }}>
             <label>
                 <p>Email:</p>
-                <input value={email} onChange={(e) => { setEmail(e.target.value) }} name="userEmail" />
+                <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} name="userEmail" />
             </label>
             <label>
                 <p>Password:</p>
-                <input value={password} onChange={(e) => { setPassword(e.target.value) }} name="userPassword" />
+                <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} name="userPassword" />
             </label>
-            <button type="submit">{processName}!</button>
+            <button className="loginFormButton" type="submit">{processName}!</button>
         </form>
-        {processName === "Login" ? <p>Do not have an account yet? <Link to={"/signUp"}>Sign up in here.</Link></p> :
+        {processName === "Log in" ? <p>Do not have an account yet? <Link to={"/signup"}>Sign up in here.</Link></p> :
             <p> You have an account already? <Link to={"/login"}>Log in here.</Link></p>}
         {errorMessage.length > 0 ? <div className="errorMessage">{errorMessage}</div> : ""}
     </div>)

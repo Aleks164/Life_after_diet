@@ -13,6 +13,6 @@ export const RecipesListPage = () => {
     const recipeInfo = (location as Location).state?.recipeInfo.results;
     console.log("recipeInfo", recipeInfo);
     if (!recipeInfo) return <Navigate to="/" />
-    return (<><h3 className="markbooks">Recipe book</h3>
-        <RecipeList recipeInfo={recipeInfo} /></>)
+    return (
+        <RecipeList recipeInfo={recipeInfo} />)
 }

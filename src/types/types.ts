@@ -14,12 +14,15 @@ export type SignInType = (newUser: string, cb: NavigateFunction) => void;
 
 export type SignOutType = (cb: NavigateFunction) => void;
 
+export type SignUpType = (newUser: string, cb: NavigateFunction) => Promise<void>
+
 export type UserType = string | null;
 
 export type AuthKitType = {
   user: UserType;
   signIn: SignInType;
   signOut: SignOutType;
+  signUp: SignUpType;
 };
 
 export type SettingType = { dietSelector: { diet: string, status: boolean }, cuisinesList: string[], intolerancesList: string[], ingridientsSelector: { ingridients: string[], status: boolean }, mealTypesSelector: { mealType: string, status: boolean }, excludeIngridientsSelector: { excludeIngridients: string[], status: boolean }, };

@@ -1,19 +1,11 @@
 import React, { createContext, useState } from "react";
 import { ChildrenType, SetSettingType, SettingType } from "../types/types";
+import { defaultSettings } from "../utils/defaultSettings";
 
 type ProviderPropsType = {
     сlientSettings: SettingType,
     setClientSettings?: SetSettingType
 }
-
-const defaultSettings: SettingType = {
-    dietSelector: { diet: "Gluten Free", status: true },
-    cuisinesList: [],
-    intolerancesList: [],
-    ingridientsSelector: { ingridients: [], status: false },
-    mealTypesSelector: { mealType: "", status: false },
-    excludeIngridientsSelector: { excludeIngridients: [], status: false },
-};
 
 export const ClientSettingsContext = createContext<ProviderPropsType>({ сlientSettings: defaultSettings });
 

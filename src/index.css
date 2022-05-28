@@ -1,5 +1,13 @@
+#root {
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 body {
-  background-color: rgb(189 132 132);
+  height: 200px;
+  background: linear-gradient(to right, #FFDDD6 35%, #FFF9ED 60%, #FFF9ED 77%, #DBDBDB 86%);
 }
 
 .image {
@@ -16,4 +24,95 @@ p {
 
 .active {
   color: rgb(5 129 52);
+  box-shadow: 0px -2px 3px 1px rgb(224 190 183 / 68%);
+}
+
+.mainTitle {
+  margin-top: 5px;
+}
+
+.layoutLinkCont {
+  position: relative;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+.layoutLinkCont a {
+
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 1px;
+  display: inline-block;
+  outline: none;
+  padding: 1em;
+  text-decoration: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.layoutLinkCont a:hover {
+  background-image: radial-gradient(1px 100% at 0 40%, rgba(0, 0, 0, .6), transparent), radial-gradient(1px 100% at 100% 40%, rgba(0, 0, 0, .6), transparent);
+}
+
+.signCont {
+  margin: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-top: 5px;
+}
+
+.signInLink {
+  width: 75px;
+  font-size: 22px;
+  height: 35px;
+  text-decoration: none;
+  text-shadow: 2px 0px 2px #cba6b6;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  background: #e5dede;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgb(224 190 183 / 57%), 7px 7px 20px 0px rgb(0 0 0 / 52%), 4px 4px 5px 0px rgb(0 0 0 / 10%);
+  outline: none;
+  border: none;
+  color: #7e7070fc;
+  z-index: 1;
+}
+
+.signInLink:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+
+.signInLink:hover {
+  color: #b58585;
+}
+
+.signInLink:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+
+.signInLink:active {
+  top: 2px;
 }

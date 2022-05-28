@@ -18,7 +18,7 @@
     border: 2px solid orange;
     grid-area: generalSpace;
     display: grid;
-    grid-template-columns: 312px 45vw 120px;
+    grid-template-columns: 312px auto 120px;
     grid-template-rows: auto auto;
     grid-template-areas:
         "recipeImage generalInfo icons"
@@ -115,7 +115,9 @@
 
 .cusines {
     margin-left: 10px;
+    margin-right: 10px;
 }
+
 
 .glutenfree {
     background-image: url(../../../assets/gluten-free.svg);
