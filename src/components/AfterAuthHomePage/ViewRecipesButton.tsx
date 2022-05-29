@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { ViewRecipeParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 import { useClientSettings } from "../../hooks/useClientSettings";
+import { FBInterface } from "../../firebase_init/FBInterface";
+import { createEmailForFB } from "../../utils/createEmailForFB";
+import { useAuth } from "../../hooks/useAuth";
 
 export async function spoon(fetchBody: string) {
   const options = {
@@ -32,6 +35,8 @@ export const ViewRecipesButton = ({
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();
+  const newCrud = new FBInterface();
+  const userAuth = useAuth().user;
   function rigthType(string: string) {
     return string.toLocaleLowerCase().replace(" ", "20%");
   }
@@ -62,6 +67,8 @@ export const ViewRecipesButton = ({
     // console.log(tempData);
     if (setClientSettings) {
       setClientSettings(settings);
+      if (userAuth)
+        newCrud.updateUserParam(createEmailForFB(userAuth), "settings", settings)
     }
     spoon(fetchBody).then((response) => {
       console.log("fetchRecipeList", response);
@@ -69,5 +76,5 @@ export const ViewRecipesButton = ({
       navigate("/recipebook/", { state: { recipeInfo: response } });
     })
   }
-  return <button className="findRecipesButton" onClick={recipeRequestCreator}>{"Find recipes"}</button>;
+  return <button className="loginFormButton findRecipesButton" onClick={recipeRequestCreator}>{"Find recipes"}</button>;
 };

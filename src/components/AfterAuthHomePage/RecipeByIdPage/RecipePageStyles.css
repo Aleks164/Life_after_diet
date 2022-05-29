@@ -15,7 +15,7 @@
 .recipeTemplate {
     width: fit-content;
     height: fit-content;
-    border: 2px solid orange;
+    border: 2px dotted orange;
     grid-area: generalSpace;
     display: grid;
     grid-template-columns: 312px auto 120px;
@@ -27,6 +27,31 @@
 
 .recipePageMarkbooks {
     grid-area: recipeMarcbooks;
+
+}
+
+.recipePageMarkbooks button {
+    grid-area: markbooks;
+    margin: 0px;
+    margin-top: -10px;
+    border: 2px dotted #f1c40f;
+    margin-bottom: -1px;
+    font-size: 20px;
+    z-index: 2;
+    color: #6a6a6a;
+}
+
+.recipePageMarkbooks button:hover {
+    background: #eae8777e;
+}
+
+.recipePageMarkbooks .activeButton {
+    border-bottom: 2px solid #faf2ea;
+    z-index: 5;
+    background-color: #fbc2c8;
+    box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
+    padding-top: 10px;
+    color: black;
 }
 
 .recipeImage {
@@ -40,11 +65,13 @@
     font-size: 20px;
     margin: 10px;
     margin-top: 0px;
+    position: relative;
 }
 
 .instructions p {
     text-align: justify;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .instructions div {
@@ -80,8 +107,8 @@
     text-align: justify;
     margin: 5px;
     font-size: 20px;
-    text-justify: auto;
-    margin-top: 30px;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .iconCont {

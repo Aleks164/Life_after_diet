@@ -60,6 +60,12 @@ export type SetIsLoadingType = React.Dispatch<React.SetStateAction<isLoadingType
 
 export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 
+export type HistoryFavoriteTypes = DietResponsType;
+
+export type SetHistoryType = React.Dispatch<React.SetStateAction<HistoryFavoriteTypes>>;
+
+export type SetFavouriteType = React.Dispatch<React.SetStateAction<HistoryFavoriteTypes>>;
+
 export type SetRecipeInfo = React.Dispatch<React.SetStateAction<RecipeInfoType>>
 
 export type RecipeListProps = { recipeInfo: RecipeItemType[] };

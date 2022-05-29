@@ -22,8 +22,8 @@ export const AppRouter = () => {
           <Route path="signup" element={<SignUp />} /></> : ""}
         {userAuth ? (
           <>
-            <Route path="settings" element={<Image />} />
-            <Route path="statistics" element={<Image />} />
+            <Route path="history" element={<Image />} />
+            <Route path="favourite" element={<Image />} />
             <Route path="recipe/:id" element={<RecipeByIdPage />} />
             <Route path="recipebook" element={<RecipesListPage />} />
           </>

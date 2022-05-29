@@ -11,7 +11,7 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
   }
   return (
     <div className="recipeItem">
-      <button onClick={findById}>Show this recipe</button>
+      <button onClick={findById}><p className="showTextInButton">Show this recipe</p></button>
       <img src={image} alt={title} />
       <p>{title}</p>
     </div>

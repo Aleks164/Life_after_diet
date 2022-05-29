@@ -26,15 +26,16 @@ export const LeftMenuHomePage = ({
   return (
     <div className="leftMenuHomePage">
       <button
-        style={{ width: curMarkbook.curInformation === "" ? "100%" : "unset" }}
+        className={curMarkbook.curInformation === "" ? "activeLeftButton" : ""}
         disabled={checkDisabled()}
         onClick={() => { setRecipeInfo(""); setCurMarkbook({ curMarkbook: "Main", curInformation: "" }) }}
       >
-        {recipeInfo ? "<-- Back to diet configurator" : "Сhoose a diet"}
+        Сhoose a diet
       </button>
       <hr />
       {!recipeInfo ? <><p>Useful information</p>
-        <button style={{ width: curMarkbook.curInformation === "Diet definitions" ? "100%" : "unset" }} disabled={!checkDisabled()} onClick={showDietDefinitions}>Diet definitions</button></> : ""}
+        <button
+          className={curMarkbook.curInformation === "Diet definitions" ? "activeLeftButton" : ""} disabled={!checkDisabled()} onClick={showDietDefinitions}>Diet definitions</button></> : ""}
     </div>
   );
 };

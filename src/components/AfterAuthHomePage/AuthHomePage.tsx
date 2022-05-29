@@ -3,11 +3,9 @@ import { LeftMenuHomePage } from "./LeftMenuHomePage";
 import { Markbooks } from "./Markbooks";
 import { markbooksSwitcher } from "./markbooksSwitcher";
 import { usefulInfoswitcher } from "./usefulInfoswitcher";
-import { RecipeList } from "./RecipesListPage/RecipeList";
-import { isLoadingType, RecipeInfoType, SetSettingType } from "../../types/types";
-import { LoadingPage } from "./LoadingPage/LoadinfPage";
+import { RecipeInfoType } from "../../types/types";
 import { useClientSettings } from "../../hooks/useClientSettings";
-import "./index.css";
+import "./AfterAuthHomePageStyles.css";
 
 export const AuthHomePage = () => {
 

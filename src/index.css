@@ -1,9 +1,21 @@
 #root {
-  width: 70vw;
+  width: 75vw;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  min-width: 800px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "layout"
+    "bodyContent";
 }
 
+.layout {
+  grid-area: layout;
+  position: relative;
+}
 
 body {
   height: 200px;
@@ -29,6 +41,8 @@ p {
 
 .mainTitle {
   margin-top: 5px;
+  font-family: serif;
+  font-size: 40px;
 }
 
 .layoutLinkCont {
@@ -56,6 +70,22 @@ p {
   background-image: radial-gradient(1px 100% at 0 40%, rgba(0, 0, 0, .6), transparent), radial-gradient(1px 100% at 100% 40%, rgba(0, 0, 0, .6), transparent);
 }
 
+.welcomeField {
+  font-size: 20px;
+  position: relative;
+}
+
+.welcomeField p {
+  display: inline-block;
+  color: chocolate;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: right;
+  position: absolute;
+  right: 25px;
+  top: -25px;
+}
+
 .signCont {
   margin: 25px;
   position: absolute;
@@ -65,9 +95,10 @@ p {
 }
 
 .signInLink {
-  width: 75px;
+  text-align: center;
+  width: 95px;
   font-size: 22px;
-  height: 35px;
+  height: 25px;
   text-decoration: none;
   text-shadow: 2px 0px 2px #cba6b6;
   border-radius: 5px;
@@ -84,6 +115,7 @@ p {
   border: none;
   color: #7e7070fc;
   z-index: 1;
+  padding-top: 0px;
 }
 
 .signInLink:after {

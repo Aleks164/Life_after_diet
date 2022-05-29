@@ -17,6 +17,7 @@ export const Markbooks = ({
   <div className="markbooks">
     <button
       disabled={curMarkbook === "Main"}
+      className={curMarkbook === "Main" ? "activeButton" : ""}
       onClick={() =>
         setCurMarkbook({ curMarkbook: "Main", curInformation: "" })
       }
@@ -25,6 +26,7 @@ export const Markbooks = ({
     </button>
     <button
       disabled={curMarkbook === "Cuisines"}
+      className={curMarkbook === "Cuisines" ? "activeButton" : ""}
       onClick={() =>
         setCurMarkbook({ curMarkbook: "Cuisines", curInformation: "" })
       }
@@ -33,6 +35,7 @@ export const Markbooks = ({
     </button>
     <button
       disabled={curMarkbook === "Intolerances"}
+      className={curMarkbook === "Intolerances" ? "activeButton" : ""}
       onClick={() =>
         setCurMarkbook({ curMarkbook: "Intolerances", curInformation: "" })
       }

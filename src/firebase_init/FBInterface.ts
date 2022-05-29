@@ -2,33 +2,24 @@
 import { DietResponsType, SettingType } from "../types/types";
 import { database } from "./fb_init/initialFB";
 
+export type ParamNameType = "settings" | "history" | "favourite";
+
+
+export type UpdatingParamType = SettingType | DietResponsType;
+
+
 export interface FBInterfaceType {
-  getUserSettings(userName: string): Promise<SettingType | string>;
-  getUserHistory(userName: string): Promise<DietResponsType>;
+  getUserParam(userName: string, paramName: ParamNameType): Promise<SettingType | string>;
   addNewUserOnFB(userName: string, userSettings: SettingType): Promise<string>;
-  updateUserSettings(userName: string, userSettings: SettingType): Promise<string>;
-  updateUserHistory(userName: string, userHistory: DietResponsType): Promise<string>
+  updateUserParam(userName: string, paramName: ParamNameType, updatingParam: UpdatingParamType): Promise<string>;
 }
 
 export class FBInterface implements FBInterfaceType {
 
-  async getUserSettings(userName: string) {
+  async getUserParam(userName: string, paramName: ParamNameType) {
     const dbref = database.ref(database.db);
     return database
-      .get(database.child(dbref, `users/${userName}/userSettings`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          return snapshot.val();
-        }
-        return `some problem with request data`;
-      })
-      .catch((error) => error);
-  }
-
-  async getUserHistory(userName: string) {
-    const dbref = database.ref(database.db);
-    return database
-      .get(database.child(dbref, `users/${userName}/userHistory`))
+      .get(database.child(dbref, `users/${userName}/${paramName}`))
       .then((snapshot) => {
         if (snapshot.exists()) {
           return snapshot.val();
@@ -42,27 +33,17 @@ export class FBInterface implements FBInterfaceType {
     return database
       .set(
         database.ref(database.db, `users/${userName}`),
-        { userSettings, history: [] }
+        { userSettings, history: [], favourite: [] }
       )
       .then(() => userName)
       .catch((error) => error);
   }
 
-  async updateUserSettings(userName: string, userSettings: SettingType) {
+  async updateUserParam(userName: string, paramName: ParamNameType, updatingParam: UpdatingParamType) {
     return database
       .update(
-        database.ref(database.db, `users/${userName}`),
-        userSettings
-      )
-      .then(() => userName)
-      .catch((error) => error);
-  }
-
-  async updateUserHistory(userName: string, userHistory: DietResponsType) {
-    return database
-      .update(
-        database.ref(database.db, `users/${userName}`),
-        userHistory
+        database.ref(database.db, `users/${userName}/${paramName}`),
+        updatingParam
       )
       .then(() => userName)
       .catch((error) => error);

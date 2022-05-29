@@ -9,14 +9,15 @@ export const Layout = ({ isAuth }: IsAuthType) => {
   return (
     <>
       <header className="layout">
-        <h1 className="mainTitle">Life after dieT's...</h1>
+        <h1 className="mainTitle">Life after diets...</h1>
+        {isAuth ? <p className="welcomeField"><p>{isAuth}</p></p> : ""}
         <hr />
         <div className="layoutLinkCont">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Recipes</NavLink>
           {isAuth ? (
             <>
-              <NavLink to="/settings">Settings</NavLink>
-              <NavLink to="/statistics">Statistics</NavLink>
+              <NavLink to="/history">History</NavLink>
+              <NavLink to="/favourite">Favourite</NavLink>
             </>
           ) : (
             ""

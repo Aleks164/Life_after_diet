@@ -46,9 +46,10 @@
 
 .errorMessage {
     position: absolute;
-    top: 5px;
+    top: 0px;
     width: 33%;
-    right: 5px;
+    font-size: 20px;
+    left: -133px;
     text-align: center;
     border: 1px solid #5e5ea657;
     background-color: #ffb9b9a3;
