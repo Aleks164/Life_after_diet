@@ -3,7 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 150px auto;
+  grid-template-columns: 150px 65vw;
   grid-template-rows: auto;
   grid-template-areas:
     "chosenParam markbooks"
@@ -27,17 +27,18 @@
 .markbooks {
   grid-area: markbooks;
   margin: 0px;
+  margin-top: 15px;
 }
 
 .noFoundMessage {
   width: 70%;
   font-size: 22px;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   font-family: monospace;
   margin-top: 15%;
   line-height: 1.5;
-  padding-bottom: 15%;
 }
 
 .recipeBook {
@@ -66,7 +67,6 @@
   z-index: 5;
   background-color: #fbc2c8;
   box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
-
 }
 
 .instructionButtons {
@@ -76,7 +76,7 @@
 .instructionButtons button {
   grid-area: markbooks;
   margin: 0px;
-  margin-top: -10px;
+  margin-top: -2px;
   border: 2px dotted #f1c40f;
   margin-bottom: -1px;
   font-size: 20px;
@@ -135,7 +135,7 @@
   grid-area: generalSpace;
   border: 2px dotted #f1c40f;
   font-size: 22px;
-  min-width: 520px;
+  min-width: 560px;
 }
 
 .dietSelector label {
@@ -144,9 +144,8 @@
   grid-template-rows: auto;
 }
 
-.dietSelector>* {
+.dietSelector > * {
   margin: 5px;
-
 }
 
 .dietSelector select,
@@ -169,7 +168,6 @@
   grid-area: generalSpace;
   padding: 5px;
   border: 2px solid #f1c40f;
-  ;
 }
 
 .recipeItem {
@@ -226,14 +224,13 @@
 
 .showIngridients:hover {
   background-color: #fff6edcf;
-
 }
 
 .showTextInButton {
   margin-top: -20px;
 }
 
-.recipeItem>p {
+.recipeItem > p {
   position: absolute;
   z-index: 5;
   bottom: 0px;
@@ -285,11 +282,15 @@
   grid-area: generalSpace;
   font-size: 22px;
   border: 2px dotted #f1c40f;
-  ;
+  min-width: 560px;
 }
 
 .markbooksField fieldset {
   min-width: 520px;
+}
+
+.cusinesForm fieldset {
+  min-height: 350px;
 }
 
 .markbooksField p {
@@ -314,7 +315,6 @@
   margin-top: 10px;
 }
 
-
 .recipeConteiner::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -331,7 +331,8 @@
   top: -17px;
   text-decoration: none;
   left: -4px;
-  text-shadow: 0px 1px 2px rgb(15 122 22 / 75%), -1px 3px 4px rgb(54 64 56 / 75%);
+  text-shadow: 0px 1px 2px rgb(15 122 22 / 75%),
+    -1px 3px 4px rgb(54 64 56 / 75%);
   font-weight: 999;
   color: rgb(13, 141, 4);
 }
@@ -344,4 +345,21 @@
 .plusButton:hover {
   color: rgb(16, 131, 41);
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75), -1px 3px 4px rgba(0, 0, 0, 0.75);
+}
+
+.clearButton {
+  width: 250px;
+  margin: 10px;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+}
+
+.tryAgainButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  margin-top: 25px;
+  width: 200px;
 }

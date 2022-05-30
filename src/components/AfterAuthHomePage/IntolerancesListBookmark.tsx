@@ -50,7 +50,11 @@ export const IntolerancesListBookmark = ({
           </div>
           <p>*suggested recipes won't contain the selected products</p>
         </fieldset>
-        <button onClick={ChooseClearAll} type="button">
+        <button
+          className="clearButton loginFormButton"
+          onClick={ChooseClearAll}
+          type="button"
+        >
           {settings.intolerancesList.length > 0 ? "Clear all" : "Choose all"}
         </button>
       </form>

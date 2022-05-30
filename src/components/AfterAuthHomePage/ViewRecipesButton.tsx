@@ -7,22 +7,16 @@ import { FBInterface } from "../../firebase_init/FBInterface";
 import { createEmailForFB } from "../../utils/createEmailForFB";
 import { useAuth } from "../../hooks/useAuth";
 
-export async function spoon(fetchBody: string) {
+export async function getRecipeListFromAPi(queryString: string) {
   const options = {
     method: "GET",
-    headers: {
-    }
+    headers: {}
   };
 
   try {
-
-    const response = await window.fetch(
-      fetchBody,
-      options
-    );
+    const response = await window.fetch(queryString, options);
     const url = await response.json();
     return url;
-
   } catch (e) {
     console.error(e);
     return tempData;
@@ -30,7 +24,9 @@ export async function spoon(fetchBody: string) {
 }
 
 export const ViewRecipesButton = ({
-  settings, isLoading, setIsLoading
+  settings,
+  isLoading,
+  setIsLoading
 }: ViewRecipeParamType) => {
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const { setClientSettings } = useClientSettings();
@@ -42,39 +38,49 @@ export const ViewRecipesButton = ({
   }
   function recipeRequestCreator(e: FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    const { cuisinesList, dietSelector, intolerancesList, ingridientsSelector, mealTypesSelector } = settings;
+    const {
+      cuisinesList,
+      dietSelector,
+      intolerancesList,
+      ingridientsSelector,
+      mealTypesSelector
+    } = settings;
 
-    let fetchBody = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;
+    let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;
     if (dietSelector.diet.length)
-      fetchBody += `&diet=${rigthType(dietSelector.diet)}`;
+      queryString += `&diet=${rigthType(dietSelector.diet)}`;
     if (cuisinesList.length)
-      fetchBody += `&cuisine=${cuisinesList
+      queryString += `&cuisine=${cuisinesList
         .map((cuisine) => rigthType(cuisine))
         .join(",")}`;
     if (intolerancesList.length)
-      fetchBody += `&intolerances=${intolerancesList
+      queryString += `&intolerances=${intolerancesList
         .map((intolerance) => rigthType(intolerance))
         .join(",")}`;
     if (ingridientsSelector.ingridients.length)
-      fetchBody += `&includeIngredients=${ingridientsSelector.ingridients
+      queryString += `&includeIngredients=${ingridientsSelector.ingridients
         .map((ingridient) => rigthType(ingridient))
         .join(",")}`;
     if (mealTypesSelector.mealType.length)
-      fetchBody += `&type=${rigthType(mealTypesSelector.mealType)}`;
-    fetchBody += `&number=10`;
-    console.log(fetchBody);
-    console.log(settings);
-    // console.log(tempData);
+      queryString += `&type=${rigthType(mealTypesSelector.mealType)}`;
+    queryString += `&number=10`;
+
     if (setClientSettings) {
       setClientSettings(settings);
-      if (userAuth)
-        newCrud.updateUserParam(createEmailForFB(userAuth), "settings", settings)
+      if (userAuth) newCrud.updateUserParam(userAuth, "settings", settings);
     }
-    spoon(fetchBody).then((response) => {
+    getRecipeListFromAPi(queryString).then((response) => {
       console.log("fetchRecipeList", response);
       setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
-    })
+    });
   }
-  return <button className="loginFormButton findRecipesButton" onClick={recipeRequestCreator}>{"Find recipes"}</button>;
+  return (
+    <button
+      className="loginFormButton findRecipesButton"
+      onClick={recipeRequestCreator}
+    >
+      {"Find recipes"}
+    </button>
+  );
 };

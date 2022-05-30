@@ -26,7 +26,7 @@ export const CuisinesListBookmark = ({
     }
   }
   return (
-    <div className="markbooksField">
+    <div className="markbooksField cusinesForm">
       <form>
         <fieldset>
           <legend>Choose your cusines</legend>
@@ -44,12 +44,20 @@ export const CuisinesListBookmark = ({
               </label>
             ))}
           </div>
-          {!settings.cuisinesList.length ? <p>
-            *if you have not chosen any cuisine, then the recipes will be from
-            different cuisines, selected randomly
-          </p> : ""}
+          {!settings.cuisinesList.length ? (
+            <p>
+              *if you have not chosen any cuisine, then the recipes will be from
+              different cuisines, selected randomly
+            </p>
+          ) : (
+            ""
+          )}
         </fieldset>
-        <button onClick={ChooseClearAll} type="button">
+        <button
+          className="clearButton loginFormButton"
+          onClick={ChooseClearAll}
+          type="button"
+        >
           {settings.cuisinesList.length > 0 ? "Clear all" : "Choose all"}
         </button>
       </form>
