@@ -23,7 +23,6 @@ export const Login = () => {
       .then((respons) => {
         if (typeof respons.user.email === "string")
           signIn(respons.user.email, () => navigate(beforeLoginPagePath, { replace: true }));
-        console.log("respons", respons);
       })
       .catch((error) => {
         setErrorMessage(createErrorMessage(error.message));

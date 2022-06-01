@@ -1,35 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import { BookmarkPropsType } from "../../../types/types";
 import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
 import { DietCooseField } from "./DietCooseField";
 import { MealTypesSelector } from "./MealTypesSelector";
 import { ExcludeIngridientList } from "./ExcludeIngridientList";
-import { LoadingPage } from "../LoadingPage/LoadinfPage";
 
 export const DietSelector = ({
   settings,
-  setRequestSettings,
+  setRequestSettings
 }: BookmarkPropsType) => {
-
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="dietSelector">
-
-      {!isLoading ? <form>
-        <DietCooseField settings={settings} setRequestSettings={setRequestSettings} />
-        <hr />
-        <IngridientsList settings={settings} setRequestSettings={setRequestSettings} />
-        <hr />
-        <ExcludeIngridientList settings={settings} setRequestSettings={setRequestSettings} />
-        <hr />
-        <MealTypesSelector settings={settings} setRequestSettings={setRequestSettings} />
-        <hr />
-        <ViewRecipesButton
-          settings={settings} isLoading={isLoading} setIsLoading={setIsLoading}
+      <form>
+        <DietCooseField
+          settings={settings}
+          setRequestSettings={setRequestSettings}
         />
-      </form> : (<div className="loadingPage"><LoadingPage /></div>)}
-
+        <hr />
+        <IngridientsList
+          settings={settings}
+          setRequestSettings={setRequestSettings}
+        />
+        <hr />
+        <ExcludeIngridientList
+          settings={settings}
+          setRequestSettings={setRequestSettings}
+        />
+        <hr />
+        <MealTypesSelector
+          settings={settings}
+          setRequestSettings={setRequestSettings}
+        />
+        <hr />
+        <ViewRecipesButton settings={settings} />
+      </form>
     </div>
   );
 };

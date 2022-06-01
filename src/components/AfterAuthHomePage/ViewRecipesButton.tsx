@@ -1,10 +1,9 @@
 import React, { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { ViewRecipeParamType } from "../../types/types";
+import { SettingParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
 import { useClientSettings } from "../../hooks/useClientSettings";
 import { FBInterface } from "../../firebase_init/FBInterface";
-import { createEmailForFB } from "../../utils/createEmailForFB";
 import { useAuth } from "../../hooks/useAuth";
 
 export async function getRecipeListFromAPi(queryString: string) {
@@ -23,11 +22,7 @@ export async function getRecipeListFromAPi(queryString: string) {
   }
 }
 
-export const ViewRecipesButton = ({
-  settings,
-  isLoading,
-  setIsLoading
-}: ViewRecipeParamType) => {
+export const ViewRecipesButton = ({ settings }: SettingParamType) => {
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();
@@ -70,8 +65,6 @@ export const ViewRecipesButton = ({
       if (userAuth) newCrud.updateUserParam(userAuth, "settings", settings);
     }
     getRecipeListFromAPi(queryString).then((response) => {
-      console.log("fetchRecipeList", response);
-      setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
     });
   }

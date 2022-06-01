@@ -23,8 +23,8 @@ export const AuthProvider = ({ children }: ChildrenType) => {
         cb();
       })
       .catch((e: Error) => {
-        if (setClientSettings) console.log(e);
-        setClientSettings(defaultSettings);
+        if (setClientSettings) setClientSettings(defaultSettings);
+        console.log(e);
         cb();
       });
   };

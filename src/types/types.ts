@@ -1,12 +1,14 @@
 import { NavigateFunction } from "react-router-dom";
 import { RecipeResponsType } from "../information";
 
-export type DietResponsType = {
+export type DietResponsType = DietItemType[];
+
+export type DietItemType = {
   id: number;
   title: string;
   image: string;
-  imageType: string;
-}[];
+  imageType?: string;
+};
 
 export type IsAuthType = { isAuth: null | string };
 
@@ -76,11 +78,11 @@ export type SetSettingType = React.Dispatch<React.SetStateAction<SettingType>>;
 export type HistoryFavouriteTypes = DietResponsType;
 
 export type SetHistoryType = React.Dispatch<
-  React.SetStateAction<HistoryFavouriteTypes>
+  React.SetStateAction<DietResponsType>
 >;
 
 export type SetFavouriteType = React.Dispatch<
-  React.SetStateAction<HistoryFavouriteTypes>
+  React.SetStateAction<DietResponsType>
 >;
 
 export type SetRecipeInfo = React.Dispatch<

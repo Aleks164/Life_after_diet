@@ -11,7 +11,7 @@
 }
 
 .loadingPage {
-  grid-area: bodyContent;
+  /* grid-area: bodyContent; */
   width: 73%;
   height: 480px;
   margin: auto;
@@ -144,7 +144,7 @@
   grid-template-rows: auto;
 }
 
-.dietSelector > * {
+.dietSelector>* {
   margin: 5px;
 }
 
@@ -168,6 +168,16 @@
   grid-area: generalSpace;
   padding: 5px;
   border: 2px solid #f1c40f;
+}
+
+.dietDefenitionList h3 {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.dietDefenitionList p {
+  font-size: 20px;
+  padding-left: 5px;
 }
 
 .recipeItem {
@@ -230,7 +240,7 @@
   margin-top: -20px;
 }
 
-.recipeItem > p {
+.recipeItem>p {
   position: absolute;
   z-index: 5;
   bottom: 0px;
@@ -330,7 +340,7 @@
   font-size: 38px;
   top: -17px;
   text-decoration: none;
-  left: -4px;
+  left: 5px;
   text-shadow: 0px 1px 2px rgb(15 122 22 / 75%),
     -1px 3px 4px rgb(54 64 56 / 75%);
   font-weight: 999;
@@ -361,5 +371,5 @@
   margin-right: auto;
   margin-bottom: 10%;
   margin-top: 25px;
-  width: 200px;
+  width: 230px;
 }

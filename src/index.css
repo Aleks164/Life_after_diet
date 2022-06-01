@@ -76,7 +76,7 @@ p {
   background-image: radial-gradient(
       1px 100% at 0 40%,
       rgba(0, 0, 0, 0.6),
-      transparent
+      #0000000a
     ),
     radial-gradient(1px 100% at 100% 40%, rgba(0, 0, 0, 0.6), transparent);
 }

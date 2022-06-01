@@ -2,11 +2,25 @@ import React, { useState } from "react";
 import { RecipeType } from "../../../types/types";
 import { RecipeCart } from "./RecipeCart";
 import { RecipeInstruction } from "./RecipeInstruction";
+import { useClientSettings } from "../../../hooks/useClientSettings";
 import { Icons } from "./Icons";
+import { changeFavouriteStatus } from "./changeFavouriteStatus";
 import "./RecipePageStyles.css";
 
 export const RecipePage = ({ recipe }: RecipeType) => {
   const [curMarkbook, setCurMarkbook] = useState("Description");
+  const { сlientFavourite, setClientFavourite } = useClientSettings();
+  const isItInFafouritList = сlientFavourite.some(
+    (favourite) => favourite.id === recipe.id
+  );
+  console.log(сlientFavourite);
+  const fafouriteParams = {
+    сlientFavourite,
+    setClientFavourite,
+    recipe,
+    isItInFafouritList
+  };
+
   return (
     <div className="ricipe">
       <h2 className="recipeTitle">{recipe.title}</h2>
@@ -28,7 +42,13 @@ export const RecipePage = ({ recipe }: RecipeType) => {
       </div>
       <div className="recipeTemplate">
         <img className="recipeImage" src={recipe.image} alt="recipe" />
-        <div title="Add to favourite" className="starStyles favouriteStar"></div>
+        <div
+          onClick={() => changeFavouriteStatus(fafouriteParams)}
+          title="Add to favourite"
+          className={
+            isItInFafouritList ? "starStyles" : "favouriteStar"
+          }
+        ></div>
         <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
         {curMarkbook === "Description" ? <RecipeCart recipe={recipe} /> : ""}
         {curMarkbook === "Instruction" ? (

@@ -2,8 +2,8 @@ import React from "react";
 import { useClientSettings } from "../../../hooks/useClientSettings";
 import { RecipeList } from "../RecipesListPage/RecipeList";
 
-export const HistoryPage = () => {
-  const { сlientHistory } = useClientSettings();
+export const FavouretePage = () => {
+  const { сlientFavourite } = useClientSettings();
 
-  return <RecipeList recipeInfo={сlientHistory} />;
+  return <RecipeList recipeInfo={сlientFavourite} />;
 };
