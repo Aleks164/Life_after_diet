@@ -18,23 +18,21 @@ export function changeFavouriteStatus({
   isItInFafouritList
 }: FafouriteParamsType) {
   if (isItInFafouritList) {
-    console.log("delete");
-    const filtredFavouritList = сlientFavourite.filter(
-      (favoryEl) => {
-        console.log(favoryEl.id, recipe.id)
-        return favoryEl.id !== recipe.id
-      }
-    );
-    console.log(filtredFavouritList);
-    if (setClientFavourite) setClientFavourite(filtredFavouritList);
+    console.log("delete", сlientFavourite);
+
+    delete сlientFavourite[recipe.id];
+    console.log("deleted", сlientFavourite);
+    if (setClientFavourite) setClientFavourite(сlientFavourite);
   } else {
     console.log("add");
     const newFavourite = {
-      id: recipe.id,
-      image: recipe.image,
-      title: recipe.title
+      ...сlientFavourite,
+      [recipe.id]: {
+        id: recipe.id,
+        image: recipe.image,
+        title: recipe.title
+      }
     };
-    сlientFavourite.push(newFavourite);
-    if (setClientFavourite) setClientFavourite(сlientFavourite);
+    if (setClientFavourite) setClientFavourite(newFavourite);
   }
 }

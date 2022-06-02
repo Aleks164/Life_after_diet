@@ -1,9 +1,7 @@
 import React, { createContext, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { FBInterface } from "../firebase_init/FBInterface";
-import { useClientSettings } from "../hooks/useClientSettings";
-import { AuthKitType, ChildrenType, SettingType } from "../types/types";
-import { defaultSettings } from "../utils/defaultSettings";
+import { AuthKitType, ChildrenType } from "../types/types";
 
 export const AuthContext = createContext<AuthKitType>({
   user: null
@@ -12,26 +10,15 @@ export const AuthContext = createContext<AuthKitType>({
 export const AuthProvider = ({ children }: ChildrenType) => {
   const [user, setUser] = useState<null | string>(null);
   const newCrud = new FBInterface();
-  const { setClientSettings } = useClientSettings();
 
   const signIn = (newUser: string, cb: () => NavigateFunction) => {
     setUser(newUser);
-    newCrud
-      .getUserParam(newUser, "settings")
-      .then((response: SettingType) => {
-        if (setClientSettings) setClientSettings(response);
-        cb();
-      })
-      .catch((e: Error) => {
-        if (setClientSettings) setClientSettings(defaultSettings);
-        console.log(e);
-        cb();
-      });
+    cb();
   };
 
   const signUp = async (newUser: string, cb: () => NavigateFunction) => {
     setUser(newUser);
-    await newCrud.addNewUserOnFB(newUser, defaultSettings);
+    await newCrud.addNewUserOnFB(newUser);
     cb();
   };
 

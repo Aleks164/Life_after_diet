@@ -1,95 +1,99 @@
 .registrationForm {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  margin-bottom: 10px;
 }
 
 .registrationForm label {
-    width: 220px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+  width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .registrationForm input {
-    width: 100%;
-    font-size: 20px;
-    font-style: italic;
-    background-color: rgb(178 241 235 / 67%);
+  width: 100%;
+  font-size: 20px;
+  font-style: italic;
+  background-color: rgb(178 241 235 / 67%);
 }
 
 .registrationFormCont {
-    position: relative;
-    margin-top: 30px;
-    width: 390px;
-    padding-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid black;
+  position: relative;
+  margin-top: 30px;
+  width: 390px;
+  padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
 }
 
 .registrationFormCont h2 {
-    text-align: center;
-    font-size: 32px;
+  text-align: center;
+  font-size: 32px;
 }
 
 .registrationFormCont button {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.registrationFormCont>p {
-    text-align: center;
+.registrationFormCont > p {
+  text-align: center;
 }
 
 .errorMessage {
-    position: absolute;
-    top: 0px;
-    width: 33%;
-    font-size: 20px;
-    left: -133px;
-    text-align: center;
-    border: 1px solid #5e5ea657;
-    background-color: #ffb9b9a3;
+  position: absolute;
+  top: 0px;
+  width: 33%;
+  font-size: 20px;
+  left: -133px;
+  text-align: center;
+  border: 1px solid #5e5ea657;
+  background-color: #ffb9b9a3;
 }
 
 .loginFormButton {
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 20px;
-    width: 170px;
-    font-size: 24px;
-    padding: 10px 30px;
-    position: relative;
-    border: 2px solid #f1c40f;
-    color: #493c9e;
-    font-family: 'Montserrat', sans-serif;
-    transition: .4s;
-    font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  width: 170px;
+  font-size: 24px;
+  padding: 10px 30px;
+  position: relative;
+  border: 2px solid #f1c40f;
+  color: #493c9e;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.4s;
+  font-weight: 800;
 }
 
 .loginFormButton:active {
-    background-color: #7fffd447;
+  background-color: #7fffd447;
 }
 
 .loginFormButton:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    border: 2px solid rgba(0, 0, 0, 0);
-    transition: .4s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.4s;
 }
 
 .loginFormButton:hover:after {
-    border-color: #f1c40f;
-    width: calc(100% - 10px);
-    height: calc(100% + 10px);
+  border-color: #f1c40f;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+}
+
+.loadingCursor {
+  cursor: wait;
 }
