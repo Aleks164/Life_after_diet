@@ -77,7 +77,6 @@ export const Form = ({
         </p>
       ) : (
         <p>
-          {" "}
           You have an account already? <Link to={"/login"}>Log in here.</Link>
         </p>
       )}

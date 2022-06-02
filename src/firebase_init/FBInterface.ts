@@ -12,7 +12,7 @@ export interface FBInterfaceType {
     userName: string,
     paramName: ParamNameType
   ): Promise<SettingType | string>;
-  addNewUserOnFB(userName: string, settings: SettingType): Promise<string>;
+  addNewUserOnFB(userName: string): Promise<string>;
   updateUserParam(
     userName: string,
     paramName: ParamNameType,

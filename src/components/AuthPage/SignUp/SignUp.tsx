@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
+import { isLoadingType } from "../../../types/types";
 
 interface Location {
   state: { from: { pathname: string } }
@@ -11,6 +12,7 @@ interface Location {
 
 export const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { signUp } = useAuth();
@@ -19,20 +21,23 @@ export const SignUp = () => {
 
   const signUpHandler = (loginEmail: string, loginPassword: string) => {
     const auth = getAuth();
+    setIsLoading(!isLoading);
     createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((respons) => {
         console.log(respons.user.email);
         if (typeof respons.user.email === "string")
           signUp(respons.user.email, () => navigate(beforeLoginPagePath, { replace: true }));
         console.log("respons", respons);
+        setIsLoading(!isLoading);
       })
       .catch((error) => {
         setErrorMessage(createErrorMessage(error.message));
+        setIsLoading(!isLoading);
       })
   }
 
   return (<>
-    <Form signInUpHandler={signUpHandler} processName="Sign up" errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
+    <Form signInUpHandler={signUpHandler} processName="Sign up" errorMessage={errorMessage} setErrorMessage={setErrorMessage} isLoading={isLoading} />
   </>
   );
 };

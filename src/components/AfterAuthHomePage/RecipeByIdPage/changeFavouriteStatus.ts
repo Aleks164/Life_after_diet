@@ -9,20 +9,23 @@ export type FafouriteParamsType = {
   setClientFavourite: SetFavouriteType | undefined;
   recipe: RecipeType["recipe"];
   isItInFafouritList: boolean;
+  setIsItInFafouritList: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export function changeFavouriteStatus({
   сlientFavourite,
   setClientFavourite,
-  recipe,
-  isItInFafouritList
+  recipe, isItInFafouritList, setIsItInFafouritList
 }: FafouriteParamsType) {
+
+  console.log(isItInFafouritList)
   if (isItInFafouritList) {
     console.log("delete", сlientFavourite);
 
     delete сlientFavourite[recipe.id];
     console.log("deleted", сlientFavourite);
     if (setClientFavourite) setClientFavourite(сlientFavourite);
+    setIsItInFafouritList(!isItInFafouritList);
   } else {
     console.log("add");
     const newFavourite = {
@@ -34,5 +37,6 @@ export function changeFavouriteStatus({
       }
     };
     if (setClientFavourite) setClientFavourite(newFavourite);
+    setIsItInFafouritList(!isItInFafouritList);
   }
 }

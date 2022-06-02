@@ -62,10 +62,10 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
           <hr />
           <ol>
             {recipe.analyzedInstructions.length > 0
-              ? recipe.analyzedInstructions[0].steps.map((step, index) => (
+              ? recipe.analyzedInstructions[0].steps.map((step) => (
                 <>
-                  <div key={step.number + 100}>
-                    <li key={index}>
+                  <div key={step.number}>
+                    <li>
                       {step.length ? (
                         <p className="stepDuration">
                           {step.length.number} min
