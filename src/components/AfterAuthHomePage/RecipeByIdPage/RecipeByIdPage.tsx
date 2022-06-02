@@ -32,7 +32,6 @@ export const RecipeByIdPage = () => {
   useEffect(() => {
     if (id)
       spoon(id).then((response) => {
-        console.log(response);
         setRecipe(response);
         setTimeout(() => {
           setIsLoading(!isLoading);

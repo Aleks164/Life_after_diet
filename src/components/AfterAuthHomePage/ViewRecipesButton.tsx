@@ -1,10 +1,7 @@
 import React, { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { SettingParamType } from "../../types/types";
+import { ViewRecipeParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
-import { useClientSettings } from "../../hooks/useClientSettings";
-import { FBInterface } from "../../firebase_init/FBInterface";
-import { useAuth } from "../../hooks/useAuth";
 
 export async function getRecipeListFromAPi(queryString: string) {
   const options = {
@@ -22,12 +19,13 @@ export async function getRecipeListFromAPi(queryString: string) {
   }
 }
 
-export const ViewRecipesButton = ({ settings }: SettingParamType) => {
+export const ViewRecipesButton = ({
+  settings,
+  isLoading,
+  setIsLoading
+}: ViewRecipeParamType) => {
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
-  const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();
-  const newCrud = new FBInterface();
-  const userAuth = useAuth().user;
   function rigthType(string: string) {
     return string.toLocaleLowerCase().replace(" ", "20%");
   }
@@ -60,11 +58,9 @@ export const ViewRecipesButton = ({ settings }: SettingParamType) => {
       queryString += `&type=${rigthType(mealTypesSelector.mealType)}`;
     queryString += `&number=10`;
 
-    if (setClientSettings) {
-      setClientSettings(settings);
-      if (userAuth) newCrud.updateUserParam(userAuth, "settings", settings);
-    }
+    setIsLoading(!isLoading);
     getRecipeListFromAPi(queryString).then((response) => {
+      setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
     });
   }

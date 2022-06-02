@@ -12,7 +12,7 @@ export interface FBInterfaceType {
     userName: string,
     paramName: ParamNameType
   ): Promise<SettingType | string>;
-  addNewUserOnFB(userName: string, userSettings: SettingType): Promise<string>;
+  addNewUserOnFB(userName: string, settings: SettingType): Promise<string>;
   updateUserParam(
     userName: string,
     paramName: ParamNameType,
@@ -35,13 +35,12 @@ export class FBInterface implements FBInterfaceType {
       .catch((error) => error);
   }
 
-  async addNewUserOnFB(userName: string, userSettings: SettingType) {
+  async addNewUserOnFB(userName: string) {
     userName = createEmailForFB(userName);
     return database
       .set(database.ref(database.db, `users/${userName}`), {
-        userSettings,
-        history: [],
-        favourite: []
+        history: {},
+        favourite: {}
       })
       .then(() => userName)
       .catch((error) => error);

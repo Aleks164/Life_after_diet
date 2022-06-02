@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { useClientSettings } from "../../../hooks/useClientSettings";
 import { RecipeListProps } from "../../../types/types";
 import { RecipeItem } from "./RecipeItem";
@@ -10,9 +9,6 @@ import { LoadingPage } from "../LoadingPage/LoadinfPage";
 export const RecipeList = ({ recipeInfo }: RecipeListProps) => {
   const { сlientSettings } = useClientSettings();
   const [isLoading, setIsLoading] = useState(false);
-  const location = useLocation();
-  const isHistory = location.pathname === "/history";
-  const isFavourite = location.pathname === "/favourite";
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,8 +18,7 @@ export const RecipeList = ({ recipeInfo }: RecipeListProps) => {
 
   return (
     <div className="homePage">
-      {isHistory || isFavourite ? <><h3 className="chosenParam"></h3>
-        <div className="leftMenuHomePage"></div></> : <HaveChosenInfo сlientSettings={сlientSettings} />}
+      <HaveChosenInfo сlientSettings={сlientSettings} />
       <h3 className="markbooks recipeBook">Recipe book</h3>
       {isLoading ? (
         <>

@@ -1,13 +1,13 @@
 import { NavigateFunction } from "react-router-dom";
 import { RecipeResponsType } from "../information";
 
-export type DietResponsType = DietItemType[];
-
-export type DietItemType = {
-  id: number;
-  title: string;
-  image: string;
-  imageType?: string;
+export type DietResponsType = {
+  [id: number]: {
+    id: number;
+    title: string;
+    image: string;
+    imageType?: string;
+  };
 };
 
 export type IsAuthType = { isAuth: null | string };

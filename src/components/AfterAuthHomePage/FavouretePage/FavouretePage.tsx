@@ -5,5 +5,7 @@ import { RecipeList } from "../RecipesListPage/RecipeList";
 export const FavouretePage = () => {
   const { сlientFavourite } = useClientSettings();
 
-  return <RecipeList recipeInfo={сlientFavourite} />;
+  const arrayWithFavouriteItem = Object.values(сlientFavourite).reverse();
+
+  return <RecipeList recipeInfo={arrayWithFavouriteItem} />;
 };
