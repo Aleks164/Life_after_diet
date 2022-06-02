@@ -1,4 +1,3 @@
-import React from "react";
 import { ClientSettingsType } from "../../../types/types";
 
 export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (

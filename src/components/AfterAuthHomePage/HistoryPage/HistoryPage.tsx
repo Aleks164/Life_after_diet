@@ -5,5 +5,7 @@ import { RecipeList } from "../RecipesListPage/RecipeList";
 export const HistoryPage = () => {
   const { сlientHistory } = useClientSettings();
 
-  return <RecipeList recipeInfo={сlientHistory} />;
+  const arrayWithHistoryItem = Object.values(сlientHistory).reverse();
+
+  return <RecipeList recipeInfo={arrayWithHistoryItem} />;
 };

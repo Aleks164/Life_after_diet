@@ -144,7 +144,7 @@
   grid-template-rows: auto;
 }
 
-.dietSelector>* {
+.dietSelector > * {
   margin: 5px;
 }
 
@@ -174,7 +174,6 @@
   font-size: 24px;
   margin: 10px;
 }
-
 .dietDefenitionList p {
   font-size: 20px;
   padding-left: 5px;
@@ -240,7 +239,7 @@
   margin-top: -20px;
 }
 
-.recipeItem>p {
+.recipeItem > p {
   position: absolute;
   z-index: 5;
   bottom: 0px;
@@ -371,5 +370,5 @@
   margin-right: auto;
   margin-bottom: 10%;
   margin-top: 25px;
-  width: 230px;
+  width: 200px;
 }

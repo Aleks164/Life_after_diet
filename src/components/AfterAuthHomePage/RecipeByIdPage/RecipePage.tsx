@@ -10,10 +10,11 @@ import "./RecipePageStyles.css";
 export const RecipePage = ({ recipe }: RecipeType) => {
   const [curMarkbook, setCurMarkbook] = useState("Description");
   const { сlientFavourite, setClientFavourite } = useClientSettings();
-  const isItInFafouritList = сlientFavourite.some(
-    (favourite) => favourite.id === recipe.id
+  const arrayOfFavouriteId = Object.keys(сlientFavourite);
+  const isItInFafouritList = arrayOfFavouriteId.some(
+    (favourite) => +favourite === recipe.id
   );
-  console.log(сlientFavourite);
+  console.log("сlientFavourite", сlientFavourite);
   const fafouriteParams = {
     сlientFavourite,
     setClientFavourite,
@@ -46,7 +47,7 @@ export const RecipePage = ({ recipe }: RecipeType) => {
           onClick={() => changeFavouriteStatus(fafouriteParams)}
           title="Add to favourite"
           className={
-            isItInFafouritList ? "starStyles" : "favouriteStar"
+            isItInFafouritList ? "starStyles" : "starStyles favouriteStar"
           }
         ></div>
         <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
