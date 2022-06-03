@@ -20,14 +20,10 @@ export function changeFavouriteStatus({
 
   console.log(isItInFafouritList)
   if (isItInFafouritList) {
-    console.log("delete", сlientFavourite);
-
     delete сlientFavourite[recipe.id];
-    console.log("deleted", сlientFavourite);
     if (setClientFavourite) setClientFavourite(сlientFavourite);
     setIsItInFafouritList(!isItInFafouritList);
   } else {
-    console.log("add");
     const newFavourite = {
       ...сlientFavourite,
       [recipe.id]: {

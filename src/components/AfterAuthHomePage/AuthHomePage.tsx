@@ -25,11 +25,13 @@ export const AuthHomePage = () => {
   useEffect(() => {
     if (userAuth)
       newCrud.getUserParam(userAuth, "favourite").then((resolve) => {
-        setFavourite(resolve);
+        if (setFavourite)
+          setFavourite(resolve);
       });
     if (userAuth)
       newCrud.getUserParam(userAuth, "history").then((resolve) => {
-        setHistory(resolve);
+        if (setHistory)
+          setHistory(resolve);
       });
   }, []);
 

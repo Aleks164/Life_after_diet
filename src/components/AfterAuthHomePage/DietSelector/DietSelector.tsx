@@ -6,6 +6,7 @@ import { DietCooseField } from "./DietCooseField";
 import { MealTypesSelector } from "./MealTypesSelector";
 import { ExcludeIngridientList } from "./ExcludeIngridientList";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
+import { MaxCaloriesInput } from "./MaxCaloriesInput ";
 
 export const DietSelector = ({
   settings,
@@ -32,6 +33,11 @@ export const DietSelector = ({
           />
           <hr />
           <MealTypesSelector
+            settings={settings}
+            setRequestSettings={setRequestSettings}
+          />
+          <hr />
+          <MaxCaloriesInput
             settings={settings}
             setRequestSettings={setRequestSettings}
           />

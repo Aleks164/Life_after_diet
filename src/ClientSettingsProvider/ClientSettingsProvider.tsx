@@ -18,15 +18,15 @@ type ProviderPropsType = {
   setClientHistory?: SetHistoryType;
   сlientFavourite: HistoryFavouriteTypes;
   setClientFavourite?: SetFavouriteType;
-  setHistory: SetHistoryType;
-  setFavourite: SetFavouriteType;
+  setHistory?: SetHistoryType;
+  setFavourite?: SetFavouriteType;
 };
 
 export const ClientSettingsContext = createContext<ProviderPropsType>({
   сlientSettings: defaultSettings,
   сlientHistory: {},
   сlientFavourite: {}
-} as ProviderPropsType);
+});
 
 export const ClientSettingsProvider = ({ children }: ChildrenType) => {
   const newCrud = new FBInterface();
@@ -74,7 +74,7 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
   };
 
   return (
-    <ClientSettingsContext.Provider value={value}>
+    <ClientSettingsContext.Provider value={value as ProviderPropsType}>
       {children}
     </ClientSettingsContext.Provider>
   );

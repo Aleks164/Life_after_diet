@@ -2,6 +2,7 @@ import React, { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { ViewRecipeParamType } from "../../types/types";
 import { tempData } from "../../tempDataFromSpoon/dataFromSpoon";
+import { useClientSettings } from "../../hooks/useClientSettings";
 
 export async function getRecipeListFromAPi(queryString: string) {
   const options = {
@@ -24,6 +25,7 @@ export const ViewRecipesButton = ({
   isLoading,
   setIsLoading
 }: ViewRecipeParamType) => {
+  const { setClientSettings } = useClientSettings();
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const navigate = useNavigate();
   function rigthType(string: string) {
@@ -36,7 +38,8 @@ export const ViewRecipesButton = ({
       dietSelector,
       intolerancesList,
       ingridientsSelector,
-      mealTypesSelector
+      mealTypesSelector,
+      maxCaloriesInput
     } = settings;
 
     let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;
@@ -56,13 +59,20 @@ export const ViewRecipesButton = ({
         .join(",")}`;
     if (mealTypesSelector.mealType.length)
       queryString += `&type=${rigthType(mealTypesSelector.mealType)}`;
+    if (maxCaloriesInput.status)
+      queryString += `&maxCalories=${maxCaloriesInput.value}`;
     queryString += `&number=10`;
 
+    if (setClientSettings)
+      setClientSettings(settings);
+
     setIsLoading(!isLoading);
+
     getRecipeListFromAPi(queryString).then((response) => {
       setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
     });
+
   }
   return (
     <button

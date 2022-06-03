@@ -37,6 +37,7 @@ export type SettingType = {
   ingridientsSelector: { ingridients: string[]; status: boolean };
   mealTypesSelector: { mealType: string; status: boolean };
   excludeIngridientsSelector: { excludeIngridients: string[]; status: boolean };
+  maxCaloriesInput: { value: number; status: boolean };
 };
 
 export type ChildrenType = { children: React.ReactElement };
