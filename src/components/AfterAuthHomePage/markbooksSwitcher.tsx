@@ -2,10 +2,7 @@ import React from "react";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
 import { CuisinesListBookmark } from "./CuisinesListBookmark";
 import { DietSelector } from "./DietSelector/DietSelector";
-import {
-  SetRequestSettingsType,
-  SettingType,
-} from "../../types/types";
+import { SetRequestSettingsType, SettingType } from "../../types/types";
 
 export function markbooksSwitcher(
   markbookName: string,

@@ -64,7 +64,7 @@ export const ViewRecipesButton = ({
       queryString += `&maxCalories=${maxCaloriesInput.value}`;
     queryString += `&number=10`;
 
-    // if (setClientSettings) 
+    // if (setClientSettings)
     setRequestSettings(settings);
 
     setIsLoading(!isLoading);

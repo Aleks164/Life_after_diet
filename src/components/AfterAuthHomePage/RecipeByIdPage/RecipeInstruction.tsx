@@ -63,25 +63,23 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
           <ol>
             {recipe.analyzedInstructions.length > 0
               ? recipe.analyzedInstructions[0].steps.map((step) => (
-                <div key={step.number}>
-                  <li>
-                    {step.length ? (
-                      <p className="stepDuration">
-                        {step.length.number} min
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                    <p>{step.step}</p>
-                  </li>
-                  <ol hidden={hideList} className="stepIngrList">
-                    {step.ingredients.map((ingridient) => (
-                      <li key={ingridient.id}>{ingridient.name}</li>
-                    ))}
-                  </ol>
-                  <hr />
-                </div>
-              ))
+                  <div key={step.number}>
+                    <li>
+                      {step.length ? (
+                        <p className="stepDuration">{step.length.number} min</p>
+                      ) : (
+                        ""
+                      )}
+                      <p>{step.step}</p>
+                    </li>
+                    <ol hidden={hideList} className="stepIngrList">
+                      {step.ingredients.map((ingridient) => (
+                        <li key={ingridient.id}>{ingridient.name}</li>
+                      ))}
+                    </ol>
+                    <hr />
+                  </div>
+                ))
               : sorryText}
           </ol>
         </>

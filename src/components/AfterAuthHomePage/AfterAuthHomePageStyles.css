@@ -142,7 +142,7 @@
   grid-template-rows: auto;
 }
 
-.dietSelector>* {
+.dietSelector > * {
   margin: 5px;
 }
 
@@ -240,7 +240,7 @@
   margin-top: -20px;
 }
 
-.recipeItem>p {
+.recipeItem > p {
   position: absolute;
   box-sizing: border-box;
   z-index: 5;
@@ -272,7 +272,7 @@
   font-size: 30px;
   text-align: right;
   background-color: #ffe950c4;
-  border-radius: 0px 30px 0px 150px;
+  border-radius: 0 30px 0 150px;
 }
 
 .recipeItem button:hover {
