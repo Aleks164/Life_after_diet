@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { isLoadingType } from "../../../types/types";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
@@ -14,14 +14,25 @@ export const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { signIn } = useAuth();
+  const { signIn, beforeLoginPagePath } = useAuth();
+  const signInUpWithGoogle = async () => {
+    const auth = getAuth();
 
-  const beforeLoginPagePath =
-    (location as Location).state?.from?.pathname || "/";
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider).then((result) => {
+      if (result.user && result.user.email)
+        signIn(result.user.email, () =>
+          navigate(beforeLoginPagePath, { replace: true })
+        )
+    }).catch((e) => {
+      setErrorMessage(e);
+    })
+  }
 
   const loginHandler = (loginEmail: string, loginPassword: string) => {
     const auth = getAuth();
+
     setIsLoading(!isLoading);
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((respons) => {
@@ -29,7 +40,6 @@ export const Login = () => {
           signIn(respons.user.email, () =>
             navigate(beforeLoginPagePath, { replace: true })
           );
-        console.log("respons", respons);
         setIsLoading(!isLoading);
       })
       .catch((error) => {
@@ -42,6 +52,7 @@ export const Login = () => {
     <>
       <Form
         isLoading={isLoading}
+        signInUpWithGoogle={signInUpWithGoogle}
         signInUpHandler={loginHandler}
         processName="Log in"
         errorMessage={errorMessage}

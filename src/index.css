@@ -19,21 +19,12 @@
 
 body {
   height: 100%;
-  background: repeating-linear-gradient(
-    to right,
-    #ffddd6,
-    #fff9ed,
-    #fff9ed,
-    #dbdbdb
-  );
+  background: repeating-linear-gradient(to right,
+      #ffddd6,
+      #fff9ed,
+      #fff9ed,
+      #dbdbdb);
   width: 100%;
-}
-
-.image {
-  background-image: url("./assets/cat.jpg");
-  width: 150px;
-  height: 150px;
-  background-size: cover;
 }
 
 p {
@@ -73,11 +64,9 @@ p {
 }
 
 .layoutLinkCont a:hover {
-  background-image: radial-gradient(
-      1px 100% at 0 40%,
+  background-image: radial-gradient(1px 100% at 0 40%,
       rgba(0, 0, 0, 0.6),
-      #0000000a
-    ),
+      #0000000a),
     radial-gradient(1px 100% at 100% 40%, rgba(0, 0, 0, 0.6), transparent);
 }
 
@@ -156,4 +145,15 @@ p {
 
 .signInLink:active {
   top: 2px;
+}
+
+.aboutPicture {
+  background-image: url("./assets/leo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 175px;
+  display: inline-block;
+
 }

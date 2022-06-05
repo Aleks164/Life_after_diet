@@ -15,7 +15,6 @@ export const RecipePage = ({ recipe }: RecipeType) => {
   );
   const [curMarkbook, setCurMarkbook] = useState("Description");
   const [isItInFafouritList, setIsItInFafouritList] = useState(fafouritCheck);
-  console.log("сlientFavourite", сlientFavourite, isItInFafouritList);
   const fafouriteParams = {
     сlientFavourite,
     setClientFavourite,

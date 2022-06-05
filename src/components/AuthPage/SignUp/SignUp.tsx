@@ -24,10 +24,8 @@ export const SignUp = () => {
     setIsLoading(!isLoading);
     createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((respons) => {
-        console.log(respons.user.email);
         if (typeof respons.user.email === "string")
           signUp(respons.user.email, () => navigate(beforeLoginPagePath, { replace: true }));
-        console.log("respons", respons);
         setIsLoading(!isLoading);
       })
       .catch((error) => {

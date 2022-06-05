@@ -11,7 +11,6 @@ interface Location {
 export const RecipesListPage = () => {
     const location = useLocation();
     const recipeInfo = (location as Location).state?.recipeInfo.results;
-    console.log("recipeInfo", recipeInfo);
     if (!recipeInfo) return <Navigate to="/" />
     return (
         <RecipeList recipeInfo={recipeInfo} />)

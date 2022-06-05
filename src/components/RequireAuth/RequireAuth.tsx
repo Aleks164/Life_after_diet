@@ -5,8 +5,10 @@ import { useAuth } from "../../hooks/useAuth";
 export const RequireAuth = () => {
   const location = useLocation();
   const isAuth = useAuth().user;
+  const { setBeforeLoginPagePath } = useAuth();
+
   if (!isAuth) {
-    return <Navigate to="/login" state={{ from: location }} />;
+    return <>{setBeforeLoginPagePath(location.pathname)}<Navigate to="/login" /></>;
   }
   return <Navigate to="/" />;
 };

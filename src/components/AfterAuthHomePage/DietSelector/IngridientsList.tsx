@@ -12,7 +12,6 @@ export const IngridientsList = ({ settings,
     function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         const checkExcludCroosing = settings.excludeIngridientsSelector.excludeIngridients.indexOf(recipeValue);
         const checkIncludCroosing = settings.ingridientsSelector.ingridients.indexOf(recipeValue);
-        console.log(checkExcludCroosing, recipeValue)
         if (ingridients.indexOf(recipeValue) === -1) {
             let message = 'Please input a valid ingridient from list and press "+"';
             if (!ingridientStatus) message = "You must first press 'On'";

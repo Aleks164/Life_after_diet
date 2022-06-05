@@ -6,10 +6,12 @@ import { IsAuthType } from "../../types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === "/login";
+  const isSignUpPage = useLocation().pathname === "/signup";
+  const { pathname } = useLocation();
   return (
     <>
       <header className="layout">
-        <h1 className="mainTitle">Life after diets...</h1>
+        <h1 className="mainTitle">Life after diet...</h1>
         {isAuth ? (
           <div className="welcomeField">
             <p>{isAuth}</p>
@@ -31,7 +33,9 @@ export const Layout = ({ isAuth }: IsAuthType) => {
           <NavLink to="/about">About</NavLink>
         </div>
         {isLoginPage ? (
-          ""
+          <div className="signCont">
+            <SignInLink to="/signup">Sign Up</SignInLink>
+          </div>
         ) : (
           <div className="signCont">
             {!isAuth ? (

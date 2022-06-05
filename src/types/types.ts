@@ -23,11 +23,17 @@ export type SignUpType = (
 
 export type UserType = string | null;
 
+export type BeforeLoginPagePathType = string;
+
+export type SetBeforeLoginPagePathType = React.Dispatch<React.SetStateAction<BeforeLoginPagePathType>>;
+
 export type AuthKitType = {
   user: UserType;
   signIn: SignInType;
   signOut: SignOutType;
   signUp: SignUpType;
+  beforeLoginPagePath: BeforeLoginPagePathType,
+  setBeforeLoginPagePath: SetBeforeLoginPagePathType
 };
 
 export type SettingType = {

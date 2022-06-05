@@ -40,7 +40,7 @@
   margin-right: auto;
 }
 
-.registrationFormCont > p {
+.registrationFormCont>p {
   text-align: center;
 }
 
@@ -96,4 +96,28 @@
 
 .loadingCursor {
   cursor: wait;
+}
+
+.googleIcon {
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  background-image: url(../../../assets/google.svg);
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.googleAuthLink {
+  width: fit-content;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.googleAuthLink span {
+  display: inline-block;
+  vertical-align: super;
+  color: #493c9e;
+  font-family: "Montserrat", sans-serif;
+  font-size: larger;
+  font-weight: bold;
 }

@@ -4,11 +4,13 @@ import { FBInterface } from "../firebase_init/FBInterface";
 import { AuthKitType, ChildrenType } from "../types/types";
 
 export const AuthContext = createContext<AuthKitType>({
-  user: null
+  user: null,
+  beforeLoginPagePath: "/"
 } as AuthKitType);
 
 export const AuthProvider = ({ children }: ChildrenType) => {
   const [user, setUser] = useState<null | string>(null);
+  const [beforeLoginPagePath, setBeforeLoginPagePath] = useState<string>("/");
   const newCrud = new FBInterface();
 
   const signIn = (newUser: string, cb: () => NavigateFunction) => {
@@ -26,7 +28,7 @@ export const AuthProvider = ({ children }: ChildrenType) => {
     setUser(null);
     cb();
   };
-  const authKit = { user, signIn, signOut, signUp };
+  const authKit = { user, signIn, signOut, signUp, beforeLoginPagePath, setBeforeLoginPagePath };
 
   return (
     <AuthContext.Provider value={authKit as AuthKitType}>

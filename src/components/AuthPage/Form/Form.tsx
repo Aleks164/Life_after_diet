@@ -4,6 +4,7 @@ import "./index.css";
 
 export type FormParamType = {
   signInUpHandler: (loginEmail: string, loginPassword: string) => void;
+  signInUpWithGoogle: () => void;
   processName: string;
   errorMessage: string;
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
@@ -12,6 +13,7 @@ export type FormParamType = {
 
 export const Form = ({
   signInUpHandler,
+  signInUpWithGoogle,
   processName,
   errorMessage,
   setErrorMessage,
@@ -70,6 +72,8 @@ export const Form = ({
           {processName}!
         </button>
       </form>
+      <button onClick={signInUpWithGoogle} className="googleAuthLink"><div className="googleIcon"></div><span>Google</span>
+      </button>
       {processName === "Log in" ? (
         <p>
           Do not have an account yet?{" "}

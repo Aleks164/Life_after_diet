@@ -17,8 +17,6 @@ export function changeFavouriteStatus({
   setClientFavourite,
   recipe, isItInFafouritList, setIsItInFafouritList
 }: FafouriteParamsType) {
-
-  console.log(isItInFafouritList)
   if (isItInFafouritList) {
     delete сlientFavourite[recipe.id];
     if (setClientFavourite) setClientFavourite(сlientFavourite);
