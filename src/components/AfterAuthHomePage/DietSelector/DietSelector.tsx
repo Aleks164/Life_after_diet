@@ -10,7 +10,7 @@ import { MaxCaloriesInput } from "./MaxCaloriesInput ";
 
 export const DietSelector = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   return (
@@ -45,6 +45,7 @@ export const DietSelector = ({
           <ViewRecipesButton
             settings={settings}
             isLoading={isLoading}
+            setRequestSettings={setRequestSettings}
             setIsLoading={setIsLoading}
           />
         </form>

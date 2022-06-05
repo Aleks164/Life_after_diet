@@ -9,16 +9,25 @@ export const SorryUnfoundPage = () => {
 
   return (
     <>
-      {!isHistory && !isFavourite ? <p className="noFoundMessage">
-        Sorry... <br />
-        but no recipes according to your requirements were found, reduce the
-        number of parameters and try again, this should help. </p> : ""}
-      {isHistory ? <p className="noFoundMessage">
-        Your history is empty.
-      </p> : ""}
-      {isFavourite ? <p className="noFoundMessage">
-        Your favourite list is empty.
-      </p> : ""}
+      {!isHistory && !isFavourite ? (
+        <p className="noFoundMessage">
+          Sorry... <br />
+          but no recipes according to your requirements were found, reduce the
+          number of parameters and try again, this should help.{" "}
+        </p>
+      ) : (
+        ""
+      )}
+      {isHistory ? (
+        <p className="noFoundMessage">Your history is empty.</p>
+      ) : (
+        ""
+      )}
+      {isFavourite ? (
+        <p className="noFoundMessage">Your favourite list is empty.</p>
+      ) : (
+        ""
+      )}
       <button
         className="tryAgainButton loginFormButton"
         onClick={() => {

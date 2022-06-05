@@ -22,9 +22,18 @@ export const RecipeList = ({ recipeInfo }: RecipeListProps) => {
 
   return (
     <div className="homePage">
-      {isHistory || isFavourite ? <><h3 className="chosenParam"></h3>
-        <div className="leftMenuHomePage"></div></> : <HaveChosenInfo сlientSettings={сlientSettings} />}
-      <h3 className="markbooks recipeBook">{!isHistory && !isFavourite ? "Recipe book" : ""}{isHistory ? "Your history" : ""}{isFavourite ? "Your favourite list" : ""}
+      {isHistory || isFavourite ? (
+        <>
+          <h3 className="chosenParam"></h3>
+          <div className="leftMenuHomePage"></div>
+        </>
+      ) : (
+        <HaveChosenInfo сlientSettings={сlientSettings} />
+      )}
+      <h3 className="markbooks recipeBook">
+        {!isHistory && !isFavourite ? "Recipe book" : ""}
+        {isHistory ? "Your story" : ""}
+        {isFavourite ? "Your favourite list" : ""}
       </h3>
       {isLoading ? (
         <>

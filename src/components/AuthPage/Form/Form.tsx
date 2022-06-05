@@ -17,7 +17,7 @@ export const Form = ({
   processName,
   errorMessage,
   setErrorMessage,
-  isLoading
+  isLoading,
 }: FormParamType) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -72,7 +72,9 @@ export const Form = ({
           {processName}!
         </button>
       </form>
-      <button onClick={signInUpWithGoogle} className="googleAuthLink"><div className="googleIcon"></div><span>Google</span>
+      <button onClick={signInUpWithGoogle} className="googleAuthLink">
+        <div className="googleIcon"></div>
+        <span>Google</span>
       </button>
       {processName === "Log in" ? (
         <p>

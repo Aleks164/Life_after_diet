@@ -5,7 +5,7 @@ import { AuthKitType, ChildrenType } from "../types/types";
 
 export const AuthContext = createContext<AuthKitType>({
   user: null,
-  beforeLoginPagePath: "/"
+  beforeLoginPagePath: "/",
 } as AuthKitType);
 
 export const AuthProvider = ({ children }: ChildrenType) => {
@@ -28,7 +28,14 @@ export const AuthProvider = ({ children }: ChildrenType) => {
     setUser(null);
     cb();
   };
-  const authKit = { user, signIn, signOut, signUp, beforeLoginPagePath, setBeforeLoginPagePath };
+  const authKit = {
+    user,
+    signIn,
+    signOut,
+    signUp,
+    beforeLoginPagePath,
+    setBeforeLoginPagePath,
+  };
 
   return (
     <AuthContext.Provider value={authKit as AuthKitType}>

@@ -1,3 +1,3 @@
 export function createEmailForFB(email: string) {
-    return email.replace(/[.#$\[\]]/g, "_");
+  return email.replace(/[.#$\[\]]/g, "_");
 }

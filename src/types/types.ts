@@ -25,15 +25,17 @@ export type UserType = string | null;
 
 export type BeforeLoginPagePathType = string;
 
-export type SetBeforeLoginPagePathType = React.Dispatch<React.SetStateAction<BeforeLoginPagePathType>>;
+export type SetBeforeLoginPagePathType = React.Dispatch<
+  React.SetStateAction<BeforeLoginPagePathType>
+>;
 
 export type AuthKitType = {
   user: UserType;
   signIn: SignInType;
   signOut: SignOutType;
   signUp: SignUpType;
-  beforeLoginPagePath: BeforeLoginPagePathType,
-  setBeforeLoginPagePath: SetBeforeLoginPagePathType
+  beforeLoginPagePath: BeforeLoginPagePathType;
+  setBeforeLoginPagePath: SetBeforeLoginPagePathType;
 };
 
 export type SettingType = {
@@ -115,6 +117,7 @@ export type ClientSettingsType = {
 export interface ViewRecipeParamType extends SettingParamType {
   isLoading: isLoadingType;
   setIsLoading: SetIsLoadingType;
+  setRequestSettings: SetRequestSettingsType;
 }
 
 export type DietDefenitionType = { [item: number]: string };

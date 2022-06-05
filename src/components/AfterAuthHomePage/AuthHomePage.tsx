@@ -14,7 +14,7 @@ export const AuthHomePage = () => {
 
   const [curMarkbook, setCurMarkbook] = useState({
     curMarkbook: "Main",
-    curInformation: ""
+    curInformation: "",
   });
   const newCrud = new FBInterface();
   const userAuth = useAuth().user;
@@ -25,13 +25,11 @@ export const AuthHomePage = () => {
   useEffect(() => {
     if (userAuth)
       newCrud.getUserParam(userAuth, "favourite").then((resolve) => {
-        if (setFavourite)
-          setFavourite(resolve);
+        if (setFavourite) setFavourite(resolve);
       });
     if (userAuth)
       newCrud.getUserParam(userAuth, "history").then((resolve) => {
-        if (setHistory)
-          setHistory(resolve);
+        if (setHistory) setHistory(resolve);
       });
   }, []);
 

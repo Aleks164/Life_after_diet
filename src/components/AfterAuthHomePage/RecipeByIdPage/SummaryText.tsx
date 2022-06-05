@@ -1,12 +1,12 @@
 import React from "react";
 
 type SummaryTextType = {
-    summary: string
-}
+  summary: string;
+};
 
 export const SummaryText = ({ summary }: SummaryTextType) => {
-    const scrFilted = summary.replace(/<a.+?>/ig, "");
-    const aTegfilted = scrFilted.replace(/<\/a>/ig, "");
-    const innerHtml = { __html: aTegfilted }
-    return <p className="recipeSummary" dangerouslySetInnerHTML={innerHtml}></p>
-}
+  const scrFilted = summary.replace(/<a.+?>/gi, "");
+  const aTegfilted = scrFilted.replace(/<\/a>/gi, "");
+  const innerHtml = { __html: aTegfilted };
+  return <p className="recipeSummary" dangerouslySetInnerHTML={innerHtml}></p>;
+};

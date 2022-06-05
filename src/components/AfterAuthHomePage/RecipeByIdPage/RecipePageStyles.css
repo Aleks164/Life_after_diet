@@ -15,7 +15,6 @@
 .recipeTemplate {
   width: fit-content;
   height: fit-content;
-  height: -moz-fit-content;
   border: 2px dotted orange;
   position: relative;
   grid-area: generalSpace;
@@ -33,7 +32,7 @@
 
 .recipePageMarkbooks button {
   grid-area: markbooks;
-  margin: 0px;
+  margin: 0;
   margin-top: -10px;
   border: 2px dotted #f1c40f;
   margin-bottom: -1px;
@@ -50,7 +49,7 @@
   border-bottom: 2px solid #faf2ea;
   z-index: 5;
   background-color: #fbc2c8;
-  box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
   padding-top: 10px;
   color: black;
 }
@@ -59,7 +58,10 @@
   grid-area: recipeImage;
   width: 100%;
   margin: 10px;
-  border-image: url(../../../assets/frame.svg) 30;
+  margin-top: 20px;
+  border-image: url("../../../assets/frame.svg") 30;
+  border-radius: 30px;
+  box-shadow: 0 -2px 3px 4px rgb(224 190 183);
 }
 
 .starStyles {
@@ -67,40 +69,33 @@
   vertical-align: top;
   width: 55px;
   height: 55px;
-  background: linear-gradient(to bottom,
-      rgba(197, 196, 196, 1) 0%,
-      rgba(180, 179, 178, 1) 100%);
+  background:
+    linear-gradient(to bottom,
+      rgb(197 196 196 / 100%) 0%,
+      rgb(180 179 178 / 100%) 100%);
   position: absolute;
-  top: 20px;
+  top: 25px;
   left: 15px;
 }
 
-.starStyles:before {
+.starStyles::before {
   content: "";
   position: absolute;
   top: 1px;
   left: 1px;
   bottom: 1px;
   right: 1px;
-  background: linear-gradient(to bottom,
-      rgba(221, 220, 219, 1) 0%,
-      rgba(209, 208, 206, 1) 100%);
+  background:
+    linear-gradient(to bottom,
+      rgb(221 220 219 / 100%) 0%,
+      rgb(209 208 206 / 100%) 100%);
   z-index: 1;
 }
 
 .starStyles,
-.starStyles:before {
-  -webkit-clip-path: polygon(50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%);
-  clip-path: polygon(50% 0%,
+.starStyles::before {
+  clip-path:
+    polygon(50% 0%,
       66% 27%,
       98% 35%,
       76% 57%,
@@ -113,27 +108,19 @@
 }
 
 .favouriteStar {
-  background: linear-gradient(to bottom,
-      rgba(243, 212, 85, 1) 0%,
-      rgba(238, 164, 0, 1) 100%);
+  background:
+    linear-gradient(to bottom,
+      rgb(243 212 85 / 100%) 0%,
+      rgb(238 164 0 / 100%) 100%);
   display: inline-block;
   vertical-align: top;
   width: 55px;
   height: 55px;
   position: absolute;
-  top: 20px;
+  top: 25px;
   left: 15px;
-  -webkit-clip-path: polygon(50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%);
-  clip-path: polygon(50% 0%,
+  clip-path:
+    polygon(50% 0%,
       66% 27%,
       98% 35%,
       76% 57%,
@@ -145,23 +132,26 @@
       32% 27%);
 }
 
-.starStyles:hover:before {
-  background: linear-gradient(to bottom,
-      rgba(243, 212, 85, 1) 0%,
-      rgba(238, 164, 0, 1) 100%);
+.starStyles:hover::before {
+  background:
+    linear-gradient(to bottom,
+      rgb(243 212 85 / 100%) 0%,
+      rgb(238 164 0 / 100%) 100%);
 }
 
 .favouriteStar:hover {
-  background: linear-gradient(to bottom,
-      rgba(197, 196, 196, 1) 0%,
-      rgba(180, 179, 178, 1) 100%);
+  background:
+    linear-gradient(to bottom,
+      rgb(197 196 196 / 100%) 0%,
+      rgb(180 179 178 / 100%) 100%);
 }
 
 .instructions {
   grid-area: generalInfo;
   font-size: 20px;
   margin: 10px;
-  margin-top: 0px;
+  margin-left: 15px;
+  margin-top: 0;
   position: relative;
 }
 
@@ -174,7 +164,7 @@
 
 .instructions div {
   margin: 10px;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .generalInfo {
@@ -196,7 +186,7 @@
 }
 
 .generalInfo div:not(:last-child) {
-  border-right: 2px solid rgb(173, 166, 175);
+  border-right: 2px solid rgb(173 166 175);
 }
 
 .generalInfo div:not(:first-child) {
@@ -247,49 +237,49 @@
 }
 
 .glutenfree {
-  background-image: url(../../../assets/gluten-free.svg);
+  background-image: url("../../../assets/gluten-free.svg");
 }
 
 .dairyfree {
-  background-image: url(../../../assets/dairy-free.svg);
+  background-image: url("../../../assets/dairy-free.svg");
 }
 
 .lactoovovegetarian {
-  background-image: url(../../../assets/vegetarian.svg);
+  background-image: url("../../../assets/vegetarian.svg");
 }
 
 .vegan {
-  background-image: url(../../../assets/vegan.svg);
+  background-image: url("../../../assets/vegan.svg");
 }
 
 .vegetarian {
-  background-image: url(../../../assets/vegetarian.svg);
+  background-image: url("../../../assets/vegetarian.svg");
 }
 
 .paleolithic {
-  background-image: url(../../../assets/paleo.svg);
+  background-image: url("../../../assets/paleo.svg");
 }
 
 .primal {
-  background-image: url(../../../assets/primal.svg);
+  background-image: url("../../../assets/primal.svg");
 }
 
 .ovovegetarian {
-  background-image: url(../../../assets/ovovegetarian.svg);
+  background-image: url("../../../assets/ovovegetarian.svg");
 }
 
 .pescetarian {
-  background-image: url(../../../assets/pescetarian.svg);
+  background-image: url("../../../assets/pescetarian.svg");
 }
 
 .lowfoodmap {
-  background-image: url(../../../assets/lowfoodmap.svg);
+  background-image: url("../../../assets/lowfoodmap.svg");
 }
 
 .whole30 {
-  background-image: url(../../../assets/whole30.svg);
+  background-image: url("../../../assets/whole30.svg");
 }
 
 .healthyIcon {
-  background-image: url(../../../assets/healthy.svg);
+  background-image: url("../../../assets/healthy.svg");
 }

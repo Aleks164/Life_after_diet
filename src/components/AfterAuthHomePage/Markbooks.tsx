@@ -12,7 +12,7 @@ type SetCurMarkbookType = {
 
 export const Markbooks = ({
   setCurMarkbook,
-  curMarkbook
+  curMarkbook,
 }: SetCurMarkbookType) => (
   <div className="markbooks">
     <button

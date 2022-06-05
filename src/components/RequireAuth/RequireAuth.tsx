@@ -8,7 +8,12 @@ export const RequireAuth = () => {
   const { setBeforeLoginPagePath } = useAuth();
 
   if (!isAuth) {
-    return <>{setBeforeLoginPagePath(location.pathname)}<Navigate to="/login" /></>;
+    return (
+      <>
+        {setBeforeLoginPagePath(location.pathname)}
+        <Navigate to="/login" />
+      </>
+    );
   }
   return <Navigate to="/" />;
 };

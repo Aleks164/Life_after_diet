@@ -7,7 +7,7 @@ import { useClientSettings } from "../../hooks/useClientSettings";
 export async function getRecipeListFromAPi(queryString: string) {
   const options = {
     method: "GET",
-    headers: {}
+    headers: {},
   };
 
   try {
@@ -23,9 +23,10 @@ export async function getRecipeListFromAPi(queryString: string) {
 export const ViewRecipesButton = ({
   settings,
   isLoading,
-  setIsLoading
+  setRequestSettings,
+  setIsLoading,
 }: ViewRecipeParamType) => {
-  const { setClientSettings } = useClientSettings();
+  // const { setClientSettings } = useClientSettings();
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const navigate = useNavigate();
   function rigthType(string: string) {
@@ -39,7 +40,7 @@ export const ViewRecipesButton = ({
       intolerancesList,
       ingridientsSelector,
       mealTypesSelector,
-      maxCaloriesInput
+      maxCaloriesInput,
     } = settings;
 
     let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;
@@ -63,8 +64,8 @@ export const ViewRecipesButton = ({
       queryString += `&maxCalories=${maxCaloriesInput.value}`;
     queryString += `&number=10`;
 
-    if (setClientSettings)
-      setClientSettings(settings);
+    // if (setClientSettings) 
+    setRequestSettings(settings);
 
     setIsLoading(!isLoading);
 
@@ -72,7 +73,6 @@ export const ViewRecipesButton = ({
       setIsLoading(!isLoading);
       navigate("/recipebook/", { state: { recipeInfo: response } });
     });
-
   }
   return (
     <button

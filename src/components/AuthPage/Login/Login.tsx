@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
+} from "firebase/auth";
 import { isLoadingType } from "../../../types/types";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
@@ -20,15 +27,17 @@ export const Login = () => {
 
     const provider = new GoogleAuthProvider();
 
-    signInWithPopup(auth, provider).then((result) => {
-      if (result.user && result.user.email)
-        signIn(result.user.email, () =>
-          navigate(beforeLoginPagePath, { replace: true })
-        )
-    }).catch((e) => {
-      setErrorMessage(e);
-    })
-  }
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        if (result.user && result.user.email)
+          signIn(result.user.email, () =>
+            navigate(beforeLoginPagePath, { replace: true })
+          );
+      })
+      .catch((e) => {
+        setErrorMessage(e);
+      });
+  };
 
   const loginHandler = (loginEmail: string, loginPassword: string) => {
     const auth = getAuth();

@@ -12,7 +12,7 @@
 
 .loadingPage {
   width: 73%;
-  height: 480px;
+  height: 27vw;
   margin: auto;
   position: relative;
   z-index: 15;
@@ -25,7 +25,7 @@
 
 .markbooks {
   grid-area: markbooks;
-  margin: 0px;
+  margin: 0;
   margin-top: 15px;
 }
 
@@ -49,7 +49,7 @@
 
 .markbooks button {
   grid-area: markbooks;
-  margin: 0px;
+  margin: 0;
   margin-top: -10px;
   border: 2px dotted #f1c40f;
   margin-bottom: -1px;
@@ -65,7 +65,7 @@
   border-bottom: 2px dotted #faf2ea;
   z-index: 5;
   background-color: #fbc2c8;
-  box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
 }
 
 .instructionButtons {
@@ -74,7 +74,7 @@
 
 .instructionButtons button {
   grid-area: markbooks;
-  margin: 0px;
+  margin: 0;
   margin-top: -2px;
   border: 2px dotted #f1c40f;
   margin-bottom: -1px;
@@ -91,7 +91,7 @@
   border-bottom: 2px solid #faf2ea;
   z-index: 5;
   background-color: #fbc2c8;
-  box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
   padding-bottom: 10px;
   color: black;
 }
@@ -107,7 +107,7 @@
 .leftMenuHomePage button {
   grid-area: leftMenuHomePage;
   width: unset;
-  border: 0px;
+  border: 0;
   border-top: 1px solid;
   border-bottom: 1px solid;
   margin-top: 5px;
@@ -115,7 +115,6 @@
   padding-top: 5px;
   padding-bottom: 5px;
   background: #ffffff8c;
-  width: unset;
 }
 
 .leftMenuHomePage button:hover {
@@ -127,7 +126,7 @@
   border-bottom: 2px solid #faf2ea;
   background-color: #fbc2c8;
   z-index: 5;
-  box-shadow: inset 0px 0px 4px 1px rgb(139 108 112);
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
 }
 
 .dietSelector {
@@ -187,6 +186,8 @@
   position: relative;
   margin-right: 6px;
   min-width: 170px;
+  border-radius: 30px;
+  box-shadow: 0 -2px 3px 4px rgb(224 190 183);
 }
 
 .deleteItemButton {
@@ -211,7 +212,7 @@
 }
 
 .deleteItemButton:hover {
-  box-shadow: 0px 1px 5px 0px rgb(0 0 0);
+  box-shadow: 0 1px 5px 0 rgb(0 0 0);
   color: black;
 }
 
@@ -227,7 +228,7 @@
   padding-left: 5px;
   padding-right: 5px;
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 50px;
 }
 
@@ -241,29 +242,37 @@
 
 .recipeItem>p {
   position: absolute;
+  box-sizing: border-box;
   z-index: 5;
-  bottom: 0px;
-  background: #cdffdca6;
+  text-align: center;
+  bottom: -5px;
+  background: #ffffffde;
   width: 100%;
   font-family: monospace;
   font-size: 30px;
+  border-radius: 30px;
+  padding: 5px;
+  border-bottom: 2px solid;
 }
 
 .recipeItem img {
-  width: 100%;
+  width: 380px;
+  height: 281px;
+  border-radius: 30px;
+  box-shadow: 0 -2px 3px 4px rgb(224 190 183);
 }
 
 .recipeItem button {
   font-family: monospace;
   position: absolute;
-  right: 0px;
+  right: 0;
   z-index: 10;
   width: 170px;
   height: 130px;
   font-size: 30px;
   text-align: right;
-  background-color: #ff9a50de;
-  border-radius: 0px 0px 0px 150px / 0px 0px 0px 130px;
+  background-color: #ffe950c4;
+  border-radius: 0px 30px 0px 150px;
 }
 
 .recipeItem button:hover {
@@ -279,6 +288,7 @@
   width: 812px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 30px;
 }
 
 .intoleranceList {
@@ -334,26 +344,25 @@
   width: 29px;
   height: 27px;
   vertical-align: middle;
-  background-color: #ffffff00;
-  border: 0px;
+  background-color: #fff0;
+  border: 0;
   font-size: 38px;
   top: -17px;
   text-decoration: none;
   left: 5px;
-  text-shadow: 0px 1px 2px rgb(15 122 22 / 75%),
-    -1px 3px 4px rgb(54 64 56 / 75%);
+  text-shadow: 0 1px 2px rgb(15 122 22 / 75%), -1px 3px 4px rgb(54 64 56 / 75%);
   font-weight: 999;
-  color: rgb(13, 141, 4);
+  color: rgb(13 141 4);
 }
 
 .plusButton:active {
   color: rgb(0 177 38);
-  text-shadow: 0px 1px 2px rgb(255 0 0 / 75%), -1px 3px 4px rgb(0 11 255 / 75%);
+  text-shadow: 0 1px 2px rgb(255 0 0 / 75%), -1px 3px 4px rgb(0 11 255 / 75%);
 }
 
 .plusButton:hover {
-  color: rgb(16, 131, 41);
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75), -1px 3px 4px rgba(0, 0, 0, 0.75);
+  color: rgb(16 131 41);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 75%), -1px 3px 4px rgb(0 0 0 / 75%);
 }
 
 .clearButton {

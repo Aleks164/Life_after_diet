@@ -40,7 +40,7 @@ export class FBInterface implements FBInterfaceType {
     return database
       .set(database.ref(database.db, `users/${userName}`), {
         history: {},
-        favourite: {}
+        favourite: {},
       })
       .then(() => userName)
       .catch((error) => error);

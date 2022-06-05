@@ -2,12 +2,15 @@ import React from "react";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
 import { CuisinesListBookmark } from "./CuisinesListBookmark";
 import { DietSelector } from "./DietSelector/DietSelector";
-import { SetIsLoadingType, SetRecipeInfo, SetRequestSettingsType, SettingType } from "../../types/types";
+import {
+  SetRequestSettingsType,
+  SettingType,
+} from "../../types/types";
 
 export function markbooksSwitcher(
   markbookName: string,
   requestSettings: SettingType,
-  setRequestSettings: SetRequestSettingsType,
+  setRequestSettings: SetRequestSettingsType
 ) {
   switch (markbookName) {
     case "Main":

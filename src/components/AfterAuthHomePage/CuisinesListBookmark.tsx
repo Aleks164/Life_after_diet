@@ -4,7 +4,7 @@ import { Cuisines as fullList } from "../../utils/consts";
 
 export const CuisinesListBookmark = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   function togleStatus(e: React.ChangeEvent<HTMLInputElement>) {
     let { cuisinesList } = settings;

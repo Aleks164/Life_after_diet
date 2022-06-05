@@ -19,7 +19,8 @@ export const RecipePage = ({ recipe }: RecipeType) => {
     сlientFavourite,
     setClientFavourite,
     recipe,
-    isItInFafouritList, setIsItInFafouritList
+    isItInFafouritList,
+    setIsItInFafouritList,
   };
 
   return (
@@ -46,9 +47,7 @@ export const RecipePage = ({ recipe }: RecipeType) => {
         <div
           onClick={() => changeFavouriteStatus(fafouriteParams)}
           title="Add to favourite"
-          className={
-            isItInFafouritList ? "favouriteStar" : "starStyles"
-          }
+          className={isItInFafouritList ? "favouriteStar" : "starStyles"}
         ></div>
         <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
         {curMarkbook === "Description" ? <RecipeCart recipe={recipe} /> : ""}

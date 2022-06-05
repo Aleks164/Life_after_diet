@@ -5,7 +5,5 @@ import { RecipeByIdPage } from "../AfterAuthHomePage/RecipeByIdPage/RecipeByIdPa
 import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => (
-    <>{!isAuth ? (
-        <UnAuthHomePage />) : (<AuthHomePage />)}</>
-
+  <>{!isAuth ? <UnAuthHomePage /> : <AuthHomePage />}</>
 );

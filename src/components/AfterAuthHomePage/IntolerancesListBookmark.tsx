@@ -4,7 +4,7 @@ import { IntolerancesList as fullList } from "../../utils/consts";
 
 export const IntolerancesListBookmark = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   function ChooseClearAll() {
     const lengthOfList = settings.intolerancesList.length;

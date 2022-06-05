@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "lifeafterdiets-30c24.appspot.com",
   messagingSenderId: "543791507558",
   appId: "1:543791507558:web:8aae671c3298a6b16365a7",
-  measurementId: "G-1EXMBFBYM8"
+  measurementId: "G-1EXMBFBYM8",
 };
 
 export const app = initializeApp(firebaseConfig);
