@@ -17,7 +17,7 @@ export const Form = ({
   processName,
   errorMessage,
   setErrorMessage,
-  isLoading,
+  isLoading
 }: FormParamType) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,13 +39,7 @@ export const Form = ({
       }
     >
       <h2>{processName === "Log in" ? "Welcome back, Log in" : "Sign up"}</h2>
-      <form
-        className="registrationForm"
-        onSubmit={(event) => {
-          event.preventDefault();
-          signInUpHandler(email, password);
-        }}
-      >
+      <form className="registrationForm">
         <label>
           <p>Email:</p>
           <input
@@ -68,7 +62,13 @@ export const Form = ({
             name="userPassword"
           />
         </label>
-        <button className="loginFormButton" type="submit">
+        <button
+          onClick={() => {
+            signInUpHandler(email, password);
+          }}
+          className="loginFormButton"
+          type="button"
+        >
           {processName}!
         </button>
       </form>

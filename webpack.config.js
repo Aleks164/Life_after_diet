@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
+const PREFIX = "/Life_after_diet/";
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
@@ -21,7 +22,7 @@ module.exports = {
     historyApiFallback: true,
   },
   output: {
-    publicPath: "/",
+    publicPath: isDev ? "/" : PREFIX,
   },
   module: {
     rules: [

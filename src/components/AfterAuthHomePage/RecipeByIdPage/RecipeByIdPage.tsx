@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { RecipeResponsType } from "../../../information";
 import { isLoadingType } from "../../../types/types";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RecipePage } from "./RecipePage";
 
-export async function spoon(id: string) {
+export async function getRecipeById(id: string) {
   const options = {
     method: "GET",
     headers: {
@@ -17,11 +17,10 @@ export async function spoon(id: string) {
 
   try {
     const response = await window.fetch(fetchBody, options);
-    const url = await response.json();
-    return url;
+    const recipe = await response.json();
+    return recipe;
   } catch (e) {
-    console.log(e);
-    return "https://spoonacular.com/url-to-generated-recipe-card.jpg";
+    return <Navigate to="/" />
   }
 }
 
@@ -31,7 +30,7 @@ export const RecipeByIdPage = () => {
   const { id } = useParams();
   useEffect(() => {
     if (id)
-      spoon(id).then((response) => {
+      getRecipeById(id).then((response) => {
         setRecipe(response);
         setTimeout(() => {
           setIsLoading(!isLoading);

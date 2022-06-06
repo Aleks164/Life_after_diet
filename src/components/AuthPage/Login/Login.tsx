@@ -1,20 +1,22 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
+  UserCredential
 } from "firebase/auth";
 import { isLoadingType } from "../../../types/types";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
 
-interface Location {
-  state: { from: { pathname: string } };
+interface ResponseFBForGoogle extends UserCredential {
+  _tokenResponse: {
+    isNewUser: boolean
+  }
 }
 
 export const Login = () => {
@@ -22,9 +24,9 @@ export const Login = () => {
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   const navigate = useNavigate();
   const { signIn, beforeLoginPagePath } = useAuth();
+
   const signInUpWithGoogle = async () => {
     const auth = getAuth();
-
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
@@ -70,3 +72,5 @@ export const Login = () => {
     </>
   );
 };
+
+

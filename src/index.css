@@ -19,14 +19,11 @@
 
 body {
   height: 100%;
-  background:
-    repeating-linear-gradient(
-      to right,
+  background: repeating-linear-gradient(to right,
       #ffddd6,
       #fff9ed,
       #fff9ed,
-      #dbdbdb
-    );
+      #dbdbdb);
   width: 100%;
 }
 
@@ -44,6 +41,8 @@ p {
   margin-top: 5px;
   font-family: serif;
   font-size: 40px;
+  cursor: pointer;
+  width: -moz-fit-content;
 }
 
 .layoutLinkCont {
@@ -67,12 +66,9 @@ p {
 }
 
 .layoutLinkCont a:hover {
-  background-image:
-    radial-gradient(
-      1px 100% at 0 40%,
+  background-image: radial-gradient(1px 100% at 0 40%,
       rgb(0 0 0 / 60%),
-      #0000000a
-    ),
+      #0000000a),
     radial-gradient(1px 100% at 100% 40%, rgb(0 0 0 / 60%), transparent);
 }
 
@@ -106,9 +102,9 @@ p {
   font-size: 22px;
   height: 25px;
   text-decoration: none;
-  text-shadow: 2px 0 2px #cba6b6;
   border-radius: 5px;
   padding: 10px 25px;
+  padding-top: 10px;
   font-family: Lato, sans-serif;
   font-weight: 900;
   background: #e5dede;
@@ -116,15 +112,12 @@ p {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow:
-    inset 2px 2px 2px 0 rgb(224 190 183 / 57%),
-    7px 7px 20px 0 rgb(0 0 0 / 52%),
-    4px 4px 5px 0 rgb(0 0 0 / 10%);
   outline: none;
   border: none;
   color: #7e7070fc;
   z-index: 1;
   padding-top: 0;
+  box-shadow: 0 0 4px 1px rgb(139 108 112);
 }
 
 .signInLink::after {
@@ -136,11 +129,8 @@ p {
   left: 0;
   direction: rtl;
   z-index: -1;
-  box-shadow:
-    -7px -7px 20px 0 #fff9,
-    -4px -4px 5px 0 #fff9,
-    7px 7px 20px 0 #0002,
-    4px 4px 5px 0 #0001;
+  box-shadow: -7px -7px 20px 0 #fff9, -4px -4px 5px 0 #fff9,
+    7px 7px 20px 0 #0002, 4px 4px 5px 0 #0001;
   transition: all 0.3s ease;
 }
 
@@ -158,12 +148,38 @@ p {
   top: 2px;
 }
 
+.aboutCont {
+  line-height: 1.4;
+  font-size: 28px;
+  grid-area: bodyContent;
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 150px 65vw;
+  grid-template-rows: auto auto;
+  grid-template-areas: "picture shortInfo""mainDescription mainDescription";
+}
+
 .aboutPicture {
   background-image: url("./assets/leo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  grid-area: picture;
   width: 150px;
   height: 175px;
   display: inline-block;
+  margin-top: 40px;
+  margin-left: 55px;
+}
+
+.mainDescription {
+  margin-top: 25px;
+  grid-area: mainDescription;
+}
+
+.shortInfo {
+  width: fit-content;
+  margin-left: 15%;
 }

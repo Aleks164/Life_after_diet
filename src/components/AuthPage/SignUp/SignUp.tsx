@@ -1,32 +1,41 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
 import { isLoadingType } from "../../../types/types";
 
-interface Location {
-  state: { from: { pathname: string } };
-}
-
 export const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { signUp } = useAuth();
+  const { signIn, beforeLoginPagePath } = useAuth();
 
-  const beforeLoginPagePath =
-    (location as Location).state?.from?.pathname || "/";
-
-  const signUpHandler = (loginEmail: string, loginPassword: string) => {
+  const signInUpWithGoogle = async () => {
     const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        if (result.user && result.user.email)
+          signIn(result.user.email, () =>
+            navigate(beforeLoginPagePath, { replace: true })
+          );
+      })
+      .catch((e) => {
+        setErrorMessage(e);
+      });
+  };
+
+  const loginHandler = (loginEmail: string, loginPassword: string) => {
+    const auth = getAuth();
+
     setIsLoading(!isLoading);
     createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((respons) => {
         if (typeof respons.user.email === "string")
-          signUp(respons.user.email, () =>
+          signIn(respons.user.email, () =>
             navigate(beforeLoginPagePath, { replace: true })
           );
         setIsLoading(!isLoading);
@@ -40,11 +49,12 @@ export const SignUp = () => {
   return (
     <>
       <Form
-        signInUpHandler={signUpHandler}
+        signInUpHandler={loginHandler}
         processName="Sign up"
         errorMessage={errorMessage}
         setErrorMessage={setErrorMessage}
         isLoading={isLoading}
+        signInUpWithGoogle={signInUpWithGoogle}
       />
     </>
   );

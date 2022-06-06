@@ -33,7 +33,6 @@ export type AuthKitType = {
   user: UserType;
   signIn: SignInType;
   signOut: SignOutType;
-  signUp: SignUpType;
   beforeLoginPagePath: BeforeLoginPagePathType;
   setBeforeLoginPagePath: SetBeforeLoginPagePathType;
 };

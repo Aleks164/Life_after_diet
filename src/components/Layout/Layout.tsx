@@ -2,16 +2,24 @@ import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
+import { useNavigate } from "react-router-dom";
 import { IsAuthType } from "../../types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === "/login";
-  const isSignUpPage = useLocation().pathname === "/signup";
-  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <>
       <header className="layout">
-        <h1 className="mainTitle">Life after diet...</h1>
+        <h1
+          className="mainTitle"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Life after diet...
+        </h1>
         {isAuth ? (
           <div className="welcomeField">
             <p>{isAuth}</p>

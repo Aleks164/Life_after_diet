@@ -69,12 +69,11 @@
   vertical-align: top;
   width: 55px;
   height: 55px;
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(197 196 196 / 100%) 0%,
-      rgb(180 179 178 / 100%) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgb(197 196 196 / 100%) 0%,
+    rgb(180 179 178 / 100%) 100%
+  );
   position: absolute;
   top: 25px;
   left: 15px;
@@ -87,39 +86,36 @@
   left: 1px;
   bottom: 1px;
   right: 1px;
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(221 220 219 / 100%) 0%,
-      rgb(209 208 206 / 100%) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgb(221 220 219 / 100%) 0%,
+    rgb(209 208 206 / 100%) 100%
+  );
   z-index: 1;
 }
 
 .starStyles,
 .starStyles::before {
-  clip-path:
-    polygon(
-      50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%
-    );
+  clip-path: polygon(
+    50% 0%,
+    66% 27%,
+    98% 35%,
+    76% 57%,
+    79% 91%,
+    50% 78%,
+    21% 91%,
+    24% 57%,
+    2% 35%,
+    32% 27%
+  );
 }
 
 .favouriteStar {
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(243 212 85 / 100%) 0%,
-      rgb(238 164 0 / 100%) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgb(243 212 85 / 100%) 0%,
+    rgb(238 164 0 / 100%) 100%
+  );
   display: inline-block;
   vertical-align: top;
   width: 55px;
@@ -127,37 +123,34 @@
   position: absolute;
   top: 25px;
   left: 15px;
-  clip-path:
-    polygon(
-      50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%
-    );
+  clip-path: polygon(
+    50% 0%,
+    66% 27%,
+    98% 35%,
+    76% 57%,
+    79% 91%,
+    50% 78%,
+    21% 91%,
+    24% 57%,
+    2% 35%,
+    32% 27%
+  );
 }
 
 .starStyles:hover::before {
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(243 212 85 / 100%) 0%,
-      rgb(238 164 0 / 100%) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgb(243 212 85 / 100%) 0%,
+    rgb(238 164 0 / 100%) 100%
+  );
 }
 
 .favouriteStar:hover {
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(197 196 196 / 100%) 0%,
-      rgb(180 179 178 / 100%) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgb(197 196 196 / 100%) 0%,
+    rgb(180 179 178 / 100%) 100%
+  );
 }
 
 .instructions {
@@ -279,20 +272,30 @@
 }
 
 .ovovegetarian {
-  background-image: url("../../../assets/ovovegetarian.svg");
+  background-image: url("../../../assets/pescetarian.svg");
 }
+/* .ovovegetarian {
+  background-image: url("../../../assets/ovovegetarian.svg");
+} */
 
 .pescetarian {
   background-image: url("../../../assets/pescetarian.svg");
 }
 
-.lowfoodmap {
+/* .lowfoodmap {
   background-image: url("../../../assets/lowfoodmap.svg");
+} */
+
+.lowfoodmap {
+  background-image: url("../../../assets/pescetarian.svg");
 }
 
 .whole30 {
-  background-image: url("../../../assets/whole30.svg");
+  background-image: url("../../../assets/pescetarian.svg");
 }
+/* .whole30 {
+  background-image: url("../../../assets/whole30.svg");
+} */
 
 .healthyIcon {
   background-image: url("../../../assets/healthy.svg");
