@@ -44,10 +44,11 @@ export const AboutPage = () => (
         (Examle)
       </a>
       <br />
-      The application is written in React with TS.<br />
+      The application is written in React with TS.
+      <br />
       Сonfigured Continuous Integration and Continuous Delivery (CI/CD).
       <p>
-        More information on
+        More information on{" "}
         <a
           title="https://github.com/Aleks164/Life_after_diet/tree/diet_App"
           target="_blank"

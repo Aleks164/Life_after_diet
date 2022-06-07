@@ -66,6 +66,10 @@ export type RecipeItemType = {
   imageType?: string;
 };
 
+export type SetRecipeItemType = React.Dispatch<
+  React.SetStateAction<RecipeItemType[]>
+>;
+
 export type IngridientsListType = {
   [name: string]: {
     name: string;
@@ -94,10 +98,21 @@ export type SetFavouriteType = React.Dispatch<
 >;
 
 export type SetRecipeInfo = React.Dispatch<
-  React.SetStateAction<RecipeInfoType>
+  React.SetStateAction<RecipeItemType[]>
 >;
 
-export type RecipeListProps = { recipeInfo: RecipeItemType[] };
+export type PageNumberType = number;
+
+export type SetPageNumberType = React.Dispatch<
+  React.SetStateAction<PageNumberType>
+>;
+
+export type RecipeListProps = {
+  recipeInfo: RecipeItemType[];
+  setRecipeInfo: SetRecipeInfo;
+  pageNumber: PageNumberType;
+  setPageNumber: SetPageNumberType;
+};
 
 export type RecipeItemPropsType = { title: string; image: string; id: number };
 

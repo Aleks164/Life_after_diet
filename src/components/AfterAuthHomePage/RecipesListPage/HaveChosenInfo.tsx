@@ -7,7 +7,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
     <div className="leftMenuHomePage">
       {сlientSettings.dietSelector.status ? (
         <div>
-          <p>Diet:{сlientSettings.dietSelector.diet}</p>
+          <p>Diet: {сlientSettings.dietSelector.diet}</p>
           <hr />
         </div>
       ) : (
@@ -15,7 +15,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.mealTypesSelector.status ? (
         <div>
-          <p>Meal type:{сlientSettings.dietSelector.diet}</p>
+          <p>Meal type: {сlientSettings.dietSelector.diet}</p>
           <hr />
         </div>
       ) : (
@@ -23,7 +23,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.cuisinesList.length > 0 ? (
         <div>
-          <p>Cuisines:</p>
+          <p>Cuisines: </p>
           {сlientSettings.cuisinesList.map((cuisine, index, array) => (
             <li key={index}>
               {cuisine}
@@ -36,7 +36,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.intolerancesList.length > 0 ? (
         <div>
-          <p>List of intolerances:</p>
+          <p>List of intolerances: </p>
           {сlientSettings.intolerancesList.map((intolerance, index, array) => (
             <li key={index}>
               {intolerance}
@@ -49,14 +49,16 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.ingridientsSelector.status ? (
         <div>
-          <p>List of ingridients:</p>
+          <p>List of ingridients: </p>
           {сlientSettings.ingridientsSelector.ingridients.map(
-            (ingridient, index, array) => (
-              <li key={index}>
-                {ingridient}
-                {index === array.length - 1 ? <hr /> : ""}
-              </li>
-            )
+            (ingridient, index, array) => {
+              return (
+                <li key={index}>
+                  {ingridient}
+                  {index === array.length - 1 ? <hr /> : ""}
+                </li>
+              );
+            }
           )}
         </div>
       ) : (
@@ -64,7 +66,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.excludeIngridientsSelector.status ? (
         <div>
-          <p>List of excludes:</p>
+          <p>List of excludes: </p>
           {сlientSettings.excludeIngridientsSelector.excludeIngridients.map(
             (exclude, index, array) => (
               <li key={index}>

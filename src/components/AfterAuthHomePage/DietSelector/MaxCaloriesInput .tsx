@@ -6,9 +6,7 @@ export const MaxCaloriesInput = ({
   settings,
   setRequestSettings,
 }: BookmarkPropsType) => {
-  const [maxCalories, setMaxCalories] = useState(
-    settings.maxCaloriesInput.value || 500
-  );
+  const [maxCalories, setMaxCalories] = useState(500);
   const maxCaloriesStatus = settings.maxCaloriesInput.status;
 
   function caloriesTumbler(
@@ -22,7 +20,7 @@ export const MaxCaloriesInput = ({
     if (tumblerStatus) {
       newIngridientsList = {
         ...settings,
-        maxCaloriesInput: { value: 0, status: !tumblerStatus },
+        maxCaloriesInput: { value: maxCalories, status: !tumblerStatus },
       };
     } else {
       newIngridientsList = {
@@ -34,6 +32,7 @@ export const MaxCaloriesInput = ({
       };
     }
     setRequestSettings(newIngridientsList);
+    console.log("settings", newIngridientsList, settings)
   }
 
   return (
@@ -43,7 +42,11 @@ export const MaxCaloriesInput = ({
         <input
           disabled={!maxCaloriesStatus}
           value={maxCalories}
-          onChange={(e) => setMaxCalories(+e.target.value)}
+          onChange={(e) => {
+            console.log("value", +e.target.value, maxCalories)
+
+            setMaxCalories(+e.target.value)
+          }}
           step={50}
           min={50}
           max={4000}

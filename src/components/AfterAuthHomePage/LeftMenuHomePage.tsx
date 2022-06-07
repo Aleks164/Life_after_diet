@@ -33,7 +33,7 @@ export const LeftMenuHomePage = ({
         className={curMarkbook.curInformation === "" ? "activeLeftButton" : ""}
         disabled={checkDisabled()}
         onClick={() => {
-          setRecipeInfo("");
+          setRecipeInfo([]);
           setCurMarkbook({ curMarkbook: "Main", curInformation: "" });
         }}
       >
