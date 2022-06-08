@@ -30,7 +30,7 @@ export class FBInterface implements FBInterfaceType {
         if (snapshot.exists()) {
           return snapshot.val();
         }
-        return `some problem with request data`;
+        return {};
       })
       .catch((error) => error);
   }

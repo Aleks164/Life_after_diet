@@ -3,7 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  min-width: 800px;
+  min-width: 1000px;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;

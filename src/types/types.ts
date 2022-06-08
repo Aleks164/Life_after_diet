@@ -7,6 +7,7 @@ export type DietResponsType = {
     title: string;
     image: string;
     imageType?: string;
+    data?: number
   };
 };
 
@@ -70,6 +71,13 @@ export type SetRecipeItemType = React.Dispatch<
   React.SetStateAction<RecipeItemType[]>
 >;
 
+export type markBookType = string;
+
+export type SetCurMarkbookType = {
+  setCurMarkbook: React.Dispatch<React.SetStateAction<markBookType>>;
+  curMarkbook: string;
+};
+
 export type IngridientsListType = {
   [name: string]: {
     name: string;
@@ -77,7 +85,7 @@ export type IngridientsListType = {
   };
 };
 
-export type RecipeInfoType = RecipeItemType[] | "";
+export type RecipeInfoType = RecipeItemType[];
 
 export type isLoadingType = boolean;
 
@@ -109,7 +117,6 @@ export type SetPageNumberType = React.Dispatch<
 
 export type RecipeListProps = {
   recipeInfo: RecipeItemType[];
-  setRecipeInfo: SetRecipeInfo;
   pageNumber: PageNumberType;
   setPageNumber: SetPageNumberType;
 };
@@ -155,9 +162,23 @@ export type tumblerParamFunction = (
     | React.MouseEvent<HTMLDivElement, MouseEvent>
 ) => void;
 
+export type ProviderPropsType = {
+  сlientSettings: SettingType;
+  setClientSettings?: SetSettingType;
+  сlientHistory: HistoryFavouriteTypes;
+  setClientHistory?: SetHistoryType;
+  сlientFavourite: HistoryFavouriteTypes;
+  setClientFavourite?: SetFavouriteType;
+  setHistory?: SetHistoryType;
+  setFavourite?: SetFavouriteType;
+};
+
 export type Step = number;
+
 export type Description = string;
 
 export type RecipeType = {
   recipe: RecipeResponsType;
 };
+
+export type HistoryFavouriteType = DietResponsType[keyof DietResponsType][];

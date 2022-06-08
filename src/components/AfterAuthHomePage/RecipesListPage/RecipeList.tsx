@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useClientSettings } from "../../../hooks/useClientSettings";
 import { RecipeListProps } from "../../../types/types";
 import { RecipeItem } from "./RecipeItem";
@@ -11,13 +11,13 @@ import { recipeRequestCreator } from "../../../utils/recipeRequestCreator";
 
 export const RecipeList = ({
   recipeInfo,
-  setRecipeInfo,
   pageNumber,
   setPageNumber
 }: RecipeListProps) => {
   const { сlientSettings } = useClientSettings();
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHistory = location.pathname === "/history";
   const isFavourite = location.pathname === "/favourite";
 
@@ -25,12 +25,11 @@ export const RecipeList = ({
     const resultNumberPage = pageNumber + skipedPages;
     getRecipeListFromAPi(recipeRequestCreator(сlientSettings, resultNumberPage))
       .then((response) => {
-        console.log(response);
-        setRecipeInfo(response);
+        navigate("/recipebook/", { state: { recipeInfo: response } });
       })
       .catch(() => {
-        setRecipeInfo([]);
-      })
+        navigate("/");
+      });
     setPageNumber(resultNumberPage);
   }
 
@@ -41,7 +40,7 @@ export const RecipeList = ({
   }, []);
 
   return (
-    <div className="homePage">
+    <div className={isHistory || isFavourite ? "homePage" : "recipeListPage"}>
       {isHistory || isFavourite ? (
         <>
           <div className="chosenParam"></div>
@@ -53,12 +52,25 @@ export const RecipeList = ({
       <div className="markbooks recipeBook">
         {!isHistory && !isFavourite ? (
           <>
-            {pageNumber >= 0 ? (
-              <button onClick={() => flipRecipePage(-10)} className="backButton flippButton"></button>
-            ) : (
-              ""
-            )}
-            <button onClick={() => flipRecipePage(10)} className="forvardButton flippButton"></button>
+            <button
+              hidden={pageNumber < 9}
+              onClick={() => {
+                flipRecipePage(-10);
+              }}
+              className="backButton flippButton"
+            >
+              {"<--"}
+            </button>
+            <button
+              hidden={recipeInfo.length < 10}
+              onClick={() => {
+                console.log(pageNumber);
+                flipRecipePage(10);
+              }}
+              className="forwardButton flippButton"
+            >
+              {"-->"}
+            </button>
           </>
         ) : (
           ""

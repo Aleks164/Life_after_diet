@@ -2,30 +2,17 @@ import React, { createContext, useState } from "react";
 import {
   ChildrenType,
   HistoryFavouriteTypes,
-  SetFavouriteType,
-  SetHistoryType,
-  SetSettingType,
-  SettingType,
+  ProviderPropsType
 } from "../types/types";
 import { defaultSettings } from "../utils/defaultSettings";
 import { FBInterface } from "../firebase_init/FBInterface";
 import { useAuth } from "../hooks/useAuth";
-
-type ProviderPropsType = {
-  сlientSettings: SettingType;
-  setClientSettings?: SetSettingType;
-  сlientHistory: HistoryFavouriteTypes;
-  setClientHistory?: SetHistoryType;
-  сlientFavourite: HistoryFavouriteTypes;
-  setClientFavourite?: SetFavouriteType;
-  setHistory?: SetHistoryType;
-  setFavourite?: SetFavouriteType;
-};
+import { deleteOldestItem } from "./deleteOldestItem";
 
 export const ClientSettingsContext = createContext<ProviderPropsType>({
   сlientSettings: defaultSettings,
   сlientHistory: {},
-  сlientFavourite: {},
+  сlientFavourite: {}
 });
 
 export const ClientSettingsProvider = ({ children }: ChildrenType) => {
@@ -37,7 +24,8 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
   const [сlientFavourite, setFavourite] = useState({} as HistoryFavouriteTypes);
 
   const setClientHistory = (newHistory: HistoryFavouriteTypes) => {
-    if (userAuth)
+    if (userAuth) {
+      deleteOldestItem(newHistory);
       newCrud
         .updateUserParam(userAuth, "history", newHistory)
         .then(() => {
@@ -47,10 +35,12 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
           setHistory(newHistory);
           console.log(e);
         });
+    }
   };
 
   const setClientFavourite = (newFavourite: HistoryFavouriteTypes) => {
-    if (userAuth)
+    if (userAuth) {
+      deleteOldestItem(newFavourite);
       newCrud
         .updateUserParam(userAuth, "favourite", newFavourite)
         .then(() => {
@@ -60,6 +50,7 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
           setFavourite(newFavourite);
           console.log(e);
         });
+    }
   };
 
   const value = {
@@ -70,11 +61,11 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
     сlientFavourite,
     setClientFavourite,
     setHistory,
-    setFavourite,
-  };
+    setFavourite
+  } as ProviderPropsType;
 
   return (
-    <ClientSettingsContext.Provider value={value as ProviderPropsType}>
+    <ClientSettingsContext.Provider value={value}>
       {children}
     </ClientSettingsContext.Provider>
   );

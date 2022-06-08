@@ -1,7 +1,7 @@
 import {
   DietResponsType,
   SetFavouriteType,
-  RecipeType,
+  RecipeType
 } from "../../../types/types";
 
 export type FafouriteParamsType = {
@@ -17,7 +17,7 @@ export function changeFavouriteStatus({
   setClientFavourite,
   recipe,
   isItInFafouritList,
-  setIsItInFafouritList,
+  setIsItInFafouritList
 }: FafouriteParamsType) {
   if (isItInFafouritList) {
     delete сlientFavourite[recipe.id];
@@ -30,7 +30,8 @@ export function changeFavouriteStatus({
         id: recipe.id,
         image: recipe.image,
         title: recipe.title,
-      },
+        date: Date.now()
+      }
     };
     if (setClientFavourite) setClientFavourite(newFavourite);
     setIsItInFafouritList(!isItInFafouritList);

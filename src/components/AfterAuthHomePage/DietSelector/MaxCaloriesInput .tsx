@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BookmarkPropsType, SettingType } from "../../../types/types";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 
 export const MaxCaloriesInput = ({
   settings,
-  setRequestSettings,
+  setRequestSettings
 }: BookmarkPropsType) => {
   const [maxCalories, setMaxCalories] = useState(500);
   const maxCaloriesStatus = settings.maxCaloriesInput.status;
@@ -20,19 +20,18 @@ export const MaxCaloriesInput = ({
     if (tumblerStatus) {
       newIngridientsList = {
         ...settings,
-        maxCaloriesInput: { value: maxCalories, status: !tumblerStatus },
+        maxCaloriesInput: { value: maxCalories, status: !tumblerStatus }
       };
     } else {
       newIngridientsList = {
         ...settings,
         maxCaloriesInput: {
           ...settings.maxCaloriesInput,
-          status: !tumblerStatus,
-        },
+          status: !tumblerStatus
+        }
       };
     }
     setRequestSettings(newIngridientsList);
-    console.log("settings", newIngridientsList, settings)
   }
 
   return (
@@ -43,9 +42,7 @@ export const MaxCaloriesInput = ({
           disabled={!maxCaloriesStatus}
           value={maxCalories}
           onChange={(e) => {
-            console.log("value", +e.target.value, maxCalories)
-
-            setMaxCalories(+e.target.value)
+            setMaxCalories(+e.target.value);
           }}
           step={50}
           min={50}

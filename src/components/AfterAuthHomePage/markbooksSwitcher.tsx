@@ -1,7 +1,8 @@
 import React from "react";
-import { IntolerancesListBookmark } from "./IntolerancesListBookmark";
-import { CuisinesListBookmark } from "./CuisinesListBookmark";
+import { IntolerancesListBookmark } from "./IntolerancesListBookmark/IntolerancesListBookmark";
+import { CuisinesListBookmark } from "./CuisinesListBookmark/CuisinesListBookmark";
 import { DietSelector } from "./DietSelector/DietSelector";
+import { DietDefenitionList } from "./DietDefenition";
 import { SetRequestSettingsType, SettingType } from "../../types/types";
 
 export function markbooksSwitcher(
@@ -31,6 +32,8 @@ export function markbooksSwitcher(
           setRequestSettings={setRequestSettings}
         />
       );
+    case "Diet definitions":
+      return <DietDefenitionList />;
     default:
       return "";
   }

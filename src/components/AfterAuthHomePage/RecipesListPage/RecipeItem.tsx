@@ -7,16 +7,19 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
   const navigate = useNavigate();
   const { сlientHistory, setClientHistory } = useClientSettings();
 
-  function findById() {
+  function saveHistoryandRedirect() {
     const redirectTo = `/recipe/${id}`;
-    const newHistory = { ...сlientHistory, [id]: { title, image, id } };
+    const newHistory = {
+      ...сlientHistory,
+      [id]: { title, image, id, date: Date.now() }
+    };
 
     if (setClientHistory) setClientHistory(newHistory);
     navigate(redirectTo);
   }
   return (
     <div className="recipeItem">
-      <button onClick={findById}>
+      <button onClick={saveHistoryandRedirect}>
         <p className="showTextInButton">Show this recipe</p>
       </button>
       <img src={image} alt={title} />

@@ -21,6 +21,14 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       ) : (
         ""
       )}
+      {сlientSettings.maxCaloriesInput.status ? (
+        <div>
+          <p>Maximum calories: {сlientSettings.maxCaloriesInput.value}</p>
+          <hr />
+        </div>
+      ) : (
+        ""
+      )}
       {сlientSettings.cuisinesList.length > 0 ? (
         <div>
           <p>Cuisines: </p>

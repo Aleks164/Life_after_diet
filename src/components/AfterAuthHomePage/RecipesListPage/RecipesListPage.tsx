@@ -10,14 +10,12 @@ interface Location {
 
 export const RecipesListPage = () => {
   const location = useLocation();
-  const localRecipeInfo = (location as Location).state?.recipeInfo.results;
-  const [recipeInfo, setRecipeInfo] = useState(localRecipeInfo);
+  let recipeInfo = (location as Location).state?.recipeInfo.results;
   const [pageNumber, setPageNumber] = useState(0);
-  if (!localRecipeInfo) return <Navigate to="/" />;
+  if (!recipeInfo) recipeInfo = [];
   return (
     <RecipeList
       recipeInfo={recipeInfo}
-      setRecipeInfo={setRecipeInfo}
       pageNumber={pageNumber}
       setPageNumber={setPageNumber}
     />
