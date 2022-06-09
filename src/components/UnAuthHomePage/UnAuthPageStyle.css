@@ -5,10 +5,124 @@
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+  min-width: 750px;
 }
 
 .carusel {
-  /* width: 85%;
-height: 85%; */
   border: 1px solid;
+  position: relative;
+  box-shadow: 2px 2px 9px black;
+}
+
+.slide {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+}
+
+.caruselButton {
+  position: absolute;
+  top: calc(50% - 45px);
+  background-color: #fff0;
+  font-size: 70px;
+  padding: 0px;
+  border: 0px;
+  color: #8b8686;
+  font-weight: 999;
+  text-shadow: 3px 2px 7px #5c6a94;
+  user-select: none;
+}
+
+.leftButton {
+  left: 0px;
+}
+
+.rightButton {
+  right: 0px;
+}
+
+.rightButton:hover,
+.leftButton:hover {
+  color: #c0bfbf;
+  text-shadow: 3px 2px 7px #6389fa;
+}
+
+.rightButton:active,
+.leftButton:active {
+  color: black;
+  text-shadow: 3px 2px 7px #4f5f90;
+}
+
+.historyLine {
+  position: absolute;
+  bottom: -2%;
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  grid-gap: 40px;
+  height: 0px;
+  width: 80%;
+  left: 10%;
+}
+
+.historyLine div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 12px solid burlywood;
+  box-shadow: 2px 2px 2px black;
+}
+
+.activeItem {
+  background-color: #d11f1f;
+}
+
+.unActiveItem {
+  background-color: cadetblue;
+}
+
+.activeItem:hover,
+.unActiveItem:hover {
+  border: 12px solid #e4cba9;
+  transform: scale(1.3, 1.3);
+  transition: transform 0.5s;
+}
+
+.slideInLeftMove {
+  transform: translate(150px, 0px);
+  position: relative;
+  transition: transform 2s;
+  z-index: 5;
+}
+
+.slideInRightMove {
+  transform: translate(-150px, 0px);
+  position: relative;
+  transition: transform 2s;
+  z-index: 5;
+}
+
+
+.intolerance {
+  background-image: url("../../assets/caruselItems/intolerance.png");
+}
+
+.configurator {
+  background-image: url("../../assets/caruselItems/configurator.png");
+}
+
+.favourites {
+  background-image: url("../../assets/caruselItems/favourites.png");
+}
+
+.recipeList {
+  background-image: url("../../assets/caruselItems/recipeList.png");
+}
+
+.сusines {
+  background-image: url("../../assets/caruselItems/сusines.png");
+}
+
+.history {
+  background-image: url("../../assets/caruselItems/history.png");
 }

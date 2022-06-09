@@ -7,7 +7,7 @@ export type DietResponsType = {
     title: string;
     image: string;
     imageType?: string;
-    data?: number
+    date?: number;
   };
 };
 

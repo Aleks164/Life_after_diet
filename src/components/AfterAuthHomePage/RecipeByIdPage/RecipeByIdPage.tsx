@@ -9,8 +9,8 @@ export async function getRecipeById(id: string) {
   const options = {
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   };
   const myKey = "2adf7e0ce3d8428f953f022f9543bb6f";
   const fetchBody = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${myKey}`;
@@ -20,7 +20,7 @@ export async function getRecipeById(id: string) {
     const recipe = await response.json();
     return recipe;
   } catch (e) {
-    return <Navigate to="/" />
+    return <Navigate to="/" />;
   }
 }
 
@@ -34,13 +34,13 @@ export const RecipeByIdPage = () => {
         setRecipe(response);
         setTimeout(() => {
           setIsLoading(!isLoading);
-        }, 800);
+        }, 500);
       });
   }, []);
 
   return (
     <>
-      {isLoading && !recipe.title ? (
+      {isLoading ? (
         <div className="loadingPage">
           <LoadingPage />
         </div>

@@ -20,7 +20,7 @@
     "leftMenuHomePage generalSpace";
 }
 
-.loadingPage {
+/* .loadingPage {
   grid-area: generalSpace;
   width: 73%;
   height: 27vw;
@@ -28,6 +28,15 @@
   position: relative;
   z-index: 15;
   background-image: url("../../assets/loadingTemplate.svg");
+} */
+
+.loadingPage {
+  position: absolute;
+  z-index: 15;
+  background-image: url("../../assets/loadingTemplate.svg");
+  top: 50vh;
+  left: 45%;
+  margin: 0px;
 }
 
 .chosenParam {
@@ -67,10 +76,11 @@
 
 .flippButton {
   position: absolute;
-  top: 30%;
+  top: -5%;
 }
 .backButton {
   left: 25%;
+  transform: rotate(0.5turn);
 }
 .forwardButton {
   right: 25%;
@@ -85,6 +95,8 @@
   font-size: 20px;
   z-index: 2;
   cursor: pointer;
+  color: #6a6a6a;
+  padding-bottom: 3px;
 }
 
 .markbooks button:hover {
@@ -96,6 +108,9 @@
   z-index: 5;
   background-color: #fbc2c8;
   box-shadow: inset 0 0 4px 1px rgb(139 108 112);
+  color: black;
+  padding-top: 15px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .instructionButtons {
@@ -426,4 +441,64 @@
   margin-bottom: 10%;
   margin-top: 25px;
   width: 230px;
+}
+
+.arrow_2 {
+  cursor: pointer;
+  position: relative;
+  width: 60px;
+  height: 50px;
+}
+
+.arrow_2 div {
+  position: relative;
+  top: 20px;
+  width: 50px;
+  height: 10px;
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.5);
+  left: 0;
+  display: block;
+  border-radius: 25%;
+}
+
+.arrow_2 div::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  top: 11px;
+  right: -8px;
+  transform: rotate(-45deg);
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25%;
+}
+
+.arrow_2 div::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  top: -11px;
+  right: -8px;
+  transform: rotate(45deg);
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25%;
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+
+  -moz-box-sizing: border-box;
+
+  box-sizing: border-box;
+}
+.arrow_2:hover :after,
+.arrow_2:hover :before,
+.arrow_2:hover div {
+  background-color: #f1b568;
+  box-shadow: -2px 0px 9px rgba(0, 0, 0, 0.88);
 }

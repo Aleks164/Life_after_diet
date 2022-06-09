@@ -8,9 +8,14 @@ export const FavouretePage = () => {
   let arrayWithFavouriteItem: HistoryFavouriteType = [];
 
   if (Object.keys(сlientFavourite).length) {
-    arrayWithFavouriteItem = Object.values(сlientFavourite).sort((a, b) => (b.data || 0) - (a.data || 0));
+    arrayWithFavouriteItem = Object.values(сlientFavourite);
   }
 
-  return <RecipeList pageNumber={0}
-    setPageNumber={() => false} recipeInfo={arrayWithFavouriteItem} />;
+  return (
+    <RecipeList
+      pageNumber={0}
+      setPageNumber={() => false}
+      recipeInfo={arrayWithFavouriteItem}
+    />
+  );
 };

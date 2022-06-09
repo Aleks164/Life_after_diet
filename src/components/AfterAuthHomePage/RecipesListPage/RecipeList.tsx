@@ -52,32 +52,41 @@ export const RecipeList = ({
       <div className="markbooks recipeBook">
         {!isHistory && !isFavourite ? (
           <>
-            <button
+            <div
               hidden={pageNumber < 9}
               onClick={() => {
                 flipRecipePage(-10);
               }}
               className="backButton flippButton"
             >
-              {"<--"}
-            </button>
-            <button
+              <div className="arrow_2">
+                <div></div>
+              </div>
+            </div>
+            <div
               hidden={recipeInfo.length < 10}
               onClick={() => {
-                console.log(pageNumber);
                 flipRecipePage(10);
               }}
               className="forwardButton flippButton"
             >
-              {"-->"}
-            </button>
+              <div className="arrow_2">
+                <div></div>
+              </div>
+            </div>
           </>
         ) : (
           ""
         )}
         <h3>
           {!isHistory && !isFavourite ? "Recipe book" : ""}
-          {isHistory ? "Your story" : ""}
+          {isHistory ? (
+            <>
+              <p>Your story</p>last 10<p></p>
+            </>
+          ) : (
+            ""
+          )}
           {isFavourite ? "Your favourite list" : ""}
         </h3>
       </div>

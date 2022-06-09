@@ -3,6 +3,7 @@ import { ClientSettingsType } from "../../../types/types";
 
 export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
   <>
+    {console.log(сlientSettings)}
     <h3 className="chosenParam">You have chosen:</h3>
     <div className="leftMenuHomePage">
       {сlientSettings.dietSelector.status ? (
@@ -15,7 +16,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
       )}
       {сlientSettings.mealTypesSelector.status ? (
         <div>
-          <p>Meal type: {сlientSettings.dietSelector.diet}</p>
+          <p>Meal type: {сlientSettings.mealTypesSelector.mealType}</p>
           <hr />
         </div>
       ) : (

@@ -9,7 +9,6 @@ export const RequireAuth = () => {
   useEffect(() => {
     if (!user) {
       setBeforeLoginPagePath(location.pathname);
-      console.log("location.pathname", location.pathname);
     }
   }, [user]);
 

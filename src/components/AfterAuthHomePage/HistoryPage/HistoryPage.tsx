@@ -8,9 +8,14 @@ export const HistoryPage = () => {
   let arrayWithHistoryItem: HistoryFavouriteType = [];
 
   if (Object.keys(сlientHistory).length) {
-    arrayWithHistoryItem = Object.values(сlientHistory).sort((a, b) => (b.data || 0) - (a.data || 0));
+    arrayWithHistoryItem = Object.values(сlientHistory);
   }
 
-  return <RecipeList pageNumber={0}
-    setPageNumber={() => false} recipeInfo={arrayWithHistoryItem} />;
+  return (
+    <RecipeList
+      pageNumber={0}
+      setPageNumber={() => false}
+      recipeInfo={arrayWithHistoryItem}
+    />
+  );
 };
