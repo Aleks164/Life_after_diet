@@ -20,22 +20,15 @@
     "leftMenuHomePage generalSpace";
 }
 
-/* .loadingPage {
-  grid-area: generalSpace;
-  width: 73%;
-  height: 27vw;
-  margin: auto;
-  position: relative;
-  z-index: 15;
-  background-image: url("../../assets/loadingTemplate.svg");
-} */
-
 .loadingPage {
   position: absolute;
   z-index: 15;
   background-image: url("../../assets/loadingTemplate.svg");
-  top: 50vh;
-  left: 45%;
+  top: 250px;
+  left: 250px;
+  background-repeat: no-repeat;
+  height: 58vh;
+  width: 55vw;
   margin: 0px;
 }
 

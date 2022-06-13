@@ -21,6 +21,7 @@ export const Form = ({
 }: FormParamType) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPressedOnLoginButton, setIsPressedOnLoginButton] = useState(false);
 
   useEffect(() => {
     if (errorMessage.length > 0) {
@@ -63,7 +64,9 @@ export const Form = ({
           />
         </label>
         <button
+          disabled={isPressedOnLoginButton}
           onClick={() => {
+            setIsPressedOnLoginButton(!isPressedOnLoginButton);
             signInUpHandler(email, password);
           }}
           className="loginFormButton"
@@ -72,7 +75,10 @@ export const Form = ({
           {processName}!
         </button>
       </form>
-      <button onClick={signInUpWithGoogle} className="googleAuthLink">
+      <button disabled={isPressedOnLoginButton} onClick={() => {
+        setIsPressedOnLoginButton(!isPressedOnLoginButton);
+        signInUpWithGoogle();
+      }} className="googleAuthLink">
         <div className="googleIcon"></div>
         <span>Google</span>
       </button>
