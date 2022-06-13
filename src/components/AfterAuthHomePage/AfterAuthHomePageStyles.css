@@ -78,12 +78,16 @@
   position: absolute;
   top: -5%;
 }
+
 .backButton {
-  left: 25%;
-  transform: rotate(0.5turn);
+  left: 20%;
+  top: -10px;
 }
+
 .forwardButton {
-  right: 25%;
+  right: 20%;
+  top: -10px;
+  transform: rotate(0.5turn);
 }
 
 .markbooks button {
@@ -196,7 +200,7 @@
   padding-right: 5px;
 }
 
-.dietSelector > * {
+.dietSelector>* {
   margin: 20px;
 }
 
@@ -301,7 +305,7 @@
   top: 27px;
 }
 
-.recipeItem > p {
+.recipeItem>p {
   position: absolute;
   box-sizing: border-box;
   z-index: 5;
@@ -496,6 +500,7 @@
 
   box-sizing: border-box;
 }
+
 .arrow_2:hover :after,
 .arrow_2:hover :before,
 .arrow_2:hover div {

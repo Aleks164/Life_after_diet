@@ -57,23 +57,15 @@ export const RecipeList = ({
               onClick={() => {
                 flipRecipePage(-10);
               }}
-              className="backButton flippButton"
-            >
-              <div className="arrow_2">
-                <div></div>
-              </div>
-            </div>
+              className="backToListButton backButton"></div>
+            <div hidden={pageNumber < 9} className="backToListButtonBorder backButton"></div>
             <div
               hidden={recipeInfo.length < 10}
               onClick={() => {
                 flipRecipePage(10);
               }}
-              className="forwardButton flippButton"
-            >
-              <div className="arrow_2">
-                <div></div>
-              </div>
-            </div>
+              className="backToListButton forwardButton"></div>
+            <div hidden={recipeInfo.length < 10} className="backToListButtonBorder forwardButton"></div>
           </>
         ) : (
           ""

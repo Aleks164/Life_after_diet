@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { RecipeResponsType } from "../information";
 
@@ -182,3 +183,39 @@ export type RecipeType = {
 };
 
 export type HistoryFavouriteType = DietResponsType[keyof DietResponsType][];
+
+export type NextItemSliderParamType = {
+  curItem: number;
+  setCurItem: React.Dispatch<React.SetStateAction<number>>;
+  setIsPresed: React.Dispatch<React.SetStateAction<boolean>>;
+  togleAnimation: React.MutableRefObject<null>;
+  caruselItemsList: string[];
+};
+
+export type LeftRightParamType = {
+  isPresed: boolean;
+  nextItemParam: NextItemSliderParamType;
+  nextItem: (
+    step: number,
+    NextItemSliderParam: NextItemSliderParamType
+  ) => void;
+  direction: -1 | 1;
+  buttonType: "leftButton" | "rightButton";
+  children: string | ReactNode;
+};
+
+export type AuthBenefitsParamType = {
+  caruselItemsList: string[];
+  curItem: number;
+};
+
+export type HistoryLineParamType = {
+  caruselItemsList: string[];
+  isPresed: boolean;
+  curItem: number;
+  nextItem: (
+    step: number,
+    NextItemSliderParam: NextItemSliderParamType
+  ) => void;
+  nextItemParam: NextItemSliderParamType;
+};

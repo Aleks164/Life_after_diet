@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { RecipeType } from "../../../types/types";
 import { RecipeCart } from "./RecipeCart";
 import { RecipeInstruction } from "./RecipeInstruction";
@@ -9,6 +10,7 @@ import "./RecipePageStyles.css";
 
 export const RecipePage = ({ recipe }: RecipeType) => {
   const { сlientFavourite, setClientFavourite } = useClientSettings();
+  const navigate = useNavigate();
   const arrayOfFavouriteId = Object.keys(сlientFavourite);
   const fafouritCheck = arrayOfFavouriteId.some(
     (favourite) => +favourite === recipe.id
@@ -25,6 +27,8 @@ export const RecipePage = ({ recipe }: RecipeType) => {
 
   return (
     <div className="ricipe">
+      <div onClick={() => { navigate(-1) }} className="backToListButton backButtonArea"></div>
+      <div className="backToListButtonBorder backButtonArea"></div>
       <h2 className="recipeTitle">{recipe.title}</h2>
       <div className="recipePageMarkbooks">
         <button

@@ -1,12 +1,12 @@
 import React from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
-import { useNavigate } from "react-router-dom";
 import { IsAuthType } from "../../types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === "/login";
+  const isHomePage = useLocation().pathname === "/";
   const navigate = useNavigate();
 
   return (
@@ -47,7 +47,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         ) : (
           <div className="signCont">
             {!isAuth ? (
-              <SignInLink to="/login">Log In</SignInLink>
+              <>{isHomePage ? <><SignInLink to="/login">Log In</SignInLink><SignInLink to="/signup">Sign Up</SignInLink></> : <SignInLink to="/login">Log In</SignInLink>}</>
             ) : (
               <SignOutLink to="/">Log Out</SignOutLink>
             )}

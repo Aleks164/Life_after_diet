@@ -1,66 +1,68 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { caruselItemsList } from "../../utils/backgraundClasses";
+import { LeftRightSliderButton } from "./LeftRightSliderButton";
+import { HistoryLine } from "./HistoryLine";
+import { AuthBenefits } from "./AuthBenefits";
+import { nextItem } from "./nextItem";
 import "./UnAuthPageStyle.css";
 
 export const UnAuthHomePage = () => {
-  const caruselItemsList = [
-    "favourites",
-    "сusines",
-    "history",
-    "configurator",
-    "intolerance",
-    "recipeList"
-  ];
-
-  const [curItem, setCurItem] = useState("favourites");
-  const [animationDirection, setAnimationDirection] = useState("");
+  const [curItem, setCurItem] = useState(0);
+  const [isPresed, setIsPresed] = useState(false);
   const togleAnimation = useRef(null);
-  function nextItem(step: number) {
-    let newIndex = 0;
-    const indexCurItem = caruselItemsList.indexOf(curItem);
-    if (indexCurItem !== caruselItemsList.length - 1)
-      newIndex = indexCurItem + step;
-    if ((indexCurItem + step) < 0) newIndex = caruselItemsList.length - 1;
-    if ((indexCurItem === caruselItemsList.length - 1) && step < 0) newIndex = indexCurItem + step;
 
-    const direction = step < 0 ? "slideInRightMove" : "slideInLeftMove";
-    // setAnimationDirection(direction);
-    togleAnimation.current.classList.toggle(direction);
-    setTimeout(() => {
-      // setAnimationDirection("");
-      togleAnimation.current.classList.toggle(direction);
-      setCurItem(caruselItemsList[newIndex]);
-    }, 500)
-    console.log(caruselItemsList[newIndex]);
-  }
+  const nextItemParam = {
+    curItem,
+    setCurItem,
+    setIsPresed,
+    togleAnimation,
+    caruselItemsList
+  };
 
-  const slideAndItem = `${curItem} slide ${animationDirection}`;
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     nextItem(1)
-  //     console.log("ssss");
-  //   }, 6000);
-  // }, []);
+  useEffect(() => {
+    const caruselLoop = setInterval(() => {
+      nextItem(1, nextItemParam);
+    }, 10000);
+    return () => {
+      clearInterval(caruselLoop);
+    };
+  }, [curItem]);
 
   return (
     <div className="unAuthHomePage">
-      <div className="carusel">
-        <button onClick={() => { nextItem(-1) }} className="caruselButton leftButton">{"<"}</button>
-        <div ref={togleAnimation} className={slideAndItem}></div>
-        <button onClick={() => { nextItem(1) }} className="caruselButton rightButton">{">"}</button>
-        <div className="historyLine">
-          {caruselItemsList.map((_, index) => (
-            <div
-              key={index}
-              className={
-                caruselItemsList.indexOf(curItem) === index
-                  ? "activeItem"
-                  : "unActiveItem"
-              }
-              onClick={() => setCurItem(caruselItemsList[index])}
-            ></div>
-          ))}
-        </div>
+      <h2><Link to={"/login"}>Log in</Link> and you will be able to</h2>
+      <div ref={togleAnimation} className="carusel">
+        <LeftRightSliderButton
+          isPresed={isPresed}
+          nextItemParam={nextItemParam}
+          nextItem={nextItem}
+          direction={-1}
+          buttonType={"leftButton"}
+        >
+          {"<"}
+        </LeftRightSliderButton>
+        <AuthBenefits
+          caruselItemsList={caruselItemsList}
+          curItem={curItem}
+        ></AuthBenefits>
+        <LeftRightSliderButton
+          isPresed={isPresed}
+          nextItemParam={nextItemParam}
+          nextItem={nextItem}
+          direction={1}
+          buttonType={"rightButton"}
+        >
+          {">"}
+        </LeftRightSliderButton>
       </div>
+      <HistoryLine
+        caruselItemsList={caruselItemsList}
+        isPresed={isPresed}
+        curItem={curItem}
+        nextItem={nextItem}
+        nextItemParam={nextItemParam}
+      ></HistoryLine>
     </div>
   );
 };
