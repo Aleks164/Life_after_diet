@@ -24,8 +24,8 @@ export const AppRouter = () => {
   const userAuth = useAuth().user;
   return (
     <Routes>
-      <Route path={HOME_PAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
-        <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
+      <Route path="/" element={<Layout isAuth={userAuth} />}>
+        <Route path={HOME_PAGE_ROUTE} element={<HomePageSwitcher isAuth={userAuth} />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
         {!userAuth ? (
           <>
