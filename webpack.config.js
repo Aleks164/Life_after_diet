@@ -22,7 +22,9 @@ module.exports = {
     historyApiFallback: true,
   },
   output: {
-    publicPath: isDev ? "" : PREFIX,
+    path: resolve(__dirname, "dist"),
+    publicPath: isDev ? "/" : PREFIX,
+    clean: true,
   },
   module: {
     rules: [
