@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
-const PREFIX = "/Life_after_diet/";
+const PREFIX = "/life_after_diet/";
+console.log("****************--**************", isDev);
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
@@ -18,7 +19,6 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devServer: {
-    compress: true,
     port: 9000,
     historyApiFallback: true,
   },

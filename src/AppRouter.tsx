@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/AuthPage/Login/Login";
@@ -22,8 +22,11 @@ import {
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
+  const location = useLocation();
+  const isEmptyAdressString = location.pathname === "/";
   return (
     <Routes>
+      <Route path="/" element={<Navigate to={HOME_PAGE_ROUTE} />} />
       <Route path={HOME_PAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
         <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
