@@ -2,11 +2,19 @@ import React from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
+import {
+  LOGIN_ROUTE,
+  SIGNUP_ROUTE,
+  HOMEPAGE_ROUTE,
+  HISTORY_ROUTE,
+  FAVOURITE_ROUTE,
+  ABOUT_ROUTE
+} from "../../utils/routes";
 import { IsAuthType } from "../../types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
-  const isLoginPage = useLocation().pathname === "/login";
-  const isHomePage = useLocation().pathname === "/";
+  const isLoginPage = useLocation().pathname === LOGIN_ROUTE;
+  const isHomePage = useLocation().pathname === HOMEPAGE_ROUTE;
   const navigate = useNavigate();
 
   return (
@@ -15,7 +23,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         <h1
           className="mainTitle"
           onClick={() => {
-            navigate("/");
+            navigate(HOMEPAGE_ROUTE);
           }}
         >
           Life after diet...
@@ -29,27 +37,36 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         )}
         <hr />
         <div className="layoutLinkCont">
-          <NavLink to="/">Recipes</NavLink>
+          <NavLink to={HOMEPAGE_ROUTE}>Recipes</NavLink>
           {isAuth ? (
             <>
-              <NavLink to="/history">History</NavLink>
-              <NavLink to="/favourite">Favourite</NavLink>
+              <NavLink to={HISTORY_ROUTE}>History</NavLink>
+              <NavLink to={FAVOURITE_ROUTE}>Favourite</NavLink>
             </>
           ) : (
             ""
           )}
-          <NavLink to="/about">About</NavLink>
+          <NavLink to={ABOUT_ROUTE}>About</NavLink>
         </div>
         {isLoginPage ? (
           <div className="signCont">
-            <SignInLink to="/signup">Sign Up</SignInLink>
+            <SignInLink to={SIGNUP_ROUTE}>Sign Up</SignInLink>
           </div>
         ) : (
           <div className="signCont">
             {!isAuth ? (
-              <>{isHomePage ? <><SignInLink to="/login">Log In</SignInLink><SignInLink to="/signup">Sign Up</SignInLink></> : <SignInLink to="/login">Log In</SignInLink>}</>
+              <>
+                {isHomePage ? (
+                  <>
+                    <SignInLink to={LOGIN_ROUTE}>Log In</SignInLink>
+                    <SignInLink to={SIGNUP_ROUTE}>Sign Up</SignInLink>
+                  </>
+                ) : (
+                  <SignInLink to={LOGIN_ROUTE}>Log In</SignInLink>
+                )}
+              </>
             ) : (
-              <SignOutLink to="/">Log Out</SignOutLink>
+              <SignOutLink to={HOMEPAGE_ROUTE}>Log Out</SignOutLink>
             )}
           </div>
         )}

@@ -5,6 +5,7 @@ import { LeftRightSliderButton } from "./LeftRightSliderButton";
 import { HistoryLine } from "./HistoryLine";
 import { AuthBenefits } from "./AuthBenefits";
 import { nextItem } from "./nextItem";
+import { LOGIN_ROUTE } from "../../utils/routes";
 import "./UnAuthPageStyle.css";
 
 export const UnAuthHomePage = () => {
@@ -31,7 +32,9 @@ export const UnAuthHomePage = () => {
 
   return (
     <div className="unAuthHomePage">
-      <h2><Link to={"/login"}>Log in</Link> and you will be able to</h2>
+      <h2>
+        <Link to={LOGIN_ROUTE}>Log in</Link> and you will be able to
+      </h2>
       <div ref={togleAnimation} className="carusel">
         <LeftRightSliderButton
           isPresed={isPresed}

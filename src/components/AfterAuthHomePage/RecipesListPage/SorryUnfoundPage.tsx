@@ -1,11 +1,16 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  HOMEPAGE_ROUTE,
+  HISTORY_ROUTE,
+  FAVOURITE_ROUTE
+} from "../../../utils/routes";
 
 export const SorryUnfoundPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isHistory = location.pathname === "/history";
-  const isFavourite = location.pathname === "/favourite";
+  const isHistory = location.pathname === HISTORY_ROUTE;
+  const isFavourite = location.pathname === FAVOURITE_ROUTE;
 
   return (
     <>
@@ -13,7 +18,7 @@ export const SorryUnfoundPage = () => {
         <p className="noFoundMessage">
           Sorry... <br />
           but no recipes according to your requirements were found, reduce the
-          number of parameters and try again, this should help.{" "}
+          number of parameters and try again, this should help.
         </p>
       ) : (
         ""
@@ -31,7 +36,7 @@ export const SorryUnfoundPage = () => {
       <button
         className="tryAgainButton loginFormButton"
         onClick={() => {
-          navigate("/");
+          navigate(HOMEPAGE_ROUTE);
         }}
       >
         {!isHistory && !isFavourite ? "Try again!" : "Finde recipe"}

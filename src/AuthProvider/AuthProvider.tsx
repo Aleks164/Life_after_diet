@@ -1,15 +1,18 @@
 import React, { createContext, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { AuthKitType, ChildrenType } from "../types/types";
+import { HOMEPAGE_ROUTE } from "../utils/routes";
 
 export const AuthContext = createContext<AuthKitType>({
   user: null,
-  beforeLoginPagePath: "/",
+  beforeLoginPagePath: HOMEPAGE_ROUTE
 } as AuthKitType);
 
 export const AuthProvider = ({ children }: ChildrenType) => {
   const [user, setUser] = useState<null | string>(null);
-  const [beforeLoginPagePath, setBeforeLoginPagePath] = useState<string>("/");
+  const [beforeLoginPagePath, setBeforeLoginPagePath] = useState<string>(
+    HOMEPAGE_ROUTE
+  );
 
   const signIn = (newUser: string, cb: () => NavigateFunction) => {
     setUser(newUser);
@@ -26,7 +29,7 @@ export const AuthProvider = ({ children }: ChildrenType) => {
     signIn,
     signOut,
     beforeLoginPagePath,
-    setBeforeLoginPagePath,
+    setBeforeLoginPagePath
   };
 
   return (

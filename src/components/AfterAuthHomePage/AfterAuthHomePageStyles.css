@@ -193,7 +193,7 @@
   padding-right: 5px;
 }
 
-.dietSelector>* {
+.dietSelector > * {
   margin: 20px;
 }
 
@@ -207,13 +207,12 @@
 }
 
 .findRecipesButton {
-  margin: 5px;
   width: 230px;
   margin-bottom: 10px;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  margin-top: 20px;
 }
 
 .dietDefenitionList {
@@ -298,7 +297,7 @@
   top: 27px;
 }
 
-.recipeItem>p {
+.recipeItem > p {
   position: absolute;
   box-sizing: border-box;
   z-index: 5;

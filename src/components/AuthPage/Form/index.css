@@ -58,9 +58,7 @@
 
 .loginFormButton {
   text-decoration: none;
-  display: inline-block;
-  margin: 10px 20px;
-  width: 170px;
+  display: block;
   font-size: 24px;
   padding: 10px 30px;
   position: relative;

@@ -8,6 +8,12 @@ import { SorryUnfoundPage } from "./SorryUnfoundPage";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { getRecipeListFromAPi } from "../../../utils/getRecipeListFromAPi";
 import { recipeRequestCreator } from "../../../utils/recipeRequestCreator";
+import {
+  HOMEPAGE_ROUTE,
+  RECIPES_PAGE_ROUTE,
+  HISTORY_ROUTE,
+  FAVOURITE_ROUTE
+} from "../../../utils/routes";
 
 export const RecipeList = ({
   recipeInfo,
@@ -18,17 +24,17 @@ export const RecipeList = ({
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHistory = location.pathname === "/history";
-  const isFavourite = location.pathname === "/favourite";
+  const isHistory = location.pathname === HISTORY_ROUTE;
+  const isFavourite = location.pathname === FAVOURITE_ROUTE;
 
   function flipRecipePage(skipedPages: number) {
     const resultNumberPage = pageNumber + skipedPages;
     getRecipeListFromAPi(recipeRequestCreator(сlientSettings, resultNumberPage))
       .then((response) => {
-        navigate("/recipebook/", { state: { recipeInfo: response } });
+        navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
       })
       .catch(() => {
-        navigate("/");
+        navigate(HOMEPAGE_ROUTE);
       });
     setPageNumber(resultNumberPage);
   }
@@ -57,15 +63,23 @@ export const RecipeList = ({
               onClick={() => {
                 flipRecipePage(-10);
               }}
-              className="backToListButton backButton"></div>
-            <div hidden={pageNumber < 9} className="backToListButtonBorder backButton"></div>
+              className="backToListButton backButton"
+            ></div>
+            <div
+              hidden={pageNumber < 9}
+              className="backToListButtonBorder backButton"
+            ></div>
             <div
               hidden={recipeInfo.length < 10}
               onClick={() => {
                 flipRecipePage(10);
               }}
-              className="backToListButton forwardButton"></div>
-            <div hidden={recipeInfo.length < 10} className="backToListButtonBorder forwardButton"></div>
+              className="backToListButton forwardButton"
+            ></div>
+            <div
+              hidden={recipeInfo.length < 10}
+              className="backToListButtonBorder forwardButton"
+            ></div>
           </>
         ) : (
           ""

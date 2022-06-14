@@ -4,6 +4,7 @@ import { ViewRecipeParamType } from "../../types/types";
 import { useClientSettings } from "../../hooks/useClientSettings";
 import { recipeRequestCreator } from "../../utils/recipeRequestCreator";
 import { getRecipeListFromAPi } from "../../utils/getRecipeListFromAPi";
+import { RECIPES_PAGE_ROUTE } from "../../utils/routes";
 
 export const ViewRecipesButton = ({
   settings,
@@ -20,7 +21,7 @@ export const ViewRecipesButton = ({
 
     getRecipeListFromAPi(recipeRequestCreator(settings)).then((response) => {
       setIsLoading(!isLoading);
-      navigate("/recipebook/", { state: { recipeInfo: response } });
+      navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
     });
   }
 

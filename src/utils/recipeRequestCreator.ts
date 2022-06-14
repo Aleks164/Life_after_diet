@@ -34,9 +34,7 @@ export function recipeRequestCreator(
     queryString += `&type=${rigthTypeQueryString(mealTypesSelector.mealType)}`;
   if (maxCaloriesInput.status)
     queryString += `&maxCalories=${maxCaloriesInput.value}`;
-  if (skipedPages)
-    queryString += `&offset=${skipedPages}`;
+  if (skipedPages) queryString += `&offset=${skipedPages}`;
   queryString += `&number=10`;
-  console.log(queryString);
   return queryString;
 }

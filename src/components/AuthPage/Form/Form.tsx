@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../../../utils/routes";
 import "./index.css";
 
 export type FormParamType = {
@@ -75,21 +76,26 @@ export const Form = ({
           {processName}!
         </button>
       </form>
-      <button disabled={isPressedOnLoginButton} onClick={() => {
-        setIsPressedOnLoginButton(!isPressedOnLoginButton);
-        signInUpWithGoogle();
-      }} className="googleAuthLink">
+      <button
+        disabled={isPressedOnLoginButton}
+        onClick={() => {
+          setIsPressedOnLoginButton(!isPressedOnLoginButton);
+          signInUpWithGoogle();
+        }}
+        className="googleAuthLink"
+      >
         <div className="googleIcon"></div>
         <span>Google</span>
       </button>
       {processName === "Log in" ? (
         <p>
           Do not have an account yet?{" "}
-          <Link to={"/signup"}>Sign up in here.</Link>
+          <Link to={SIGNUP_ROUTE}>Sign up in here.</Link>
         </p>
       ) : (
         <p>
-          You have an account already? <Link to={"/login"}>Log in here.</Link>
+          You have an account already?{" "}
+          <Link to={LOGIN_ROUTE}>Log in here.</Link>
         </p>
       )}
       {errorMessage.length > 0 ? (

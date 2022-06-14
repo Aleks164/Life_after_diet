@@ -11,29 +11,36 @@ import { FavouretePage } from "./components/AfterAuthHomePage/FavouretePage/Favo
 import { RecipesListPage } from "./components/AfterAuthHomePage/RecipesListPage/RecipesListPage";
 import { SignUp } from "./components/AuthPage/SignUp/SignUp";
 import { AboutPage } from "./components/AboutPage/AboutPage";
+import {
+  LOGIN_ROUTE,
+  SIGNUP_ROUTE,
+  HOMEPAGE_ROUTE,
+  HISTORY_ROUTE,
+  FAVOURITE_ROUTE,
+  ABOUT_ROUTE, RECIPES_PAGE_ROUTE, RECIPE_ID_PAGE_ROUTE
+} from "./utils/routes";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
-
   return (
     <Routes>
-      <Route path="/" element={<Layout isAuth={userAuth} />}>
+      <Route path={HOMEPAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
         <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
-        <Route path="about" element={<AboutPage />} />
+        <Route path={ABOUT_ROUTE} element={<AboutPage />} />
         {!userAuth ? (
           <>
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
+            <Route path={LOGIN_ROUTE} element={<Login />} />
+            <Route path={SIGNUP_ROUTE} element={<SignUp />} />
           </>
         ) : (
           ""
         )}
         {userAuth ? (
           <>
-            <Route path="history" element={<HistoryPage />} />
-            <Route path="favourite" element={<FavouretePage />} />
-            <Route path="recipe/:id" element={<RecipeByIdPage />} />
-            <Route path="recipebook" element={<RecipesListPage />} />
+            <Route path={HISTORY_ROUTE} element={<HistoryPage />} />
+            <Route path={FAVOURITE_ROUTE} element={<FavouretePage />} />
+            <Route path={RECIPE_ID_PAGE_ROUTE} element={<RecipeByIdPage />} />
+            <Route path={RECIPES_PAGE_ROUTE} element={<RecipesListPage />} />
           </>
         ) : (
           ""

@@ -3,7 +3,6 @@ import { ClientSettingsType } from "../../../types/types";
 
 export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
   <>
-    {console.log(сlientSettings)}
     <h3 className="chosenParam">You have chosen:</h3>
     <div className="leftMenuHomePage">
       {сlientSettings.dietSelector.status ? (
