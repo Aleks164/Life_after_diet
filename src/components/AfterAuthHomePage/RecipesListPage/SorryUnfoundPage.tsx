@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  HOMEPAGE_ROUTE,
+  HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE
 } from "../../../utils/routes";
@@ -36,7 +36,7 @@ export const SorryUnfoundPage = () => {
       <button
         className="tryAgainButton loginFormButton"
         onClick={() => {
-          navigate(HOMEPAGE_ROUTE);
+          navigate(HOME_PAGE_ROUTE);
         }}
       >
         {!isHistory && !isFavourite ? "Try again!" : "Finde recipe"}

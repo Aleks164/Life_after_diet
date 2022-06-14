@@ -5,7 +5,7 @@ import { SignInLink } from "../SignInLink/SignInLink";
 import {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
-  HOMEPAGE_ROUTE,
+  HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE,
   ABOUT_ROUTE
@@ -14,7 +14,7 @@ import { IsAuthType } from "../../types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === LOGIN_ROUTE;
-  const isHomePage = useLocation().pathname === HOMEPAGE_ROUTE;
+  const isHomePage = useLocation().pathname === HOME_PAGE_ROUTE;
   const navigate = useNavigate();
 
   return (
@@ -23,7 +23,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         <h1
           className="mainTitle"
           onClick={() => {
-            navigate(HOMEPAGE_ROUTE);
+            navigate(HOME_PAGE_ROUTE);
           }}
         >
           Life after diet...
@@ -37,7 +37,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         )}
         <hr />
         <div className="layoutLinkCont">
-          <NavLink to={HOMEPAGE_ROUTE}>Recipes</NavLink>
+          <NavLink to={HOME_PAGE_ROUTE}>Recipes</NavLink>
           {isAuth ? (
             <>
               <NavLink to={HISTORY_ROUTE}>History</NavLink>
@@ -66,7 +66,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
                 )}
               </>
             ) : (
-              <SignOutLink to={HOMEPAGE_ROUTE}>Log Out</SignOutLink>
+              <SignOutLink to={HOME_PAGE_ROUTE}>Log Out</SignOutLink>
             )}
           </div>
         )}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { HOMEPAGE_ROUTE } from "./routes";
+import { HOME_PAGE_ROUTE } from "./routes";
 
 export async function getRecipeListFromAPi(queryString: string) {
   const options = {
@@ -14,6 +14,6 @@ export async function getRecipeListFromAPi(queryString: string) {
     return recipeList;
   } catch (e) {
     console.error(e);
-    return <Navigate to={HOMEPAGE_ROUTE} />;
+    return <Navigate to={HOME_PAGE_ROUTE} />;
   }
 }

@@ -9,7 +9,7 @@ import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { getRecipeListFromAPi } from "../../../utils/getRecipeListFromAPi";
 import { recipeRequestCreator } from "../../../utils/recipeRequestCreator";
 import {
-  HOMEPAGE_ROUTE,
+  HOME_PAGE_ROUTE,
   RECIPES_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE
@@ -34,7 +34,7 @@ export const RecipeList = ({
         navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
       })
       .catch(() => {
-        navigate(HOMEPAGE_ROUTE);
+        navigate(HOME_PAGE_ROUTE);
       });
     setPageNumber(resultNumberPage);
   }

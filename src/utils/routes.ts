@@ -1,4 +1,4 @@
-export const HOMEPAGE_ROUTE = "/";
+export const HOME_PAGE_ROUTE = "/life_after_diet/";
 export const ABOUT_ROUTE = "/life_after_diet/about";
 export const LOGIN_ROUTE = "/life_after_diet/login";
 export const FAVOURITE_ROUTE = "/life_after_diet/favourite";

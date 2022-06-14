@@ -14,7 +14,7 @@ import { AboutPage } from "./components/AboutPage/AboutPage";
 import {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
-  HOMEPAGE_ROUTE,
+  HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE,
   ABOUT_ROUTE, RECIPES_PAGE_ROUTE, RECIPE_ID_PAGE_ROUTE
@@ -24,7 +24,7 @@ export const AppRouter = () => {
   const userAuth = useAuth().user;
   return (
     <Routes>
-      <Route path={HOMEPAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
+      <Route path={HOME_PAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
         <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
         <Route path={ABOUT_ROUTE} element={<AboutPage />} />
         {!userAuth ? (
