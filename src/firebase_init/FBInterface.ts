@@ -12,7 +12,6 @@ export interface FBInterfaceType {
     userName: string,
     paramName: ParamNameType
   ): Promise<SettingType | string>;
-  addNewUserOnFB(userName: string): Promise<string>;
   updateUserParam(
     userName: string,
     paramName: ParamNameType,
@@ -35,37 +34,18 @@ export class FBInterface implements FBInterfaceType {
       .catch((error) => error);
   }
 
-  async addNewUserOnFB(userName: string) {
-    userName = createEmailForFB(userName);
-    console.log("userNamefb", userName);
-    return database
-      .set(database.ref(database.db, `users/${userName}`), {
-        history: { vasy: "vasy" },
-        favourite: {},
-      })
-      .then(() => {
-        console.log("userNamefb3", userName);
-        return userName
-      })
-      .catch((error) => {
-
-        console.log("error", error)
-        return error
-      });
-  }
-
   async updateUserParam(
     userName: string,
     paramName: ParamNameType,
     updatingParam: UpdatingParamType
-  ) {
+  ): Promise<string> {
     userName = createEmailForFB(userName);
     return database
-      .update(
+      .set(
         database.ref(database.db, `users/${userName}/${paramName}`),
         updatingParam
       )
-      .then(() => userName)
+      .then(() => updatingParam)
       .catch((error) => error);
   }
 }

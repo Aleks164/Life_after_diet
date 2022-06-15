@@ -34,12 +34,12 @@ export const AboutPage = () => (
       <br />
       - supports authentification with login-password and Google
       <br />- a parameterized link that you can save and return to at any time
-      to see a specific recipe{" "}
+      to see a specific recipe
       <a
-        title="https://aleks164.github.io/task-calendar/tasks?onlyDone=true&fuzzySelect=date&fuzzyInput=27"
+        title="https://aleks164.github.io/Life_after_diet/recipe/638822"
         target="_blank"
         rel="noreferrer"
-        href="https://aleks164.github.io/task-calendar/tasks?onlyDone=true&fuzzySelect=date&fuzzyInput=27"
+        href="https://aleks164.github.io/Life_after_diet/recipe/638822"
       >
         (Examle)
       </a>

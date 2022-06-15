@@ -5,8 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
-const PREFIX = "/life_after_diet/";
-console.log("****************--**************", isDev);
+const PREFIX = "/life_after_diet";
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
