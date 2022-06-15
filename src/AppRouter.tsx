@@ -22,8 +22,6 @@ import {
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
-  const location = useLocation();
-  const isEmptyAdressString = location.pathname === "/";
   return (
     <Routes>
       <Route path="/" element={<Navigate to={HOME_PAGE_ROUTE} />} />
