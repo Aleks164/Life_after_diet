@@ -130,6 +130,8 @@ export type SetRequestSettingsType = React.Dispatch<
   React.SetStateAction<SettingType>
 >;
 
+export type SetInputValue = React.Dispatch<React.SetStateAction<string>>
+
 export type SettingParamType = { settings: SettingType };
 
 export type ClientSettingsType = {
@@ -156,7 +158,7 @@ export type BookmarkPropsType = {
   setRequestSettings: SetRequestSettingsType;
 };
 
-export type tumblerParamFunction = (
+export type selectorParamFunction = (
   tumblerStatus: boolean,
   e:
     | React.DragEvent<HTMLDivElement>
@@ -218,4 +220,18 @@ export type HistoryLineParamType = {
     NextItemSliderParam: NextItemSliderParamType
   ) => void;
   nextItemParam: NextItemSliderParamType;
+};
+export interface SelectorParamType {
+  isFieldAvailable: boolean;
+  settings: SettingType;
+  option: keyof SettingType;
+  optionType: string;
+  optionTypeValue: any;
+  setRequestSettings: SetSettingType;
+}
+
+export interface InputParamType extends SelectorParamType {
+  ingridientInputValue: string;
+  fullListOfIngridients: string[];
+  setIngridientInputValue: SetInputValue;
 };

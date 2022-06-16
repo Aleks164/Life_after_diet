@@ -2,97 +2,34 @@ import React, { useState } from "react";
 import {
   BookmarkPropsType,
   IngridientsListType,
-  SettingType,
+  InputParamType
 } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
+import { tumblerSwitcher } from "./tumblerSwitcher";
+import { addIngredientToList } from "./addIngredientToList";
+import { deleteExcludeFromList } from "./deleteExcludeFromList";
 
 export const ExcludeIngridientList = ({
   settings,
-  setRequestSettings,
+  setRequestSettings
 }: BookmarkPropsType) => {
   const excludeIngridients = Object.keys(ingridientsList);
   const excludeIngridientStatus = settings.excludeIngridientsSelector.status;
   const excludeIngridientList =
     settings.excludeIngridientsSelector.excludeIngridients;
-  const [recipeValue, setRecipeValue] = useState("");
-
-  function recipeChanger(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    const checkIncludCroosing =
-      settings.ingridientsSelector.ingridients.indexOf(recipeValue);
-    const checkExcludCroosing =
-      settings.excludeIngridientsSelector.excludeIngridients.indexOf(
-        recipeValue
-      );
-    if (excludeIngridients.indexOf(recipeValue) === -1) {
-      let message = 'Please input a valid ingridient from list and press "+"';
-      if (!excludeIngridientStatus) message = "You must first press 'On'";
-      (e.target as HTMLButtonElement).setCustomValidity(message);
-      return;
-    }
-    if (checkIncludCroosing >= 0) {
-      const message = `"${recipeValue}" already exist in ingredients list`;
-      (e.target as HTMLButtonElement).setCustomValidity(message);
-      return;
-    }
-    if (checkExcludCroosing >= 0) {
-      const message = `"${recipeValue}" already exist your list`;
-      (e.target as HTMLButtonElement).setCustomValidity(message);
-      return;
-    }
-    e.preventDefault();
-    excludeIngridientList.push(recipeValue);
-    const newexcludeIngridientsList = {
-      ...settings,
-      excludeIngridientsSelector: {
-        ...settings.excludeIngridientsSelector,
-        excludeIngridients: excludeIngridientList,
-      },
-    };
-    setRequestSettings(newexcludeIngridientsList);
-    setRecipeValue("");
-  }
-  function excludeIngridientTumbler(
-    tumblerStatus: boolean,
-    e:
-      | React.DragEvent<HTMLDivElement>
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) {
-    e.preventDefault();
-    let newExcludeIngridientsList: SettingType;
-    if (tumblerStatus) {
-      newExcludeIngridientsList = {
-        ...settings,
-        excludeIngridientsSelector: {
-          excludeIngridients: [],
-          status: !tumblerStatus,
-        },
-      };
-    } else {
-      newExcludeIngridientsList = {
-        ...settings,
-        excludeIngridientsSelector: {
-          ...settings.excludeIngridientsSelector,
-          status: !tumblerStatus,
-        },
-      };
-    }
-    setRequestSettings(newExcludeIngridientsList);
-  }
-  function deleteButton(deletingIngridient: string) {
-    const filtredList =
-      settings.excludeIngridientsSelector.excludeIngridients.filter(
-        (ingridient) => ingridient !== deletingIngridient
-      );
-    const newIngridientsList = {
-      ...settings,
-      excludeIngridientsSelector: {
-        ...settings.excludeIngridientsSelector,
-        excludeIngridients: filtredList,
-      },
-    };
-    setRequestSettings(newIngridientsList);
-  }
+  const [ingridientInputValue, setIngridientInputValue] = useState("");
+  const selectorParam = {
+    isFieldAvailable: excludeIngridientStatus,
+    settings,
+    option: "excludeIngridientsSelector",
+    optionType: "excludeIngridients",
+    optionTypeValue: [],
+    fullListOfIngridients: excludeIngridients,
+    ingridientInputValue,
+    setRequestSettings,
+    setIngridientInputValue
+  } as InputParamType;
 
   return (
     <div className="ingridientsList">
@@ -101,19 +38,18 @@ export const ExcludeIngridientList = ({
         <input
           disabled={!excludeIngridientStatus}
           autoComplete="off"
-          value={recipeValue}
-          onChange={(e) => setRecipeValue(e.target.value)}
+          value={ingridientInputValue}
+          onChange={(e) => setIngridientInputValue(e.target.value)}
           type="text"
           list="ingridientsFullList"
         />
         <div>
-          <button className="plusButton" onClick={recipeChanger}>
+          <button className="plusButton" onClick={(e) => { addIngredientToList(e, selectorParam) }}>
             +
           </button>
           <OnOffTumbler
-            onDragStartFunction={excludeIngridientTumbler}
-            onClickFunction={excludeIngridientTumbler}
-            tumblerStatus={excludeIngridientStatus}
+            tumblerSwitcher={tumblerSwitcher}
+            selectorParam={selectorParam}
           />
         </div>
       </label>
@@ -135,7 +71,7 @@ export const ExcludeIngridientList = ({
                   {ingridient}
                   <button
                     className="deleteItemButton"
-                    onClick={() => deleteButton(ingridient)}
+                    onClick={() => deleteExcludeFromList(ingridient, selectorParam)}
                   >
                     <p>x</p>
                   </button>

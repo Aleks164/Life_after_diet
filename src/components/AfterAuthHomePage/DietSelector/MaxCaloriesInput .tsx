@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { BookmarkPropsType, SettingType } from "../../../types/types";
+import React, { useState } from "react";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
+import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MaxCaloriesInput = ({
   settings,
@@ -9,30 +10,14 @@ export const MaxCaloriesInput = ({
   const [maxCalories, setMaxCalories] = useState(500);
   const maxCaloriesStatus = settings.maxCaloriesInput.status;
 
-  function caloriesTumbler(
-    tumblerStatus: boolean,
-    e:
-      | React.DragEvent<HTMLDivElement>
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) {
-    e.preventDefault();
-    let newIngridientsList: SettingType;
-    if (tumblerStatus) {
-      newIngridientsList = {
-        ...settings,
-        maxCaloriesInput: { value: maxCalories, status: !tumblerStatus }
-      };
-    } else {
-      newIngridientsList = {
-        ...settings,
-        maxCaloriesInput: {
-          ...settings.maxCaloriesInput,
-          status: !tumblerStatus
-        }
-      };
-    }
-    setRequestSettings(newIngridientsList);
-  }
+  const selectorParam = {
+    isFieldAvailable: maxCaloriesStatus,
+    settings,
+    option: "maxCaloriesInput",
+    optionType: "value",
+    optionTypeValue: maxCalories,
+    setRequestSettings
+  } as SelectorParamType;
 
   return (
     <div className="ingridientsList">
@@ -52,9 +37,8 @@ export const MaxCaloriesInput = ({
         />
         <div>
           <OnOffTumbler
-            onDragStartFunction={caloriesTumbler}
-            onClickFunction={caloriesTumbler}
-            tumblerStatus={maxCaloriesStatus}
+            tumblerSwitcher={tumblerSwitcher}
+            selectorParam={selectorParam}
           />
         </div>
       </label>

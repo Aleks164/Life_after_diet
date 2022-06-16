@@ -1,32 +1,43 @@
 import React from "react";
-import { tumblerParamFunction } from "../../types/types";
+import { SelectorParamType } from "../../types/types";
 import "./index.css";
 
-type OnOffTumblerParam = {
-  onDragStartFunction: tumblerParamFunction;
-  onClickFunction: tumblerParamFunction;
-  tumblerStatus: boolean;
+type OnOffselectorParam = {
+  tumblerSwitcher: (
+    selectorParam: SelectorParamType,
+    e:
+      | React.DragEvent<HTMLDivElement>
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => void;
+  selectorParam: SelectorParamType;
 };
 
 export const OnOffTumbler = ({
-  onDragStartFunction,
-  onClickFunction,
-  tumblerStatus,
-}: OnOffTumblerParam) => {
-  const tumblerClass = !tumblerStatus
+  tumblerSwitcher,
+  selectorParam
+}: OnOffselectorParam) => {
+  const tumblerClass = !selectorParam.isFieldAvailable
     ? `tumbler tumblerEnd`
     : `tumbler tumblerStart`;
 
   return (
     <div
-      onDragStart={(e) => onDragStartFunction(tumblerStatus, e)}
+      onDragStart={(e) => tumblerSwitcher(selectorParam, e)}
       className="tumblerCont"
-      onClick={(e) => onClickFunction(tumblerStatus, e)}
+      onClick={(e) => tumblerSwitcher(selectorParam, e)}
     >
-      <p className={tumblerStatus ? "tumblerOff tumblerHiden" : "tumblerOff"}>
+      <p
+        className={
+          selectorParam.isFieldAvailable ? "tumblerOff tumblerHiden" : "tumblerOff"
+        }
+      >
         Off
       </p>
-      <p className={!tumblerStatus ? "tumblerOn tumblerHiden" : "tumblerOn"}>
+      <p
+        className={
+          !selectorParam.isFieldAvailable ? "tumblerOn tumblerHiden" : "tumblerOn"
+        }
+      >
         On
       </p>
       <div draggable="true" className={tumblerClass}></div>

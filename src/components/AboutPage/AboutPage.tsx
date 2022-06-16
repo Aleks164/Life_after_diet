@@ -4,7 +4,7 @@ export const AboutPage = () => (
   <div className="aboutCont">
     <div className="aboutPicture"></div>
     <div className="shortInfo">
-      <h4>Web-site "Life after diet..." </h4>
+      <h4>Web-site "Life after diet..."</h4>
       <div>
         Developed by:
         <div>
@@ -41,6 +41,7 @@ export const AboutPage = () => (
         rel="noreferrer"
         href="https://aleks164.github.io/Life_after_diet/recipe/638822"
       >
+        {" "}
         (Examle)
       </a>
       <br />

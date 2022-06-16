@@ -10,7 +10,7 @@ import { MaxCaloriesInput } from "./MaxCaloriesInput ";
 
 export const DietSelector = ({
   settings,
-  setRequestSettings,
+  setRequestSettings
 }: BookmarkPropsType) => {
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   return (

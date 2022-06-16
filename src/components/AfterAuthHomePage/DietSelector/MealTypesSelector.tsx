@@ -1,49 +1,36 @@
 import React from "react";
-import { BookmarkPropsType, SettingType } from "../../../types/types";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
 import { MealTypes } from "../../../utils/consts";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
+import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MealTypesSelector = ({
   settings,
-  setRequestSettings,
+  setRequestSettings
 }: BookmarkPropsType) => {
   const curMealTypestatus = settings.mealTypesSelector.status;
   const curMealType = settings.mealTypesSelector.mealType;
+
+  const selectorParam = {
+    isFieldAvailable: curMealTypestatus,
+    settings,
+    option: "mealTypesSelector",
+    optionType: "mealType",
+    optionTypeValue: "",
+    setRequestSettings
+  } as SelectorParamType;
 
   function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
     const newmealType = {
       ...settings,
       mealTypesSelector: {
         ...settings.mealTypesSelector,
-        mealType: e.target.value,
-      },
+        mealType: e.target.value
+      }
     };
     setRequestSettings(newmealType);
   }
-  function mealTypeTumbler(
-    tumblerStatus: boolean,
-    e:
-      | React.DragEvent<HTMLDivElement>
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) {
-    e.preventDefault();
-    let newMealType: SettingType;
-    if (tumblerStatus) {
-      newMealType = {
-        ...settings,
-        mealTypesSelector: { mealType: "", status: !tumblerStatus },
-      };
-    } else {
-      newMealType = {
-        ...settings,
-        mealTypesSelector: {
-          ...settings.mealTypesSelector,
-          status: !tumblerStatus,
-        },
-      };
-    }
-    setRequestSettings(newMealType);
-  }
+
   return (
     <div className="mealTypesSelector">
       <label>
@@ -62,9 +49,8 @@ export const MealTypesSelector = ({
         </select>
         <div>
           <OnOffTumbler
-            onDragStartFunction={mealTypeTumbler}
-            onClickFunction={mealTypeTumbler}
-            tumblerStatus={curMealTypestatus}
+            tumblerSwitcher={tumblerSwitcher}
+            selectorParam={selectorParam}
           />
         </div>
       </label>
