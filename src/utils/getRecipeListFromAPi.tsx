@@ -5,7 +5,7 @@ import { HOME_PAGE_ROUTE } from "./routes";
 export async function getRecipeListFromAPi(queryString: string) {
   const options = {
     method: "GET",
-    headers: {}
+    headers: {},
   };
 
   try {

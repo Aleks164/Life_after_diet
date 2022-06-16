@@ -18,7 +18,9 @@ export const CuisinesListBookmark = ({
               <input
                 value={cusine}
                 checked={settings.cuisinesList.includes(cusine)}
-                onChange={(e) => { togleStatus(e, setRequestSettings, settings) }}
+                onChange={(e) => {
+                  togleStatus(e, setRequestSettings, settings);
+                }}
                 type="checkbox"
                 name={cusine}
               />
@@ -37,7 +39,9 @@ export const CuisinesListBookmark = ({
       </fieldset>
       <button
         className="clearButton loginFormButton"
-        onClick={() => { chooseClearAll(setRequestSettings, settings, fullList) }}
+        onClick={() => {
+          chooseClearAll(setRequestSettings, settings, fullList);
+        }}
         type="button"
       >
         {settings.cuisinesList.length > 0 ? "Clear all" : "Choose all"}

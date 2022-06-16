@@ -130,7 +130,7 @@ export type SetRequestSettingsType = React.Dispatch<
   React.SetStateAction<SettingType>
 >;
 
-export type SetInputValue = React.Dispatch<React.SetStateAction<string>>
+export type SetInputValue = React.Dispatch<React.SetStateAction<string>>;
 
 export type SettingParamType = { settings: SettingType };
 
@@ -234,4 +234,4 @@ export interface InputParamType extends SelectorParamType {
   ingridientInputValue: string;
   fullListOfIngridients: string[];
   setIngridientInputValue: SetInputValue;
-};
+}

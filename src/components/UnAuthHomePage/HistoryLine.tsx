@@ -6,7 +6,7 @@ export const HistoryLine = ({
   isPresed,
   curItem,
   nextItem,
-  nextItemParam
+  nextItemParam,
 }: HistoryLineParamType) => (
   <div className="historyLine">
     {caruselItemsList.map((_, index) => (

@@ -5,7 +5,7 @@ import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MaxCaloriesInput = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const [maxCalories, setMaxCalories] = useState(500);
   const maxCaloriesStatus = settings.maxCaloriesInput.status;
@@ -16,7 +16,7 @@ export const MaxCaloriesInput = ({
     option: "maxCaloriesInput",
     optionType: "value",
     optionTypeValue: maxCalories,
-    setRequestSettings
+    setRequestSettings,
   } as SelectorParamType;
 
   return (

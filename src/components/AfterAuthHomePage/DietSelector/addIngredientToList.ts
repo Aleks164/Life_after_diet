@@ -1,21 +1,24 @@
 import { InputParamType } from "../../../types/types";
 
 export function addIngredientToList(
-  e: React.MouseEvent<HTMLButtonElement, MouseEvent>, {
+  e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  {
     settings,
     ingridientInputValue,
     fullListOfIngridients,
     isFieldAvailable,
     option,
-    optionType, setRequestSettings, setIngridientInputValue
+    optionType,
+    setRequestSettings,
+    setIngridientInputValue,
   }: InputParamType
 ) {
-  const checkExcludCroosing = settings.excludeIngridientsSelector.excludeIngridients.indexOf(
-    ingridientInputValue
-  );
-  const checkIncludCroosing = settings.ingridientsSelector.ingridients.indexOf(
-    ingridientInputValue
-  );
+  const checkExcludCroosing =
+    settings.excludeIngridientsSelector.excludeIngridients.indexOf(
+      ingridientInputValue
+    );
+  const checkIncludCroosing =
+    settings.ingridientsSelector.ingridients.indexOf(ingridientInputValue);
   if (fullListOfIngridients.indexOf(ingridientInputValue) === -1) {
     let message = 'Please input a valid ingridient from list and press "+"';
     if (!isFieldAvailable) message = "You must first press 'On'";
@@ -39,8 +42,8 @@ export function addIngredientToList(
     ...settings,
     [option]: {
       status: settings.ingridientsSelector.status,
-      [optionType]: curIngridientsList
-    }
+      [optionType]: curIngridientsList,
+    },
   };
   setRequestSettings(newIngridientsList);
   setIngridientInputValue("");

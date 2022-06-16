@@ -7,7 +7,7 @@ export const LeftRightSliderButton = ({
   nextItem,
   direction,
   buttonType,
-  children
+  children,
 }: LeftRightParamType) => (
   <button
     disabled={isPresed}

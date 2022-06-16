@@ -17,7 +17,9 @@ import {
   HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE,
-  ABOUT_ROUTE, RECIPES_PAGE_ROUTE, RECIPE_ID_PAGE_ROUTE
+  ABOUT_ROUTE,
+  RECIPES_PAGE_ROUTE,
+  RECIPE_ID_PAGE_ROUTE,
 } from "./utils/routes";
 
 export const AppRouter = () => {

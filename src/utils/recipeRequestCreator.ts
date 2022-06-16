@@ -12,7 +12,7 @@ export function recipeRequestCreator(
     intolerancesList,
     ingridientsSelector,
     mealTypesSelector,
-    maxCaloriesInput
+    maxCaloriesInput,
   } = settings;
 
   let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${myKey}`;

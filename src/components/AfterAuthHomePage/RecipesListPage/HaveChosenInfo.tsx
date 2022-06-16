@@ -59,14 +59,12 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
         <div>
           <p>List of ingridients: </p>
           {сlientSettings.ingridientsSelector.ingridients.map(
-            (ingridient, index, array) => {
-              return (
-                <li key={index}>
-                  {ingridient}
-                  {index === array.length - 1 ? <hr /> : ""}
-                </li>
-              );
-            }
+            (ingridient, index, array) => (
+              <li key={index}>
+                {ingridient}
+                {index === array.length - 1 ? <hr /> : ""}
+              </li>
+            )
           )}
         </div>
       ) : (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   BookmarkPropsType,
   IngridientsListType,
-  InputParamType
+  InputParamType,
 } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
@@ -12,7 +12,7 @@ import { deleteExcludeFromList } from "./deleteExcludeFromList";
 
 export const IngridientsList = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const ingridients = Object.keys(ingridientsList);
   const ingridientStatus = settings.ingridientsSelector.status;
@@ -27,7 +27,7 @@ export const IngridientsList = ({
     fullListOfIngridients: ingridients,
     ingridientInputValue,
     setRequestSettings,
-    setIngridientInputValue
+    setIngridientInputValue,
   } as InputParamType;
 
   return (
@@ -43,7 +43,12 @@ export const IngridientsList = ({
           list="ingridientsFullList"
         />
         <div>
-          <button className="plusButton" onClick={(e) => { addIngredientToList(e, selectorParam) }}>
+          <button
+            className="plusButton"
+            onClick={(e) => {
+              addIngredientToList(e, selectorParam);
+            }}
+          >
             +
           </button>
           <OnOffTumbler
@@ -70,7 +75,9 @@ export const IngridientsList = ({
                   {ingridient}
                   <button
                     className="deleteItemButton"
-                    onClick={() => deleteExcludeFromList(ingridient, selectorParam)}
+                    onClick={() =>
+                      deleteExcludeFromList(ingridient, selectorParam)
+                    }
                   >
                     <p>x</p>
                   </button>

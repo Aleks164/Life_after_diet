@@ -6,7 +6,7 @@ import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MealTypesSelector = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const curMealTypestatus = settings.mealTypesSelector.status;
   const curMealType = settings.mealTypesSelector.mealType;
@@ -17,7 +17,7 @@ export const MealTypesSelector = ({
     option: "mealTypesSelector",
     optionType: "mealType",
     optionTypeValue: "",
-    setRequestSettings
+    setRequestSettings,
   } as SelectorParamType;
 
   function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -25,8 +25,8 @@ export const MealTypesSelector = ({
       ...settings,
       mealTypesSelector: {
         ...settings.mealTypesSelector,
-        mealType: e.target.value
-      }
+        mealType: e.target.value,
+      },
     };
     setRequestSettings(newmealType);
   }

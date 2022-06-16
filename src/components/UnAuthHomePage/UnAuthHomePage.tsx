@@ -18,7 +18,7 @@ export const UnAuthHomePage = () => {
     setCurItem,
     setIsPresed,
     togleAnimation,
-    caruselItemsList
+    caruselItemsList,
   };
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import { RECIPES_PAGE_ROUTE } from "../../utils/routes";
 export const ViewRecipesButton = ({
   settings,
   isLoading,
-  setIsLoading
+  setIsLoading,
 }: ViewRecipeParamType) => {
   const { setClientSettings } = useClientSettings();
   const navigate = useNavigate();

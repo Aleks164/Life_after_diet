@@ -10,7 +10,7 @@ export const IntolerancesList = [
   "Soy",
   "Sulfite",
   "Tree Nut",
-  "Wheat"
+  "Wheat",
 ];
 export const MealTypes = [
   "main course",
@@ -26,7 +26,7 @@ export const MealTypes = [
   "marinade",
   "fingerfood",
   "snack",
-  "drink"
+  "drink",
 ];
 export const DietList = [
   "Gluten Free",
@@ -39,7 +39,7 @@ export const DietList = [
   "Paleo",
   "Primal",
   "Low FODMAP",
-  "Whole30"
+  "Whole30",
 ];
 export const Cuisines = [
   "African",
@@ -67,7 +67,7 @@ export const Cuisines = [
   "Southern",
   "Spanish",
   "Thai",
-  "Vietnamese"
+  "Vietnamese",
 ];
 export const DietDefenition = {
   1: "Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated).",
@@ -80,5 +80,5 @@ export const DietDefenition = {
   8: "Allowed ingredients include meat (especially grass fed), fish, eggs, vegetables, some oils (e.g. coconut and olive oil), and in smaller quantities, fruit, nuts, and sweet potatoes. We also allow honey and maple syrup (popular in Paleo desserts, but strict Paleo followers may disagree). Ingredients not allowed include legumes (e.g. beans and lentils), grains, dairy, refined sugar, and processed foods.",
   9: "Very similar to Paleo, except dairy is allowed - think raw and full fat milk, butter, ghee, etc.",
   10: 'FODMAP stands for fermentable oligo-, di-, mono-saccharides and polyols". Our ontology knows which foods are considered high in these types of carbohydrates (e.g. legumes, wheat, and dairy products).',
-  11: "Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food."
+  11: "Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food.",
 };

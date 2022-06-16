@@ -5,7 +5,7 @@ import { AuthBenefitsParamType } from "../../types/types";
 
 export const AuthBenefits = ({
   caruselItemsList,
-  curItem
+  curItem,
 }: AuthBenefitsParamType) => (
   <>
     {caruselItemsList.map((color, index) => (

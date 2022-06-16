@@ -7,12 +7,12 @@ export function nextItem(
     setCurItem,
     setIsPresed,
     togleAnimation,
-    caruselItemsList
+    caruselItemsList,
   }: NextItemSliderParamType
 ) {
-  const allColor = ((togleAnimation.current as unknown) as HTMLDivElement).querySelectorAll(
-    ".slide"
-  );
+  const allColor = (
+    togleAnimation.current as unknown as HTMLDivElement
+  ).querySelectorAll(".slide");
   let newIndex = 0;
   if (curItem !== caruselItemsList.length - 1) newIndex = curItem + step;
   if (curItem + step < 0) newIndex = caruselItemsList.length - 1;

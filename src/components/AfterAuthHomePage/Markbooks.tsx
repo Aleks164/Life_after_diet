@@ -3,7 +3,7 @@ import { SetCurMarkbookType } from "../../types/types";
 
 export const Markbooks = ({
   setCurMarkbook,
-  curMarkbook
+  curMarkbook,
 }: SetCurMarkbookType) => (
   <div className="markbooks">
     <button

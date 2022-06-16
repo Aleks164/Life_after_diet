@@ -12,13 +12,13 @@ import {
   HOME_PAGE_ROUTE,
   RECIPES_PAGE_ROUTE,
   HISTORY_ROUTE,
-  FAVOURITE_ROUTE
+  FAVOURITE_ROUTE,
 } from "../../../utils/routes";
 
 export const RecipeList = ({
   recipeInfo,
   pageNumber,
-  setPageNumber
+  setPageNumber,
 }: RecipeListProps) => {
   const { сlientSettings } = useClientSettings();
   const [isLoading, setIsLoading] = useState(false);

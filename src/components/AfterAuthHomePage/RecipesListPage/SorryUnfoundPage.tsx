@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
-  FAVOURITE_ROUTE
+  FAVOURITE_ROUTE,
 } from "../../../utils/routes";
 
 export const SorryUnfoundPage = () => {

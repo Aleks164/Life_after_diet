@@ -4,5 +4,5 @@ export const authBenefits = [
   "exclude intolerant products ",
   "choose the one you like",
   "add recipes to favorites",
-  "view history"
+  "view history",
 ];

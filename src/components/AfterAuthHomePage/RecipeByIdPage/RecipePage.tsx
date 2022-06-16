@@ -27,7 +27,12 @@ export const RecipePage = ({ recipe }: RecipeType) => {
 
   return (
     <div className="ricipe">
-      <div onClick={() => { navigate(-1) }} className="backToListButton backButtonArea"></div>
+      <div
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="backToListButton backButtonArea"
+      ></div>
       <div className="backToListButtonBorder backButtonArea"></div>
       <h2 className="recipeTitle">{recipe.title}</h2>
       <div className="recipePageMarkbooks">

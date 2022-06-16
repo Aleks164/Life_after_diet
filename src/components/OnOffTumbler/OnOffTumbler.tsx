@@ -14,7 +14,7 @@ type OnOffselectorParam = {
 
 export const OnOffTumbler = ({
   tumblerSwitcher,
-  selectorParam
+  selectorParam,
 }: OnOffselectorParam) => {
   const tumblerClass = !selectorParam.isFieldAvailable
     ? `tumbler tumblerEnd`
@@ -28,14 +28,18 @@ export const OnOffTumbler = ({
     >
       <p
         className={
-          selectorParam.isFieldAvailable ? "tumblerOff tumblerHiden" : "tumblerOff"
+          selectorParam.isFieldAvailable
+            ? "tumblerOff tumblerHiden"
+            : "tumblerOff"
         }
       >
         Off
       </p>
       <p
         className={
-          !selectorParam.isFieldAvailable ? "tumblerOn tumblerHiden" : "tumblerOn"
+          !selectorParam.isFieldAvailable
+            ? "tumblerOn tumblerHiden"
+            : "tumblerOn"
         }
       >
         On

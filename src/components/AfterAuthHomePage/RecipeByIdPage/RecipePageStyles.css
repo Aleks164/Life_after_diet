@@ -3,8 +3,7 @@
   position: relative;
   grid-template-columns: 150px 65vw;
   grid-template-rows: auto auto 60vh;
-  grid-template-areas:
-    "backButton recipeTitle"". recipeMarcbooks"".generalSpace";
+  grid-template-areas: "backButton recipeTitle" ". recipeMarcbooks" ".generalSpace";
 }
 
 .recipeTitle {
@@ -71,9 +70,11 @@
   vertical-align: top;
   width: 55px;
   height: 55px;
-  background: linear-gradient(to bottom,
-      rgb(197 196 196 / 100%) 0%,
-      rgb(180 179 178 / 100%) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(197 196 196 / 100%) 0%,
+    rgb(180 179 178 / 100%) 100%
+  );
   position: absolute;
   top: 25px;
   left: 15px;
@@ -86,30 +87,36 @@
   left: 1px;
   bottom: 1px;
   right: 1px;
-  background: linear-gradient(to bottom,
-      rgb(221 220 219 / 100%) 0%,
-      rgb(209 208 206 / 100%) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(221 220 219 / 100%) 0%,
+    rgb(209 208 206 / 100%) 100%
+  );
   z-index: 1;
 }
 
 .starStyles,
 .starStyles::before {
-  clip-path: polygon(50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%);
+  clip-path: polygon(
+    50% 0%,
+    66% 27%,
+    98% 35%,
+    76% 57%,
+    79% 91%,
+    50% 78%,
+    21% 91%,
+    24% 57%,
+    2% 35%,
+    32% 27%
+  );
 }
 
 .favouriteStar {
-  background: linear-gradient(to bottom,
-      rgb(243 212 85 / 100%) 0%,
-      rgb(238 164 0 / 100%) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(243 212 85 / 100%) 0%,
+    rgb(238 164 0 / 100%) 100%
+  );
   display: inline-block;
   vertical-align: top;
   width: 55px;
@@ -117,28 +124,34 @@
   position: absolute;
   top: 25px;
   left: 15px;
-  clip-path: polygon(50% 0%,
-      66% 27%,
-      98% 35%,
-      76% 57%,
-      79% 91%,
-      50% 78%,
-      21% 91%,
-      24% 57%,
-      2% 35%,
-      32% 27%);
+  clip-path: polygon(
+    50% 0%,
+    66% 27%,
+    98% 35%,
+    76% 57%,
+    79% 91%,
+    50% 78%,
+    21% 91%,
+    24% 57%,
+    2% 35%,
+    32% 27%
+  );
 }
 
 .starStyles:hover::before {
-  background: linear-gradient(to bottom,
-      rgb(243 212 85 / 100%) 0%,
-      rgb(238 164 0 / 100%) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(243 212 85 / 100%) 0%,
+    rgb(238 164 0 / 100%) 100%
+  );
 }
 
 .favouriteStar:hover {
-  background: linear-gradient(to bottom,
-      rgb(197 196 196 / 100%) 0%,
-      rgb(180 179 178 / 100%) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(197 196 196 / 100%) 0%,
+    rgb(180 179 178 / 100%) 100%
+  );
 }
 
 .instructions {
@@ -202,7 +215,7 @@
   margin-top: 15px;
 }
 
-.iconCont>div {
+.iconCont > div {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -240,10 +253,17 @@
   height: 60px;
   width: 90px;
   background: #d5d4d2;
-  clip-path: polygon(40% 0%, 40% 30%, 100% 30%, 100% 70%, 40% 70%, 40% 100%, 0% 50%);
+  clip-path: polygon(
+    40% 0%,
+    40% 30%,
+    100% 30%,
+    100% 70%,
+    40% 70%,
+    40% 100%,
+    0% 50%
+  );
   z-index: 5;
   position: absolute;
-
 }
 
 .backToListButton:hover {
@@ -254,7 +274,15 @@
   height: 64px;
   width: 93px;
   background: #81807e;
-  clip-path: polygon(40% 0%, 40% 30%, 100% 30%, 100% 70%, 40% 70%, 40% 100%, 0% 50%);
+  clip-path: polygon(
+    40% 0%,
+    40% 30%,
+    100% 30%,
+    100% 70%,
+    40% 70%,
+    40% 100%,
+    0% 50%
+  );
   position: absolute;
 }
 

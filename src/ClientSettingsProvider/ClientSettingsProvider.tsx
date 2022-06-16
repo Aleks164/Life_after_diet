@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import {
   ChildrenType,
   HistoryFavouriteTypes,
-  ProviderPropsType
+  ProviderPropsType,
 } from "../types/types";
 import { defaultSettings } from "../utils/defaultSettings";
 import { FBInterface } from "../firebase_init/FBInterface";
@@ -12,7 +12,7 @@ import { deleteOldestItem } from "./deleteOldestItem";
 export const ClientSettingsContext = createContext<ProviderPropsType>({
   сlientSettings: defaultSettings,
   сlientHistory: {},
-  сlientFavourite: {}
+  сlientFavourite: {},
 });
 
 export const ClientSettingsProvider = ({ children }: ChildrenType) => {
@@ -61,7 +61,7 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
     сlientFavourite,
     setClientFavourite,
     setHistory,
-    setFavourite
+    setFavourite,
   } as ProviderPropsType;
 
   return (

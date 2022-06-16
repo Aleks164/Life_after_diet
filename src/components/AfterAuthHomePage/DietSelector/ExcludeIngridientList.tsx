@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   BookmarkPropsType,
   IngridientsListType,
-  InputParamType
+  InputParamType,
 } from "../../../types/types";
 import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
@@ -12,7 +12,7 @@ import { deleteExcludeFromList } from "./deleteExcludeFromList";
 
 export const ExcludeIngridientList = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const excludeIngridients = Object.keys(ingridientsList);
   const excludeIngridientStatus = settings.excludeIngridientsSelector.status;
@@ -28,7 +28,7 @@ export const ExcludeIngridientList = ({
     fullListOfIngridients: excludeIngridients,
     ingridientInputValue,
     setRequestSettings,
-    setIngridientInputValue
+    setIngridientInputValue,
   } as InputParamType;
 
   return (
@@ -44,7 +44,12 @@ export const ExcludeIngridientList = ({
           list="ingridientsFullList"
         />
         <div>
-          <button className="plusButton" onClick={(e) => { addIngredientToList(e, selectorParam) }}>
+          <button
+            className="plusButton"
+            onClick={(e) => {
+              addIngredientToList(e, selectorParam);
+            }}
+          >
             +
           </button>
           <OnOffTumbler
@@ -71,7 +76,9 @@ export const ExcludeIngridientList = ({
                   {ingridient}
                   <button
                     className="deleteItemButton"
-                    onClick={() => deleteExcludeFromList(ingridient, selectorParam)}
+                    onClick={() =>
+                      deleteExcludeFromList(ingridient, selectorParam)
+                    }
                   >
                     <p>x</p>
                   </button>

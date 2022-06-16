@@ -6,18 +6,12 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  UserCredential
+  UserCredential,
 } from "firebase/auth";
 import { isLoadingType } from "../../../types/types";
 import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
-
-interface ResponseFBForGoogle extends UserCredential {
-  _tokenResponse: {
-    isNewUser: boolean
-  }
-}
 
 export const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -72,5 +66,3 @@ export const Login = () => {
     </>
   );
 };
-
-

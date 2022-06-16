@@ -11,7 +11,7 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
     const redirectTo = `/Life_after_diet/recipe/${id}`;
     const newHistory = {
       ...сlientHistory,
-      [id]: { title, image, id, date: Date.now() }
+      [id]: { title, image, id, date: Date.now() },
     };
 
     if (setClientHistory) setClientHistory(newHistory);

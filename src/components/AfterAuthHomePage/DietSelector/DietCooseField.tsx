@@ -6,7 +6,7 @@ import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const DietCooseField = ({
   settings,
-  setRequestSettings
+  setRequestSettings,
 }: BookmarkPropsType) => {
   const curDiet = settings.dietSelector.diet;
   const curDietstatus = settings.dietSelector.status;
@@ -16,13 +16,13 @@ export const DietCooseField = ({
     option: "dietSelector",
     optionType: "diet",
     optionTypeValue: "",
-    setRequestSettings
+    setRequestSettings,
   } as SelectorParamType;
 
   function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
     const newDiet = {
       ...settings,
-      dietSelector: { ...settings.dietSelector, diet: e.target.value }
+      dietSelector: { ...settings.dietSelector, diet: e.target.value },
     };
     setRequestSettings(newDiet);
   }

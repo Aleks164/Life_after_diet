@@ -18,7 +18,7 @@ export const Form = ({
   processName,
   errorMessage,
   setErrorMessage,
-  isLoading
+  isLoading,
 }: FormParamType) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -18,7 +18,9 @@ export const IntolerancesListBookmark = ({
               <input
                 value={intolerance}
                 checked={settings.intolerancesList.includes(intolerance)}
-                onChange={(e) => { togleStatus(e, setRequestSettings, settings) }}
+                onChange={(e) => {
+                  togleStatus(e, setRequestSettings, settings);
+                }}
                 type="checkbox"
                 name={intolerance}
               />
@@ -30,7 +32,9 @@ export const IntolerancesListBookmark = ({
       </fieldset>
       <button
         className="clearButton loginFormButton"
-        onClick={(e) => { chooseClearAll(setRequestSettings, settings, fullList) }}
+        onClick={() => {
+          chooseClearAll(setRequestSettings, settings, fullList);
+        }}
         type="button"
       >
         {settings.intolerancesList.length > 0 ? "Clear all" : "Choose all"}
@@ -38,5 +42,3 @@ export const IntolerancesListBookmark = ({
     </form>
   </div>
 );
-
-
