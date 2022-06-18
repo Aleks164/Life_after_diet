@@ -221,10 +221,17 @@ export type HistoryLineParamType = {
   ) => void;
   nextItemParam: NextItemSliderParamType;
 };
+
+export type KeySettingType = keyof SettingType;
+
+export type SettingIngrType = {
+  [ingridientsSelector: string]: { ingridients: string[]; status: boolean };
+};
+
 export interface SelectorParamType {
   isFieldAvailable: boolean;
   settings: SettingType;
-  option: keyof SettingType;
+  option: KeySettingType;
   optionType: string;
   optionTypeValue: any;
   setRequestSettings: SetSettingType;

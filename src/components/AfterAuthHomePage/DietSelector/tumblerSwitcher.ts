@@ -20,12 +20,7 @@ export function tumblerSwitcher(
     newSettings = {
       ...selectorParam.settings,
       [selectorParam.option]: {
-        [selectorParam.optionType]: (
-          selectorParam.settings[
-            selectorParam.option
-            // eslint-disable-next-line @typescript-eslint/ban-types
-          ] as { [option: string]: {} }
-        )[selectorParam.optionType],
+        [selectorParam.optionType]: selectorParam.optionTypeValue,
         status: !selectorParam.isFieldAvailable,
       },
     };

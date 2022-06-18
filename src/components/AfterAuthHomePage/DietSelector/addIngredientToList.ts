@@ -1,4 +1,9 @@
-import { InputParamType } from "../../../types/types";
+import {
+  InputParamType,
+  KeySettingType,
+  SettingIngrType,
+  SettingType,
+} from "../../../types/types";
 
 export function addIngredientToList(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -36,12 +41,24 @@ export function addIngredientToList(
     return;
   }
   e.preventDefault();
-  const curIngridientsList = settings[option][optionType];
+  let curIngridientsList = [] as string[];
+  if (option === "ingridientsSelector" && optionType === "ingridients") {
+    curIngridientsList = settings[option][optionType] as string[];
+  }
+  if (
+    option === "excludeIngridientsSelector" &&
+    optionType === "excludeIngridients"
+  ) {
+    curIngridientsList = settings[option][optionType] as string[];
+  }
+
   curIngridientsList.push(ingridientInputValue);
+
   const newIngridientsList = {
     ...settings,
     [option]: {
-      status: settings[option].status,
+      status: (settings[option] as { ingridients: string[]; status: boolean })
+        .status,
       [optionType]: curIngridientsList,
     },
   };

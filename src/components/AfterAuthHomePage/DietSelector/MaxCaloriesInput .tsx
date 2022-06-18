@@ -27,6 +27,8 @@ export const MaxCaloriesInput = ({
           disabled={!maxCaloriesStatus}
           value={maxCalories}
           onChange={(e) => {
+            settings.maxCaloriesInput.value = +e.target.value;
+            setRequestSettings(settings);
             setMaxCalories(+e.target.value);
           }}
           step={50}
