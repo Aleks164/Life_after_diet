@@ -1,28 +1,72 @@
 import React, { createContext, useState } from "react";
-import { ChildrenType, SetSettingType, SettingType } from "../types/types";
+import {
+  ChildrenType,
+  HistoryFavouriteTypes,
+  ProviderPropsType,
+} from "../types/types";
+import { defaultSettings } from "../utils/defaultSettings";
+import { FBInterface } from "../firebase_init/FBInterface";
+import { useAuth } from "../hooks/useAuth";
+import { deleteOldestItem } from "./deleteOldestItem";
 
-type ProviderPropsType = {
-    сlientSettings: SettingType,
-    setClientSettings?: SetSettingType
-}
-
-const defaultSettings: SettingType = {
-    dietSelector: { diet: "Gluten Free", status: true },
-    cuisinesList: [],
-    intolerancesList: [],
-    ingridientsSelector: { ingridients: [], status: false },
-    mealTypesSelector: { mealType: "", status: false },
-    excludeIngridientsSelector: { excludeIngridients: [], status: false },
-};
-
-export const ClientSettingsContext = createContext<ProviderPropsType>({ сlientSettings: defaultSettings });
+export const ClientSettingsContext = createContext<ProviderPropsType>({
+  сlientSettings: defaultSettings,
+  сlientHistory: {},
+  сlientFavourite: {},
+});
 
 export const ClientSettingsProvider = ({ children }: ChildrenType) => {
-    const [сlientSettings, setClientSettings] = useState(defaultSettings);
+  const newCrud = new FBInterface();
+  const userAuth = useAuth().user;
 
-    const value = { сlientSettings, setClientSettings };
+  const [сlientSettings, setClientSettings] = useState(defaultSettings);
+  const [сlientHistory, setHistory] = useState({} as HistoryFavouriteTypes);
+  const [сlientFavourite, setFavourite] = useState({} as HistoryFavouriteTypes);
 
-    return (
-        <ClientSettingsContext.Provider value={value}>{children}</ClientSettingsContext.Provider>
-    );
+  const setClientHistory = (newHistory: HistoryFavouriteTypes) => {
+    if (userAuth) {
+      deleteOldestItem(newHistory);
+      newCrud
+        .updateUserParam(userAuth, "history", newHistory)
+        .then(() => {
+          setHistory(newHistory);
+        })
+        .catch((e: Error) => {
+          setHistory(newHistory);
+          console.log(e);
+        });
+    }
+  };
+
+  const setClientFavourite = (newFavourite: HistoryFavouriteTypes) => {
+    if (userAuth) {
+      deleteOldestItem(newFavourite);
+      newCrud
+        .updateUserParam(userAuth, "favourite", newFavourite)
+        .then(() => {
+          setFavourite(newFavourite);
+        })
+        .catch((e: Error) => {
+          setFavourite(newFavourite);
+          console.log(e);
+        });
+    }
+  };
+
+  const value = {
+    сlientSettings,
+    setClientSettings,
+    сlientHistory,
+    setClientHistory,
+    сlientFavourite,
+    setClientFavourite,
+    setHistory,
+    setFavourite,
+  } as ProviderPropsType;
+
+  return (
+    <ClientSettingsContext.Provider value={value}>
+      {children}
+    </ClientSettingsContext.Provider>
+  );
 };

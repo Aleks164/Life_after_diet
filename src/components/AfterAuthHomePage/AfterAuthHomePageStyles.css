@@ -1,0 +1,501 @@
+.homePage {
+  grid-area: bodyContent;
+  display: grid;
+  grid-template-columns: 75vw;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "markbooks"
+    "generalSpace";
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recipeListPage {
+  grid-area: bodyContent;
+  display: grid;
+  grid-template-columns: 150px 65vw;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "chosenParam markbooks"
+    "leftMenuHomePage generalSpace";
+}
+
+.loadingPage {
+  position: absolute;
+  z-index: 15;
+  background-image: url("../../assets/loadingTemplate.svg");
+  top: 250px;
+  left: 250px;
+  background-repeat: no-repeat;
+  height: 58vh;
+  width: 55vw;
+  margin: 0px;
+}
+
+.chosenParam {
+  grid-area: chosenParam;
+}
+
+.markbooks {
+  grid-area: markbooks;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.noFoundMessage {
+  width: 70%;
+  font-size: 22px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: monospace;
+  margin-top: 15%;
+  line-height: 1.5;
+}
+
+.recipeBook {
+  font-size: 32px;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 0px;
+  min-width: 820px;
+  position: relative;
+}
+
+.recipeBook h3 {
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+.flippButton {
+  position: absolute;
+  top: -5%;
+}
+
+.backButton {
+  left: 20%;
+  top: -10px;
+}
+
+.forwardButton {
+  right: 20%;
+  top: -10px;
+  transform: rotate(0.5turn);
+}
+
+.markbooks button {
+  grid-area: markbooks;
+  margin: 0;
+  margin-top: -10px;
+  border: 2px dotted #f1c40f;
+  margin-bottom: -1px;
+  font-size: 20px;
+  z-index: 2;
+  cursor: pointer;
+  color: #6a6a6a;
+  padding-bottom: 3px;
+}
+
+.markbooks button:hover {
+  background: #eae8777e;
+}
+
+.markbooks .activeButton {
+  border-bottom: 2px dotted #faf2ea;
+  z-index: 5;
+  background-color: #fbc2c8;
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
+  color: black;
+  padding-top: 15px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.instructionButtons {
+  width: max-content;
+}
+
+.instructionButtons button {
+  grid-area: markbooks;
+  margin: 0;
+  margin-top: -2px;
+  border: 2px dotted #f1c40f;
+  margin-bottom: -1px;
+  font-size: 20px;
+  z-index: 2;
+  color: #6a6a6a;
+}
+
+.instructionButtons button:hover {
+  background: #eae8777e;
+}
+
+.instructionButtons .activeButton {
+  border-bottom: 2px solid #faf2ea;
+  z-index: 5;
+  background-color: #fbc2c8;
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
+  padding-bottom: 10px;
+  color: black;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.leftMenuHomePage {
+  grid-area: leftMenuHomePage;
+  margin-top: 10px;
+}
+
+.leftMenuHomePage p,
+.leftMenuHomePage li {
+  font-size: 20px;
+}
+
+.leftMenuHomePage button {
+  grid-area: leftMenuHomePage;
+  width: unset;
+  border: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-top: 5px;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #ffffff8c;
+  cursor: pointer;
+}
+
+.leftMenuHomePage button:hover {
+  background: #eae8777e;
+}
+
+.leftMenuHomePage .activeLeftButton {
+  width: 100%;
+  border-bottom: 2px solid #faf2ea;
+  background-color: #fbc2c8;
+  z-index: 5;
+  box-shadow: inset 0 0 4px 1px rgb(139 108 112);
+}
+
+.dietSelector {
+  grid-area: generalSpace;
+  border: 2px dotted #f1c40f;
+  font-size: 22px;
+  min-width: 560px;
+}
+
+.dietSelector label {
+  display: grid;
+  grid-template-columns: 180px 190px auto;
+  grid-template-rows: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.dietSelector > * {
+  margin: 20px;
+}
+
+.dietSelector select,
+.dietSelector input {
+  margin-left: 5px;
+  font-size: 20px;
+  text-align: center;
+  font-style: italic;
+  font-family: monospace;
+}
+
+.findRecipesButton {
+  width: 230px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.dietDefenitionList {
+  grid-area: generalSpace;
+  padding: 5px;
+  border: 2px solid #f1c40f;
+}
+
+.dietDefenitionList h3 {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.dietDefenitionList p {
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+.recipeItem {
+  border: 2px solid #bf7272b3;
+  width: 380px;
+  display: inline-block;
+  margin: 12px;
+  position: relative;
+  margin-right: 6px;
+  min-width: 170px;
+  border-radius: 30px;
+  box-shadow: 0 -2px 3px 4px rgb(224 190 183);
+}
+
+.deleteItemButton {
+  border-radius: 50%;
+  background-color: red;
+  font-weight: 999;
+  display: inline-block;
+  color: white;
+  padding-bottom: 3px;
+  vertical-align: text-bottom;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.deleteItemButton p {
+  position: absolute;
+  left: 2px;
+  top: -8px;
+}
+
+.deleteItemButton:hover {
+  box-shadow: 0 1px 5px 0 rgb(0 0 0);
+  color: black;
+}
+
+.showIngridients {
+  border-left: 0;
+  border-right: 0;
+  user-select: none;
+  color: black;
+  width: fit-content;
+  background-color: #f2d2b1cf;
+  font-family: serif;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+.showIngridients:hover {
+  background-color: #fff6edcf;
+}
+
+.showTextInButton {
+  width: 165px;
+  font-size: 26px;
+  font-weight: bold;
+  right: 5px;
+  position: absolute;
+  top: 27px;
+}
+
+.recipeItem > p {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 5;
+  text-align: center;
+  bottom: -5px;
+  background: #ffffffde;
+  width: 100%;
+  font-family: monospace;
+  font-size: 30px;
+  border-radius: 30px;
+  padding: 5px;
+  border-bottom: 2px solid;
+}
+
+.recipeItem img {
+  width: 380px;
+  height: 281px;
+  border-radius: 30px;
+}
+
+.recipeItem button {
+  font-family: monospace;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  width: 170px;
+  height: 130px;
+  font-size: 30px;
+  text-align: right;
+  background-color: #ffe950c4;
+  border-radius: 0 30px 0 150px;
+}
+
+.recipeItem button:hover {
+  box-shadow: -2px 4px 9px 3px rgb(254 13 0 / 56%);
+  background-color: #ffdfb5;
+}
+
+.recipeConteiner {
+  border: 2px dotted #f1c40f;
+  grid-area: generalSpace;
+  overflow: auto;
+  scrollbar-width: none;
+  width: 812px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+}
+
+.intoleranceList {
+  grid-area: generalSpace;
+  font-size: 22px;
+  margin: 5px;
+}
+
+.markbooksField {
+  grid-area: generalSpace;
+  font-size: 22px;
+  border: 2px dotted #f1c40f;
+  min-width: 560px;
+}
+
+.markbooksField fieldset {
+  min-width: 520px;
+}
+
+.cusinesForm fieldset {
+  min-height: 350px;
+}
+
+.markbooksField p {
+  margin-top: 5px;
+}
+
+.cuisineCont {
+  list-style: none;
+  max-height: 370px;
+  display: grid;
+  grid-template-columns: 185px 185px 185px;
+  grid-template-rows: auto;
+}
+
+.cuisineCont input {
+  width: 20px;
+  height: 20px;
+}
+
+.dietCooseField {
+  display: block;
+  margin-top: 10px;
+}
+
+.recipeConteiner::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.plusButton {
+  position: relative;
+  width: 29px;
+  height: 27px;
+  vertical-align: middle;
+  background-color: #fff0;
+  border: 0;
+  font-size: 38px;
+  top: -17px;
+  text-decoration: none;
+  left: 5px;
+  text-shadow: 0 1px 2px rgb(15 122 22 / 75%), -1px 3px 4px rgb(54 64 56 / 75%);
+  font-weight: 999;
+  color: rgb(13 141 4);
+  cursor: pointer;
+}
+
+.plusButton:active {
+  color: rgb(0 177 38);
+  text-shadow: 0 1px 2px rgb(255 0 0 / 75%), -1px 3px 4px rgb(0 11 255 / 75%);
+}
+
+.plusButton:hover {
+  color: rgb(16 131 41);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 75%), -1px 3px 4px rgb(0 0 0 / 75%);
+}
+
+.clearButton {
+  width: 250px;
+  margin: 10px;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+}
+
+.tryAgainButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  margin-top: 25px;
+  width: 230px;
+}
+
+.arrow_2 {
+  cursor: pointer;
+  position: relative;
+  width: 60px;
+  height: 50px;
+}
+
+.arrow_2 div {
+  position: relative;
+  top: 20px;
+  width: 50px;
+  height: 10px;
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.5);
+  left: 0;
+  display: block;
+  border-radius: 25%;
+}
+
+.arrow_2 div::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  top: 11px;
+  right: -8px;
+  transform: rotate(-45deg);
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25%;
+}
+
+.arrow_2 div::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  top: -11px;
+  right: -8px;
+  transform: rotate(45deg);
+  background-color: #d2691ebf;
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25%;
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+
+  -moz-box-sizing: border-box;
+
+  box-sizing: border-box;
+}
+
+.arrow_2:hover :after,
+.arrow_2:hover :before,
+.arrow_2:hover div {
+  background-color: #f1b568;
+  box-shadow: -2px 0px 9px rgba(0, 0, 0, 0.88);
+}

@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { LOGIN_ROUTE, HOME_PAGE_ROUTE } from "../../utils/routes";
 
 export const RequireAuth = () => {
   const location = useLocation();
-  const isAuth = useAuth().user;
-  if (!isAuth) {
-    return <Navigate to="/login" state={{ from: location }} />;
+  const { user, setBeforeLoginPagePath } = useAuth();
+
+  useEffect(() => {
+    if (!user) {
+      setBeforeLoginPagePath(location.pathname);
+    }
+  }, [user]);
+
+  if (!user) {
+    return (
+      <>
+        <Navigate to={LOGIN_ROUTE} />
+      </>
+    );
   }
-  return <Navigate to="/" />;
+  return <Navigate to={HOME_PAGE_ROUTE} />;
 };
