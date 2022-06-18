@@ -7,7 +7,9 @@ export const MaxCaloriesInput = ({
   settings,
   setRequestSettings,
 }: BookmarkPropsType) => {
-  const [maxCalories, setMaxCalories] = useState(500);
+  const [maxCalories, setMaxCalories] = useState(
+    settings.maxCaloriesInput.value
+  );
   const maxCaloriesStatus = settings.maxCaloriesInput.status;
 
   const selectorParam = {

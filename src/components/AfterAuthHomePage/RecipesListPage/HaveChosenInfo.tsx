@@ -1,87 +1,67 @@
 import React from "react";
 import { ClientSettingsType } from "../../../types/types";
+import { ChooseItem } from "./ChooseItem";
+import { SinglStringChooseItem } from "./SinglStringChooseItem";
 
 export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
   <>
     <h3 className="chosenParam">You have chosen:</h3>
     <div className="leftMenuHomePage">
       {сlientSettings.dietSelector.status ? (
-        <div>
-          <p>Diet: {сlientSettings.dietSelector.diet}</p>
-          <hr />
-        </div>
+        <SinglStringChooseItem
+          label={"Diet:"}
+          content={сlientSettings.dietSelector.diet}
+        />
       ) : (
         ""
       )}
       {сlientSettings.mealTypesSelector.status ? (
-        <div>
-          <p>Meal type: {сlientSettings.mealTypesSelector.mealType}</p>
-          <hr />
-        </div>
+        <SinglStringChooseItem
+          label={"Meal type:"}
+          content={сlientSettings.mealTypesSelector.mealType}
+        />
       ) : (
         ""
       )}
       {сlientSettings.maxCaloriesInput.status ? (
-        <div>
-          <p>Maximum calories: {сlientSettings.maxCaloriesInput.value}</p>
-          <hr />
-        </div>
+        <SinglStringChooseItem
+          label={"Maximum calories:"}
+          content={String(сlientSettings.maxCaloriesInput.value)}
+        />
       ) : (
         ""
       )}
       {сlientSettings.cuisinesList.length > 0 ? (
-        <div>
-          <p>Cuisines: </p>
-          {сlientSettings.cuisinesList.map((cuisine, index, array) => (
-            <li key={index}>
-              {cuisine}
-              {index === array.length - 1 ? <hr /> : ""}
-            </li>
-          ))}
-        </div>
+        <ChooseItem
+          itemName={"Cuisines: "}
+          сlientSettings={сlientSettings.cuisinesList}
+        />
       ) : (
         ""
       )}
       {сlientSettings.intolerancesList.length > 0 ? (
-        <div>
-          <p>List of intolerances: </p>
-          {сlientSettings.intolerancesList.map((intolerance, index, array) => (
-            <li key={index}>
-              {intolerance}
-              {index === array.length - 1 ? <hr /> : ""}
-            </li>
-          ))}
-        </div>
+        <ChooseItem
+          itemName={"List of intolerances: "}
+          сlientSettings={сlientSettings.intolerancesList}
+        />
       ) : (
         ""
       )}
       {сlientSettings.ingridientsSelector.status ? (
-        <div>
-          <p>List of ingridients: </p>
-          {сlientSettings.ingridientsSelector.ingridients.map(
-            (ingridient, index, array) => (
-              <li key={index}>
-                {ingridient}
-                {index === array.length - 1 ? <hr /> : ""}
-              </li>
-            )
-          )}
-        </div>
+        <ChooseItem
+          itemName={"List of ingridients: "}
+          сlientSettings={сlientSettings.ingridientsSelector.ingridients}
+        />
       ) : (
         ""
       )}
       {сlientSettings.excludeIngridientsSelector.status ? (
-        <div>
-          <p>List of excludes: </p>
-          {сlientSettings.excludeIngridientsSelector.excludeIngridients.map(
-            (exclude, index, array) => (
-              <li key={index}>
-                {exclude}
-                {index === array.length - 1 ? <hr /> : ""}
-              </li>
-            )
-          )}
-        </div>
+        <ChooseItem
+          itemName={"List of excludes: "}
+          сlientSettings={
+            сlientSettings.excludeIngridientsSelector.excludeIngridients
+          }
+        />
       ) : (
         ""
       )}

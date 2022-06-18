@@ -242,3 +242,20 @@ export interface InputParamType extends SelectorParamType {
   fullListOfIngridients: string[];
   setIngridientInputValue: SetInputValue;
 }
+
+export type FafouriteParamsType = {
+  сlientFavourite: DietResponsType;
+  setClientFavourite: SetFavouriteType | undefined;
+  recipe: RecipeType["recipe"];
+  isItInFafouritList: boolean;
+  setIsItInFafouritList: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type RedirectParamType = {
+  title: string;
+  image: string;
+  id: number;
+  сlientHistory: DietResponsType;
+  setClientHistory: SetHistoryType | undefined;
+  navigate: NavigateFunction;
+};

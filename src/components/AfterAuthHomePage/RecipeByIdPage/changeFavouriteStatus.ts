@@ -1,16 +1,4 @@
-import {
-  DietResponsType,
-  SetFavouriteType,
-  RecipeType,
-} from "../../../types/types";
-
-export type FafouriteParamsType = {
-  сlientFavourite: DietResponsType;
-  setClientFavourite: SetFavouriteType | undefined;
-  recipe: RecipeType["recipe"];
-  isItInFafouritList: boolean;
-  setIsItInFafouritList: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { FafouriteParamsType } from "../../../types/types";
 
 export function changeFavouriteStatus({
   сlientFavourite,
