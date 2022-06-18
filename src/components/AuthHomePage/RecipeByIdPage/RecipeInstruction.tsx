@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { RecipeType } from "../../../types/types";
-import { ingridientsList } from "../../../utils/ingridientsList";
 
 export const RecipeInstruction = ({ recipe }: RecipeType) => {
     const [instructionType, setInstructionType] = useState("instruction");

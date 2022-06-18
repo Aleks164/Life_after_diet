@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { RecipeType } from "../../../types/types";
 
 export const GeneralInfo = ({ recipe }: RecipeType) => (

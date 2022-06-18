@@ -1,7 +1,6 @@
 import React from "react";
 import { RecipeType } from "../../../types/types";
 import { GeneralInfo } from "./GeneralInfo";
-import { Icons } from "./Icons";
 import { SummaryText } from "./SummaryText";
 
 

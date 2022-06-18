@@ -12,6 +12,10 @@
     grid-area: recipeTitle;
 }
 
+.loadingPage {
+    grid-area: generalSpace;
+}
+
 .recipeTemplate {
     width: fit-content;
     height: fit-content;
