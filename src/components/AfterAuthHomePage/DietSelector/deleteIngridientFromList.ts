@@ -1,6 +1,6 @@
 import { InputParamType } from "../../../types/types";
 
-export function deleteExcludeFromList(
+export function deleteIngridientFromList(
   deletingIngridient: string,
   { settings, setRequestSettings }: InputParamType
 ) {

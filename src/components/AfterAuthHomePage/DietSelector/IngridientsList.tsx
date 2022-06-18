@@ -8,7 +8,7 @@ import { ingridientsList } from "../../../utils/ingridientsList";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 import { addIngredientToList } from "./addIngredientToList";
-import { deleteExcludeFromList } from "./deleteExcludeFromList";
+import { deleteIngridientFromList } from "./deleteIngridientFromList";
 
 export const IngridientsList = ({
   settings,
@@ -75,8 +75,10 @@ export const IngridientsList = ({
                   {ingridient}
                   <button
                     className="deleteItemButton"
-                    onClick={() =>
-                      deleteExcludeFromList(ingridient, selectorParam)
+                    onClick={(e) => {
+                      e.preventDefault();
+                      deleteIngridientFromList(ingridient, selectorParam)
+                    }
                     }
                   >
                     <p>x</p>

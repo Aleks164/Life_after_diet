@@ -16,7 +16,7 @@ export const MealTypesSelector = ({
     settings,
     option: "mealTypesSelector",
     optionType: "mealType",
-    optionTypeValue: "",
+    optionTypeValue: curMealType,
     setRequestSettings,
   } as SelectorParamType;
 

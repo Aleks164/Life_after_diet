@@ -36,12 +36,12 @@ export function addIngredientToList(
     return;
   }
   e.preventDefault();
-  const curIngridientsList = settings.ingridientsSelector.ingridients;
+  const curIngridientsList = settings[option][optionType];
   curIngridientsList.push(ingridientInputValue);
   const newIngridientsList = {
     ...settings,
     [option]: {
-      status: settings.ingridientsSelector.status,
+      status: settings[option].status,
       [optionType]: curIngridientsList,
     },
   };

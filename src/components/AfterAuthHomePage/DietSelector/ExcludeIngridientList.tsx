@@ -76,8 +76,10 @@ export const ExcludeIngridientList = ({
                   {ingridient}
                   <button
                     className="deleteItemButton"
-                    onClick={() =>
+                    onClick={(e) => {
+                      e.preventDefault();
                       deleteExcludeFromList(ingridient, selectorParam)
+                    }
                     }
                   >
                     <p>x</p>

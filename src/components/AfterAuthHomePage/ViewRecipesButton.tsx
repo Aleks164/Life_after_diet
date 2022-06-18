@@ -15,6 +15,7 @@ export const ViewRecipesButton = ({
   const navigate = useNavigate();
 
   function clickViewButtonHandler() {
+    console.log(settings)
     if (setClientSettings) setClientSettings(settings);
 
     setIsLoading(!isLoading);
