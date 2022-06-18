@@ -36,5 +36,7 @@ export function recipeRequestCreator(
     queryString += `&maxCalories=${maxCaloriesInput.value}`;
   if (skipedPages) queryString += `&offset=${skipedPages}`;
   queryString += `&number=10`;
+
+  console.log(queryString);
   return queryString;
 }

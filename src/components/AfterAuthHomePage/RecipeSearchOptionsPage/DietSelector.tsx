@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BookmarkPropsType, isLoadingType } from "../../../types/types";
 import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
-import { DietCooseField } from "./DietCooseField";
+import { DietChooseField } from "./DietChooseField";
 import { MealTypesSelector } from "./MealTypesSelector";
 import { ExcludeIngridientList } from "./ExcludeIngridientList";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
@@ -17,7 +17,7 @@ export const DietSelector = ({
     <div className="dietSelector">
       {!isLoading ? (
         <form>
-          <DietCooseField
+          <DietChooseField
             settings={settings}
             setRequestSettings={setRequestSettings}
           />

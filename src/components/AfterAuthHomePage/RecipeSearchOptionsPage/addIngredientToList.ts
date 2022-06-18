@@ -1,9 +1,4 @@
-import {
-  InputParamType,
-  KeySettingType,
-  SettingIngrType,
-  SettingType,
-} from "../../../types/types";
+import { InputParamType } from "../../../types/types";
 
 export function addIngredientToList(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,

@@ -20,17 +20,6 @@ export const MealTypesSelector = ({
     setRequestSettings,
   } as SelectorParamType;
 
-  function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
-    const newmealType = {
-      ...settings,
-      mealTypesSelector: {
-        ...settings.mealTypesSelector,
-        mealType: e.target.value,
-      },
-    };
-    setRequestSettings(newmealType);
-  }
-
   return (
     <div className="mealTypesSelector">
       <label>
@@ -38,7 +27,10 @@ export const MealTypesSelector = ({
         <select
           disabled={!curMealTypestatus}
           value={curMealType}
-          onChange={chooseOption}
+          onChange={(e) => {
+            settings.mealTypesSelector.mealType = e.target.value;
+            setRequestSettings(settings);
+          }}
           name="MealTypes"
         >
           {MealTypes.map((dietName, index) => (

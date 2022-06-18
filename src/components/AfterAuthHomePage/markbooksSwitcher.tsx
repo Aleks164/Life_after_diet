@@ -1,7 +1,7 @@
 import React from "react";
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark/IntolerancesListBookmark";
 import { CuisinesListBookmark } from "./CuisinesListBookmark/CuisinesListBookmark";
-import { DietSelector } from "./DietSelector/DietSelector";
+import { DietSelector } from "./RecipeSearchOptionsPage/DietSelector";
 import { DietDefenitionList } from "./DietDefenition";
 import { SetRequestSettingsType, SettingType } from "../../types/types";
 

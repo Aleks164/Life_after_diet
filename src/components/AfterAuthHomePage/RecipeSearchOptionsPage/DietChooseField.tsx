@@ -4,7 +4,7 @@ import { DietList } from "../../../utils/consts";
 import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
-export const DietCooseField = ({
+export const DietChooseField = ({
   settings,
   setRequestSettings,
 }: BookmarkPropsType) => {
@@ -19,14 +19,6 @@ export const DietCooseField = ({
     setRequestSettings,
   } as SelectorParamType;
 
-  function chooseOption(e: React.ChangeEvent<HTMLSelectElement>) {
-    const newDiet = {
-      ...settings,
-      dietSelector: { ...settings.dietSelector, diet: e.target.value },
-    };
-    setRequestSettings(newDiet);
-  }
-
   return (
     <div className="dietCooseField">
       <label>
@@ -34,7 +26,10 @@ export const DietCooseField = ({
         <select
           disabled={!curDietstatus}
           value={curDiet}
-          onChange={chooseOption}
+          onChange={(e) => {
+            settings.dietSelector.diet = e.target.value;
+            setRequestSettings(settings);
+          }}
           name="dietSelector"
         >
           {DietList.map((dietName, index) => (

@@ -92,8 +92,8 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
           <hr />
           {recipe.extendedIngredients.length > 0 ? (
             <div>
-              {recipe.extendedIngredients.map((item) => (
-                <div key={item.id}>
+              {recipe.extendedIngredients.map((item, index) => (
+                <div key={index}>
                   <li>{item.original}</li>
                   <hr />
                 </div>
