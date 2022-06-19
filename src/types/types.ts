@@ -259,3 +259,24 @@ export type RedirectParamType = {
   setClientHistory: SetHistoryType | undefined;
   navigate: NavigateFunction;
 };
+
+export type FlipPageParamType = {
+  сlientSettings: SettingType;
+  navigate: NavigateFunction;
+  setPageNumber: SetPageNumberType;
+  pageNumber: number;
+};
+
+export type PageNavigationParamType = {
+  pageNumber: number;
+  flipPageParam: FlipPageParamType;
+  recipeInfoLength: number;
+};
+
+export type ShowRecipesParamType = {
+  setClientSettings: SetSettingType | undefined;
+  settings: SettingType;
+  setIsLoading: SetIsLoadingType;
+  isLoading: boolean;
+  navigate: NavigateFunction;
+};
