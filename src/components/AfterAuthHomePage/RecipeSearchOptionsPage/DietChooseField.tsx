@@ -27,8 +27,10 @@ export const DietChooseField = ({
           disabled={!curDietstatus}
           value={curDiet}
           onChange={(e) => {
+            console.log("1", settings.dietSelector.diet);
             settings.dietSelector.diet = e.target.value;
             setRequestSettings(settings);
+            console.log("2", settings.dietSelector.diet);
           }}
           name="dietSelector"
         >

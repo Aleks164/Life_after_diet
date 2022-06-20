@@ -1,5 +1,5 @@
 import React from "react";
-import { colorCreator } from "@/utils/colorCreator";
+import { getClassNameForCaruselItem } from "@/utils/getClassNameForCaruselItem";
 import { authBenefits } from "@/utils/authBenefits";
 import { AuthBenefitsParamType } from "@/types/types";
 
@@ -9,7 +9,10 @@ export const AuthBenefits = ({
 }: AuthBenefitsParamType) => (
   <>
     {caruselItemsList.map((color, index) => (
-      <div key={index} className={colorCreator(color, index, curItem)}>
+      <div
+        key={index}
+        className={getClassNameForCaruselItem(color, index, curItem)}
+      >
         <p>{authBenefits[index]}</p>
       </div>
     ))}

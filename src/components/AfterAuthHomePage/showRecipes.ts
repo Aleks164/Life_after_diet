@@ -1,7 +1,7 @@
 import { ShowRecipesParamType } from "@/types/types";
-import { getRecipeListFromAPi } from "@/utils/getRecipeListFromAPi";
+import { requestRecipeListFromAPi } from "@/utils/requestRecipeListFromAPi";
 import { recipeRequestCreator } from "@/utils/recipeRequestCreator";
-import { RECIPES_PAGE_ROUTE } from "@/utils/routes";
+import { HOME_PAGE_ROUTE, RECIPES_PAGE_ROUTE } from "@/utils/routes";
 
 export function showRecipes({
   setClientSettings,
@@ -14,8 +14,12 @@ export function showRecipes({
 
   setIsLoading(!isLoading);
 
-  getRecipeListFromAPi(recipeRequestCreator(settings)).then((response) => {
-    setIsLoading(!isLoading);
-    navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
-  });
+  requestRecipeListFromAPi(recipeRequestCreator(settings))
+    .then((response) => {
+      setIsLoading(!isLoading);
+      navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
+    })
+    .catch(() => {
+      navigate(HOME_PAGE_ROUTE);
+    });
 }

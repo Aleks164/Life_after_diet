@@ -1,5 +1,5 @@
 import { HOME_PAGE_ROUTE, RECIPES_PAGE_ROUTE } from "@/utils/routes";
-import { getRecipeListFromAPi } from "@/utils/getRecipeListFromAPi";
+import { requestRecipeListFromAPi } from "@/utils/requestRecipeListFromAPi";
 import { recipeRequestCreator } from "@/utils/recipeRequestCreator";
 import { FlipPageParamType } from "@/types/types";
 
@@ -8,7 +8,9 @@ export function flipRecipePage(
   { сlientSettings, navigate, setPageNumber, pageNumber }: FlipPageParamType
 ) {
   const resultNumberPage = pageNumber + skipedPages;
-  getRecipeListFromAPi(recipeRequestCreator(сlientSettings, resultNumberPage))
+  requestRecipeListFromAPi(
+    recipeRequestCreator(сlientSettings, resultNumberPage)
+  )
     .then((response) => {
       navigate(RECIPES_PAGE_ROUTE, { state: { recipeInfo: response } });
     })
