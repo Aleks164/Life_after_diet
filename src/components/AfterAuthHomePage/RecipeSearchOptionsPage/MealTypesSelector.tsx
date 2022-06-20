@@ -1,7 +1,7 @@
 import React from "react";
-import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
-import { MealTypes } from "../../../utils/consts";
-import { OnOffTumbler } from "../../OnOffTumbler/OnOffTumbler";
+import { BookmarkPropsType, SelectorParamType } from "@/types/types";
+import { MealTypes } from "@/utils/consts";
+import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MealTypesSelector = ({

@@ -1,6 +1,6 @@
 import React from "react";
-import { useClientSettings } from "../../../hooks/useClientSettings";
-import { HistoryFavouriteType } from "../../../types/types";
+import { useClientSettings } from "@/hooks/useClientSettings";
+import { HistoryFavouriteType } from "@/types/types";
 import { RecipeList } from "../RecipesListPage/RecipeList";
 
 export const FavouretePage = () => {
@@ -8,7 +8,9 @@ export const FavouretePage = () => {
   let arrayWithFavouriteItem: HistoryFavouriteType = [];
 
   if (Object.keys(сlientFavourite).length) {
-    arrayWithFavouriteItem = Object.values(сlientFavourite);
+    arrayWithFavouriteItem = Object.values(сlientFavourite).sort(
+      (a, b) => (b.date || 0) - (a.date || 0)
+    );
   }
 
   return (

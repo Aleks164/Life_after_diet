@@ -1,4 +1,4 @@
-import { SetRequestSettingsType, SettingType } from "../../../types/types";
+import { SetRequestSettingsType, SettingType } from "@/types/types";
 
 export function togleStatus(
   e: React.ChangeEvent<HTMLInputElement>,

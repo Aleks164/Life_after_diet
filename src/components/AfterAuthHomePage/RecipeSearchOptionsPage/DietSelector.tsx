@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BookmarkPropsType, isLoadingType } from "../../../types/types";
+import { BookmarkPropsType, isLoadingType } from "@/types/types";
 import { ViewRecipesButton } from "../ViewRecipesButton";
 import { IngridientsList } from "./IngridientsList";
 import { DietChooseField } from "./DietChooseField";

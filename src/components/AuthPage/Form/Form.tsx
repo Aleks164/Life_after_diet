@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../../../utils/routes";
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from "@/utils/routes";
 import "./index.css";
 
 export type FormParamType = {

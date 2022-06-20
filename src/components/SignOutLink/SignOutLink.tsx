@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
-import { LinkPropType } from "../../types/types";
+import { useAuth } from "@/hooks/useAuth";
+import { LinkPropType } from "@/types/types";
 
 export const SignOutLink = ({ children, to }: LinkPropType) => {
   const navigate = useNavigate();

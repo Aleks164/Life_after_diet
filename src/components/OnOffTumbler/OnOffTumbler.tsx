@@ -1,5 +1,5 @@
 import React from "react";
-import { SelectorParamType } from "../../types/types";
+import { SelectorParamType } from "@/types/types";
 import "./index.css";
 
 type OnOffselectorParam = {

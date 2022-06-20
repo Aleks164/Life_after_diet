@@ -1,4 +1,4 @@
-import { SettingType } from "../types/types";
+import { SettingType } from "@/types/types";
 
 export const defaultSettings: SettingType = {
   dietSelector: { diet: "Gluten Free", status: true },

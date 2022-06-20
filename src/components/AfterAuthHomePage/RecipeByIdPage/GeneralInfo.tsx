@@ -1,5 +1,5 @@
 import React from "react";
-import { RecipeType } from "../../../types/types";
+import { RecipeType } from "@/types/types";
 
 export const GeneralInfo = ({ recipe }: RecipeType) => {
   const calories = recipe.summary.match(/(\d+) calories/gi);

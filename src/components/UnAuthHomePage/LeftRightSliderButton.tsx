@@ -1,5 +1,5 @@
 import React from "react";
-import { LeftRightParamType } from "../../types/types";
+import { LeftRightParamType } from "@/types/types";
 
 export const LeftRightSliderButton = ({
   isPresed,

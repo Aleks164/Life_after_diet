@@ -1,5 +1,5 @@
 import React from "react";
-import { SetCurMarkbookType } from "../../types/types";
+import { SetCurMarkbookType } from "@/types/types";
 
 export const Markbooks = ({
   setCurMarkbook,

@@ -1,5 +1,5 @@
 import React from "react";
-import { DietList, DietDefenition } from "../../utils/consts";
+import { DietList, DietDefenition } from "@/utils/consts";
 
 type DietDefenitionType = {
   [number: number]: string;

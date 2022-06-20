@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
+
 module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "react-hooks"],
@@ -5,6 +8,13 @@ module.exports = {
     browser: true,
     es2021: true,
     "jest/globals": true,
+  },
+  settings: {
+    "import/resolver": {
+      alias: {
+        map: [["@", path.resolve(__dirname, "src")]],
+      },
+    },
   },
   extends: [
     "airbnb-base",

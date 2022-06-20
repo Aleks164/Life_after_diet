@@ -1,4 +1,4 @@
-import { SettingType } from "../types/types";
+import { SettingType } from "@/types/types";
 import { rigthTypeQueryString } from "./rigthTypeQueryString";
 
 export function recipeRequestCreator(

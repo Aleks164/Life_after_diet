@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { IsAuthType } from "../../types/types";
+import { IsAuthType } from "@/types/types";
 import { AuthHomePage } from "../AfterAuthHomePage/AuthHomePage";
 import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
-import { FBInterface } from "../../firebase_init/FBInterface";
-import { useClientSettings } from "../../hooks/useClientSettings";
+import { FBInterface } from "@/firebase_init/FBInterface";
+import { useClientSettings } from "@/hooks/useClientSettings";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   const { setFavourite, setHistory } = useClientSettings();

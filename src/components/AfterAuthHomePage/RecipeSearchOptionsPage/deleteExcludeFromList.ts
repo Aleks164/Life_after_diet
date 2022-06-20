@@ -1,4 +1,4 @@
-import { SelectorParamType } from "../../../types/types";
+import { SelectorParamType } from "@/types/types";
 
 export function deleteExcludeFromList(
   deletingIngridient: string,

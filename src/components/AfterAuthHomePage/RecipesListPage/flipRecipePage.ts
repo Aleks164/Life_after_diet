@@ -1,7 +1,7 @@
-import { HOME_PAGE_ROUTE, RECIPES_PAGE_ROUTE } from "../../../utils/routes";
-import { getRecipeListFromAPi } from "../../../utils/getRecipeListFromAPi";
-import { recipeRequestCreator } from "../../../utils/recipeRequestCreator";
-import { FlipPageParamType } from "../../../types/types";
+import { HOME_PAGE_ROUTE, RECIPES_PAGE_ROUTE } from "@/utils/routes";
+import { getRecipeListFromAPi } from "@/utils/getRecipeListFromAPi";
+import { recipeRequestCreator } from "@/utils/recipeRequestCreator";
+import { FlipPageParamType } from "@/types/types";
 
 export function flipRecipePage(
   skipedPages: number,

@@ -1,7 +1,7 @@
 import React from "react";
-import { colorCreator } from "../../utils/colorCreator";
-import { authBenefits } from "../../utils/authBenefits";
-import { AuthBenefitsParamType } from "../../types/types";
+import { colorCreator } from "@/utils/colorCreator";
+import { authBenefits } from "@/utils/authBenefits";
+import { AuthBenefitsParamType } from "@/types/types";
 
 export const AuthBenefits = ({
   caruselItemsList,

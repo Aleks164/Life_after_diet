@@ -3,10 +3,10 @@ import {
   ChildrenType,
   HistoryFavouriteTypes,
   ProviderPropsType,
-} from "../types/types";
-import { defaultSettings } from "../utils/defaultSettings";
-import { FBInterface } from "../firebase_init/FBInterface";
-import { useAuth } from "../hooks/useAuth";
+} from "@/types/types";
+import { defaultSettings } from "@/utils/defaultSettings";
+import { FBInterface } from "@/firebase_init/FBInterface";
+import { useAuth } from "@/hooks/useAuth";
 import { deleteOldestItem } from "./deleteOldestItem";
 
 export const ClientSettingsContext = createContext<ProviderPropsType>({
@@ -28,11 +28,10 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
       deleteOldestItem(newHistory);
       newCrud
         .updateUserParam(userAuth, "history", newHistory)
-        .then(() => {
+        .finally(() => {
           setHistory(newHistory);
         })
         .catch((e: Error) => {
-          setHistory(newHistory);
           console.log(e);
         });
     }
@@ -43,7 +42,7 @@ export const ClientSettingsProvider = ({ children }: ChildrenType) => {
       deleteOldestItem(newFavourite);
       newCrud
         .updateUserParam(userAuth, "favourite", newFavourite)
-        .then(() => {
+        .finally(() => {
           setFavourite(newFavourite);
         })
         .catch((e: Error) => {

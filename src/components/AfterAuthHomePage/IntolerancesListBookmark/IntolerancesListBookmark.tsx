@@ -1,6 +1,6 @@
 import React from "react";
-import { BookmarkPropsType } from "../../../types/types";
-import { IntolerancesList as fullList } from "../../../utils/consts";
+import { BookmarkPropsType } from "@/types/types";
+import { IntolerancesList as fullList } from "@/utils/consts";
 import { chooseClearAll } from "./chooseClearAll";
 import { togleStatus } from "./togleStatus";
 

@@ -1,4 +1,4 @@
-import { FafouriteParamsType } from "../../../types/types";
+import { FafouriteParamsType } from "@/types/types";
 
 export function changeFavouriteStatus({
   сlientFavourite,

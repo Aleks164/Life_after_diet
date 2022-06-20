@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useClientSettings } from "../../../hooks/useClientSettings";
-import { RecipeListProps } from "../../../types/types";
+import { useClientSettings } from "@/hooks/useClientSettings";
+import { RecipeListProps } from "@/types/types";
 import { HaveChosenInfo } from "./HaveChosenInfo";
 import { SorryUnfoundPage } from "./SorryUnfoundPage";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
-import { HISTORY_ROUTE, FAVOURITE_ROUTE } from "../../../utils/routes";
+import { HISTORY_ROUTE, FAVOURITE_ROUTE } from "@/utils/routes";
 import { RecipesConteiner } from "./RecipesConteiner";
 import { RecipesPageNavigationArrows } from "./RecipesPageNavigationArrows";
 

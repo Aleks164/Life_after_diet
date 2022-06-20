@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { resolve } = require("path");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -16,6 +17,11 @@ module.exports = {
       : "eval-source-map",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
+    alias: {
+      plugins: [
+        new TsconfigPathsPlugin()
+      ],
+    },
   },
   devServer: {
     port: 9000,

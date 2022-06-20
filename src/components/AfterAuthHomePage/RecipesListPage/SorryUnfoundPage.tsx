@@ -4,7 +4,7 @@ import {
   HOME_PAGE_ROUTE,
   HISTORY_ROUTE,
   FAVOURITE_ROUTE,
-} from "../../../utils/routes";
+} from "@/utils/routes";
 
 export const SorryUnfoundPage = () => {
   const navigate = useNavigate();

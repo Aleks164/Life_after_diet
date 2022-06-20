@@ -1,5 +1,5 @@
 import React from "react";
-import { PageNavigationParamType } from "../../../types/types";
+import { PageNavigationParamType } from "@/types/types";
 import { flipRecipePage } from "./flipRecipePage";
 
 export const RecipesPageNavigationArrows = ({

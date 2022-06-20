@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
-import { AuthKitType, ChildrenType } from "../types/types";
-import { HOME_PAGE_ROUTE } from "../utils/routes";
+import { AuthKitType, ChildrenType } from "@/types/types";
+import { HOME_PAGE_ROUTE } from "@/utils/routes";
 
 export const AuthContext = createContext<AuthKitType>({
   user: null,

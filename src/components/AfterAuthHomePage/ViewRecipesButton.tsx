@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ViewRecipeParamType } from "../../types/types";
-import { useClientSettings } from "../../hooks/useClientSettings";
+import { ViewRecipeParamType } from "@/types/types";
+import { useClientSettings } from "@/hooks/useClientSettings";
 import { showRecipes } from "./showRecipes";
 
 export const ViewRecipesButton = ({

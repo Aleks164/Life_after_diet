@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useClientSettings } from "../../../hooks/useClientSettings";
-import { RecipeItemPropsType } from "../../../types/types";
+import { useClientSettings } from "@/hooks/useClientSettings";
+import { RecipeItemPropsType } from "@/types/types";
 import { saveHistoryandRedirect } from "./saveHistoryandRedirect";
 
 export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {

@@ -9,8 +9,8 @@ import {
   HISTORY_ROUTE,
   FAVOURITE_ROUTE,
   ABOUT_ROUTE,
-} from "../../utils/routes";
-import { IsAuthType } from "../../types/types";
+} from "@/utils/routes";
+import { IsAuthType } from "@/types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === LOGIN_ROUTE;

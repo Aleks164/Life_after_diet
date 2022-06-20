@@ -1,5 +1,5 @@
 import React from "react";
-import { ClientSettingsType } from "../../../types/types";
+import { ClientSettingsType } from "@/types/types";
 import { ChooseItem } from "./ChooseItem";
 import { SinglStringChooseItem } from "./SinglStringChooseItem";
 
