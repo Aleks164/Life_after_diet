@@ -1,25 +1,35 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  HOME_PAGE_ROUTE,
-  HISTORY_ROUTE,
-  FAVOURITE_ROUTE,
-} from "@/utils/routes";
+import { RoutesName } from "@/utils/routes";
 
-export const SorryUnfoundPage = () => {
+export const SorryUnfoundPage = ({
+  idIsNotFund,
+}: {
+  idIsNotFund?: boolean;
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isHistory = location.pathname === HISTORY_ROUTE;
-  const isFavourite = location.pathname === FAVOURITE_ROUTE;
+  const isHistory = location.pathname === RoutesName.HISTORY_ROUTE;
+  const isFavourite = location.pathname === RoutesName.FAVOURITE_ROUTE;
 
   return (
     <>
       {!isHistory && !isFavourite ? (
-        <p className="noFoundMessage">
-          Sorry... <br />
-          but no recipes according to your requirements were found, reduce the
-          number of parameters and try again, this should help.
-        </p>
+        <>
+          {idIsNotFund ? (
+            <p className="noFoundMessage">
+              Sorry... <br />
+              but there is no recipe for this link, perhaps there is an error in
+              your link.
+            </p>
+          ) : (
+            <p className="noFoundMessage">
+              Sorry... <br />
+              but no recipes according to your requirements were found, reduce
+              the number of parameters and try again, this should help.
+            </p>
+          )}
+        </>
       ) : (
         ""
       )}
@@ -36,7 +46,7 @@ export const SorryUnfoundPage = () => {
       <button
         className="tryAgainButton loginFormButton"
         onClick={() => {
-          navigate(HOME_PAGE_ROUTE);
+          navigate(RoutesName.HOME_PAGE_ROUTE);
         }}
       >
         {!isHistory && !isFavourite ? "Try again!" : "Finde recipe"}

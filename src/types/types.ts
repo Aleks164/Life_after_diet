@@ -257,7 +257,6 @@ export type RedirectParamType = {
   id: number;
   сlientHistory: DietResponsType;
   setClientHistory: SetHistoryType | undefined;
-  navigate: NavigateFunction;
 };
 
 export type FlipPageParamType = {

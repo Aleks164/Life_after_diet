@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/AuthPage/Login/Login";
@@ -11,41 +11,42 @@ import { FavouretePage } from "./components/AfterAuthHomePage/FavouretePage/Favo
 import { RecipesListPage } from "./components/AfterAuthHomePage/RecipesListPage/RecipesListPage";
 import { SignUp } from "./components/AuthPage/SignUp/SignUp";
 import { AboutPage } from "./components/AboutPage/AboutPage";
-import {
-  LOGIN_ROUTE,
-  SIGNUP_ROUTE,
-  HOME_PAGE_ROUTE,
-  HISTORY_ROUTE,
-  FAVOURITE_ROUTE,
-  ABOUT_ROUTE,
-  RECIPES_PAGE_ROUTE,
-  RECIPE_ID_PAGE_ROUTE,
-} from "./utils/routes";
+import { RoutesName } from "./utils/routes";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
-  const location = useLocation();
-  const isEmptyAdressString = location.pathname === "/";
   return (
     <Routes>
-      <Route path="/" element={<Navigate to={HOME_PAGE_ROUTE} />} />
-      <Route path={HOME_PAGE_ROUTE} element={<Layout isAuth={userAuth} />}>
+      <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} />
+      <Route
+        path={RoutesName.HOME_PAGE_ROUTE}
+        element={<Layout isAuth={userAuth} />}
+      >
         <Route index element={<HomePageSwitcher isAuth={userAuth} />} />
-        <Route path={ABOUT_ROUTE} element={<AboutPage />} />
+        <Route path={RoutesName.ABOUT_ROUTE} element={<AboutPage />} />
         {!userAuth ? (
           <>
-            <Route path={LOGIN_ROUTE} element={<Login />} />
-            <Route path={SIGNUP_ROUTE} element={<SignUp />} />
+            <Route path={RoutesName.LOGIN_ROUTE} element={<Login />} />
+            <Route path={RoutesName.SIGNUP_ROUTE} element={<SignUp />} />
           </>
         ) : (
           ""
         )}
         {userAuth ? (
           <>
-            <Route path={HISTORY_ROUTE} element={<HistoryPage />} />
-            <Route path={FAVOURITE_ROUTE} element={<FavouretePage />} />
-            <Route path={RECIPE_ID_PAGE_ROUTE} element={<RecipeByIdPage />} />
-            <Route path={RECIPES_PAGE_ROUTE} element={<RecipesListPage />} />
+            <Route path={RoutesName.HISTORY_ROUTE} element={<HistoryPage />} />
+            <Route
+              path={RoutesName.FAVOURITE_ROUTE}
+              element={<FavouretePage />}
+            />
+            <Route
+              path={RoutesName.RECIPE_ID_PAGE_ROUTE}
+              element={<RecipeByIdPage />}
+            />
+            <Route
+              path={RoutesName.RECIPES_PAGE_ROUTE}
+              element={<RecipesListPage />}
+            />
           </>
         ) : (
           ""

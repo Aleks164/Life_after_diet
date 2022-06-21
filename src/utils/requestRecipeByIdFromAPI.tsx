@@ -1,8 +1,4 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import { HOME_PAGE_ROUTE } from "./routes";
-
-export async function getRecipeById(id: string) {
+export async function requestRecipeByIdFromAPI(id: string) {
   const options = {
     method: "GET",
     headers: {
@@ -15,8 +11,9 @@ export async function getRecipeById(id: string) {
   try {
     const response = await window.fetch(fetchBody, options);
     const recipe = await response.json();
+    if (recipe.message) throw new Error(recipe.message);
     return recipe;
   } catch (e) {
-    return <Navigate to={HOME_PAGE_ROUTE} />;
+    throw new Error("request denied");
   }
 }

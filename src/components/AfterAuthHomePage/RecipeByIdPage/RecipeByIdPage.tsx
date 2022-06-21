@@ -4,30 +4,43 @@ import { RecipeResponsType } from "@/information";
 import { isLoadingType } from "@/types/types";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RecipePage } from "./RecipePage";
-import { getRecipeById } from "@/utils/getRecipeById";
+import { requestRecipeByIdFromAPI } from "@/utils/requestRecipeByIdFromAPI";
+import { SorryUnfoundPage } from "../RecipesListPage/SorryUnfoundPage";
 
 export const RecipeByIdPage = () => {
   const [recipe, setRecipe] = useState({} as RecipeResponsType);
   const [isLoading, setIsLoading] = useState<isLoadingType>(true);
+  const [isRecipeExist, setIsRecipeExist] = useState(true);
   const { id } = useParams();
+
   useEffect(() => {
     if (id)
-      getRecipeById(id).then((response) => {
-        setRecipe(response);
-        setTimeout(() => {
-          setIsLoading(!isLoading);
-        }, 500);
-      });
+      requestRecipeByIdFromAPI(id)
+        .then((response) => {
+          setRecipe(response);
+          setTimeout(() => {
+            setIsLoading(!isLoading);
+          }, 500);
+        })
+        .catch(() => {
+          setIsRecipeExist(false);
+        });
   }, []);
 
   return (
     <>
-      {isLoading ? (
-        <div className="loadingPage">
-          <LoadingPage />
-        </div>
+      {isRecipeExist ? (
+        <>
+          {isLoading ? (
+            <div className="loadingPage">
+              <LoadingPage />
+            </div>
+          ) : (
+            <RecipePage recipe={recipe} />
+          )}
+        </>
       ) : (
-        <RecipePage recipe={recipe} />
+        <SorryUnfoundPage idIsNotFund={true} />
       )}
     </>
   );

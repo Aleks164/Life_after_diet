@@ -42,5 +42,7 @@ module.exports = {
     "jest/no-conditional-expect": "off",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
   },
 };

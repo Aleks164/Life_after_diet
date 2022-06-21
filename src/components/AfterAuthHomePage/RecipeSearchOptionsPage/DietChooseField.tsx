@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BookmarkPropsType, SelectorParamType } from "@/types/types";
 import { DietList } from "@/utils/consts";
 import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
@@ -10,6 +10,7 @@ export const DietChooseField = ({
 }: BookmarkPropsType) => {
   const curDiet = settings.dietSelector.diet;
   const curDietstatus = settings.dietSelector.status;
+  const [inputValue, setInputValue] = useState(curDiet);
   const selectorParam = {
     isFieldAvailable: curDietstatus,
     settings,
@@ -25,12 +26,11 @@ export const DietChooseField = ({
         Сhoose a diet
         <select
           disabled={!curDietstatus}
-          value={curDiet}
+          value={inputValue}
           onChange={(e) => {
-            console.log("1", settings.dietSelector.diet);
             settings.dietSelector.diet = e.target.value;
+            setInputValue(e.target.value);
             setRequestSettings(settings);
-            console.log("2", settings.dietSelector.diet);
           }}
           name="dietSelector"
         >

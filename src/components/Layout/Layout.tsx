@@ -2,19 +2,12 @@ import React from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SignOutLink } from "../SignOutLink/SignOutLink";
 import { SignInLink } from "../SignInLink/SignInLink";
-import {
-  LOGIN_ROUTE,
-  SIGNUP_ROUTE,
-  HOME_PAGE_ROUTE,
-  HISTORY_ROUTE,
-  FAVOURITE_ROUTE,
-  ABOUT_ROUTE,
-} from "@/utils/routes";
+import { RoutesName } from "@/utils/routes";
 import { IsAuthType } from "@/types/types";
 
 export const Layout = ({ isAuth }: IsAuthType) => {
-  const isLoginPage = useLocation().pathname === LOGIN_ROUTE;
-  const isHomePage = useLocation().pathname === HOME_PAGE_ROUTE;
+  const isLoginPage = useLocation().pathname === RoutesName.LOGIN_ROUTE;
+  const isHomePage = useLocation().pathname === RoutesName.HOME_PAGE_ROUTE;
   const navigate = useNavigate();
 
   return (
@@ -23,7 +16,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         <h1
           className="mainTitle"
           onClick={() => {
-            navigate(HOME_PAGE_ROUTE);
+            navigate(RoutesName.HOME_PAGE_ROUTE);
           }}
         >
           Life after diet...
@@ -37,20 +30,20 @@ export const Layout = ({ isAuth }: IsAuthType) => {
         )}
         <hr />
         <div className="layoutLinkCont">
-          <NavLink to={HOME_PAGE_ROUTE}>Recipes</NavLink>
+          <NavLink to={RoutesName.HOME_PAGE_ROUTE}>Recipes</NavLink>
           {isAuth ? (
             <>
-              <NavLink to={HISTORY_ROUTE}>History</NavLink>
-              <NavLink to={FAVOURITE_ROUTE}>Favourite</NavLink>
+              <NavLink to={RoutesName.HISTORY_ROUTE}>History</NavLink>
+              <NavLink to={RoutesName.FAVOURITE_ROUTE}>Favourite</NavLink>
             </>
           ) : (
             ""
           )}
-          <NavLink to={ABOUT_ROUTE}>About</NavLink>
+          <NavLink to={RoutesName.ABOUT_ROUTE}>About</NavLink>
         </div>
         {isLoginPage ? (
           <div className="signCont">
-            <SignInLink to={SIGNUP_ROUTE}>Sign Up</SignInLink>
+            <SignInLink to={RoutesName.SIGNUP_ROUTE}>Sign Up</SignInLink>
           </div>
         ) : (
           <div className="signCont">
@@ -58,15 +51,17 @@ export const Layout = ({ isAuth }: IsAuthType) => {
               <>
                 {isHomePage ? (
                   <>
-                    <SignInLink to={LOGIN_ROUTE}>Log In</SignInLink>
-                    <SignInLink to={SIGNUP_ROUTE}>Sign Up</SignInLink>
+                    <SignInLink to={RoutesName.LOGIN_ROUTE}>Log In</SignInLink>
+                    <SignInLink to={RoutesName.SIGNUP_ROUTE}>
+                      Sign Up
+                    </SignInLink>
                   </>
                 ) : (
-                  <SignInLink to={LOGIN_ROUTE}>Log In</SignInLink>
+                  <SignInLink to={RoutesName.LOGIN_ROUTE}>Log In</SignInLink>
                 )}
               </>
             ) : (
-              <SignOutLink to={HOME_PAGE_ROUTE}>Log Out</SignOutLink>
+              <SignOutLink to={RoutesName.HOME_PAGE_ROUTE}>Log Out</SignOutLink>
             )}
           </div>
         )}

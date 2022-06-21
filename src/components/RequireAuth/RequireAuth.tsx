@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import { LOGIN_ROUTE, HOME_PAGE_ROUTE } from "@/utils/routes";
+import { RoutesName } from "@/utils/routes";
 
 export const RequireAuth = () => {
   const location = useLocation();
@@ -16,9 +16,9 @@ export const RequireAuth = () => {
   if (!user) {
     return (
       <>
-        <Navigate to={LOGIN_ROUTE} />
+        <Navigate to={RoutesName.LOGIN_ROUTE} />
       </>
     );
   }
-  return <Navigate to={HOME_PAGE_ROUTE} />;
+  return <Navigate to={RoutesName.HOME_PAGE_ROUTE} />;
 };

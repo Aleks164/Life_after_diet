@@ -9,6 +9,6 @@ export async function requestRecipeListFromAPi(queryString: string) {
     const recipeList = await response.json();
     return recipeList;
   } catch {
-    return new Error("request denied");
+    throw new Error("request denied");
   }
 }

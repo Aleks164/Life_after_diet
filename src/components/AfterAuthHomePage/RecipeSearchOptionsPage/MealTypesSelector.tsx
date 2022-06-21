@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BookmarkPropsType, SelectorParamType } from "@/types/types";
 import { MealTypes } from "@/utils/consts";
 import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
@@ -10,6 +10,7 @@ export const MealTypesSelector = ({
 }: BookmarkPropsType) => {
   const curMealTypestatus = settings.mealTypesSelector.status;
   const curMealType = settings.mealTypesSelector.mealType;
+  const [selectValue, setSelectValue] = useState(curMealType);
 
   const selectorParam = {
     isFieldAvailable: curMealTypestatus,
@@ -26,9 +27,10 @@ export const MealTypesSelector = ({
         Сhoose a meal type
         <select
           disabled={!curMealTypestatus}
-          value={curMealType}
+          value={selectValue}
           onChange={(e) => {
             settings.mealTypesSelector.mealType = e.target.value;
+            setSelectValue(e.target.value);
             setRequestSettings(settings);
           }}
           name="MealTypes"

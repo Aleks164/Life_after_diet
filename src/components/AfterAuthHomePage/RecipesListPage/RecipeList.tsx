@@ -5,7 +5,7 @@ import { RecipeListProps } from "@/types/types";
 import { HaveChosenInfo } from "./HaveChosenInfo";
 import { SorryUnfoundPage } from "./SorryUnfoundPage";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
-import { HISTORY_ROUTE, FAVOURITE_ROUTE } from "@/utils/routes";
+import { RoutesName } from "@/utils/routes";
 import { RecipesConteiner } from "./RecipesConteiner";
 import { RecipesPageNavigationArrows } from "./RecipesPageNavigationArrows";
 
@@ -18,8 +18,8 @@ export const RecipeList = ({
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHistory = location.pathname === HISTORY_ROUTE;
-  const isFavourite = location.pathname === FAVOURITE_ROUTE;
+  const isHistory = location.pathname === RoutesName.HISTORY_ROUTE;
+  const isFavourite = location.pathname === RoutesName.FAVOURITE_ROUTE;
   const flipPageParam = { сlientSettings, navigate, setPageNumber, pageNumber };
 
   useEffect(() => {
