@@ -38,15 +38,14 @@ export function addIngredientToList(
   e.preventDefault();
   let curIngridientsList = [] as string[];
   if (option === "ingridientsSelector" && optionType === "ingridients") {
-    curIngridientsList = settings[option][optionType] as string[];
+    curIngridientsList = settings[option][optionType];
   }
   if (
     option === "excludeIngridientsSelector" &&
     optionType === "excludeIngridients"
   ) {
-    curIngridientsList = settings[option][optionType] as string[];
+    curIngridientsList = settings[option][optionType];
   }
-
   curIngridientsList.push(ingridientInputValue);
 
   const newIngridientsList = {

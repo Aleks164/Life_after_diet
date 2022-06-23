@@ -1,8 +1,8 @@
-import { SelectorParamType } from "@/types/types";
+import { InputParamType } from "@/types/types";
 
 export function deleteExcludeFromList(
   deletingIngridient: string,
-  { settings, setRequestSettings }: SelectorParamType
+  { settings, setRequestSettings }: InputParamType
 ) {
   const filtredList =
     settings.excludeIngridientsSelector.excludeIngridients.filter(

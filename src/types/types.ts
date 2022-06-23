@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { NavigateFunction } from "react-router-dom";
-import { RecipeResponsType } from "../information";
+import { RecipeResponsType } from "../utils/singlRecipe";
 
 export type DietResponsType = {
   [id: number]: {

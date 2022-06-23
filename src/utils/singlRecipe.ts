@@ -1,4 +1,4 @@
-export const information = {
+export const singlRecipe = {
   vegetarian: false,
   vegan: false,
   glutenFree: true,
@@ -559,4 +559,4 @@ export const information = {
     "https://spoonacular.com/red-lentil-soup-with-chicken-and-turnips-715415",
 };
 
-export type RecipeResponsType = typeof information;
+export type RecipeResponsType = typeof singlRecipe;

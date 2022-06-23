@@ -1,4 +1,4 @@
-export const tempData = [
+export const listOfRecipesExample = [
   {
     id: 716426,
     title: "Cauliflower, Brown Rice, and Vegetable Fried Rice",

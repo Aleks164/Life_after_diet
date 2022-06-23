@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RecipeResponsType } from "@/information";
+import { RecipeResponsType } from "@/utils/singlRecipe";
 import { isLoadingType } from "@/types/types";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RecipePage } from "./RecipePage";
