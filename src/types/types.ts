@@ -139,7 +139,6 @@ export type ClientSettingsType = {
 };
 
 export interface ViewRecipeParamType extends SettingParamType {
-  isLoading: isLoadingType;
   setIsLoading: SetIsLoadingType;
   setRequestSettings: SetRequestSettingsType;
 }
@@ -276,6 +275,5 @@ export type ShowRecipesParamType = {
   setClientSettings: SetSettingType | undefined;
   settings: SettingType;
   setIsLoading: SetIsLoadingType;
-  isLoading: boolean;
   navigate: NavigateFunction;
 };

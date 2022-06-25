@@ -20,7 +20,7 @@ describe("flipRecipePage test", () => {
     setPageNumberSpy.mockClear();
   });
 
-  it("show recipe list page if API is available", () => {
+  it("show recipe list page if API is available", async () => {
     const requestRecipeSpy = jest
       .spyOn(requestRecipe, "requestRecipeListFromAPi")
       .mockResolvedValue(listOfRecipesExample);
@@ -30,7 +30,7 @@ describe("flipRecipePage test", () => {
 
     const resultNumberPage = pageNumber + skipedPages;
 
-    flipRecipePage(skipedPages, {
+    await flipRecipePage(skipedPages, {
       сlientSettings,
       pageNumber,
       navigate: navigateSpy,
@@ -45,7 +45,7 @@ describe("flipRecipePage test", () => {
     expect(navigateSpy).toHaveBeenCalledTimes(1);
     expect(setPageNumberSpy).toHaveBeenCalledWith(resultNumberPage);
   });
-  it("show main page if API is unavailable", () => {
+  it("show main page if API is unavailable", async () => {
     const requestRecipeSpy = jest
       .spyOn(requestRecipe, "requestRecipeListFromAPi")
       .mockRejectedValue(listOfRecipesExample);
@@ -55,7 +55,7 @@ describe("flipRecipePage test", () => {
 
     const resultNumberPage = pageNumber + skipedPages;
 
-    flipRecipePage(skipedPages, {
+    await flipRecipePage(skipedPages, {
       сlientSettings,
       pageNumber,
       navigate: navigateSpy,

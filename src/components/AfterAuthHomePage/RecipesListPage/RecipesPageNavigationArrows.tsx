@@ -10,8 +10,8 @@ export const RecipesPageNavigationArrows = ({
   <>
     <div
       hidden={pageNumber < 9}
-      onClick={() => {
-        flipRecipePage(-10, flipPageParam);
+      onClick={async () => {
+        await flipRecipePage(-10, flipPageParam);
       }}
       className="backToListButton backButton"
     ></div>
@@ -21,8 +21,8 @@ export const RecipesPageNavigationArrows = ({
     ></div>
     <div
       hidden={recipeInfoLength < 10}
-      onClick={() => {
-        flipRecipePage(10, flipPageParam);
+      onClick={async () => {
+        await flipRecipePage(10, flipPageParam);
       }}
       className="backToListButton forwardButton"
     ></div>

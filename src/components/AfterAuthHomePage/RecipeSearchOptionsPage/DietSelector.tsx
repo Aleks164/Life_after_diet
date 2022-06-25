@@ -44,7 +44,6 @@ export const DietSelector = ({
           <hr />
           <ViewRecipesButton
             settings={settings}
-            isLoading={isLoading}
             setRequestSettings={setRequestSettings}
             setIsLoading={setIsLoading}
           />

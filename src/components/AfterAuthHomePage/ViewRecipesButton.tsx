@@ -6,7 +6,6 @@ import { showRecipes } from "./showRecipes";
 
 export const ViewRecipesButton = ({
   settings,
-  isLoading,
   setIsLoading,
 }: ViewRecipeParamType) => {
   const { setClientSettings } = useClientSettings();
@@ -15,15 +14,14 @@ export const ViewRecipesButton = ({
     setClientSettings,
     settings,
     setIsLoading,
-    isLoading,
     navigate,
   };
 
   return (
     <button
       className="loginFormButton findRecipesButton"
-      onClick={() => {
-        showRecipes(showRecipesParam);
+      onClick={async () => {
+        await showRecipes(showRecipesParam);
       }}
     >
       {"Find recipes"}
