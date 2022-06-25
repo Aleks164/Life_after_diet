@@ -15,7 +15,8 @@ describe("nextItem test", () => {
   beforeEach(() => {
     setCurItemSpy = jest.fn();
     setIsPresedSpy = jest.fn();
-    current.innerHTML = "<div><div class='slide'></div><div class='slide'></div><div class='slide'></div><div class='slide'></div><div class='slide'></div></div>";
+    current.innerHTML =
+      "<div><div class='slide'></div><div class='slide'></div><div class='slide'></div><div class='slide'></div><div class='slide'></div></div>";
   });
   afterEach(() => {
     setCurItemSpy.mockClear();
@@ -32,7 +33,7 @@ describe("nextItem test", () => {
       setCurItem: setCurItemSpy,
       setIsPresed: setIsPresedSpy,
       togleAnimation,
-      caruselItemsList
+      caruselItemsList,
     });
     const allColor = (
       togleAnimation.current as unknown as HTMLDivElement
@@ -40,13 +41,25 @@ describe("nextItem test", () => {
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(true);
 
-    expect(allColor[newIndex].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideInRightMove" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideInRightMove" })
+    );
 
     await sleep(1001);
 
-    expect(allColor[newIndex].classList).toEqual(expect.not.objectContaining({ "0": "slideHiden", "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "0": "slide" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.not.objectContaining({
+        "0": "slideHiden",
+        "1": "slideHiden",
+        "2": "moveToStart",
+      })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "0": "slide" })
+    );
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(false);
     expect(setCurItemSpy).toHaveBeenCalledWith(newIndex);
@@ -60,7 +73,7 @@ describe("nextItem test", () => {
       setCurItem: setCurItemSpy,
       setIsPresed: setIsPresedSpy,
       togleAnimation,
-      caruselItemsList
+      caruselItemsList,
     });
     const allColor = (
       togleAnimation.current as unknown as HTMLDivElement
@@ -69,13 +82,25 @@ describe("nextItem test", () => {
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(true);
 
-    expect(allColor[newIndex].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideInLeftMove" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideInLeftMove" })
+    );
 
     await sleep(1001);
 
-    expect(allColor[newIndex].classList).toEqual(expect.not.objectContaining({ "0": "slideHiden", "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "0": "slide" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.not.objectContaining({
+        "0": "slideHiden",
+        "1": "slideHiden",
+        "2": "moveToStart",
+      })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "0": "slide" })
+    );
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(false);
     expect(setCurItemSpy).toHaveBeenCalledWith(newIndex);
@@ -94,19 +119,30 @@ describe("nextItem test", () => {
       setCurItem: setCurItemSpy,
       setIsPresed: setIsPresedSpy,
       togleAnimation,
-      caruselItemsList
+      caruselItemsList,
     });
-
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(true);
 
-    expect(allColor[newIndex].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideInRightMove" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideInRightMove" })
+    );
 
     await sleep(1001);
 
-    expect(allColor[newIndex].classList).toEqual(expect.not.objectContaining({ "0": "slideHiden", "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "0": "slide" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.not.objectContaining({
+        "0": "slideHiden",
+        "1": "slideHiden",
+        "2": "moveToStart",
+      })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "0": "slide" })
+    );
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(false);
     expect(setCurItemSpy).toHaveBeenCalledWith(newIndex);
@@ -125,18 +161,30 @@ describe("nextItem test", () => {
       setCurItem: setCurItemSpy,
       setIsPresed: setIsPresedSpy,
       togleAnimation,
-      caruselItemsList
+      caruselItemsList,
     });
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(true);
 
-    expect(allColor[newIndex].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideInRightMove" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideInRightMove" })
+    );
 
     await sleep(1001);
 
-    expect(allColor[newIndex].classList).toEqual(expect.not.objectContaining({ "0": "slideHiden", "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "0": "slide" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.not.objectContaining({
+        "0": "slideHiden",
+        "1": "slideHiden",
+        "2": "moveToStart",
+      })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "0": "slide" })
+    );
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(false);
     expect(setCurItemSpy).toHaveBeenCalledWith(newIndex);
@@ -155,19 +203,30 @@ describe("nextItem test", () => {
       setCurItem: setCurItemSpy,
       setIsPresed: setIsPresedSpy,
       togleAnimation,
-      caruselItemsList
+      caruselItemsList,
     });
-
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(true);
 
-    expect(allColor[newIndex].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideInLeftMove" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "2": "moveToStart" })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideInLeftMove" })
+    );
 
     await sleep(1001);
 
-    expect(allColor[newIndex].classList).toEqual(expect.not.objectContaining({ "0": "slideHiden", "1": "slideHiden", "2": "moveToStart" }));
-    expect(allColor[curItem].classList).toEqual(expect.objectContaining({ "1": "slideHiden", "0": "slide" }));
+    expect(allColor[newIndex].classList).toEqual(
+      expect.not.objectContaining({
+        "0": "slideHiden",
+        "1": "slideHiden",
+        "2": "moveToStart",
+      })
+    );
+    expect(allColor[curItem].classList).toEqual(
+      expect.objectContaining({ "1": "slideHiden", "0": "slide" })
+    );
 
     expect(setIsPresedSpy).toHaveBeenCalledWith(false);
     expect(setCurItemSpy).toHaveBeenCalledWith(newIndex);

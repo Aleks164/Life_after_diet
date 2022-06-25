@@ -9,7 +9,7 @@ describe("saveHistory test", () => {
       id: 321,
       title: "old title",
       image: "old image",
-    }
+    },
   };
 
   let setClientHistory: jest.Mock;
@@ -27,18 +27,18 @@ describe("saveHistory test", () => {
       title,
       image,
       id,
-      сlientHistory, setClientHistory
+      сlientHistory,
+      setClientHistory,
     });
     const newStory = Object.assign(сlientHistory, {
       [id]: {
         title,
         image,
         id,
-        date: 1655880063288
-      }
+        date: 1655880063288,
+      },
     });
-    expect(setClientHistory).toHaveBeenCalledWith(newStory
-    );
+    expect(setClientHistory).toHaveBeenCalledWith(newStory);
   });
   it("saveHistory do nothing if setClientHistory is undefined", () => {
     Date.now = jest.fn(() => 1655880063288);
@@ -46,7 +46,8 @@ describe("saveHistory test", () => {
       title,
       image,
       id,
-      сlientHistory, setClientHistory: undefined
+      сlientHistory,
+      setClientHistory: undefined,
     });
     expect(setClientHistory).toHaveBeenCalledTimes(0);
   });

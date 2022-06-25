@@ -6,12 +6,14 @@ import * as requestCreator from "@/utils/recipeRequestCreator";
 import { SettingType } from "@/types/types";
 
 describe("flipRecipePage test", () => {
-
   const settings = defaultSettings;
   let navigateSpy: jest.Mock;
   let setClientSettingsSpy: jest.Mock;
   let setIsLoadingSpy: jest.Mock;
-  let requestCreatorSpy: jest.SpyInstance<string, [settings: SettingType, skipedPages?: number | undefined]>
+  let requestCreatorSpy: jest.SpyInstance<
+    string,
+    [settings: SettingType, skipedPages?: number | undefined]
+  >;
 
   beforeEach(() => {
     navigateSpy = jest.fn();
@@ -29,7 +31,6 @@ describe("flipRecipePage test", () => {
   });
 
   it("show recipe list page if API is available", async () => {
-
     const requestRecipeSpy = jest
       .spyOn(requestRecipe, "requestRecipeListFromAPi")
       .mockResolvedValue(listOfRecipesExample);
@@ -42,12 +43,8 @@ describe("flipRecipePage test", () => {
     });
 
     expect(setClientSettingsSpy).toHaveBeenCalledWith(settings);
-    expect(setIsLoadingSpy).toHaveBeenCalledTimes(
-      2
-    );
-    expect(setIsLoadingSpy).toHaveBeenLastCalledWith(
-      false
-    );
+    expect(setIsLoadingSpy).toHaveBeenCalledTimes(2);
+    expect(setIsLoadingSpy).toHaveBeenLastCalledWith(false);
 
     expect(requestRecipeSpy).toHaveBeenCalledWith("test");
     expect(navigateSpy).toHaveBeenCalledTimes(1);
@@ -65,14 +62,11 @@ describe("flipRecipePage test", () => {
     });
 
     expect(setClientSettingsSpy).toHaveBeenCalledWith(settings);
-    expect(setIsLoadingSpy).toHaveBeenCalledWith(
-      true
-    );
+    expect(setIsLoadingSpy).toHaveBeenCalledWith(true);
     expect(requestRecipeSpy).toHaveBeenCalledWith("test");
     expect(navigateSpy).toHaveBeenCalledWith("/Life_after_diet/");
   });
   it("show recipe list page if API is available, but setClientSettings is undefined", async () => {
-
     const requestRecipeSpy = jest
       .spyOn(requestRecipe, "requestRecipeListFromAPi")
       .mockResolvedValue(listOfRecipesExample);
@@ -85,12 +79,8 @@ describe("flipRecipePage test", () => {
     });
 
     expect(setClientSettingsSpy).toHaveBeenCalledTimes(0);
-    expect(setIsLoadingSpy).toHaveBeenCalledTimes(
-      2
-    );
-    expect(setIsLoadingSpy).toHaveBeenLastCalledWith(
-      false
-    );
+    expect(setIsLoadingSpy).toHaveBeenCalledTimes(2);
+    expect(setIsLoadingSpy).toHaveBeenLastCalledWith(false);
 
     expect(requestRecipeSpy).toHaveBeenCalledWith("test");
     expect(navigateSpy).toHaveBeenCalledTimes(1);

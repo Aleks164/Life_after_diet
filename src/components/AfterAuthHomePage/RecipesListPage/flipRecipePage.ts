@@ -22,6 +22,5 @@ export async function flipRecipePage(
       });
     setPageNumber(resultNumberPage);
     resolve();
-  })
-
+  });
 }

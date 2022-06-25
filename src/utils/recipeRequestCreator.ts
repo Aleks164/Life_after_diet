@@ -6,7 +6,6 @@ export function recipeRequestCreator(
   settings: SettingType,
   skipedPages?: number
 ) {
-
   const {
     cuisinesList,
     dietSelector,

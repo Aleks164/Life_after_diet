@@ -25,5 +25,5 @@ export async function showRecipes({
         navigate(RoutesName.HOME_PAGE_ROUTE);
       });
     resolve();
-  })
+  });
 }
