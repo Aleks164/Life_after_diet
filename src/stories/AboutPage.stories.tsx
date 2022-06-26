@@ -1,12 +1,11 @@
-import React from 'react';
-import { AboutPage } from '@/components/AboutPage/AboutPage';
+import React from "react";
+import { AboutPage } from "@/components/AboutPage/AboutPage";
 import "@/index.css";
 
 export default {
-  title: 'About Page',
+  title: "About Page",
   component: AboutPage,
-  argTypes: {
-  },
+  argTypes: {},
 };
 
-export const aboutPage = () => <AboutPage />
+export const aboutPage = () => <AboutPage />;
