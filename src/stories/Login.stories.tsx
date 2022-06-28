@@ -10,4 +10,10 @@ export default {
   argTypes: {},
 };
 
-export const LoginField = () => <BrowserRouter><ClientSettingsProvider><Login /></ClientSettingsProvider></BrowserRouter>;
+export const LoginField = () => (
+  <BrowserRouter>
+    <ClientSettingsProvider>
+      <Login />
+    </ClientSettingsProvider>
+  </BrowserRouter>
+);

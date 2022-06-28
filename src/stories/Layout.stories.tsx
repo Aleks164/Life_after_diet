@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { ComponentStory } from '@storybook/react';
+import { ComponentStory } from "@storybook/react";
 import { ClientSettingsProvider } from "@/ClientSettingsProvider/ClientSettingsProvider";
 import { Layout } from "@/components/Layout/Layout";
 import { IsAuthType } from "@/types/types";
@@ -13,14 +13,22 @@ export default {
   argTypes: {},
 };
 
-const Template: ComponentStory<typeof Layout> = (args: JSX.IntrinsicAttributes & IsAuthType) => <BrowserRouter><ClientSettingsProvider><Layout {...args} /></ClientSettingsProvider></BrowserRouter>;
+const Template: ComponentStory<typeof Layout> = (
+  args: JSX.IntrinsicAttributes & IsAuthType
+) => (
+  <BrowserRouter>
+    <ClientSettingsProvider>
+      <Layout {...args} />
+    </ClientSettingsProvider>
+  </BrowserRouter>
+);
 
 export const LayoutUnAuth = Template.bind({});
 LayoutUnAuth.args = {
-  isAuth: null
+  isAuth: null,
 };
 
 export const LayoutAuth = Template.bind({});
 LayoutAuth.args = {
-  isAuth: "TestName@mail.ru"
+  isAuth: "TestName@mail.ru",
 };

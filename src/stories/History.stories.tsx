@@ -14,10 +14,22 @@ export default {
 
 export const HistoryPage = () => {
   history.pushState({}, "", RoutesName.HISTORY_ROUTE);
-  return (<BrowserRouter><ClientSettingsProvider><Routes><Route
-    path={RoutesName.HISTORY_ROUTE}
-    element={<RecipeList pageNumber={0}
-      setPageNumber={() => false}
-      recipeInfo={listOfRecipesExample} />}
-  ></Route></Routes></ClientSettingsProvider></BrowserRouter>)
+  return (
+    <BrowserRouter>
+      <ClientSettingsProvider>
+        <Routes>
+          <Route
+            path={RoutesName.HISTORY_ROUTE}
+            element={
+              <RecipeList
+                pageNumber={0}
+                setPageNumber={() => false}
+                recipeInfo={listOfRecipesExample}
+              />
+            }
+          ></Route>
+        </Routes>
+      </ClientSettingsProvider>
+    </BrowserRouter>
+  );
 };

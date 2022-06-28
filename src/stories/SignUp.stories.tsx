@@ -10,4 +10,10 @@ export default {
   argTypes: {},
 };
 
-export const SignUpField = () => <BrowserRouter><ClientSettingsProvider><SignUp /></ClientSettingsProvider></BrowserRouter>;
+export const SignUpField = () => (
+  <BrowserRouter>
+    <ClientSettingsProvider>
+      <SignUp />
+    </ClientSettingsProvider>
+  </BrowserRouter>
+);
