@@ -31,7 +31,7 @@ defaulTesttSetting = JSON.parse(defaulTesttSetting);
   "Egg",
   "Gluten",
   "Grain",
-  "Peanut"
+  "Peanut",
 ];
 IntolerancesNotEmptyList.args = {
   setRequestSettings: () => jest.fn(),

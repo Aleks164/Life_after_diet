@@ -20,13 +20,10 @@ export const RecipeByIdPage = () => {
         <Routes>
           <Route
             path={RoutesName.RECIPE_ID_PAGE_ROUTE}
-            element={
-              <RecipePage recipe={singlRecipe}
-              />
-            }
+            element={<RecipePage recipe={singlRecipe} />}
           ></Route>
         </Routes>
       </ClientSettingsProvider>
     </BrowserRouter>
-  )
+  );
 };

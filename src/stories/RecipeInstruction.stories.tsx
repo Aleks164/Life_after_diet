@@ -9,4 +9,6 @@ export default {
   argTypes: {},
 };
 
-export const RecipeInstructionInRecipeIdPage = () => <RecipeInstruction recipe={singlRecipe} />;
+export const RecipeInstructionInRecipeIdPage = () => (
+  <RecipeInstruction recipe={singlRecipe} />
+);
