@@ -4,7 +4,7 @@
   "description": "react start ptoject",
   "main": "./src/index.tsx",
   "scripts": {
-    "test-ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test-ci": "loki --requireReference --chrome-load-timeout 1000 --reactUri file:./storybook-static",
     "build": "webpack build --node-env production",
     "dev": "webpack serve --open --node-env development",
     "test": "jest --coverage",
