@@ -1,9 +1,9 @@
 import { recipeRequestCreator } from "./recipeRequestCreator";
 import { defaultSettings } from "@/utils/defaultSettings";
-import * as Key from "../../keys";
+import * as Key from "../../FB_API_KEYS";
 
 describe("recipeRequestCreator test", () => {
-  Key.keys.spoonAPIKey = "someApiKey";
+  Key.FB_API_KEYS = "someApiKey";
 
   const settings = defaultSettings;
   const skipedPages = 10;

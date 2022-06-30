@@ -1,5 +1,3 @@
-import { keys } from "../../keys";
-
 export async function requestRecipeByIdFromAPI(id: string) {
   const options = {
     method: "GET",

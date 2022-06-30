@@ -1,5 +1,5 @@
 import { requestRecipeListFromAPi } from "./requestRecipeListFromAPi";
-import * as Key from "../../keys";
+import * as Key from "../../FB_API_KEYS";
 
 describe("requestRecipeListFromAPi test", () => {
   const realFeatch = window.fetch;
@@ -8,7 +8,7 @@ describe("requestRecipeListFromAPi test", () => {
     window.fetch = realFeatch;
   });
 
-  Key.keys.spoonAPIKey = "someApiKey";
+  Key.FB_API_KEYS = "someApiKey";
 
   it("requestRecipeListFromAPi returns expected data from API", async () => {
     window.fetch = () =>

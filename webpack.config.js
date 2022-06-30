@@ -3,6 +3,7 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 const isDev = process.env.NODE_ENV === "development";
 const PREFIX = "/Life_after_diet/";
@@ -59,6 +60,7 @@ module.exports = {
     minimizer: ["...", new CssMinimizerPlugin()],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),

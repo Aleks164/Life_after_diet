@@ -1,8 +1,8 @@
-import { keys } from "@/../keys";
 import { initializeApp } from "firebase/app";
 import * as FBdatabase from "firebase/database";
+import { FB_API_KEYS } from "@/../FB_API_KEYS";
 
-const firebaseConfig = keys.fbAPIKey;
+const firebaseConfig = FB_API_KEYS;
 
 export const app = initializeApp(firebaseConfig);
 

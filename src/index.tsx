@@ -2,10 +2,10 @@ import React, { StrictMode } from "react";
 import * as ReactDOMClient from "react-dom/client";
 import { initializeApp } from "firebase/app";
 import { App } from "./App";
-import { keys } from "../keys";
+import { FB_API_KEYS } from "../FB_API_KEYS";
 import "./index.css";
 
-initializeApp(keys.fbAPIKey);
+initializeApp(FB_API_KEYS);
 
 
 const rootElement = document.getElementById("root");
