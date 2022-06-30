@@ -16,7 +16,7 @@ export function recipeRequestCreator(
     maxCaloriesInput,
   } = settings;
 
-  let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${keys.spoonAPIKey}`;
+  let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.SPOON_API_KEY}`;
   if (dietSelector.diet.length)
     queryString += `&diet=${rigthTypeQueryString(dietSelector.diet)}`;
   if (cuisinesList.length)
