@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -60,7 +61,9 @@ module.exports = {
     minimizer: ["...", new CssMinimizerPlugin()],
   },
   plugins: [
-    new Dotenv(),
+    new webpack.DefinePlugin({
+      SPOON_API_KEY: JSON.stringify(process.env.SPOON_API_KEY),
+    }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
