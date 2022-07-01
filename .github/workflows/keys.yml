@@ -4,12 +4,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: |
-          if [ "$SPOON_API_KEY" == "231" ]
-          then
-            echo "Got secret"
-          fi          
-        env: 
+      - name: Test        
+        with:: 
           SPOON_API_KEY: ${{ secrets.SPOON_API_KEY }}
           
