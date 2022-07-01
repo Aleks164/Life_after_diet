@@ -6,7 +6,7 @@ export async function requestRecipeByIdFromAPI(id: string) {
     },
   };
 
-  const fetchBody = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`;
+  const fetchBody = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.SPOON_API_KEY}`;
 
   try {
     const response = await window.fetch(fetchBody, options);
