@@ -1,0 +1,9 @@
+name: Secrets example
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keys        
+        env: 
+          SPOON_API_KEY: ${{ secrets.SPOON_API_KEY }}
