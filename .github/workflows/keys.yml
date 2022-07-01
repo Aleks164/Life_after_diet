@@ -4,6 +4,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Keys        
-        env: 
-          SPOON_API_KEY: ${{ secrets.SPOON_API_KEY }}
+      - name: Keys 
+       with: 
+       SPOON_API_KEY: ${{ secrets.SPOON_API_KEY }}
+    env: 
+      SPOON_API_KEY: ${{ secrets.SPOON_API_KEY }}
+          
