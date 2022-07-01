@@ -1,10 +1,10 @@
-/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === "development";
 const PREFIX = "/Life_after_diet/";
