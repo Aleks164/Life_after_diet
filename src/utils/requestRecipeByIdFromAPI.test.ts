@@ -1,5 +1,6 @@
 import { requestRecipeByIdFromAPI } from "./requestRecipeByIdFromAPI";
-import * as Key from "../../FB_API_KEYS";
+
+jest.mock("../API_KEYS", () => ({ API_KEYS: { SPOON_API_KEY: "someApiKey" } }));
 
 describe("recipeRequestCreator test", () => {
   const realFeatch = window.fetch;
@@ -7,8 +8,6 @@ describe("recipeRequestCreator test", () => {
   afterEach(() => {
     window.fetch = realFeatch;
   });
-
-  Key.FB_API_KEYS = "someApiKey";
 
   it("requestRecipeByIdFromAPI returns expected data from API", async () => {
     window.fetch = () =>

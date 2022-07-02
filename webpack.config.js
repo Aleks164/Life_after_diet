@@ -61,8 +61,11 @@ module.exports = {
     minimizer: ["...", new CssMinimizerPlugin()],
   },
   plugins: [
+    new Dotenv(),
     new webpack.DefinePlugin({
       SPOON_API_KEY: JSON.stringify(process.env.SPOON_API_KEY),
+      FB_API_KEY: JSON.stringify(process.env.FB_API_KEY),
+      IS_DEV: process.env.NODE_ENV === "development",
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",

@@ -1,10 +1,9 @@
 import { recipeRequestCreator } from "./recipeRequestCreator";
 import { defaultSettings } from "@/utils/defaultSettings";
-import * as Key from "../../FB_API_KEYS";
+
+jest.mock("../API_KEYS", () => ({ API_KEYS: { SPOON_API_KEY: "someApiKey" } }));
 
 describe("recipeRequestCreator test", () => {
-  Key.FB_API_KEYS = "someApiKey";
-
   const settings = defaultSettings;
   const skipedPages = 10;
 
@@ -13,6 +12,7 @@ describe("recipeRequestCreator test", () => {
       diet: "",
       status: false,
     };
+
     const result = recipeRequestCreator(settings);
 
     expect(result).toBe(

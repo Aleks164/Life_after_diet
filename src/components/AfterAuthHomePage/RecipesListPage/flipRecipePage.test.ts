@@ -4,6 +4,8 @@ import { defaultSettings } from "@/utils/defaultSettings";
 import * as requestRecipe from "@/utils/requestRecipeListFromAPi";
 import * as requestCreator from "@/utils/recipeRequestCreator";
 
+jest.mock("@/API_KEYS", () => ({ API_KEYS: { SPOON_API_KEY: "someApiKey" } }));
+
 describe("flipRecipePage test", () => {
   const сlientSettings = defaultSettings;
   const skipedPages = 1;

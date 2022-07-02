@@ -1,3 +1,5 @@
+import { API_KEYS } from "@/API_KEYS";
+
 export async function requestRecipeByIdFromAPI(id: string) {
   const options = {
     method: "GET",
@@ -6,7 +8,7 @@ export async function requestRecipeByIdFromAPI(id: string) {
     },
   };
 
-  const fetchBody = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`;
+  const fetchBody = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${API_KEYS.SPOON_API_KEY}`;
 
   try {
     const response = await window.fetch(fetchBody, options);

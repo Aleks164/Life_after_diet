@@ -1,3 +1,4 @@
+import { API_KEYS } from "@/API_KEYS";
 import { SettingType } from "@/types/types";
 import { rigthTypeQueryString } from "./rigthTypeQueryString";
 
@@ -15,7 +16,7 @@ export function recipeRequestCreator(
     maxCaloriesInput,
   } = settings;
 
-  let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOON_API_KEY}`;
+  let queryString = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEYS.SPOON_API_KEY}`;
   if (dietSelector.diet.length)
     queryString += `&diet=${rigthTypeQueryString(dietSelector.diet)}`;
   if (cuisinesList.length)

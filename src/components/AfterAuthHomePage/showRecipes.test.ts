@@ -5,6 +5,8 @@ import * as requestRecipe from "@/utils/requestRecipeListFromAPi";
 import * as requestCreator from "@/utils/recipeRequestCreator";
 import { SettingType } from "@/types/types";
 
+jest.mock("@/API_KEYS", () => ({ API_KEYS: { SPOON_API_KEY: "someApiKey" } }));
+
 describe("flipRecipePage test", () => {
   const settings = defaultSettings;
   let navigateSpy: jest.Mock;
