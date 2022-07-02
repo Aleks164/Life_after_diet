@@ -12,49 +12,37 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
           label={"Diet:"}
           content={сlientSettings.dietSelector.diet}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.mealTypesSelector.status ? (
         <SinglStringChooseItem
           label={"Meal type:"}
           content={сlientSettings.mealTypesSelector.mealType}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.maxCaloriesInput.status ? (
         <SinglStringChooseItem
           label={"Maximum calories:"}
           content={String(сlientSettings.maxCaloriesInput.value)}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.cuisinesList.length > 0 ? (
         <ChooseItem
           itemName={"Cuisines: "}
           сlientSettings={сlientSettings.cuisinesList}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.intolerancesList.length > 0 ? (
         <ChooseItem
           itemName={"List of intolerances: "}
           сlientSettings={сlientSettings.intolerancesList}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.ingridientsSelector.status ? (
         <ChooseItem
           itemName={"List of ingridients: "}
           сlientSettings={сlientSettings.ingridientsSelector.ingridients}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {сlientSettings.excludeIngridientsSelector.status ? (
         <ChooseItem
           itemName={"List of excludes: "}
@@ -62,9 +50,7 @@ export const HaveChosenInfo = ({ сlientSettings }: ClientSettingsType) => (
             сlientSettings.excludeIngridientsSelector.excludeIngridients
           }
         />
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   </>
 );

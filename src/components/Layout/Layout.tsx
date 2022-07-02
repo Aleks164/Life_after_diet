@@ -25,9 +25,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
           <div className="welcomeField">
             <p>{isAuth}</p>
           </div>
-        ) : (
-          ""
-        )}
+        ) : null}
         <hr />
         <div className="layoutLinkCont">
           <NavLink to={RoutesName.HOME_PAGE_ROUTE}>Recipes</NavLink>
@@ -36,9 +34,7 @@ export const Layout = ({ isAuth }: IsAuthType) => {
               <NavLink to={RoutesName.HISTORY_ROUTE}>History</NavLink>
               <NavLink to={RoutesName.FAVOURITE_ROUTE}>Favourite</NavLink>
             </>
-          ) : (
-            ""
-          )}
+          ) : null}
           <NavLink to={RoutesName.ABOUT_ROUTE}>About</NavLink>
         </div>
         {isLoginPage ? (

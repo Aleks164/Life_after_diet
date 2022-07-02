@@ -6,9 +6,7 @@ export const Icons = ({ diets, veryHealthy }: IconPropsType) => (
   <div className="iconCont">
     {veryHealthy ? (
       <div title="very healthy" className="healthyIcon"></div>
-    ) : (
-      ""
-    )}
+    ) : null}
     {diets.map((diet, index) => (
       <div
         key={index}

@@ -8,24 +8,18 @@ export const GeneralInfo = ({ recipe }: RecipeType) => {
       <div className="baseInfo">
         {recipe.cookingMinutes > 0 ? (
           <p>Cooking time : {recipe.cookingMinutes} minutes</p>
-        ) : (
-          ""
-        )}
+        ) : null}
         {recipe.preparationMinutes > 0 ? (
           <p>Preparation time : {recipe.preparationMinutes} minutes</p>
-        ) : (
-          ""
-        )}
-        {recipe.healthScore ? <p>HealthScore : {recipe.healthScore}</p> : ""}
-        {recipe.servings ? <p>Servings for {recipe.servings} person</p> : ""}
-        {calories ? <p>Calories: {calories[0]} per serving.</p> : ""}
+        ) : null}
+        {recipe.healthScore ? <p>HealthScore : {recipe.healthScore}</p> : null}
+        {recipe.servings ? <p>Servings for {recipe.servings} person</p> : null}
+        {calories ? <p>Calories: {calories[0]} per serving.</p> : null}
         {recipe.sourceUrl ? (
           <a target={"_blank"} href={recipe.sourceUrl}>
             Source of this recipe
           </a>
-        ) : (
-          ""
-        )}
+        ) : null}
       </div>
       {recipe.dishTypes.length ? (
         <div className="dishTypes">
@@ -36,9 +30,7 @@ export const GeneralInfo = ({ recipe }: RecipeType) => {
             ))}
           </p>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
       {recipe.cuisines.length ? (
         <div className="cusines">
           <p>
@@ -48,9 +40,7 @@ export const GeneralInfo = ({ recipe }: RecipeType) => {
             ))}
           </p>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   );
 };

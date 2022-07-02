@@ -44,18 +44,14 @@ export const RecipeList = ({
             flipPageParam={flipPageParam}
             recipeInfoLength={recipeInfo.length}
           />
-        ) : (
-          ""
-        )}
+        ) : null}
         <h3>
           {!isHistory && !isFavourite ? "Recipe book" : ""}
           {isHistory ? (
             <>
               <p>Your story</p>last 10<p></p>
             </>
-          ) : (
-            ""
-          )}
+          ) : null}
           {isFavourite ? "Your favourite list" : ""}
         </h3>
       </div>

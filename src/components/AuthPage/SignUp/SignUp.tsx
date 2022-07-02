@@ -6,10 +6,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { useAuth } from "../../../hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
-import { isLoadingType } from "../../../types/types";
+import { isLoadingType } from "@/types/types";
 
 export const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");

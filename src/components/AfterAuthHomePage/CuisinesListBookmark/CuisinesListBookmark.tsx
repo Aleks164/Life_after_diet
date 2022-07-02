@@ -33,9 +33,7 @@ export const CuisinesListBookmark = ({
             *if you have not chosen any cuisine, then the recipes will be from
             different cuisines, selected randomly
           </p>
-        ) : (
-          ""
-        )}
+        ) : null}
       </fieldset>
       <button
         className="clearButton loginFormButton"

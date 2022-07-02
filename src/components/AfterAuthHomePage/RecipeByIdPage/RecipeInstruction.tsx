@@ -45,9 +45,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
             sorryText
           )}
         </>
-      ) : (
-        ""
-      )}
+      ) : null}
       {instructionType === "preparation" ? (
         <>
           <h3>Preparation</h3>
@@ -67,9 +65,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                     <li>
                       {step.length ? (
                         <p className="stepDuration">{step.length.number} min</p>
-                      ) : (
-                        ""
-                      )}
+                      ) : null}
                       <p>{step.step}</p>
                     </li>
                     <ol hidden={hideList} className="stepIngrList">
@@ -83,9 +79,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
               : sorryText}
           </ol>
         </>
-      ) : (
-        ""
-      )}
+      ) : null}
       {instructionType === "ingredients" ? (
         <>
           <h3>Ingredients</h3>
@@ -103,9 +97,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
             sorryText
           )}
         </>
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   );
 };

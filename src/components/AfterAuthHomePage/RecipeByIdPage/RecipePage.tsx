@@ -59,12 +59,10 @@ export const RecipePage = ({ recipe }: RecipeType) => {
           className={isItInFafouritList ? "favouriteStar" : "starStyles"}
         ></div>
         <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
-        {curMarkbook === "Description" ? <RecipeCart recipe={recipe} /> : ""}
+        {curMarkbook === "Description" ? <RecipeCart recipe={recipe} /> : null}
         {curMarkbook === "Instruction" ? (
           <RecipeInstruction recipe={recipe} />
-        ) : (
-          ""
-        )}
+        ) : null}
       </div>
     </div>
   );

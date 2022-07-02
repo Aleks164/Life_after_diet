@@ -35,6 +35,6 @@ export function markbooksSwitcher(
     case "Diet definitions":
       return <DietDefenitionList />;
     default:
-      return "";
+      return null;
   }
 }

@@ -30,19 +30,13 @@ export const SorryUnfoundPage = ({
             </p>
           )}
         </>
-      ) : (
-        ""
-      )}
+      ) : null}
       {isHistory ? (
         <p className="noFoundMessage">Your history is empty.</p>
-      ) : (
-        ""
-      )}
+      ) : null}
       {isFavourite ? (
         <p className="noFoundMessage">Your favourite list is empty.</p>
-      ) : (
-        ""
-      )}
+      ) : null}
       <button
         className="tryAgainButton loginFormButton"
         onClick={() => {

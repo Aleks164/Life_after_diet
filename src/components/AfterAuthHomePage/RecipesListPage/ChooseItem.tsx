@@ -11,7 +11,7 @@ export const ChooseItem = ({ itemName, сlientSettings }: ChooseItemType) => (
     {сlientSettings.map((ingridient, index, array) => (
       <li key={index}>
         {ingridient}
-        {index === array.length - 1 ? <hr /> : ""}
+        {index === array.length - 1 ? <hr /> : null}
       </li>
     ))}
   </div>
