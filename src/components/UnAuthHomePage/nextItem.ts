@@ -1,7 +1,7 @@
 import { NextItemSliderParamType } from "@/types/types";
 
 export function nextItem(
-  step: number,
+  step: number | { index: number },
   {
     curItem,
     setCurItem,
@@ -14,11 +14,14 @@ export function nextItem(
     togleAnimation.current as unknown as HTMLDivElement
   ).querySelectorAll(".slide");
   let newIndex = 0;
-  if (curItem !== caruselItemsList.length - 1) newIndex = curItem + step;
-  if (curItem + step < 0) newIndex = caruselItemsList.length - 1;
-  if (curItem === caruselItemsList.length - 1 && step < 0)
-    newIndex = curItem + step;
-  if (step !== 1 && step !== -1) newIndex = step;
+  if (typeof step === "number") {
+    if (curItem + step <= caruselItemsList.length - 1)
+      newIndex = curItem + step;
+    if (curItem + step < 0) newIndex = caruselItemsList.length - 1;
+  } else {
+    step = step.index;
+    newIndex = step;
+  }
   allColor[newIndex].classList.toggle("slideHiden");
   if (step < 0 || (newIndex === step && curItem - step >= 1))
     allColor[curItem].classList.toggle("slideInLeftMove");

@@ -215,7 +215,7 @@ export type HistoryLineParamType = {
   isPresed: boolean;
   curItem: number;
   nextItem: (
-    step: number,
+    step: number | { index: number },
     NextItemSliderParam: NextItemSliderParamType
   ) => void;
   nextItemParam: NextItemSliderParamType;

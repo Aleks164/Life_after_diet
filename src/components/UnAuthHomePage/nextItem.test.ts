@@ -152,7 +152,7 @@ describe("nextItem test", () => {
       togleAnimation.current as unknown as HTMLDivElement
     ).querySelectorAll(".slide");
 
-    const step = 3;
+    const step = { index: 3 };
     const curItem = 1;
     const newIndex = 3;
 
