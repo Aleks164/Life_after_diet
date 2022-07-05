@@ -15,7 +15,7 @@ export const HistoryLine = ({
         key={index}
         className={curItem === index ? "activeItem" : "unActiveItem"}
         onClick={() => {
-          nextItem(index, nextItemParam);
+          nextItem({ index }, nextItemParam);
         }}
       ></button>
     ))}
