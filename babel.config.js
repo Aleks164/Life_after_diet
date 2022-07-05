@@ -4,5 +4,16 @@ module.exports = {
     "@babel/preset-react",
     "@babel/preset-typescript",
   ],
-  plugins: ["@babel/plugin-transform-runtime"],
+  plugins: [
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        root: ["./src"],
+        alias: {
+          "@": "./src",
+        },
+      },
+    ],
+  ],
 };

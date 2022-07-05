@@ -1,12 +1,34 @@
-body {
-  background-color: rgb(189 132 132);
+#root {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-width: 1000px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "layout"
+    "bodyContent";
 }
 
-.image {
-  background-image: url("./assets/cat.jpg");
-  width: 150px;
-  height: 150px;
-  background-size: cover;
+.layout {
+  grid-area: layout;
+  position: relative;
+  min-width: 970px;
+}
+
+body {
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    #ffddd6,
+    #fff9ed,
+    #fff9ed,
+    #dbdbdb
+  );
+  width: 100%;
+  background-attachment: fixed;
 }
 
 p {
@@ -16,4 +38,155 @@ p {
 
 .active {
   color: rgb(5 129 52);
+  box-shadow: 0 -2px 3px 1px rgb(224 190 183 / 68%);
+}
+
+.mainTitle {
+  margin-top: 5px;
+  font-family: serif;
+  font-size: 40px;
+  cursor: pointer;
+  width: -moz-fit-content;
+}
+
+.layoutLinkCont {
+  position: relative;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+.layoutLinkCont a {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 1px;
+  display: inline-block;
+  outline: none;
+  padding: 1em;
+  text-decoration: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.layoutLinkCont a:hover {
+  background-image: radial-gradient(
+      1px 100% at 0 40%,
+      rgb(0 0 0 / 60%),
+      #0000000a
+    ),
+    radial-gradient(1px 100% at 100% 40%, rgb(0 0 0 / 60%), transparent);
+}
+
+.welcomeField {
+  font-size: 20px;
+  position: relative;
+}
+
+.welcomeField p {
+  display: inline-block;
+  color: chocolate;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: right;
+  position: absolute;
+  right: 25px;
+  top: -25px;
+}
+
+.signCont {
+  margin: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 5px;
+}
+
+.signInLink {
+  text-align: center;
+  width: 95px;
+  font-size: 22px;
+  height: 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  padding-top: 10px;
+  font-family: Lato, sans-serif;
+  font-weight: 900;
+  background: #e5dede;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border: none;
+  color: #7e7070fc;
+  z-index: 1;
+  padding-top: 0;
+  box-shadow: 0 0 4px 1px rgb(139 108 112);
+  margin-right: 5px;
+}
+
+.signInLink::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow: -7px -7px 20px 0 #fff9, -4px -4px 5px 0 #fff9,
+    7px 7px 20px 0 #0002, 4px 4px 5px 0 #0001;
+  transition: all 0.3s ease;
+}
+
+.signInLink:hover {
+  color: #b58585;
+}
+
+.signInLink:hover::after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+
+.signInLink:active {
+  top: 2px;
+}
+
+.aboutCont {
+  line-height: 1.4;
+  font-size: 28px;
+  grid-area: bodyContent;
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 150px 65vw;
+  grid-template-rows: auto auto;
+  grid-template-areas: "picture shortInfo" "mainDescription mainDescription";
+}
+
+.aboutPicture {
+  background-image: url("./assets/leo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-area: picture;
+  width: 150px;
+  height: 175px;
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 55px;
+}
+
+.mainDescription {
+  margin-top: 25px;
+  grid-area: mainDescription;
+}
+
+.shortInfo {
+  width: fit-content;
+  margin-left: 15%;
 }

@@ -3,8 +3,11 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === "development";
+const PREFIX = "/Life_after_diet/";
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
@@ -15,21 +18,18 @@ module.exports = {
       : "eval-source-map",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
   },
   devServer: {
-    compress: true,
-    port: 8000,
-    client: {
-      logging: "info",
-    },
+    port: 9000,
+    historyApiFallback: true,
   },
   output: {
-    filename: "[name].bundle.[chunkhash].js",
+    path: resolve(__dirname, "dist"),
+    publicPath: isDev ? "/" : PREFIX,
     clean: true,
-    path: resolve(__dirname, "./build"),
-    environment: {
-      arrowFunction: false,
-    },
   },
   module: {
     rules: [
@@ -42,40 +42,13 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /\.module\.css$/i,
-        use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                mode: "icss",
-                localIdentName: "[name]___[hash:base64:5]",
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.module\.css$/,
-        use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                mode: "local",
-                localIdentName: "[name]___[hash:base64:5]",
-              },
-            },
-          },
-        ],
+        use: isDev ? [MiniCssExtractPlugin.loader, "css-loader"] : [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
-          filename: "static/[hash][ext]",
+          filename: "./images/[contenthash][ext]",
         },
       },
       {
@@ -88,16 +61,20 @@ module.exports = {
     minimizer: ["...", new CssMinimizerPlugin()],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: resolve(__dirname, "./src/index.html"),
+    new Dotenv(),
+    new webpack.DefinePlugin({
+      SPOON_API_KEY: JSON.stringify(process.env.SPOON_API_KEY),
+      FB_API_KEY: JSON.stringify(process.env.FB_API_KEY),
+      IS_DEV: process.env.NODE_ENV === "development",
     }),
-    ...(isDev
-      ? [new MiniCssExtractPlugin()]
-      : [
-        new MiniCssExtractPlugin({
-          filename: "[name].[contenthash].css",
-          chunkFilename: "[name].[contenthash].css",
-        }),
-      ]),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "404.html",
+    }),
+    new MiniCssExtractPlugin(),
   ],
 };
+
