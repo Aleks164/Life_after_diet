@@ -1,3 +1,5 @@
+<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/Aleks164/Life_after_diet/Deploy%20to%20GithubPages/main?label=Deploy%20to%20GithubPages"><img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/static/v1?label=Tests&message=Passed&color=brightgreen"><img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/website?url=https%3A%2F%2Faleks164.github.io%2FLife_after_diet%2F">
+
 <h2>Life after diet</h2>
 <p>The website "Life after diet" provides recipe search tools:</p>
 <p>with the ability to choose:</p>
