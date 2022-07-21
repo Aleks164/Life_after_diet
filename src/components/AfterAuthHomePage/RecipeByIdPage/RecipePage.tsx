@@ -6,7 +6,7 @@ import { RecipeInstruction } from "./RecipeInstruction";
 import { useClientSettings } from "@/hooks/useClientSettings";
 import { Icons } from "./Icons";
 import { changeFavouriteStatus } from "./changeFavouriteStatus";
-import "./RecipePageStyles.css";
+// import "./RecipePageStyles.css";
 
 export const RecipePage = ({ recipe }: RecipeType) => {
   const { сlientFavourite, setClientFavourite } = useClientSettings();

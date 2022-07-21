@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { SignOutLink } from "../SignOutLink/SignOutLink";
-import { SignInLink } from "../SignInLink/SignInLink";
+import { SignOutLink } from "../SignOutLink/LogOutLink";
+import { SignInLink } from "../SignInLink/LogInLink";
 import { RoutesName } from "@/utils/routes";
 import { IsAuthType } from "@/types/types";
 

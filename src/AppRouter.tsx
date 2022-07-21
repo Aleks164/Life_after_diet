@@ -12,13 +12,15 @@ import { RecipesListPage } from "./components/AfterAuthHomePage/RecipesListPage/
 import { SignUp } from "./components/AuthPage/SignUp/SignUp";
 import { AboutPage } from "./components/AboutPage/AboutPage";
 import { RoutesName } from "./utils/routes";
+import { Header } from "./components/material_UI_components/Header";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
   return (
     <Routes>
-      <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} />
-      <Route
+      {/* <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} /> */}
+      <Route path="/" element={<Header />} />
+      {/* <Route
         path={RoutesName.HOME_PAGE_ROUTE}
         element={<Layout isAuth={userAuth} />}
       >
@@ -52,7 +54,7 @@ export const AppRouter = () => {
           ""
         )}
         <Route path="*" element={<RequireAuth />} />
-      </Route>
+      </Route> */}
     </Routes>
   );
 };

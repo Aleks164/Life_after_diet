@@ -1,6 +1,6 @@
 import React from "react";
 import { SelectorParamType } from "@/types/types";
-import "./index.css";
+// import "./index.css";
 
 type OnOffselectorParam = {
   tumblerSwitcher: (
