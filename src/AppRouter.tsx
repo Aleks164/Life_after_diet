@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Layout } from "./components/Layout/Layout";
+// import { Layout } from "./components/Layout/Layout";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/AuthPage/Login/Login";
 import { useAuth } from "./hooks/useAuth";
@@ -12,12 +12,15 @@ import { RecipesListPage } from "./components/AfterAuthHomePage/RecipesListPage/
 import { SignUp } from "./components/AuthPage/SignUp/SignUp";
 import { AboutPage } from "./components/AboutPage/AboutPage";
 import { RoutesName } from "./utils/routes";
+import { Header } from "./components/material_UI_components/Header";
+import { Layout } from "./components/material_UI_components/Layout";
 
 export const AppRouter = () => {
   const userAuth = useAuth().user;
   return (
     <Routes>
       <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} />
+      {/* <Route path="/" element={<Layout isAuth={userAuth} />} /> */}
       <Route
         path={RoutesName.HOME_PAGE_ROUTE}
         element={<Layout isAuth={userAuth} />}

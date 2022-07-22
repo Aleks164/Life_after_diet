@@ -1,7 +1,7 @@
-import { NextItemSliderParamType } from "@/types/types";
+import { NextItemSliderParamType, StepType } from "@/types/types";
 
 export function nextItem(
-  step: number | { index: number },
+  step: StepType,
   {
     curItem,
     setCurItem,
@@ -22,7 +22,6 @@ export function nextItem(
     step = step.index;
     newIndex = step;
   }
-
   allColor[newIndex].classList.toggle("slideHiden");
   if (step < 0 || (newIndex === step && curItem - step >= 1))
     allColor[curItem].classList.toggle("slideInLeftMove");

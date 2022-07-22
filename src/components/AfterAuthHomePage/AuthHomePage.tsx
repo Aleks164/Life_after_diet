@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Markbooks } from "./Markbooks";
 import { markbooksSwitcher } from "./markbooksSwitcher";
 import { useClientSettings } from "@/hooks/useClientSettings";
-import "./AfterAuthHomePageStyles.css";
+// import "./AfterAuthHomePageStyles.css";
 
 export const AuthHomePage = () => {
   const { сlientSettings } = useClientSettings();

@@ -210,12 +210,14 @@ export type AuthBenefitsParamType = {
   curItem: number;
 };
 
+export type StepType = number | { index: number };
+
 export type HistoryLineParamType = {
   caruselItemsList: string[];
   isPresed: boolean;
   curItem: number;
   nextItem: (
-    step: number | { index: number },
+    step: StepType,
     NextItemSliderParam: NextItemSliderParamType
   ) => void;
   nextItemParam: NextItemSliderParamType;
@@ -277,3 +279,7 @@ export type ShowRecipesParamType = {
   setIsLoading: SetIsLoadingType;
   navigate: NavigateFunction;
 };
+
+export type AuthLinkParamType = { to: string, type: string };
+
+export type HeaderParamType = { isAuth: null | string, isSignUpPage: boolean, isLoginPage: boolean };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RoutesName } from "@/utils/routes";
-import "./index.css";
+// import "./index.css";
 
 export type FormParamType = {
   signInUpHandler: (loginEmail: string, loginPassword: string) => void;
