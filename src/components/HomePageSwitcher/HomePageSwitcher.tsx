@@ -4,6 +4,7 @@ import { AuthHomePage } from "../AfterAuthHomePage/AuthHomePage";
 import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
 import { FBInterface } from "@/firebase_init/FBInterface";
 import { useClientSettings } from "@/hooks/useClientSettings";
+import { Example } from "../material_UI_components/CaruselOfAuthBenefits";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   const { setFavourite, setHistory } = useClientSettings();
@@ -20,5 +21,5 @@ export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
     }
   }, [isAuth]);
 
-  return <>{!isAuth ? <UnAuthHomePage /> : <AuthHomePage />}</>;
+  return <>{!isAuth ? <Example /> : <AuthHomePage />}</>;
 };
