@@ -7,3 +7,4 @@ declare module '@/assets/caruselItems/favourites.png';
 declare module '@/assets/caruselItems/recipeList.png';
 declare module '@/assets/caruselItems/сusines.png';
 declare module '@/assets/caruselItems/history.png';
+declare module '@/assets/leo.png';
