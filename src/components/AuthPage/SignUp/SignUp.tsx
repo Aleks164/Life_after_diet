@@ -60,6 +60,7 @@ export const SignUp = () => {
         setErrorMessage={setErrorMessage}
         isLoading={isLoading}
         signInUpWithGoogle={signInUpWithGoogle}
+        setIsLoading={setIsLoading}
       />
     </>
   );

@@ -20,7 +20,6 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} />
-      {/* <Route path="/" element={<Layout isAuth={userAuth} />} /> */}
       <Route
         path={RoutesName.HOME_PAGE_ROUTE}
         element={<Layout isAuth={userAuth} />}

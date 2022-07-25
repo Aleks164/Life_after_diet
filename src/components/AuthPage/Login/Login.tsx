@@ -61,6 +61,7 @@ export const Login = () => {
         processName="Log in"
         errorMessage={errorMessage}
         setErrorMessage={setErrorMessage}
+        setIsLoading={setIsLoading}
       />
     </>
   );

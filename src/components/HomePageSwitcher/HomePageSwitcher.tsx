@@ -23,5 +23,5 @@ export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
     }
   }, [isAuth]);
 
-  return <>{!isAuth ? <AboutPage /> : <AuthHomePage />}</>;
+  return <>{!isAuth ? <AuthHomePage /> : <AuthHomePage />}</>;
 };
