@@ -1,12 +1,8 @@
 import { SelectorParamType, SettingType } from "@/types/types";
 
 export function tumblerSwitcher(
-  selectorParam: SelectorParamType,
-  e:
-    | React.DragEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLDivElement, MouseEvent>
+  selectorParam: SelectorParamType
 ) {
-  e.preventDefault();
   let newSettings: SettingType;
   if (selectorParam.isFieldAvailable) {
     newSettings = {
@@ -16,6 +12,7 @@ export function tumblerSwitcher(
         status: !selectorParam.isFieldAvailable,
       },
     };
+    console.log(newSettings[selectorParam.option])
   } else {
     newSettings = {
       ...selectorParam.settings,
@@ -24,6 +21,7 @@ export function tumblerSwitcher(
         status: !selectorParam.isFieldAvailable,
       },
     };
+    console.log(newSettings[selectorParam.option])
   }
   selectorParam.setRequestSettings(newSettings);
 }

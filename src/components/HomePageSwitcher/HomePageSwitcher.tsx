@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IsAuthType } from "@/types/types";
 import { AuthHomePage } from "../AfterAuthHomePage/AuthHomePage";
 // import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
@@ -11,6 +11,8 @@ import { AboutPage } from "../AboutPage/AboutPage";
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   const { setFavourite, setHistory } = useClientSettings();
   const newCrud = new FBInterface();
+  const { сlientSettings } = useClientSettings();
+  const [settings, setRequestSettings] = useState(сlientSettings);
 
   useEffect(() => {
     if (isAuth) {
@@ -23,5 +25,19 @@ export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
     }
   }, [isAuth]);
 
-  return <>{!isAuth ? <AuthHomePage /> : <AuthHomePage />}</>;
+  return (
+    <>
+      {!isAuth ? (
+        <AuthHomePage
+          settings={settings}
+          setRequestSettings={setRequestSettings}
+        />
+      ) : (
+        <AuthHomePage
+          settings={settings}
+          setRequestSettings={setRequestSettings}
+        />
+      )}
+    </>
+  );
 };

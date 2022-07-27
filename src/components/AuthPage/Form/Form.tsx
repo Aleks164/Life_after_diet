@@ -36,8 +36,6 @@ export const Form = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPressedOnLoginButton, setIsPressedOnLoginButton] = useState(false);
-  const [isValidEmail, setisValidEmail] = useState(true);
-  const [isValidPassword, setisValidPassword] = useState(true);
 
   useEffect(() => {
     if (errorMessage.length > 0) {
