@@ -12,7 +12,7 @@ import {
   Divider,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-import { RoutesName } from "@/utils/routes";
+import { RoutesName } from "../../../utils/routes";
 
 export type FormParamType = {
   signInUpHandler: (loginEmail: string, loginPassword: string) => void;

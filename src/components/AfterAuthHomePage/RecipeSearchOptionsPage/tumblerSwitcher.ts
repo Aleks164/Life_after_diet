@@ -1,4 +1,4 @@
-import { SelectorParamType, SettingType } from "@/types/types";
+import { SelectorParamType, SettingType } from "../../../types/types";
 
 export function tumblerSwitcher(
   selectorParam: SelectorParamType

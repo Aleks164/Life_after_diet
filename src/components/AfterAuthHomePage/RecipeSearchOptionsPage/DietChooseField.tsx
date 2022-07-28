@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { BookmarkPropsType, SelectorParamType } from "@/types/types";
-import { DietList } from "@/utils/consts";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
+import { DietList } from "../../../utils/consts";
 import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
@@ -27,7 +27,7 @@ export const DietChooseField = ({
       <FormControl fullWidth>
         <InputLabel id="diet-select-label">Сhoose a diet</InputLabel>
         <Select
-          disabled={curDietstatus}
+          disabled={!curDietstatus}
           labelId="diet-select-label"
           id="diet-select"
           value={inputValue}

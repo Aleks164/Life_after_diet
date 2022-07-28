@@ -3,10 +3,10 @@ import {
   ChildrenType,
   HistoryFavouriteTypes,
   ProviderPropsType,
-} from "@/types/types";
-import { defaultSettings } from "@/utils/defaultSettings";
-import { FBInterface } from "@/firebase_init/FBInterface";
-import { useAuth } from "@/hooks/useAuth";
+} from "../types/types";
+import { defaultSettings } from "../utils/defaultSettings";
+import { FBInterface } from "../firebase_init/FBInterface";
+import { useAuth } from "../hooks/useAuth";
 import { deleteOldestItem } from "./deleteOldestItem";
 
 export const ClientSettingsContext = createContext<ProviderPropsType>({

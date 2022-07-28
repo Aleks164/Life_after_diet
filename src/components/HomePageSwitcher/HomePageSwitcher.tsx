@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { IsAuthType } from "@/types/types";
+import { IsAuthType } from "../../types/types";
 import { AuthHomePage } from "../AfterAuthHomePage/AuthHomePage";
 // import { UnAuthHomePage } from "../UnAuthHomePage/UnAuthHomePage";
-import { FBInterface } from "@/firebase_init/FBInterface";
-import { useClientSettings } from "@/hooks/useClientSettings";
+import { FBInterface } from "../../firebase_init/FBInterface";
+import { useClientSettings } from "../../hooks/useClientSettings";
 import { Example } from "../material_UI_components/CaruselOfAuthBenefits";
 import { UnAuthHomePage } from "../material_UI_components/UnAuthHomePage/UnAuthHomePage";
 import { AboutPage } from "../AboutPage/AboutPage";

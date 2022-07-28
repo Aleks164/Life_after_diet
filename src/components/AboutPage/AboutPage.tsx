@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import leo from "@/assets/leo.png";
+import leo from "../../assets/leo.png";
 
 const theme = createTheme();
 theme.typography.overline = {

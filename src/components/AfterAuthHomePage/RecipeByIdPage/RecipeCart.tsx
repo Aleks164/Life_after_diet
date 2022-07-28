@@ -1,5 +1,5 @@
 import React from "react";
-import { RecipeType } from "@/types/types";
+import { RecipeType } from "../../../types/types";
 import { GeneralInfo } from "./GeneralInfo";
 import { SummaryText } from "./SummaryText";
 

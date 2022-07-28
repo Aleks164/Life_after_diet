@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { BookmarkPropsType, SelectorParamType } from "@/types/types";
-import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
+import { Box, FormControl, InputLabel, Slider } from "@mui/material";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
+import { OnOffTumbler } from "../../../components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MaxCaloriesInput = ({
@@ -22,30 +23,29 @@ export const MaxCaloriesInput = ({
   } as SelectorParamType;
 
   return (
-    <div className="ingridientsList">
-      <label>
-        Max calories
-        <input
+    <Box sx={{ minWidth: 200 }}>
+      <FormControl fullWidth>
+        <InputLabel id="calories-select-label">Max calories</InputLabel>
+        <Slider
           disabled={!maxCaloriesStatus}
-          value={maxCalories}
+          aria-label="Temperature"
+          defaultValue={500}
+          valueLabelDisplay="auto"
+          marks
+          step={50}
+          min={50}
+          max={4000}
           onChange={(e) => {
             settings.maxCaloriesInput.value = +e.target.value;
             setRequestSettings(settings);
             setMaxCalories(+e.target.value);
           }}
-          step={50}
-          min={50}
-          max={4000}
-          type="number"
-          list="ingridientsFullList"
         />
-        <div>
-          <OnOffTumbler
-            tumblerSwitcher={tumblerSwitcher}
-            selectorParam={selectorParam}
-          />
-        </div>
-      </label>
-    </div>
+        <OnOffTumbler
+          tumblerSwitcher={tumblerSwitcher}
+          selectorParam={selectorParam}
+        />
+      </FormControl>
+    </Box>
   );
 };

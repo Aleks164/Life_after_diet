@@ -3,9 +3,9 @@ import {
   BookmarkPropsType,
   IngridientsListType,
   InputParamType,
-} from "@/types/types";
-import { ingridientsList } from "@/utils/ingridientsList";
-import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
+} from "../../../types/types";
+import { ingridientsList } from "../../../utils/ingridientsList";
+import { OnOffTumbler } from "../../../components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 import { addIngredientToList } from "./addIngredientToList";
 import { deleteExcludeFromList } from "./deleteExcludeFromList";

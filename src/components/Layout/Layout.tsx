@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { SignOutLink } from "../LogOutLink/LogOutLink";
 import { SignInLink } from "../AuthLink/AuthLink";
-import { RoutesName } from "@/utils/routes";
-import { IsAuthType } from "@/types/types";
+import { RoutesName } from "../../utils/routes";
+import { IsAuthType } from "../../types/types";
 
 const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === RoutesName.LOGIN_ROUTE;

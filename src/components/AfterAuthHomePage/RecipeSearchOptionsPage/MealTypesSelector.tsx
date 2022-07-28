@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { BookmarkPropsType, SelectorParamType } from "@/types/types";
-import { MealTypes } from "@/utils/consts";
-import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
+import { MealTypes } from "../../../utils/consts";
+import { OnOffTumbler } from "../../../components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MealTypesSelector = ({

@@ -1,13 +1,13 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Box, Paper, Typography } from "@mui/material";
-import intolerance from "@/assets/caruselItems/intolerance.png";
-import configurator from "@/assets/caruselItems/configurator.png";
-import favourites from "@/assets/caruselItems/favourites.png";
-import recipeList from "@/assets/caruselItems/recipeList.png";
-import сusines from "@/assets/caruselItems/сusines.png";
-import history from "@/assets/caruselItems/history.png";
-import { authBenefits } from "@/utils/authBenefits";
+import configurator from "../..assets/caruselItems/configurator.png";
+import favourites from "../..assets/caruselItems/favourites.png";
+import recipeList from "../..assets/caruselItems/recipeList.png";
+import сusines from "../..assets/caruselItems/сusines.png";
+import history from "../..assets/caruselItems/history.png";
+import intolerance from "../../assets/caruselItems/intolerance.png";
+import { authBenefits } from "../../utils/authBenefits";
 
 const Item = ({ index, item }) => (
   <Paper

@@ -1,4 +1,4 @@
-import { NextItemSliderParamType, StepType } from "@/types/types";
+import { NextItemSliderParamType, StepType } from "../../../types/types";
 
 export function nextItem(
   step: StepType,

@@ -15,8 +15,8 @@ import {
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import React from "react";
-import { BookmarkPropsType } from "@/types/types";
-import { Cuisines as fullList } from "@/utils/consts";
+import { BookmarkPropsType } from "../../../types/types";
+import { Cuisines as fullList } from "../../../utils/consts";
 import { chooseClearAll } from "./chooseClearAll";
 import { togleStatus } from "./togleStatus";
 

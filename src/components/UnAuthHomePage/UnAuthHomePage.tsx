@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { caruselItemsList } from "@/utils/backgroundClasses";
+import { caruselItemsList } from "../../utils/backgroundClasses";
 import { LeftRightSliderButton } from "./LeftRightSliderButton";
 import { HistoryLine } from "./HistoryLine";
 import { AuthBenefits } from "./AuthBenefits";
 import { nextItem } from "./nextItem";
-import { RoutesName } from "@/utils/routes";
+import { RoutesName } from "../../utils/routes";
 import "./UnAuthPageStyle.css";
 
 export const UnAuthHomePage = () => {

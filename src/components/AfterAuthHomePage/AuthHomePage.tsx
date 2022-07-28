@@ -9,7 +9,7 @@ import { CuisinesListBookmark } from "./CuisinesListBookmark/CuisinesListBookmar
 import { IntolerancesListBookmark } from "./IntolerancesListBookmark/IntolerancesListBookmark";
 import { DietDefenitionList } from "./DietDefenition";
 import { DietSelector } from "./RecipeSearchOptionsPage/DietSelector";
-import { BookmarkPropsType } from "@/types/types";
+import { BookmarkPropsType } from "../../types/types";
 
 interface TabPanelProps {
   children?: React.ReactNode;

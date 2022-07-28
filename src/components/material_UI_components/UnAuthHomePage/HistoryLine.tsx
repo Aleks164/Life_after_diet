@@ -1,5 +1,5 @@
 import React from "react";
-import { HistoryLineParamType } from "@/types/types";
+import { HistoryLineParamType } from "../../../types/types";
 
 export const HistoryLine = ({
   caruselItemsList,

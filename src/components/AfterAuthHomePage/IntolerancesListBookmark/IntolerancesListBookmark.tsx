@@ -15,8 +15,8 @@ import {
 } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { BookmarkPropsType } from "@/types/types";
-import { IntolerancesList as fullList } from "@/utils/consts";
+import { BookmarkPropsType } from "../../../types/types";
+import { IntolerancesList as fullList } from "../../../utils/consts";
 import { chooseClearAll } from "./chooseClearAll";
 import { togleStatus } from "./togleStatus";
 

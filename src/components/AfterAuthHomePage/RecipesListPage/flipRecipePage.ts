@@ -1,7 +1,7 @@
-import { RoutesName } from "@/utils/routes";
-import { requestRecipeListFromAPi } from "@/utils/requestRecipeListFromAPi";
-import { recipeRequestCreator } from "@/utils/recipeRequestCreator";
-import { FlipPageParamType } from "@/types/types";
+import { RoutesName } from "../../../utils/routes";
+import { requestRecipeListFromAPi } from "../../../utils/requestRecipeListFromAPi";
+import { recipeRequestCreator } from "../../../utils/recipeRequestCreator";
+import { FlipPageParamType } from "../../../types/types";
 
 export async function flipRecipePage(
   skipedPages: number,

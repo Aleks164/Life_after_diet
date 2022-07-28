@@ -24,7 +24,6 @@ export const DietSelector = ({
               ml: "auto",
               mr: "auto",
               mt: "5%",
-              width: "25ch",
             },
           }}
           noValidate
@@ -43,20 +42,20 @@ export const DietSelector = ({
                 setRequestSettings={setRequestSettings}
               />
               <Divider />
-              <Grid item xs={4}>
-                <MealTypesSelector
-                  settings={settings}
-                  setRequestSettings={setRequestSettings}
-                />
-                <Divider />
-              </Grid>
-              <Grid item xs={4}>
-                <MaxCaloriesInput
-                  settings={settings}
-                  setRequestSettings={setRequestSettings}
-                />
-                <Divider />
-              </Grid>
+            </Grid>
+            <Grid item xs={4}>
+              <MealTypesSelector
+                settings={settings}
+                setRequestSettings={setRequestSettings}
+              />
+              <Divider />
+            </Grid>
+            <Grid item xs={4}>
+              <MaxCaloriesInput
+                settings={settings}
+                setRequestSettings={setRequestSettings}
+              />
+              <Divider />
             </Grid>
             <Grid item xs={6}>
               <IngridientsList
