@@ -1,13 +1,13 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Box, Paper, Typography } from "@mui/material";
-import intolerance from "@/assets/caruselItems/intolerance.png";
-import configurator from "@/assets/caruselItems/configurator.png";
-import favourites from "@/assets/caruselItems/favourites.png";
-import recipeList from "@/assets/caruselItems/recipeList.png";
-import сusines from "@/assets/caruselItems/сusines.png";
-import history from "@/assets/caruselItems/history.png";
-import { authBenefits } from "@/utils/authBenefits";
+import configurator from "../..assets/caruselItems/configurator.png";
+import favourites from "../..assets/caruselItems/favourites.png";
+import recipeList from "../..assets/caruselItems/recipeList.png";
+import сusines from "../..assets/caruselItems/сusines.png";
+import history from "../..assets/caruselItems/history.png";
+import intolerance from "../../assets/caruselItems/intolerance.png";
+import { authBenefits } from "../../utils/authBenefits";
 
 const Item = ({ index, item }) => (
   <Paper
@@ -25,16 +25,12 @@ const Item = ({ index, item }) => (
     <Typography
       variant="h3"
       sx={{
-        // border: "2px solid black",
-        // borderRadius: "20px",
-        // boxShadow: "-7px 10px 30px -1px rgb(34 60 80 / 20%)",
         backgroundColor: "rgba(189, 133, 49, 0.4)",
-        // width: "70%",
-        // ml: "10%",
-        // mt: "2%",
         fontFamily: "monospace",
-        // minWidth: "max",
-        // position: "absolute"
+        display: "flex",
+        alignItems: "center",
+        height: 50,
+        paddingLeft: "15px",
       }}
     >
       {authBenefits[index]}
@@ -42,7 +38,7 @@ const Item = ({ index, item }) => (
     <Box
       component="img"
       sx={{
-        height: "100%",
+        MaxHeight: 600,
         display: "block",
         overflow: "hidden",
         width: "100%",
@@ -67,11 +63,16 @@ export const Example = () => {
 
   return (
     <Carousel
+      next={() => {
+        /* Do stuff */
+      }}
+      prev={() => {
+        /* Do other stuff */
+      }}
       duration={2000}
-      animation="slide"
       sx={{
-        // width: "60vw",
-        // height: "45vw",
+        width: "60vw",
+        MaxHeight: 900,
         ml: "auto",
         mr: "auto",
         mt: "20px",

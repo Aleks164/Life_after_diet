@@ -12,9 +12,9 @@ import {
 } from "@mui/material";
 import { Home, History, Favorite, Info } from "@mui/icons-material";
 import { LogOutLink } from "../LogOutLink/LogOutLink";
-import { RoutesName } from "@/utils/routes";
+import { RoutesName } from "../../utils/routes";
 import { AuthLink } from "../AuthLink/AuthLink";
-import { HeaderParamType } from "@/types/types";
+import { HeaderParamType } from "../../types/types";
 
 export const Header = ({
   isAuth,

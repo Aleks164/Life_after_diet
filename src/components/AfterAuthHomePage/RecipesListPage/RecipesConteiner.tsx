@@ -1,5 +1,5 @@
 import React from "react";
-import { RecipeItemType } from "@/types/types";
+import { RecipeItemType } from "../../../types/types";
 import { RecipeItem } from "./RecipeItem";
 
 export const RecipesConteiner = ({

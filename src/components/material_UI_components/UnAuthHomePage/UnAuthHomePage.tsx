@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import { caruselItemsList } from "../../utils/backgroundClasses";
+import { caruselItemsList } from "../../../utils/backgroundClasses";
 import { LeftRightSliderButton } from "./LeftRightSliderButton";
 import { HistoryLine } from "./HistoryLine";
 import { AuthBenefits } from "./AuthBenefits";
 import { nextItem } from "./nextItem";
-import { RoutesName } from "../../utils/routes";
+import { RoutesName } from "../../../utils/routes";
 import "./UnAuthPageStyle.css";
 
 export const UnAuthHomePage = () => {
@@ -31,7 +32,18 @@ export const UnAuthHomePage = () => {
   }, [curItem]);
 
   return (
-    <div className="unAuthHomePage">
+    <Grid
+      sx={
+        {
+          // width: "60vw",
+          // height: "45vw",
+          // ml: "auto",
+          // mr: "auto",
+          // mt: "20px",
+        }
+      }
+      className="unAuthHomePage"
+    >
       <h2>
         <Link to={RoutesName.LOGIN_ROUTE}>Log in</Link> and you will be able to
       </h2>
@@ -66,6 +78,6 @@ export const UnAuthHomePage = () => {
         nextItem={nextItem}
         nextItemParam={nextItemParam}
       ></HistoryLine>
-    </div>
+    </Grid>
   );
 };

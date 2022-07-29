@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
-import { RoutesName } from "@/utils/routes";
+import { useAuth } from "../../hooks/useAuth";
+import { RoutesName } from "../../utils/routes";
 
 export const RequireAuth = () => {
   const location = useLocation();

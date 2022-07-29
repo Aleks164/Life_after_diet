@@ -1,7 +1,7 @@
 import React from "react";
-import { getClassNameForCaruselItem } from "../../utils/getClassNameForCaruselItem";
-import { authBenefits } from "../../utils/authBenefits";
-import { AuthBenefitsParamType } from "../../types/types";
+import { getClassNameForCaruselItem } from "../../../utils/getClassNameForCaruselItem";
+import { authBenefits } from "../../../utils/authBenefits";
+import { AuthBenefitsParamType } from "../../../types/types";
 
 export const AuthBenefits = ({
   caruselItemsList,

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import { useAuth } from "@/hooks/useAuth";
-import { RoutesName } from "@/utils/routes";
+import { useAuth } from "../../hooks/useAuth";
+import { RoutesName } from "../../utils/routes";
 
 export const LogOutLink = () => {
   const navigate = useNavigate();

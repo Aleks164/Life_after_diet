@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { BookmarkPropsType, SelectorParamType } from "@/types/types";
-import { MealTypes } from "@/utils/consts";
-import { OnOffTumbler } from "@/components/OnOffTumbler/OnOffTumbler";
+import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { BookmarkPropsType, SelectorParamType } from "../../../types/types";
+import { MealTypes } from "../../../utils/consts";
+import { OnOffTumbler } from "../../../components/OnOffTumbler/OnOffTumbler";
 import { tumblerSwitcher } from "./tumblerSwitcher";
 
 export const MealTypesSelector = ({
@@ -22,32 +23,32 @@ export const MealTypesSelector = ({
   } as SelectorParamType;
 
   return (
-    <div className="mealTypesSelector">
-      <label>
-        Сhoose a meal type
-        <select
+    <Box sx={{ minWidth: 200 }}>
+      <FormControl fullWidth>
+        <InputLabel id="meal-select-label">Сhoose a meal type</InputLabel>
+        <Select
           disabled={!curMealTypestatus}
+          labelId="meal-select-label"
+          id="meal-select"
           value={selectValue}
+          label="Сhoose a meal type"
           onChange={(e) => {
             settings.mealTypesSelector.mealType = e.target.value;
             setSelectValue(e.target.value);
             setRequestSettings(settings);
           }}
-          name="MealTypes"
         >
-          {MealTypes.map((dietName, index) => (
-            <option key={index} value={dietName}>
-              {dietName}
-            </option>
+          {MealTypes.map((type, index) => (
+            <MenuItem key={index} value={type}>
+              {type.toLowerCase()}
+            </MenuItem>
           ))}
-        </select>
-        <div>
-          <OnOffTumbler
-            tumblerSwitcher={tumblerSwitcher}
-            selectorParam={selectorParam}
-          />
-        </div>
-      </label>
-    </div>
+        </Select>
+        <OnOffTumbler
+          tumblerSwitcher={tumblerSwitcher}
+          selectorParam={selectorParam}
+        />
+      </FormControl>
+    </Box>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-// import { Layout } from "./components/Layout/Layout";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Login } from "./components/AuthPage/Login/Login";
 import { useAuth } from "./hooks/useAuth";
@@ -20,7 +19,6 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={RoutesName.HOME_PAGE_ROUTE} />} />
-      {/* <Route path="/" element={<Layout isAuth={userAuth} />} /> */}
       <Route
         path={RoutesName.HOME_PAGE_ROUTE}
         element={<Layout isAuth={userAuth} />}
