@@ -242,6 +242,9 @@ export interface InputParamType extends SelectorParamType {
   ingridientInputValue: string;
   fullListOfIngridients: string[];
   setIngridientInputValue: SetInputValue;
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+  expanded: boolean;
 }
 
 export type FafouriteParamsType = {
@@ -283,3 +286,8 @@ export type ShowRecipesParamType = {
 export type AuthLinkParamType = { to: string, type: string };
 
 export type HeaderParamType = { isAuth: null | string, isSignUpPage: boolean, isLoginPage: boolean };
+
+export type AccordionParamType = {
+  settings: SettingType;
+  selectorParam: InputParamType;
+}

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
+import AddIcon from "@mui/icons-material/Add";
 import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from "@mui/material/AccordionSummary";
 import ClearIcon from "@mui/icons-material/Clear";
+import { pink } from "@mui/material/colors";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import {
@@ -19,9 +21,10 @@ import {
   ListItemText,
   Stack,
 } from "@mui/material";
+import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { deleteIngridientFromList } from "./deleteIngridientFromList";
+import { deleteExcludeFromList } from "./deleteExcludeFromList";
 import { AccordionParamType } from "@/types/types";
 
 const Accordion = styled((props: AccordionProps) => (
@@ -60,13 +63,13 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export const AccordionIngridients = ({
+export const AccordionExcludeIngridients = ({
   settings,
   selectorParam,
 }: AccordionParamType) => (
   <div>
     <Button onClick={() => selectorParam.setExpanded(!selectorParam.expanded)}>
-      List of excluded ingredients{" "}
+      Adding ingridients{" "}
       {!selectorParam.expanded ? <ArrowRightIcon /> : <ArrowDropDownIcon />}
     </Button>
     {selectorParam.expanded && (
@@ -88,7 +91,7 @@ export const AccordionIngridients = ({
                 <Button
                   color="primary"
                   onClick={() => {
-                    deleteIngridientFromList(ingridient, selectorParam);
+                    deleteExcludeFromList(ingridient, selectorParam);
                   }}
                   size="small"
                 >
@@ -99,8 +102,7 @@ export const AccordionIngridients = ({
           ))
         ) : (
           <Typography>
-            "Here will be a list of ingredients that should not be in the
-            recipe"
+            "Here will be a list of ingredients that should be in the recipe"
           </Typography>
         )}
       </Stack>

@@ -17,6 +17,7 @@ export const IngridientsList = ({
   const [ingridientInputValue, setIngridientInputValue] = useState("");
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [expanded, setExpanded] = useState<boolean>(false);
 
   const selectorParam = {
     isFieldAvailable: ingridientStatus,
@@ -29,10 +30,12 @@ export const IngridientsList = ({
     setRequestSettings,
     setIngridientInputValue,
     setMessage,
+    setExpanded,
+    expanded,
   } as InputParamType;
 
   return (
-    <Box sx={{ minWidth: 200 }}>
+    <Box sx={{ minWidth: 200, p: 1 }}>
       <Grid container columns={{ xs: 12 }}>
         <Grid item xs={10}>
           <Autocomplete
@@ -51,7 +54,11 @@ export const IngridientsList = ({
             }}
             options={ingridients}
             renderInput={(params) => (
-              <TextField {...params} label="Combo box" variant="outlined" />
+              <TextField
+                {...params}
+                label="List of ingredients"
+                variant="outlined"
+              />
             )}
           />
         </Grid>
@@ -60,6 +67,7 @@ export const IngridientsList = ({
             disabled={!!message}
             onClick={(e) => {
               addIngredientToList(e, selectorParam);
+              setExpanded(true);
               setTimeout(() => {
                 setMessage("");
               }, 3000);
