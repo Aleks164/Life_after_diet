@@ -7,8 +7,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { isLoadingType } from "@/types/types";
-import { useAuth } from "@/hooks/useAuth";
+import { isLoadingType } from "../../../types/types";
+import { useAuth } from "../../../hooks/useAuth";
 import { Form } from "../Form/Form";
 import { createErrorMessage } from "../createErrorMessage";
 
@@ -61,6 +61,7 @@ export const Login = () => {
         processName="Log in"
         errorMessage={errorMessage}
         setErrorMessage={setErrorMessage}
+        setIsLoading={setIsLoading}
       />
     </>
   );

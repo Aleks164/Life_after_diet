@@ -3,7 +3,7 @@ import { IntolerancesListBookmark } from "./IntolerancesListBookmark/Intolerance
 import { CuisinesListBookmark } from "./CuisinesListBookmark/CuisinesListBookmark";
 import { DietSelector } from "./RecipeSearchOptionsPage/DietSelector";
 import { DietDefenitionList } from "./DietDefenition";
-import { SetRequestSettingsType, SettingType } from "@/types/types";
+import { SetRequestSettingsType, SettingType } from "../../types/types";
 
 export function markbooksSwitcher(
   markbookName: string,

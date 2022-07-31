@@ -131,7 +131,7 @@
 
 .historyLine {
   position: absolute;
-  bottom: -2%;
+  bottom: 110px;
   display: grid;
   justify-content: center;
   grid-auto-flow: column;

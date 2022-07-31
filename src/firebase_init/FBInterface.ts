@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import { DietResponsType, SettingType } from "@/types/types";
+import { DietResponsType, SettingType } from "../types/types";
 import { database } from "./fb_init/initialFB";
-import { createEmailForFB } from "@/utils/createEmailForFB";
+import { createEmailForFB } from "../utils/createEmailForFB";
 
 export type ParamNameType = "settings" | "history" | "favourite";
 

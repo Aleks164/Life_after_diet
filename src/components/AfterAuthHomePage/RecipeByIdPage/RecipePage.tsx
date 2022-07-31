@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RecipeType } from "@/types/types";
+import { RecipeType } from "../../../types/types";
 import { RecipeCart } from "./RecipeCart";
 import { RecipeInstruction } from "./RecipeInstruction";
-import { useClientSettings } from "@/hooks/useClientSettings";
+import { useClientSettings } from "../../../hooks/useClientSettings";
 import { Icons } from "./Icons";
 import { changeFavouriteStatus } from "./changeFavouriteStatus";
-import "./RecipePageStyles.css";
+// import "./RecipePageStyles.css";
 
 export const RecipePage = ({ recipe }: RecipeType) => {
   const { сlientFavourite, setClientFavourite } = useClientSettings();

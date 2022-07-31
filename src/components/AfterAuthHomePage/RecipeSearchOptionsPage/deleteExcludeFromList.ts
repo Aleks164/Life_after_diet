@@ -1,4 +1,4 @@
-import { InputParamType } from "@/types/types";
+import { InputParamType } from "../../../types/types";
 
 export function deleteExcludeFromList(
   deletingIngridient: string,
