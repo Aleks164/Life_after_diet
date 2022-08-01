@@ -43,7 +43,7 @@ export const Form = ({
         setErrorMessage("");
         setIsPressedOnLoginButton(false);
         setIsLoading(false);
-      }, 8000);
+      }, 4000);
     }
   });
 

@@ -66,7 +66,7 @@ export const AccordionIngridients = ({
 }: AccordionParamType) => (
   <div>
     <Button onClick={() => selectorParam.setExpanded(!selectorParam.expanded)}>
-      List of excluded ingredients{" "}
+      Adding ingridients{" "}
       {!selectorParam.expanded ? <ArrowRightIcon /> : <ArrowDropDownIcon />}
     </Button>
     {selectorParam.expanded && (
@@ -99,8 +99,7 @@ export const AccordionIngridients = ({
           ))
         ) : (
           <Typography>
-            "Here will be a list of ingredients that should not be in the
-            recipe"
+            "Here will be a list of ingredients that should be in the recipe"
           </Typography>
         )}
       </Stack>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import { ViewRecipeParamType } from "../../types/types";
 import { useClientSettings } from "../../hooks/useClientSettings";
 import { showRecipes } from "./showRecipes";
@@ -18,13 +19,15 @@ export const ViewRecipesButton = ({
   };
 
   return (
-    <button
-      className="loginFormButton findRecipesButton"
+    <Button
+      sx={{ m: 3 }}
+      variant="contained"
+      size="large"
       onClick={async () => {
         await showRecipes(showRecipesParam);
       }}
     >
       {"Find recipes"}
-    </button>
+    </Button>
   );
 };

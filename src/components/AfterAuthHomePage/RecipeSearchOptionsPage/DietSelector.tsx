@@ -15,61 +15,59 @@ export const DietSelector = ({
 }: BookmarkPropsType) => {
   const [isLoading, setIsLoading] = useState<isLoadingType>(false);
   return (
-    <Paper>
+    <Paper sx={{ p: 3 }}>
       {!isLoading ? (
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": {
-              ml: "auto",
-              mr: "auto",
-              mt: "5%",
-            },
-          }}
-          noValidate
-        >
+        <Box component="form" noValidate>
           <Grid
             container
             direction="row"
             justifyContent="center"
             alignItems="center"
             spacing={1}
-            columns={{ xs: 12 }}
           >
-            <Grid item xs={4}>
+            <Grid item xs={11} md={4}>
               <DietChooseField
                 settings={settings}
                 setRequestSettings={setRequestSettings}
               />
               <Divider />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={11} md={4}>
               <MealTypesSelector
                 settings={settings}
                 setRequestSettings={setRequestSettings}
               />
               <Divider />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={11} md={4} sx={{ mt: "25px" }}>
               <MaxCaloriesInput
                 settings={settings}
                 setRequestSettings={setRequestSettings}
               />
               <Divider />
             </Grid>
-            <Grid item xs={6}>
-              <IngridientsList
-                settings={settings}
-                setRequestSettings={setRequestSettings}
-              />
-              <Divider />
-            </Grid>
-            <Grid item xs={6}>
-              <ExcludeIngridientList
-                settings={settings}
-                setRequestSettings={setRequestSettings}
-              />
-              <Divider />
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="flex-start"
+              spacing={1}
+              sx={{ mt: "15px" }}
+            >
+              <Grid item xs={11} md={6}>
+                <IngridientsList
+                  settings={settings}
+                  setRequestSettings={setRequestSettings}
+                />
+                <Divider />
+              </Grid>
+              <Grid item xs={11} md={6}>
+                <ExcludeIngridientList
+                  settings={settings}
+                  setRequestSettings={setRequestSettings}
+                />
+                <Divider />
+              </Grid>
             </Grid>
             <Grid item xs={3}>
               <ViewRecipesButton

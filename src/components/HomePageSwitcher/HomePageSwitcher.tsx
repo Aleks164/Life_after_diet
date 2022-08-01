@@ -7,6 +7,8 @@ import { useClientSettings } from "../../hooks/useClientSettings";
 import { Example } from "../material_UI_components/CaruselOfAuthBenefits";
 import { UnAuthHomePage } from "../material_UI_components/UnAuthHomePage/UnAuthHomePage";
 import { AboutPage } from "../AboutPage/AboutPage";
+import { RecipeList } from "../AfterAuthHomePage/RecipesListPage/RecipeList";
+import { listOfRecipesExample } from "@/utils/listOfRecipesExample";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   const { setFavourite, setHistory } = useClientSettings();
@@ -28,9 +30,12 @@ export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   return (
     <>
       {!isAuth ? (
-        <AuthHomePage
-          settings={settings}
-          setRequestSettings={setRequestSettings}
+        <RecipeList
+          recipeInfo={listOfRecipesExample}
+          pageNumber={0}
+          setPageNumber={function () {
+            return false;
+          }}
         />
       ) : (
         <AuthHomePage

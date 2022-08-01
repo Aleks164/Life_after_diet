@@ -29,9 +29,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3, ml: "auto", mr: "auto" }}>{children}</Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
@@ -59,7 +57,7 @@ export function AuthHomePage({
   };
 
   return (
-    <Box sx={{ bgcolor: "background.paper", minWidth: "500px" }}>
+    <Box sx={{ m: 1 }}>
       <AppBar position="static">
         <Tabs
           value={value}

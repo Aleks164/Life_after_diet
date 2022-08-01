@@ -68,6 +68,7 @@ export const ExcludeIngridientList = ({
             disabled={!!message}
             onClick={(e) => {
               addIngredientToList(e, selectorParam);
+              setExpanded(true);
               setTimeout(() => {
                 setMessage("");
               }, 3000);

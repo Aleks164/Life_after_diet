@@ -1,3 +1,4 @@
+import { Divider, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 import { DietList, DietDefenition } from "../../utils/consts";
 
@@ -6,13 +7,17 @@ type DietDefenitionType = {
 };
 
 export const DietDefenitionList = () => (
-  <div className="dietDefenitionList">
-    {DietList.map((el, index) => (
-      <div key={index}>
-        <h3>{el}</h3>
-        <p>{(DietDefenition as DietDefenitionType)[index + 1]}</p>
-        <hr />
-      </div>
-    ))}
-  </div>
+  <Paper sx={{ p: 3 }}>
+    <Stack spacing={2}>
+      {DietList.map((el, index) => (
+        <div key={index}>
+          <Typography variant="h4">{el}</Typography>
+          <Typography variant="body2">
+            {(DietDefenition as DietDefenitionType)[index + 1]}
+          </Typography>
+          <Divider />
+        </div>
+      ))}
+    </Stack>
+  </Paper>
 );
