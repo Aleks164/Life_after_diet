@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Grid, Paper, Typography } from "@mui/material";
 import { useClientSettings } from "../../../hooks/useClientSettings";
 import { RecipeListProps } from "../../../types/types";
 import { HaveChosenInfo } from "./HaveChosenInfo";
@@ -28,48 +29,56 @@ export const RecipeList = ({
     }, 500);
   }, []);
   return (
-    <div className={isHistory || isFavourite ? "homePage" : "recipeListPage"}>
-      {isHistory || isFavourite ? (
-        <>
-          <div className="chosenParam"></div>
-          <div className="leftMenuHomePage"></div>
-        </>
-      ) : (
-        <HaveChosenInfo сlientSettings={сlientSettings} />
-      )}
-      <div className="markbooks recipeBook">
-        {!isHistory && !isFavourite ? (
-          <RecipesPageNavigationArrows
-            pageNumber={pageNumber}
-            flipPageParam={flipPageParam}
-            recipeInfoLength={recipeInfo.length}
-          />
-        ) : null}
-        <h3>
-          {!isHistory && !isFavourite ? "Recipe book" : ""}
-          {isHistory ? (
-            <>
-              <p>Your story</p>last 10<p></p>
-            </>
-          ) : null}
-          {isFavourite ? "Your favourite list" : ""}
-        </h3>
-      </div>
-      {isLoading ? (
-        <>
-          {recipeInfo.length ? (
-            <RecipesConteiner recipeInfo={recipeInfo} />
-          ) : (
-            <div className="recipeConteiner">
-              <SorryUnfoundPage />
-            </div>
+    <Paper sx={{ p: 3 }}>
+      <Grid container>
+        <Grid item xs={0} md={2}>
+          {!(isHistory || isFavourite) && (
+            <HaveChosenInfo сlientSettings={сlientSettings} />
           )}
-        </>
-      ) : (
-        <div className="loadingPage">
-          <LoadingPage />
-        </div>
-      )}
-    </div>
+        </Grid>
+        <Grid container item xs={9} justifyContent="center" alignItems="center">
+          <Grid item xs={12}>
+            {!isHistory && !isFavourite && (
+              <RecipesPageNavigationArrows
+                pageNumber={pageNumber}
+                flipPageParam={flipPageParam}
+                recipeInfoLength={recipeInfo.length}
+              />
+            )}
+
+            {!isHistory && !isFavourite && (
+              <Typography variant="h3">Recipe book</Typography>
+            )}
+            {isHistory && (
+              <>
+                <Typography variant="h3">Your story</Typography>
+                <Typography>last 10</Typography>
+              </>
+            )}
+
+            {isFavourite && (
+              <Typography variant="h3">Your favourite list</Typography>
+            )}
+          </Grid>
+          <Grid item xs={12}>
+            {isLoading ? (
+              <>
+                {recipeInfo.length ? (
+                  <RecipesConteiner recipeInfo={recipeInfo} />
+                ) : (
+                  <Paper>
+                    <SorryUnfoundPage />
+                  </Paper>
+                )}
+              </>
+            ) : (
+              <div className="loadingPage">
+                <LoadingPage />
+              </div>
+            )}
+          </Grid>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 };
