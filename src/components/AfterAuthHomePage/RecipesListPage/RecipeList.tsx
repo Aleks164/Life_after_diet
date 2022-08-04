@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button, Grid, IconButton, Paper, Typography } from "@mui/material";
+import {
+  Button,
+  Grid,
+  IconButton,
+  makeStyles,
+  Paper,
+  styled,
+  Typography,
+} from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import { useClientSettings } from "../../../hooks/useClientSettings";
@@ -25,6 +33,39 @@ export const RecipeList = ({
   const isFavourite = location.pathname === RoutesName.FAVOURITE_ROUTE;
   const flipPageParam = { сlientSettings, navigate, setPageNumber, pageNumber };
 
+  const ToTheLeftButton = styled(IconButton)(({ theme }) => ({
+    display: pageNumber < 9 ? "none" : "unset",
+    backgroundColor: "#1976d245",
+    position: "absolute",
+    top: "50%",
+    zIndex: 2,
+    left: "-4%",
+    "&:hover": {
+      backgroundColor: "#191ed2cf",
+      color: "white",
+    },
+    [theme.breakpoints.only("xs")]: {
+      position: "fixed",
+      left: "0px",
+    },
+  }));
+  const ToTheRightButton = styled(IconButton)(({ theme }) => ({
+    display: recipeInfo.length < 10 ? "none" : "unset",
+    backgroundColor: "#1976d245",
+    position: "absolute",
+    top: "50%",
+    zIndex: 2,
+    right: "-4%",
+    "&:hover": {
+      backgroundColor: "#191ed2cf",
+      color: "white",
+    },
+    [theme.breakpoints.only("xs")]: {
+      position: "fixed",
+      right: "-3px",
+    },
+  }));
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(!isLoading);
@@ -38,7 +79,12 @@ export const RecipeList = ({
             <HaveChosenInfo сlientSettings={сlientSettings} />
           )}
         </Grid>
-        <Grid item xs={9} justifyContent="center" alignItems="center">
+        <Grid
+          item
+          width={{ xs: "100%", md: "75%" }}
+          justifyContent="center"
+          alignItems="center"
+        >
           <Grid
             container
             direction="row"
@@ -47,20 +93,18 @@ export const RecipeList = ({
             item
             xs={12}
           >
-            <Grid item xs={10}>
-              {!isHistory && !isFavourite && (
-                <Typography
-                  sx={{
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    width: "fit-content",
-                  }}
-                  variant="h3"
-                >
-                  Recipe book
-                </Typography>
-              )}
-            </Grid>
+            {!isHistory && !isFavourite && (
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  width: "fit-content",
+                }}
+                variant="h3"
+              >
+                Recipe book
+              </Typography>
+            )}
+
             {isHistory && (
               <>
                 <Typography variant="h3">Your story</Typography>
@@ -73,14 +117,8 @@ export const RecipeList = ({
           </Grid>
           <Grid item xs={12} sx={{ position: "relative" }}>
             {!isHistory && !isFavourite && (
-              <IconButton
+              <ToTheLeftButton
                 color="info"
-                hidden={pageNumber < 9}
-                sx={{
-                  position: "fixed",
-                  top: "50%",
-                  zIndex: 2,
-                }}
                 onClick={async () => {
                   await flipRecipePage(-10, flipPageParam);
                 }}
@@ -88,17 +126,10 @@ export const RecipeList = ({
                 size="large"
               >
                 <KeyboardDoubleArrowLeftIcon fontSize="large" />
-              </IconButton>
+              </ToTheLeftButton>
             )}
             {!isHistory && !isFavourite && (
-              <IconButton
-                hidden={recipeInfo.length < 10}
-                sx={{
-                  position: "fixed",
-                  top: "50%",
-                  zIndex: 2,
-                  right: "4%",
-                }}
+              <ToTheRightButton
                 color="info"
                 onClick={async () => {
                   await flipRecipePage(10, flipPageParam);
@@ -107,7 +138,7 @@ export const RecipeList = ({
                 size="large"
               >
                 <KeyboardDoubleArrowRightIcon fontSize="large" />
-              </IconButton>
+              </ToTheRightButton>
             )}
             {isLoading ? (
               <>

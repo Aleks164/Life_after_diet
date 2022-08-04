@@ -94,6 +94,9 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
     <ImageButton
       focusRipple
       style={{
+        boxShadow: "4px 2px 9px 1px #c1daf3",
+        overflow: "hidden",
+        borderRadius: "25px",
         minWidth: "270px",
         margin: "10px",
       }}
@@ -107,8 +110,10 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
           color="inherit"
           sx={{
             position: "relative",
+            borderRadius: "25px",
             p: 4,
             pt: 2,
+            fontSize: "1.3rem",
             pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
           }}
         >
