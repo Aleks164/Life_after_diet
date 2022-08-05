@@ -9,6 +9,8 @@ import { UnAuthHomePage } from "../material_UI_components/UnAuthHomePage/UnAuthH
 import { AboutPage } from "../AboutPage/AboutPage";
 import { RecipeList } from "../AfterAuthHomePage/RecipesListPage/RecipeList";
 import { listOfRecipesExample } from "@/utils/listOfRecipesExample";
+import { RecipePage } from "../AfterAuthHomePage/RecipeByIdPage/RecipePage";
+import { singlRecipe } from "@/utils/singlRecipe";
 
 export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   const { setFavourite, setHistory } = useClientSettings();
@@ -30,13 +32,7 @@ export const HomePageSwitcher = ({ isAuth }: IsAuthType) => {
   return (
     <>
       {!isAuth ? (
-        <RecipeList
-          recipeInfo={listOfRecipesExample}
-          pageNumber={0}
-          setPageNumber={function () {
-            return false;
-          }}
-        />
+        <RecipePage recipe={singlRecipe} />
       ) : (
         <AuthHomePage
           settings={settings}

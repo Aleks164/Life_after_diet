@@ -1,3 +1,4 @@
+import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
 
 export type ChooseItemType = {
@@ -6,13 +7,13 @@ export type ChooseItemType = {
 };
 
 export const ChooseItem = ({ itemName, сlientSettings }: ChooseItemType) => (
-  <div>
-    <p>{itemName}</p>
+  <Box sx={{ m: 2 }}>
+    <Typography>{itemName}</Typography>
     {сlientSettings.map((ingridient, index, array) => (
       <li key={index}>
         {ingridient}
-        {index === array.length - 1 ? <hr /> : null}
+        {index === array.length - 1 && <Divider />}
       </li>
     ))}
-  </div>
+  </Box>
 );

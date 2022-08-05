@@ -93,6 +93,10 @@ export const RecipeItem = ({ title, image, id }: RecipeItemPropsType) => {
   return (
     <ImageButton
       focusRipple
+      onClick={() => {
+        saveHistory(redirectParam);
+        navigate(redirectTo);
+      }}
       style={{
         boxShadow: "4px 2px 9px 1px #c1daf3",
         overflow: "hidden",

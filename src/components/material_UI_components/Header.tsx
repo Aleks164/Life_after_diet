@@ -21,23 +21,30 @@ export const Header = ({
   isSignUpPage,
   isLoginPage,
 }: HeaderParamType) => (
-  <Grid sx={{ flexGrow: 1 }} container>
+  <Grid
+    sx={{ flexGrow: 1 }}
+    container
+    direction="row"
+    justifyContent="center"
+    alignItems="center"
+  >
     <AppBar position="sticky">
       <Toolbar>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Typography
             variant="h4"
             sx={{
-              flexGrow: 1,
               ml: 2,
-              fontFamily: "monospace",
-              minWidth: "max",
+              fontFamily: "cursive",
+              color: "#edefff",
+              textShadow: "#3d3d3e 3px 0px 1px",
+              fontWeight: "900",
             }}
           >
             {"Life after diet..."}
           </Typography>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={8} md={5}>
           <Grid
             container
             direction="row"
@@ -49,7 +56,7 @@ export const Header = ({
               color="inherit"
               href={RoutesName.HOME_PAGE_ROUTE}
             >
-              <IconButton>
+              <IconButton sx={{ color: "rgb(255 255 255 / 85%)" }}>
                 <Home fontSize="large" />
               </IconButton>
             </Link>
@@ -60,7 +67,7 @@ export const Header = ({
                   color="inherit"
                   href={RoutesName.HISTORY_ROUTE}
                 >
-                  <IconButton>
+                  <IconButton sx={{ color: "rgb(255 255 255 / 85%)" }}>
                     <History fontSize="large" />
                   </IconButton>
                 </Link>
@@ -69,20 +76,20 @@ export const Header = ({
                   color="inherit"
                   href={RoutesName.FAVOURITE_ROUTE}
                 >
-                  <IconButton>
+                  <IconButton sx={{ color: "rgb(255 255 255 / 85%)" }}>
                     <Favorite fontSize="large" />
                   </IconButton>
                 </Link>
               </>
             )}
             <Link title="About" color="inherit" href={RoutesName.ABOUT_ROUTE}>
-              <IconButton>
+              <IconButton sx={{ color: "rgb(255 255 255 / 85%)" }}>
                 <Info fontSize="large" />
               </IconButton>
             </Link>
           </Grid>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4} md={3}>
           <Grid
             container
             direction="row"

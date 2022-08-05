@@ -62,6 +62,7 @@ export const Form = ({
       <Typography sx={{ textAlign: "center" }} variant="h5">
         {processName === "Log in" ? "Welcome back, Log in" : "Sign up"}
       </Typography>
+      <Divider sx={{ mt: "3%" }} />
       <Box
         component="form"
         sx={{
@@ -85,6 +86,7 @@ export const Form = ({
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            focused
             name="userEmail"
             autoComplete="username"
             id="outlined-basic"

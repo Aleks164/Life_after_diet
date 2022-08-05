@@ -1,3 +1,4 @@
+import { Box, Divider, Typography } from "@mui/material";
 import React from "react";
 
 type SinglStringChooseItemParamType = {
@@ -9,10 +10,10 @@ export const SinglStringChooseItem = ({
   label,
   content,
 }: SinglStringChooseItemParamType) => (
-  <div>
-    <p>
+  <Box sx={{ m: 2 }}>
+    <Typography>
       {label} {content}
-    </p>
-    <hr />
-  </div>
+    </Typography>
+    <Divider />
+  </Box>
 );

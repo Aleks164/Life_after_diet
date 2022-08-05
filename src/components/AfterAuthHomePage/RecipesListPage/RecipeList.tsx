@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Button,
+  CircularProgress,
   Grid,
   IconButton,
   makeStyles,
@@ -15,7 +16,6 @@ import { useClientSettings } from "../../../hooks/useClientSettings";
 import { RecipeListProps } from "../../../types/types";
 import { HaveChosenInfo } from "./HaveChosenInfo";
 import { SorryUnfoundPage } from "./SorryUnfoundPage";
-import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RoutesName } from "../../../utils/routes";
 import { RecipesConteiner } from "./RecipesConteiner";
 import { flipRecipePage } from "./flipRecipePage";
@@ -32,6 +32,16 @@ export const RecipeList = ({
   const isHistory = location.pathname === RoutesName.HISTORY_ROUTE;
   const isFavourite = location.pathname === RoutesName.FAVOURITE_ROUTE;
   const flipPageParam = { сlientSettings, navigate, setPageNumber, pageNumber };
+
+  const titleTextStyle = {
+    fontFamily: "cursive",
+    color: "#1976d2",
+    textShadow: "#41688f 3px 0px 1px",
+    fontWeight: "900",
+    textAlign: "center",
+    width: "fit-content",
+    marginBottom: "10px",
+  };
 
   const ToTheLeftButton = styled(IconButton)(({ theme }) => ({
     display: pageNumber < 9 ? "none" : "unset",
@@ -94,25 +104,25 @@ export const RecipeList = ({
             xs={12}
           >
             {!isHistory && !isFavourite && (
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  width: "fit-content",
-                }}
-                variant="h3"
-              >
+              <Typography sx={titleTextStyle} variant="h3">
                 Recipe book
               </Typography>
             )}
 
             {isHistory && (
               <>
-                <Typography variant="h3">Your story</Typography>
-                <Typography>last 10</Typography>
+                <Typography sx={titleTextStyle} variant="h3">
+                  Your story
+                </Typography>
+                <Typography sx={titleTextStyle} variant="h3">
+                  last 10
+                </Typography>
               </>
             )}
             {isFavourite && (
-              <Typography variant="h3">Your favourite list</Typography>
+              <Typography sx={titleTextStyle} variant="h3">
+                Your favourite list
+              </Typography>
             )}
           </Grid>
           <Grid item xs={12} sx={{ position: "relative" }}>
@@ -151,9 +161,15 @@ export const RecipeList = ({
                 )}
               </>
             ) : (
-              <div className="loadingPage">
-                <LoadingPage />
-              </div>
+              <CircularProgress
+                size={150}
+                sx={{
+                  display: "block",
+                  margin: "auto",
+                  marginTop: "15%",
+                  marginBottom: "25%",
+                }}
+              />
             )}
           </Grid>
         </Grid>

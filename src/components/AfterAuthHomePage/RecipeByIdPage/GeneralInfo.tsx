@@ -1,46 +1,74 @@
+import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { RecipeType } from "../../../types/types";
+import { Icons } from "./Icons";
 
 export const GeneralInfo = ({ recipe }: RecipeType) => {
   const calories = recipe.summary.match(/(\d+) calories/gi);
   return (
-    <div className="generalInfo">
-      <div className="baseInfo">
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      columnSpacing={{ xs: 1, md: 2 }}
+    >
+      <Grid item xs={12}>
+        <Typography variant="h5">Recipe info</Typography>
+        <Divider sx={{ mb: 2 }} />
+      </Grid>
+
+      <Grid item xs={12} md={4}>
         {recipe.cookingMinutes > 0 ? (
-          <p>Cooking time : {recipe.cookingMinutes} minutes</p>
+          <Typography>
+            Cooking time : {recipe.cookingMinutes} minutes
+          </Typography>
         ) : null}
         {recipe.preparationMinutes > 0 ? (
-          <p>Preparation time : {recipe.preparationMinutes} minutes</p>
+          <Typography>
+            Preparation time : {recipe.preparationMinutes} minutes
+          </Typography>
         ) : null}
-        {recipe.healthScore ? <p>HealthScore : {recipe.healthScore}</p> : null}
-        {recipe.servings ? <p>Servings for {recipe.servings} person</p> : null}
-        {calories ? <p>Calories: {calories[0]} per serving.</p> : null}
+        {recipe.healthScore ? (
+          <Typography>HealthScore : {recipe.healthScore}</Typography>
+        ) : null}
+        {recipe.servings ? (
+          <Typography>Servings for {recipe.servings} person</Typography>
+        ) : null}
+        {calories ? (
+          <Typography>Calories: {calories[0]} per serving.</Typography>
+        ) : null}
         {recipe.sourceUrl ? (
-          <a target={"_blank"} href={recipe.sourceUrl}>
-            Source of this recipe
-          </a>
+          <Typography>
+            <a target={"_blank"} href={recipe.sourceUrl}>
+              Source of this recipe
+            </a>
+          </Typography>
         ) : null}
-      </div>
+      </Grid>
       {recipe.dishTypes.length ? (
-        <div className="dishTypes">
-          <p>
+        <Grid item display={{ xs: "none", md: "unset" }} md={3}>
+          <Typography>
             Dish types:
             {recipe.dishTypes.map((dish, index) => (
               <li key={index}>{dish}</li>
             ))}
-          </p>
-        </div>
+          </Typography>
+        </Grid>
       ) : null}
       {recipe.cuisines.length ? (
-        <div className="cusines">
-          <p>
-            Cusines{" "}
-            {recipe.cuisines.map((cuisine, index) => (
-              <li key={index}>{cuisine}</li>
+        <Grid item display={{ xs: "none", md: "unset" }} md={3}>
+          <Typography>
+            Cusines:{" "}
+            {recipe.cuisines.map((cuisines, index) => (
+              <li key={index}>{cuisines}</li>
             ))}
-          </p>
-        </div>
+          </Typography>
+        </Grid>
       ) : null}
-    </div>
+      <Grid item display={{ xs: "none", md: "unset" }} md={2}>
+        <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
+      </Grid>
+    </Grid>
   );
 };
