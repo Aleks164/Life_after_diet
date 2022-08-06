@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { RecipeResponsType } from "../utils/singlRecipe";
+import { DietListLowerCase } from "@/utils/urlBadgeList";
 
 export type DietResponsType = {
   [id: number]: {
@@ -297,3 +298,11 @@ export interface TabPanelProps {
   index: number;
   value: number;
 }
+
+export type DietListType = typeof DietListLowerCase[number];
+
+export type UrlNameTypes = {
+  [urlName in DietListType | "healthyIcon"]: { "path": string; };
+};
+
+export type IconPropsType = { diets: DietListType[]; veryHealthy: boolean };

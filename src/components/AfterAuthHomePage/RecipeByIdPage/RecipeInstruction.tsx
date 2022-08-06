@@ -144,7 +144,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                       justifyContent="flex-start"
                       alignItems="center"
                     >
-                      <CommitIcon />
+                      <CommitIcon sx={{ mt: "5px", mr: "5px", pb: "5px" }} />
                       <Typography>{item.original}</Typography>
                       <CustomDivider />
                     </Grid>

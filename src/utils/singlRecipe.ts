@@ -1,3 +1,5 @@
+import { DietListType } from "@/types/types";
+
 export const singlRecipe = {
   vegetarian: false,
   vegan: false,
@@ -363,7 +365,7 @@ export const singlRecipe = {
     'Need a <b>gluten free and dairy free main course</b>? Red Lentil Soup with Chicken and Turnips could be an outstanding recipe to try. For <b>$2.8 per serving</b>, this recipe <b>covers 37%</b> of your daily requirements of vitamins and minerals. One serving contains <b>448 calories</b>, <b>23g of protein</b>, and <b>20g of fat</b>. Head to the store and pick up garlic, olive oil, celery stalks, and a few other things to make it today. It is perfect for <b>Autumn</b>. From preparation to the plate, this recipe takes about <b>55 minutes</b>. Plenty of people made this recipe, and 1866 would say it hit the spot. All things considered, we decided this recipe <b>deserves a spoonacular score of 99%</b>. This score is super. Try <a href="https://spoonacular.com/recipes/clean-eating-carrot-ginger-red-lentil-soup-921419">Clean Eating Carrot & Ginger Red Lentil Soup</a>, <a href="https://spoonacular.com/recipes/one-pot-red-lentil-sweet-potato-stew-928497">One-Pot Red Lentil Sweet Potato Stew</a>, and <a href="https://spoonacular.com/recipes/red-lentil-and-chicken-soup-682185">Red Lentil and Chicken Soup</a> for similar recipes.',
   cuisines: [],
   dishTypes: ["soup"],
-  diets: ["gluten free", "dairy free"],
+  diets: ["gluten free", "dairy free"] as DietListType[],
   occasions: ["fall", "winter"],
   winePairing: {
     pairedWines: [],
