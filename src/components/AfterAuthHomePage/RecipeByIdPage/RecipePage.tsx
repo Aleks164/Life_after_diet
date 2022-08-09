@@ -8,6 +8,7 @@ import {
   Paper,
   Tab,
   Tabs,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { RecipeType, TabPanelProps } from "../../../types/types";
@@ -68,6 +69,8 @@ export const RecipePage = ({ recipe }: RecipeType) => {
     (favourite) => +favourite === recipe.id
   );
   const [isItInFafouritList, setIsItInFafouritList] = useState(fafouritCheck);
+  const [open, setOpen] = useState(false);
+
   const fafouriteParams = {
     сlientFavourite,
     setClientFavourite,
@@ -94,25 +97,38 @@ export const RecipePage = ({ recipe }: RecipeType) => {
           alignItems="center"
         >
           <Grid item>
-            <IconButton
+            <Tooltip
+              open={open}
+              onClose={() => setOpen(false)}
+              onOpen={() => setOpen(true)}
               title="Back to list"
-              sx={{
-                fontSize: "3rem",
-                m: 1,
-                backgroundColor: "#1976d2ad",
-                "&:hover": {
-                  backgroundColor: "#8f8fef8c",
-                },
-              }}
-              color="error"
-              aria-label="back"
-              size="large"
-              onClick={() => {
-                navigate(-1);
-              }}
             >
-              <ReplyAllIcon sx={{ zIndex: 3, fontSize: "3rem" }} />
-            </IconButton>
+              <IconButton
+                sx={{
+                  fontSize: "3rem",
+                  transition: "color 1s",
+                  m: 1,
+                  backgroundColor: "#1976d2ad",
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "#1976d2",
+                    color: "red",
+                  },
+                }}
+                aria-label="back"
+                size="large"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                <ReplyAllIcon
+                  sx={{
+                    zIndex: 3,
+                    fontSize: "3rem",
+                  }}
+                />
+              </IconButton>
+            </Tooltip>
           </Grid>
           <Grid
             item

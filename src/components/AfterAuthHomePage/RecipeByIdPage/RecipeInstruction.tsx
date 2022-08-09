@@ -96,7 +96,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
           <Divider />
           <Grid container>
             <Grid item xs={12} md={10}>
-              <ol>
+              <ol style={{ paddingLeft: "0px" }}>
                 {recipe.analyzedInstructions.length > 0 ? (
                   recipe.analyzedInstructions[0].steps.map((step, index) => (
                     <Box key={step.number}>
@@ -106,6 +106,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                         </Typography>
                         {step.length && (
                           <Chip
+                            sx={{ mt: 1 }}
                             label={`${step.length.number} min`}
                             color="primary"
                           />
@@ -116,7 +117,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                           <li key={ingridient.id}>{ingridient.name}</li>
                         ))}
                       </ol>
-                      <Divider />
+                      <Divider sx={{ m: 1 }} />
                     </Box>
                   ))
                 ) : (

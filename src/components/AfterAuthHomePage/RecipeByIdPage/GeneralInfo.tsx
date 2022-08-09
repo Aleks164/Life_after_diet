@@ -12,6 +12,7 @@ export const GeneralInfo = ({ recipe }: RecipeType) => {
       justifyContent="flex-start"
       alignItems="flex-start"
       columnSpacing={{ xs: 1, md: 2 }}
+      sx={{ position: "relative" }}
     >
       <Grid item xs={12}>
         <Typography variant="h5">Recipe info</Typography>
@@ -66,7 +67,11 @@ export const GeneralInfo = ({ recipe }: RecipeType) => {
           </Typography>
         </Grid>
       ) : null}
-      <Grid item display={{ xs: "none", md: "unset" }} md={2}>
+      <Grid
+        item
+        display={{ xs: "none", md: "flex" }}
+        sx={{ position: "absolute", right: "5px", top: "45px" }}
+      >
         <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
       </Grid>
     </Grid>
