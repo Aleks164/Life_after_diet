@@ -7,10 +7,10 @@ import { IconPropsType } from "@/types/types";
 export const Icons = ({ diets, veryHealthy }: IconPropsType) => (
   <Grid
     container
-    direction="column"
+    direction="row"
     justifyContent="flex-end"
-    alignItems="flex-end"
-    sx={{ mt: "15px" }}
+    alignItems="center"
+    sx={{ width: `${diets.length > 4 ? "100px" : "50px"}` }}
   >
     {veryHealthy && (
       <Box
@@ -26,6 +26,7 @@ export const Icons = ({ diets, veryHealthy }: IconPropsType) => (
         draggable="false"
         src={veryhelthy}
         alt={"very healthy"}
+        title={"very healthy"}
       />
     )}
     {diets.map((diet, index) => (
@@ -43,6 +44,7 @@ export const Icons = ({ diets, veryHealthy }: IconPropsType) => (
         draggable="false"
         src={urlBadgeList[diet].path}
         alt={diet}
+        title={diet}
       />
     ))}
   </Grid>

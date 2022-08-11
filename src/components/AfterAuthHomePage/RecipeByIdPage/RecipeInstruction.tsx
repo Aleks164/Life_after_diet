@@ -54,11 +54,7 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
     <Grid container>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
+          <Tabs value={value} onChange={handleChange} aria-label="recipes">
             <Tab label="Instruction" {...a11yProps(0)} />
             <Tab label="Steps" {...a11yProps(1)} />
             <Tab label="Preparing ingredients" {...a11yProps(2)} />
@@ -75,7 +71,12 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                   dangerouslySetInnerHTML={instructions}
                 ></Typography>
               </Grid>
-              <Grid display={{ xs: "none", md: "unset" }} item md={2}>
+              <Grid
+                display={{ xs: "none", md: "unset" }}
+                sx={{ mt: "15px" }}
+                item
+                md={2}
+              >
                 <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
               </Grid>
             </Grid>
@@ -125,7 +126,12 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                 )}
               </ol>
             </Grid>
-            <Grid display={{ xs: "none", md: "unset" }} item md={2}>
+            <Grid
+              display={{ xs: "none", md: "unset" }}
+              sx={{ mt: "15px" }}
+              item
+              md={2}
+            >
               <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
             </Grid>
           </Grid>
@@ -155,7 +161,12 @@ export const RecipeInstruction = ({ recipe }: RecipeType) => {
                 <Typography>{sorryText}</Typography>
               )}
             </Grid>
-            <Grid display={{ xs: "none", md: "unset" }} item md={2}>
+            <Grid
+              display={{ xs: "none", md: "unset" }}
+              sx={{ mt: "15px" }}
+              item
+              md={2}
+            >
               <Icons diets={recipe.diets} veryHealthy={recipe.veryHealthy} />
             </Grid>
           </Grid>

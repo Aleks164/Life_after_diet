@@ -6,6 +6,7 @@ import {
   Grid,
   IconButton,
   Paper,
+  Rating,
   Tab,
   Tabs,
   Tooltip,
@@ -95,6 +96,7 @@ export const RecipePage = ({ recipe }: RecipeType) => {
           direction="row"
           justifySelf="center"
           alignItems="center"
+          sx={{ position: "relative" }}
         >
           <Grid item>
             <Tooltip
@@ -153,6 +155,35 @@ export const RecipePage = ({ recipe }: RecipeType) => {
               {recipe.title}
             </Typography>
           </Grid>
+          <Box
+            sx={{
+              position: "absolute",
+              right: "5px",
+              zIndex: 10,
+              marginTop: "205px",
+              marginRight: "25px",
+              fontSize: "5.5rem",
+            }}
+          >
+            <Tooltip
+              title={
+                isItInFafouritList
+                  ? "Remove from favourite"
+                  : "Add to favourite"
+              }
+              followCursor
+            >
+              <Rating
+                onClick={() => changeFavouriteStatus(fafouriteParams)}
+                name="favourite"
+                defaultValue={isItInFafouritList ? 1 : 0}
+                max={1}
+                sx={{
+                  fontSize: "5.5rem",
+                }}
+              />
+            </Tooltip>
+          </Box>
         </Grid>
       </Box>
 
