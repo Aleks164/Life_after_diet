@@ -16,10 +16,7 @@ import { RecipeType, TabPanelProps } from "../../../types/types";
 import { RecipeCart } from "./RecipeCart";
 import { RecipeInstruction } from "./RecipeInstruction";
 import { useClientSettings } from "../../../hooks/useClientSettings";
-import { Icons } from "./Icons";
 import { changeFavouriteStatus } from "./changeFavouriteStatus";
-import { singlRecipe } from "@/utils/singlRecipe";
-// import "./RecipePageStyles.css";
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -155,41 +152,45 @@ export const RecipePage = ({ recipe }: RecipeType) => {
               {recipe.title}
             </Typography>
           </Grid>
-          <Box
-            sx={{
-              position: "absolute",
-              right: "5px",
-              zIndex: 10,
-              marginTop: "205px",
-              marginRight: "25px",
-              fontSize: "5.5rem",
-            }}
-          >
-            <Tooltip
-              title={
-                isItInFafouritList
-                  ? "Remove from favourite"
-                  : "Add to favourite"
-              }
-              followCursor
-            >
-              <Rating
-                onClick={() => changeFavouriteStatus(fafouriteParams)}
-                name="favourite"
-                defaultValue={isItInFafouritList ? 1 : 0}
-                max={1}
-                sx={{
-                  fontSize: "5.5rem",
-                }}
-              />
-            </Tooltip>
-          </Box>
         </Grid>
       </Box>
 
       <Grid container>
         <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              position: "relative",
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                right: "0px",
+                zIndex: 10,
+                fontSize: "5.5rem",
+              }}
+            >
+              <Tooltip
+                title={
+                  isItInFafouritList
+                    ? "Remove from favourite"
+                    : "Add to favourite"
+                }
+                followCursor
+              >
+                <Rating
+                  onClick={() => changeFavouriteStatus(fafouriteParams)}
+                  name="favourite"
+                  defaultValue={isItInFafouritList ? 1 : 0}
+                  max={1}
+                  sx={{
+                    fontSize: "5.5rem",
+                  }}
+                />
+              </Tooltip>
+            </Box>
             <Tabs
               value={value}
               onChange={handleChange}
