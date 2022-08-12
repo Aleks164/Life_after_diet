@@ -1,7 +1,7 @@
-import { ShowRecipesParamType } from "@/types/types";
-import { requestRecipeListFromAPi } from "@/utils/requestRecipeListFromAPi";
-import { recipeRequestCreator } from "@/utils/recipeRequestCreator";
-import { RoutesName } from "@/utils/routes";
+import { ShowRecipesParamType } from "../../types/types";
+import { requestRecipeListFromAPi } from "../../utils/requestRecipeListFromAPi";
+import { recipeRequestCreator } from "../../utils/recipeRequestCreator";
+import { RoutesName } from "../../utils/routes";
 
 export async function showRecipes({
   setClientSettings,

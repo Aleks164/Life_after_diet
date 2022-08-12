@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RecipeResponsType } from "@/utils/singlRecipe";
-import { isLoadingType } from "@/types/types";
+import { RecipeResponsType } from "../../../utils/singlRecipe";
+import { isLoadingType } from "../../../types/types";
 import { LoadingPage } from "../LoadingPage/LoadinfPage";
 import { RecipePage } from "./RecipePage";
-import { requestRecipeByIdFromAPI } from "@/utils/requestRecipeByIdFromAPI";
+import { requestRecipeByIdFromAPI } from "../../../utils/requestRecipeByIdFromAPI";
 import { SorryUnfoundPage } from "../RecipesListPage/SorryUnfoundPage";
 
 export const RecipeByIdPage = () => {

@@ -1,6 +1,6 @@
 import React from "react";
-import { useClientSettings } from "@/hooks/useClientSettings";
-import { HistoryFavouriteType } from "@/types/types";
+import { useClientSettings } from "../../../hooks/useClientSettings";
+import { HistoryFavouriteType } from "../../../types/types";
 import { RecipeList } from "../RecipesListPage/RecipeList";
 
 export const FavouretePage = () => {

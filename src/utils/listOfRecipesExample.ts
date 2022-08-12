@@ -47,4 +47,28 @@ export const listOfRecipesExample = [
     image: "https://spoonacular.com/recipeImages/716627-312x231.jpg",
     imageType: "jpg",
   },
+  {
+    id: 7166271,
+    title: "Easy Homemade Rice and Beans",
+    image: "https://spoonacular.com/recipeImages/716627-312x231.jpg",
+    imageType: "jpg",
+  },
+  {
+    id: 7166272,
+    title: "Easy Homemade Rice and Beans",
+    image: "https://spoonacular.com/recipeImages/716627-312x231.jpg",
+    imageType: "jpg",
+  },
+  {
+    id: 7166273,
+    title: "Easy Homemade Rice and Beans",
+    image: "https://spoonacular.com/recipeImages/716627-312x231.jpg",
+    imageType: "jpg",
+  },
+  {
+    id: 7166274,
+    title: "Easy Homemade Rice and Beans",
+    image: "https://spoonacular.com/recipeImages/716627-312x231.jpg",
+    imageType: "jpg",
+  },
 ];

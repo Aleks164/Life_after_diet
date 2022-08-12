@@ -41,6 +41,8 @@ export const DietList = [
   "Low FODMAP",
   "Whole30",
 ];
+
+
 export const Cuisines = [
   "African",
   "American",

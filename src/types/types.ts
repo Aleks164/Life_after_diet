@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { RecipeResponsType } from "../utils/singlRecipe";
+import { DietListLowerCase } from "@/utils/urlBadgeList";
 
 export type DietResponsType = {
   [id: number]: {
@@ -242,6 +243,9 @@ export interface InputParamType extends SelectorParamType {
   ingridientInputValue: string;
   fullListOfIngridients: string[];
   setIngridientInputValue: SetInputValue;
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+  expanded: boolean;
 }
 
 export type FafouriteParamsType = {
@@ -279,3 +283,26 @@ export type ShowRecipesParamType = {
   setIsLoading: SetIsLoadingType;
   navigate: NavigateFunction;
 };
+
+export type AuthLinkParamType = { to: string, type: string };
+
+export type HeaderParamType = { isAuth: null | string, isSignUpPage: boolean, isLoginPage: boolean };
+
+export type AccordionParamType = {
+  settings: SettingType;
+  selectorParam: InputParamType;
+}
+
+export interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+export type DietListType = typeof DietListLowerCase[number];
+
+export type UrlNameTypes = {
+  [urlName in DietListType | "healthyIcon"]: { "path": string; };
+};
+
+export type IconPropsType = { diets: DietListType[]; veryHealthy: boolean };

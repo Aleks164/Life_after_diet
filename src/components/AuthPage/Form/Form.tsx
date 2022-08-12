@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { RoutesName } from "@/utils/routes";
-import "./index.css";
+import {
+  Paper,
+  Typography,
+  TextField,
+  Box,
+  Button,
+  Alert,
+  Grid,
+  LinearProgress,
+  Divider,
+} from "@mui/material";
+import GoogleIcon from "@mui/icons-material/Google";
+import { RoutesName } from "../../../utils/routes";
 
 export type FormParamType = {
   signInUpHandler: (loginEmail: string, loginPassword: string) => void;
@@ -10,6 +21,7 @@ export type FormParamType = {
   errorMessage: string;
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
   isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const Form = ({
@@ -19,6 +31,7 @@ export const Form = ({
   errorMessage,
   setErrorMessage,
   isLoading,
+  setIsLoading,
 }: FormParamType) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,83 +41,122 @@ export const Form = ({
     if (errorMessage.length > 0) {
       setTimeout(() => {
         setErrorMessage("");
-      }, 8000);
+        setIsPressedOnLoginButton(false);
+        setIsLoading(false);
+      }, 4000);
     }
   });
 
   return (
-    <div
-      className={
-        isLoading
-          ? "registrationFormCont loadingCursor"
-          : "registrationFormCont"
-      }
+    <Paper
+      sx={{
+        maxWidth: 350,
+        ml: "auto",
+        mr: "auto",
+        mt: "5%",
+        p: "3%",
+        position: "relative",
+      }}
+      elevation={3}
     >
-      <h2>{processName === "Log in" ? "Welcome back, Log in" : "Sign up"}</h2>
-      <form className="registrationForm">
-        <label>
-          <p>Email:</p>
-          <input
-            type="email"
-            value={email}
-            autoComplete="username"
+      <Typography sx={{ textAlign: "center" }} variant="h5">
+        {processName === "Log in" ? "Welcome back, Log in" : "Sign up"}
+      </Typography>
+      <Divider sx={{ mt: "3%" }} />
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": {
+            ml: "auto",
+            mr: "auto",
+            mt: "5%",
+            width: "25ch",
+          },
+        }}
+        noValidate
+      >
+        <Grid
+          container
+          gap={1}
+          alignItems="center"
+          direction="column"
+          justifyContent="space-evenly"
+        >
+          <TextField
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            focused
             name="userEmail"
+            autoComplete="username"
+            id="outlined-basic"
+            value={email}
+            label="Email"
+            variant="outlined"
           />
-        </label>
-        <label>
-          <p>Password:</p>
-          <input
-            type="password"
-            value={password}
-            autoComplete="current-password"
+          <TextField
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+            type="password"
             name="userPassword"
+            autoComplete="current-password"
+            id="outlined-basic"
+            value={password}
+            label="Password"
+            variant="outlined"
           />
-        </label>
-        <button
-          disabled={isPressedOnLoginButton}
-          onClick={() => {
-            setIsPressedOnLoginButton(!isPressedOnLoginButton);
-            signInUpHandler(email, password);
-          }}
-          className="loginFormButton"
-          type="button"
-        >
-          {processName}!
-        </button>
-      </form>
-      <button
-        disabled={isPressedOnLoginButton}
-        onClick={() => {
-          setIsPressedOnLoginButton(!isPressedOnLoginButton);
-          signInUpWithGoogle();
-        }}
-        className="googleAuthLink"
-      >
-        <div className="googleIcon"></div>
-        <span>Google</span>
-      </button>
+          <Grid>
+            <Button
+              size="large"
+              sx={{ mt: "5%" }}
+              onClick={() => {
+                setIsPressedOnLoginButton(!isPressedOnLoginButton);
+                signInUpHandler(email, password);
+              }}
+              disabled={isPressedOnLoginButton}
+              variant="contained"
+            >
+              {processName}!
+            </Button>
+          </Grid>
+          <Grid>
+            <Button
+              size="large"
+              onClick={() => {
+                setIsPressedOnLoginButton(!isPressedOnLoginButton);
+                signInUpWithGoogle();
+              }}
+              disabled={isPressedOnLoginButton}
+              variant="contained"
+            >
+              <GoogleIcon />
+              oogle
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
+      {isLoading ? (
+        <LinearProgress sx={{ mt: "5%" }} />
+      ) : (
+        <Divider sx={{ mt: "5%" }} />
+      )}
       {processName === "Log in" ? (
-        <p>
+        <Typography sx={{ textAlign: "center", mt: "5%" }}>
           Do not have an account yet?{" "}
           <Link to={RoutesName.SIGNUP_ROUTE}>Sign up in here.</Link>
-        </p>
+        </Typography>
       ) : (
-        <p>
+        <Typography sx={{ textAlign: "center", mt: "5%" }}>
           You have an account already?{" "}
           <Link to={RoutesName.LOGIN_ROUTE}>Log in here.</Link>
-        </p>
+        </Typography>
       )}
-      {errorMessage.length > 0 ? (
-        <div className="errorMessage">{errorMessage}</div>
-      ) : (
-        ""
+      {errorMessage.length > 0 && (
+        <Alert sx={{ position: "absolute", bottom: "-50px" }} severity="error">
+          {errorMessage}
+        </Alert>
       )}
-    </div>
+    </Paper>
   );
 };

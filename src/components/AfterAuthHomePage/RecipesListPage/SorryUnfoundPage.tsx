@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { RoutesName } from "@/utils/routes";
+import { RoutesName } from "../../../utils/routes";
 
 export const SorryUnfoundPage = ({
   idIsNotFund,

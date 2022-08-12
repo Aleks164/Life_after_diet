@@ -1,4 +1,4 @@
-import { InputParamType } from "@/types/types";
+import { InputParamType } from "../../../types/types";
 
 export function addIngredientToList(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -11,6 +11,7 @@ export function addIngredientToList(
     optionType,
     setRequestSettings,
     setIngridientInputValue,
+    setMessage
   }: InputParamType
 ) {
   const checkExcludCroosing =
@@ -22,17 +23,17 @@ export function addIngredientToList(
   if (fullListOfIngridients.indexOf(ingridientInputValue) === -1) {
     let message = 'Please input a valid ingridient from list and press "+"';
     if (!isFieldAvailable) message = "You must first press 'On'";
-    (e.target as HTMLButtonElement).setCustomValidity(message);
+    setMessage(message);
     return;
   }
   if (checkExcludCroosing >= 0) {
     const message = `"${ingridientInputValue}" already exist in exclude ingredients list`;
-    (e.target as HTMLButtonElement).setCustomValidity(message);
+    setMessage(message);
     return;
   }
   if (checkIncludCroosing >= 0) {
     const message = `"${ingridientInputValue}" already exist in ingredients list`;
-    (e.target as HTMLButtonElement).setCustomValidity(message);
+    setMessage(message);
     return;
   }
   e.preventDefault();

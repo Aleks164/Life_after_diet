@@ -6,13 +6,13 @@ describe("togleStatus test", () => {
   const setRequestSettingsSpy = jest.fn();
   const settings = defaultSettings;
   const eventTest = {
-    target: { value: "test" },
+    target: { name: "test" },
   } as ChangeEvent<HTMLInputElement>;
 
   it("togleStatus add cusine in list if it wasn't in it", () => {
     togleStatus(eventTest, setRequestSettingsSpy, settings);
     const newIntoleranceList = { ...settings };
-    newIntoleranceList.cuisinesList.push(eventTest.target.value);
+    newIntoleranceList.cuisinesList.push(eventTest.target.name);
     expect(setRequestSettingsSpy).toHaveBeenCalledWith(newIntoleranceList);
   });
   it("togleStatus delete cusine from list if it was in it", () => {

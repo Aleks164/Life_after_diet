@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { SignOutLink } from "../SignOutLink/SignOutLink";
-import { SignInLink } from "../SignInLink/SignInLink";
-import { RoutesName } from "@/utils/routes";
-import { IsAuthType } from "@/types/types";
+import { SignOutLink } from "../LogOutLink/LogOutLink";
+import { SignInLink } from "../AuthLink/AuthLink";
+import { RoutesName } from "../../utils/routes";
+import { IsAuthType } from "../../types/types";
 
-export const Layout = ({ isAuth }: IsAuthType) => {
+const Layout = ({ isAuth }: IsAuthType) => {
   const isLoginPage = useLocation().pathname === RoutesName.LOGIN_ROUTE;
   const isHomePage = useLocation().pathname === RoutesName.HOME_PAGE_ROUTE;
   const navigate = useNavigate();
